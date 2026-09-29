@@ -1,0 +1,268 @@
+<!-- Module 20: My Sitehat (Personal User Area) -->
+<div class="space-y-6 animate-fadeIn">
+    
+    <!-- Module Header & User Quick Profile -->
+    <div class="bg-gradient-to-r from-slate-900 via-indigo-950 to-slate-900 text-white rounded-2xl p-5 shadow-sm">
+        <div class="flex flex-col sm:flex-row items-start sm:items-center justify-between gap-4 border-b border-white/10 pb-4">
+            <div class="flex items-center gap-4">
+                <div class="relative">
+                    <div class="w-14 h-14 rounded-2xl bg-indigo-600 border-2 border-indigo-400 flex items-center justify-center font-bold text-xl text-white shadow-inner">
+                        <i class="fa-solid fa-user"></i>
+                    </div>
+                    <span class="absolute -bottom-1 -right-1 w-4 h-4 bg-emerald-500 border-2 border-slate-900 rounded-full" title="অনলাইন"></span>
+                </div>
+                <div>
+                    <h1 class="text-lg font-bold flex items-center gap-2">
+                        স্বাগতম, ব্যবহারকারী! <span class="bg-indigo-500/30 text-indigo-200 border border-indigo-400/30 text-[10px] px-2 py-0.5 rounded-full font-medium">Free Member</span>
+                    </h1>
+                    <p class="text-xs text-slate-400 mt-0.5">আপনার ব্যক্তিগত ড্যাশবোর্ড, সংরক্ষিত সেবা ও সেটিংস পরিচালনা করুন</p>
+                </div>
+            </div>
+            
+            <button onclick="toggleLoginState()" id="login-btn" class="bg-rose-600 hover:bg-rose-700 text-white text-xs px-4 py-2 rounded-xl font-semibold transition flex items-center gap-2 shadow-sm">
+                <i class="fa-solid fa-right-from-bracket"></i> লগআউট
+            </button>
+        </div>
+
+        <!-- Quick Stats Overview -->
+        <div class="grid grid-cols-2 sm:grid-cols-4 gap-3 mt-4">
+            <div class="bg-white/5 border border-white/10 rounded-xl p-3 flex items-center gap-3">
+                <i class="fa-solid fa-bookmark text-amber-400 text-xl"></i>
+                <div>
+                    <span class="block text-sm font-bold">১২টি</span>
+                    <span class="text-[10px] text-slate-400">বুকমার্কড সেবা</span>
+                </div>
+            </div>
+            <div class="bg-white/5 border border-white/10 rounded-xl p-3 flex items-center gap-3">
+                <i class="fa-solid fa-clock-rotate-left text-sky-400 text-xl"></i>
+                <div>
+                    <span class="block text-sm font-bold">৪৮টি</span>
+                    <span class="text-[10px] text-slate-400">হিস্ট্রি আইটেম</span>
+                </div>
+            </div>
+            <div class="bg-white/5 border border-white/10 rounded-xl p-3 flex items-center gap-3">
+                <i class="fa-solid fa-floppy-disk text-emerald-400 text-xl"></i>
+                <div>
+                    <span class="block text-sm font-bold">০৫টি</span>
+                    <span class="text-[10px] text-slate-400">সংরক্ষিত তথ্য</span>
+                </div>
+            </div>
+            <div class="bg-white/5 border border-white/10 rounded-xl p-3 flex items-center gap-3">
+                <i class="fa-solid fa-bell text-rose-400 text-xl"></i>
+                <div>
+                    <span class="block text-sm font-bold">০২টি</span>
+                    <span class="text-[10px] text-slate-400">নতুন নোটিফিকেশন</span>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Sub-navigation Tabs -->
+    <div class="flex items-center gap-2 overflow-x-auto pb-2 border-b border-slate-200 text-xs font-semibold scrollbar-none">
+        <button onclick="switchTab('dashboard')" class="user-tab active px-4 py-2 rounded-xl border border-indigo-600 bg-indigo-600 text-white flex items-center gap-1.5 whitespace-nowrap transition">
+            <i class="fa-solid fa-gauge-high"></i> ড্যাশবোর্ড
+        </button>
+        <button onclick="switchTab('bookmarks')" class="user-tab px-4 py-2 rounded-xl border border-slate-200 bg-slate-50 text-slate-600 hover:bg-slate-100 flex items-center gap-1.5 whitespace-nowrap transition">
+            <i class="fa-solid fa-bookmark text-amber-500"></i> বুকমার্কস
+        </button>
+        <button onclick="switchTab('saved')" class="user-tab px-4 py-2 rounded-xl border border-slate-200 bg-slate-50 text-slate-600 hover:bg-slate-100 flex items-center gap-1.5 whitespace-nowrap transition">
+            <i class="fa-solid fa-floppy-disk text-emerald-500"></i> সংরক্ষিত (Saved)
+        </button>
+        <button onclick="switchTab('history')" class="user-tab px-4 py-2 rounded-xl border border-slate-200 bg-slate-50 text-slate-600 hover:bg-slate-100 flex items-center gap-1.5 whitespace-nowrap transition">
+            <i class="fa-solid fa-clock-rotate-left text-sky-500"></i> হিস্ট্রি
+        </button>
+        <button onclick="switchTab('preferences')" class="user-tab px-4 py-2 rounded-xl border border-slate-200 bg-slate-50 text-slate-600 hover:bg-slate-100 flex items-center gap-1.5 whitespace-nowrap transition">
+            <i class="fa-solid fa-heart text-rose-500"></i> পছন্দসমূহ
+        </button>
+        <button onclick="switchTab('notifications')" class="user-tab px-4 py-2 rounded-xl border border-slate-200 bg-slate-50 text-slate-600 hover:bg-slate-100 flex items-center gap-1.5 whitespace-nowrap transition">
+            <i class="fa-solid fa-bell text-purple-500"></i> নোটিফিকেশন
+        </button>
+        <button onclick="switchTab('settings')" class="user-tab px-4 py-2 rounded-xl border border-slate-200 bg-slate-50 text-slate-600 hover:bg-slate-100 flex items-center gap-1.5 whitespace-nowrap transition">
+            <i class="fa-solid fa-gear text-slate-500"></i> সেটিংস
+        </button>
+    </div>
+
+    <!-- Tab Content Area -->
+    <div id="user-tab-content">
+
+        <!-- 1. Personal Dashboard Tab -->
+        <div id="tab-dashboard" class="tab-pane space-y-4">
+            <h3 class="font-bold text-sm text-slate-800 flex items-center gap-2">
+                <i class="fa-solid fa-star text-amber-500"></i> কুইক অ্যাক্সেস ও প্রস্তাবিত সেবা
+            </h3>
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4">
+                <div class="bg-slate-50 border border-slate-200 rounded-2xl p-4">
+                    <div class="flex items-center justify-between mb-2">
+                        <span class="text-xs font-bold text-slate-800">সাম্প্রতিক ব্যবহৃত সেবা</span>
+                        <i class="fa-solid fa-bolt text-amber-500 text-xs"></i>
+                    </div>
+                    <ul class="text-xs space-y-2 text-slate-600">
+                        <li class="flex items-center justify-between p-2 bg-white rounded-lg border border-slate-100">
+                            <span>জাতীয় পরিচয়পত্র যাচাই (NID)</span>
+                            <i class="fa-solid fa-angle-right text-slate-400 text-[10px]"></i>
+                        </li>
+                        <li class="flex items-center justify-between p-2 bg-white rounded-lg border border-slate-100">
+                            <span>অনলাইন পাসপোর্টের স্ট্যাটাস</span>
+                            <i class="fa-solid fa-angle-right text-slate-400 text-[10px]"></i>
+                        </li>
+                    </ul>
+                </div>
+
+                <div class="bg-slate-50 border border-slate-200 rounded-2xl p-4">
+                    <div class="flex items-center justify-between mb-2">
+                        <span class="text-xs font-bold text-slate-800">পছন্দের ক্যাটাগরি শর্টকাট</span>
+                        <i class="fa-solid fa-heart text-rose-500 text-xs"></i>
+                    </div>
+                    <div class="flex flex-wrap gap-2 text-xs">
+                        <span class="bg-indigo-100 text-indigo-700 px-2.5 py-1 rounded-lg border border-indigo-200 font-medium">সরকারি সেবা</span>
+                        <span class="bg-emerald-100 text-emerald-700 px-2.5 py-1 rounded-lg border border-emerald-200 font-medium">জরুরি নম্বর</span>
+                        <span class="bg-sky-100 text-sky-700 px-2.5 py-1 rounded-lg border border-sky-200 font-medium">ব্যাংকিং</span>
+                    </div>
+                </div>
+
+                <div class="bg-slate-50 border border-slate-200 rounded-2xl p-4">
+                    <div class="flex items-center justify-between mb-2">
+                        <span class="text-xs font-bold text-slate-800">জরুরি নোটিশ</span>
+                        <i class="fa-solid fa-circle-exclamation text-rose-500 text-xs"></i>
+                    </div>
+                    <p class="text-xs text-slate-600 leading-relaxed">আপনার সাইটহ্যাট অ্যাকাউন্ট সিকিউরিটি নিশ্চিত করতে নতুন পাসওয়ার্ড সেট করুন।</p>
+                </div>
+            </div>
+        </div>
+
+        <!-- 2. Bookmarks Tab -->
+        <div id="tab-bookmarks" class="tab-pane hidden space-y-3">
+            <h3 class="font-bold text-sm text-slate-800">সংরক্ষিত বুকমার্কস (Bookmarks)</h3>
+            <div class="bg-slate-50 border border-slate-200 rounded-2xl p-4">
+                <ul class="text-xs space-y-2 text-slate-700">
+                    <li class="flex items-center justify-between p-2.5 bg-white rounded-xl border border-slate-200">
+                        <div class="flex items-center gap-2">
+                            <i class="fa-solid fa-bookmark text-amber-500"></i>
+                            <span class="font-semibold">ই-পাসপোর্ট আবেদন পোর্টাল</span>
+                        </div>
+                        <button class="text-slate-400 hover:text-rose-500"><i class="fa-solid fa-trash-can"></i></button>
+                    </li>
+                    <li class="flex items-center justify-between p-2.5 bg-white rounded-xl border border-slate-200">
+                        <div class="flex items-center gap-2">
+                            <i class="fa-solid fa-bookmark text-amber-500"></i>
+                            <span class="font-semibold">জরুরি অ্যাম্বুলেন্স সার্ভিস হেল্পলাইন</span>
+                        </div>
+                        <button class="text-slate-400 hover:text-rose-500"><i class="fa-solid fa-trash-can"></i></button>
+                    </li>
+                </ul>
+            </div>
+        </div>
+
+        <!-- 3. Saved Tab -->
+        <div id="tab-saved" class="tab-pane hidden space-y-3">
+            <h3 class="font-bold text-sm text-slate-800">সেভ করা তথ্য ও ফর্মসমূহ (Saved Items)</h3>
+            <div class="bg-slate-50 border border-slate-200 rounded-2xl p-4">
+                <p class="text-xs text-slate-500">এখানে আপনার সেভ করে রাখা খসড়া বা জরুরি তথ্যগুলো জমা থাকবে।</p>
+            </div>
+        </div>
+
+        <!-- 4. History Tab -->
+        <div id="tab-history" class="tab-pane hidden space-y-3">
+            <div class="flex items-center justify-between">
+                <h3 class="font-bold text-sm text-slate-800">ব্রাউজিং হিস্ট্রি (Browsing History)</h3>
+                <button class="text-xs text-rose-600 hover:underline">হিস্ট্রি ক্লিয়ার করুন</button>
+            </div>
+            <div class="bg-slate-50 border border-slate-200 rounded-2xl p-4">
+                <ul class="text-xs space-y-2 text-slate-600">
+                    <li class="p-2 bg-white rounded-lg border border-slate-100 flex justify-between">
+                        <span>ঢাকা উত্তর সিটি কর্পোরেশন ট্রেড লাইসেন্স</span>
+                        <span class="text-[10px] text-slate-400">আজ, ১০:১৫ AM</span>
+                    </li>
+                    <li class="p-2 bg-white rounded-lg border border-slate-100 flex justify-between">
+                        <span>বাংলাদেশ পোস্ট কোড তালিকা</span>
+                        <span class="text-[10px] text-slate-400">গতকাল</span>
+                    </li>
+                </ul>
+            </div>
+        </div>
+
+        <!-- 5. Preferences Tab -->
+        <div id="tab-preferences" class="tab-pane hidden space-y-3">
+            <h3 class="font-bold text-sm text-slate-800">ব্যক্তিগত পছন্দসমূহ (Preferences)</h3>
+            <div class="bg-slate-50 border border-slate-200 rounded-2xl p-4 space-y-3 text-xs">
+                <div class="flex items-center justify-between">
+                    <span>পছন্দের ভাষা</span>
+                    <select class="border border-slate-200 rounded-lg p-1 text-xs">
+                        <option>বাংলা</option>
+                        <option>English</option>
+                    </select>
+                </div>
+                <div class="flex items-center justify-between">
+                    <span>থিম পছন্দ</span>
+                    <select class="border border-slate-200 rounded-lg p-1 text-xs">
+                        <option>Light Theme</option>
+                        <option>Dark Theme</option>
+                        <option>System Default</option>
+                    </select>
+                </div>
+            </div>
+        </div>
+
+        <!-- 6. Notifications Tab -->
+        <div id="tab-notifications" class="tab-pane hidden space-y-3">
+            <h3 class="font-bold text-sm text-slate-800">নোটিফিকেশনসমূহ</h3>
+            <div class="bg-slate-50 border border-slate-200 rounded-2xl p-4 space-y-2">
+                <div class="p-2.5 bg-indigo-50 border border-indigo-100 rounded-xl text-xs flex gap-3">
+                    <i class="fa-solid fa-bell text-indigo-600 mt-0.5"></i>
+                    <div>
+                        <p class="font-semibold text-slate-800">সাইটহ্যাটে নতুন সেবা যুক্ত হয়েছে!</p>
+                        <p class="text-[11px] text-slate-500">ইউটিলিটি আপডেট সেন্টারে সর্বশেষ সড়ক সংক্রান্ত তথ্য যোগ হয়েছে।</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- 7. Settings Tab -->
+        <div id="tab-settings" class="tab-pane hidden space-y-3">
+            <h3 class="font-bold text-sm text-slate-800">অ্যাকাউন্ট সেটিংস</h3>
+            <div class="bg-slate-50 border border-slate-200 rounded-2xl p-4 space-y-3 text-xs">
+                <div>
+                    <label class="block font-semibold text-slate-700 mb-1">প্রোফাইল নাম</label>
+                    <input type="text" value="ব্যবহারকারী" class="w-full p-2 border border-slate-200 rounded-lg text-xs">
+                </div>
+                <div>
+                    <label class="block font-semibold text-slate-700 mb-1">ইমেইল ঠিকানা</label>
+                    <input type="email" value="user@example.com" class="w-full p-2 border border-slate-200 rounded-lg text-xs">
+                </div>
+                <button class="bg-indigo-600 text-white font-semibold px-4 py-2 rounded-xl text-xs hover:bg-indigo-700 transition">পরিবর্তন সেভ করুন</button>
+            </div>
+        </div>
+
+    </div>
+
+</div>
+
+<!-- Internal Module JavaScript -->
+<script>
+    // Tab Switcher Function
+    function switchTab(tabName) {
+        // Hide all panes
+        const panes = document.querySelectorAll('.tab-pane');
+        panes.forEach(pane => pane.classList.add('hidden'));
+
+        // Reset button styles
+        const tabs = document.querySelectorAll('.user-tab');
+        tabs.forEach(tab => {
+            tab.className = 'user-tab px-4 py-2 rounded-xl border border-slate-200 bg-slate-50 text-slate-600 hover:bg-slate-100 flex items-center gap-1.5 whitespace-nowrap transition';
+        });
+
+        // Show selected pane
+        const targetPane = document.getElementById(`tab-${tabName}`);
+        if(targetPane) targetPane.classList.remove('hidden');
+
+        // Highlight active tab
+        if(event && event.currentTarget) {
+            event.currentTarget.className = 'user-tab active px-4 py-2 rounded-xl border border-indigo-600 bg-indigo-600 text-white flex items-center gap-1.5 whitespace-nowrap transition';
+        }
+    }
+
+    // Login/Logout Dummy Action
+    function toggleLoginState() {
+        alert('লগআউট করা হয়েছে। পুনরায় প্রবেশ করতে আবার লগইন করুন।');
+    }
+</script>
