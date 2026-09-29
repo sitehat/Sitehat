@@ -1,0 +1,264 @@
+<!-- Module 7: Travel, Transport & Tourism -->
+<div class="space-y-6 animate-fadeIn">
+    
+    <!-- Module Header -->
+    <div class="border-b border-slate-200 pb-4 flex flex-col sm:flex-row justify-between items-start sm:items-center gap-3">
+        <div>
+            <h1 class="text-xl font-bold text-slate-800 flex items-center gap-2">
+                <i class="fa-solid fa-plane-departure text-sky-600"></i> ভ্রমণ, পরিবহন ও পর্যটন (Travel & Transport)
+            </h1>
+            <p class="text-xs text-slate-500 mt-1">রেল, বাস, বিমান, লঞ্চের টিকিট, হোটেল বুকিং, ভিসা-পাসপোর্ট ও রুট গাইড</p>
+        </div>
+        <!-- Module Internal Search -->
+        <div class="relative w-full sm:w-64">
+            <i class="fa-solid fa-magnifying-glass absolute left-3 top-1/2 -translate-y-1/2 text-slate-400 text-xs"></i>
+            <input type="text" id="travel-search" onkeyup="filterTravelServices()" placeholder="ভ্রমণ বা পরিবহন সেবা খুঁজুন..." class="w-full pl-8 pr-3 py-1.5 bg-slate-100 focus:bg-white border border-slate-200 rounded-lg text-xs focus:outline-none focus:border-sky-500">
+        </div>
+    </div>
+
+    <!-- Quick Ticket & Transport Search Banner -->
+    <div class="bg-gradient-to-r from-sky-600 to-indigo-700 text-white rounded-2xl p-5 shadow-sm space-y-3">
+        <div class="flex items-center gap-2 border-b border-sky-500/50 pb-2">
+            <i class="fa-solid fa-ticket text-amber-300"></i>
+            <h3 class="font-bold text-sm">ইনস্ট্যান্ট টিকিট ও রুট সার্চ লিংক</h3>
+        </div>
+        <div class="grid grid-cols-2 sm:grid-cols-4 gap-3 text-center">
+            <a href="https://eticket.railway.gov.bd" target="_blank" class="bg-white/10 hover:bg-white/20 p-3 rounded-xl border border-white/20 transition">
+                <i class="fa-solid fa-train text-lg mb-1 block text-amber-300"></i>
+                <span class="text-xs font-bold block">ট্রেন টিকিট</span>
+            </a>
+            <a href="https://www.shohoz.com/bus-tickets" target="_blank" class="bg-white/10 hover:bg-white/20 p-3 rounded-xl border border-white/20 transition">
+                <i class="fa-solid fa-bus text-lg mb-1 block text-amber-300"></i>
+                <span class="text-xs font-bold block">বাস টিকিট</span>
+            </a>
+            <a href="https://www.flightexpert.com" target="_blank" class="bg-white/10 hover:bg-white/20 p-3 rounded-xl border border-white/20 transition">
+                <i class="fa-solid fa-plane text-lg mb-1 block text-amber-300"></i>
+                <span class="text-xs font-bold block">ফ্লাইট বুকিং</span>
+            </a>
+            <a href="https://www.google.com/maps" target="_blank" class="bg-white/10 hover:bg-white/20 p-3 rounded-xl border border-white/20 transition">
+                <i class="fa-solid fa-map-location-dot text-lg mb-1 block text-amber-300"></i>
+                <span class="text-xs font-bold block">ম্যাপ ও রুট</span>
+            </a>
+        </div>
+    </div>
+
+    <!-- Main Travel Services Grid -->
+    <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4" id="travel-services-grid">
+        
+        <!-- 1. রেল ও ট্রেন টিকিট -->
+        <div class="travel-card bg-slate-50 border border-slate-200 hover:border-sky-400 rounded-2xl p-4 transition duration-200">
+            <div class="flex items-center gap-3 mb-3">
+                <div class="w-10 h-10 rounded-xl bg-sky-100 text-sky-600 flex items-center justify-center font-bold">
+                    <i class="fa-solid fa-train text-lg"></i>
+                </div>
+                <div>
+                    <h3 class="font-bold text-sm text-slate-800">রেলওয়ে ও ট্রেন সেবা</h3>
+                    <p class="text-[11px] text-slate-500">অনলাইন ই-টিকিটিং ও সময়সূচী</p>
+                </div>
+            </div>
+            <ul class="text-xs space-y-1.5 text-slate-600 mb-3 border-t border-slate-200/60 pt-2.5">
+                <li><a href="https://eticket.railway.gov.bd" target="_blank" class="hover:text-sky-600 flex items-center justify-between">বাংলাদেশ রেলওয়ে ই-টিকিট <i class="fa-solid fa-arrow-up-right-from-square text-[10px] text-slate-400"></i></a></li>
+                <li><a href="https://railway.gov.bd" target="_blank" class="hover:text-sky-600 flex items-center justify-between">ট্রেনের সময়সূচী ও রুট তথ্য <i class="fa-solid fa-arrow-up-right-from-square text-[10px] text-slate-400"></i></a></li>
+                <li><a href="#" class="hover:text-sky-600 flex items-center justify-between">ট্রেন ট্র্যাকিং ও ভাড়া তালিকা <i class="fa-solid fa-angle-right text-[10px] text-slate-400"></i></a></li>
+            </ul>
+        </div>
+
+        <!-- 2. বাস ও সড়ক পরিবহন -->
+        <div class="travel-card bg-slate-50 border border-slate-200 hover:border-amber-400 rounded-2xl p-4 transition duration-200">
+            <div class="flex items-center gap-3 mb-3">
+                <div class="w-10 h-10 rounded-xl bg-amber-100 text-amber-700 flex items-center justify-center font-bold">
+                    <i class="fa-solid fa-bus-simple text-lg"></i>
+                </div>
+                <div>
+                    <h3 class="font-bold text-sm text-slate-800">বাস ও সড়ক পরিবহন</h3>
+                    <p class="text-[11px] text-slate-500">দূরপাল্লার বাস টিকিট বুকিং</p>
+                </div>
+            </div>
+            <ul class="text-xs space-y-1.5 text-slate-600 mb-3 border-t border-slate-200/60 pt-2.5">
+                <li><a href="https://www.shohoz.com" target="_blank" class="hover:text-amber-700 flex items-center justify-between">Shohoz বাস টিকিট অনলাইন <i class="fa-solid fa-arrow-up-right-from-square text-[10px] text-slate-400"></i></a></li>
+                <li><a href="https://www.busbd.com.bd" target="_blank" class="hover:text-amber-700 flex items-center justify-between">BusBD ই-টিকিট পোর্টাল <i class="fa-solid fa-arrow-up-right-from-square text-[10px] text-slate-400"></i></a></li>
+                <li><a href="http://www.brtc.gov.bd" target="_blank" class="hover:text-amber-700 flex items-center justify-between">BRTC সরকারি বাস সেবা <i class="fa-solid fa-arrow-up-right-from-square text-[10px] text-slate-400"></i></a></li>
+            </ul>
+        </div>
+
+        <!-- 3. বিমান ও এয়ারলাইনস -->
+        <div class="travel-card bg-slate-50 border border-slate-200 hover:border-indigo-400 rounded-2xl p-4 transition duration-200">
+            <div class="flex items-center gap-3 mb-3">
+                <div class="w-10 h-10 rounded-xl bg-indigo-100 text-indigo-600 flex items-center justify-center font-bold">
+                    <i class="fa-solid fa-plane-up text-lg"></i>
+                </div>
+                <div>
+                    <h3 class="font-bold text-sm text-slate-800">বিমান ও আন্তর্জাতিক ভ্রমণ</h3>
+                    <p class="text-[11px] text-slate-500">অভ্যন্তরীণ ও আন্তর্জাতিক ফ্লাইট</p>
+                </div>
+            </div>
+            <ul class="text-xs space-y-1.5 text-slate-600 mb-3 border-t border-slate-200/60 pt-2.5">
+                <li><a href="https://www.biman-airlines.com" target="_blank" class="hover:text-indigo-600 flex items-center justify-between">বিমান বাংলাদেশ এয়ারলাইনস <i class="fa-solid fa-arrow-up-right-from-square text-[10px] text-slate-400"></i></a></li>
+                <li><a href="https://www.flyregent.com" target="_blank" class="hover:text-indigo-600 flex items-center justify-between">বেসরকারি এয়ারলাইনস বুকিং <i class="fa-solid fa-arrow-up-right-from-square text-[10px] text-slate-400"></i></a></li>
+                <li><a href="https://www.flightradar24.com" target="_blank" class="hover:text-indigo-600 flex items-center justify-between">ফ্লাইট স্ট্যাটাস ও ট্র্যাকিং <i class="fa-solid fa-arrow-up-right-from-square text-[10px] text-slate-400"></i></a></li>
+            </ul>
+        </div>
+
+        <!-- 4. লঞ্চ ও নৌযান -->
+        <div class="travel-card bg-slate-50 border border-slate-200 hover:border-teal-400 rounded-2xl p-4 transition duration-200">
+            <div class="flex items-center gap-3 mb-3">
+                <div class="w-10 h-10 rounded-xl bg-teal-100 text-teal-600 flex items-center justify-center font-bold">
+                    <i class="fa-solid fa-ship text-lg"></i>
+                </div>
+                <div>
+                    <h3 class="font-bold text-sm text-slate-800">লঞ্চ ও নৌপথ পরিবহন</h3>
+                    <p class="text-[11px] text-slate-500">কেবিন বুকিং ও নৌপথের সময়সূচী</p>
+                </div>
+            </div>
+            <ul class="text-xs space-y-1.5 text-slate-600 mb-3 border-t border-slate-200/60 pt-2.5">
+                <li><a href="http://www.biwta.gov.bd" target="_blank" class="hover:text-teal-600 flex items-center justify-between">BIWTA নৌপথ ও ঘাট তথ্য <i class="fa-solid fa-arrow-up-right-from-square text-[10px] text-slate-400"></i></a></li>
+                <li><a href="https://www.goship.com.bd" target="_blank" class="hover:text-teal-600 flex items-center justify-between">অনলাইন লঞ্চ টিকিট ও কেবিন বুকিং <i class="fa-solid fa-arrow-up-right-from-square text-[10px] text-slate-400"></i></a></li>
+                <li><a href="#" class="hover:text-teal-600 flex items-center justify-between">ঢাকা-বরিশাল-পটুয়াখালী রুট গাইড <i class="fa-solid fa-angle-right text-[10px] text-slate-400"></i></a></li>
+            </ul>
+        </div>
+
+        <!-- 5. পাসপোর্ট ও ভিসা সেবা -->
+        <div class="travel-card bg-slate-50 border border-slate-200 hover:border-emerald-400 rounded-2xl p-4 transition duration-200">
+            <div class="flex items-center gap-3 mb-3">
+                <div class="w-10 h-10 rounded-xl bg-emerald-100 text-emerald-600 flex items-center justify-center font-bold">
+                    <i class="fa-solid fa-passport text-lg"></i>
+                </div>
+                <div>
+                    <h3 class="font-bold text-sm text-slate-800">পাসপোর্ট ও ভিসা সেবা</h3>
+                    <p class="text-[11px] text-slate-500">ই-পাসপোর্ট আবেদন ও ভিসা গাইড</p>
+                </div>
+            </div>
+            <ul class="text-xs space-y-1.5 text-slate-600 mb-3 border-t border-slate-200/60 pt-2.5">
+                <li><a href="https://www.epassport.gov.bd" target="_blank" class="hover:text-emerald-600 flex items-center justify-between">ই-পাসপোর্ট অনলাইন আবেদন পোর্টাল <i class="fa-solid fa-arrow-up-right-from-square text-[10px] text-slate-400"></i></a></li>
+                <li><a href="https://www.visa.gov.bd" target="_blank" class="hover:text-emerald-600 flex items-center justify-between">বাংলাদেশ অনলাইন ভিসা সেবা <i class="fa-solid fa-arrow-up-right-from-square text-[10px] text-slate-400"></i></a></li>
+                <li><a href="https://www.ivar.ivas.gov.in" target="_blank" class="hover:text-emerald-600 flex items-center justify-between">ভারতীয় ভিসা (IVAC) আবেদন <i class="fa-solid fa-arrow-up-right-from-square text-[10px] text-slate-400"></i></a></li>
+            </ul>
+        </div>
+
+        <!-- 6. হোটেল, রিসোর্ট ও ট্যুর গাইড -->
+        <div class="travel-card bg-slate-50 border border-slate-200 hover:border-purple-400 rounded-2xl p-4 transition duration-200">
+            <div class="flex items-center gap-3 mb-3">
+                <div class="w-10 h-10 rounded-xl bg-purple-100 text-purple-600 flex items-center justify-center font-bold">
+                    <i class="fa-solid fa-hotel text-lg"></i>
+                </div>
+                <div>
+                    <h3 class="font-bold text-sm text-slate-800">থাকা, Hotel ও Tourist Guide</h3>
+                    <p class="text-[11px] text-slate-500">হোটেল বুকিং ও পর্যটন স্থানসমূহ</p>
+                </div>
+            </div>
+            <ul class="text-xs space-y-1.5 text-slate-600 mb-3 border-t border-slate-200/60 pt-2.5">
+                <li><a href="https://www.booking.com" target="_blank" class="hover:text-purple-600 flex items-center justify-between">Booking.com হোটেল বুকিং <i class="fa-solid fa-arrow-up-right-from-square text-[10px] text-slate-400"></i></a></li>
+                <li><a href="https://www.gozayaan.com" target="_blank" class="hover:text-purple-600 flex items-center justify-between">GoZayaan ট্যুর ও হোটেল বুকিং <i class="fa-solid fa-arrow-up-right-from-square text-[10px] text-slate-400"></i></a></li>
+                <li><a href="https://parjatan.gov.bd" target="_blank" class="hover:text-purple-600 flex items-center justify-between">বাংলাদেশ পর্যটন কর্পোরেশন <i class="fa-solid fa-arrow-up-right-from-square text-[10px] text-slate-400"></i></a></li>
+            </ul>
+        </div>
+
+    </div>
+
+    <!-- Interactive Travel Planner & Distance Helper Widget -->
+    <div class="bg-white p-5 rounded-2xl border border-slate-200 shadow-sm mt-6">
+        <h3 class="font-bold text-sm text-slate-800 mb-2 flex items-center gap-2">
+            <i class="fa-solid fa-route text-sky-600"></i> ভ্রমণ পরিকল্পনা ও সম্ভাব্য দূরত্ব ক্যালকুলেটর
+        </h3>
+        <p class="text-xs text-slate-500 mb-4">ঢাকা থেকে বিভিন্ন জনপ্রিয় পর্যটন কেন্দ্রের আনুমানিক দূরত্ব এবং ভ্রমণ বাজেট পরীক্ষা করুন:</p>
+
+        <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+            <!-- Distance & Route Info -->
+            <div class="bg-slate-50 p-4 rounded-xl border border-slate-200">
+                <h4 class="font-bold text-xs text-slate-700 mb-2 flex items-center gap-1.5">
+                    <i class="fa-solid fa-location-dot text-sky-500"></i> গন্তব্যের তথ্য নির্বাচন করুন
+                </h4>
+                <div class="space-y-2">
+                    <select id="travel-dest" onchange="calculateTravelRoute()" class="w-full p-2 border border-slate-200 rounded-lg text-xs focus:outline-none focus:border-sky-500">
+                        <option value="">গন্তব্য নির্বাচন করুন...</option>
+                        <option value="cox">ঢাকা ➔ কক্সবাজার (Cox's Bazar)</option>
+                        <option value="sylhet">ঢাকা ➔ সিলেট (Sylhet)</option>
+                        <option value="sreemangal">ঢাকা ➔ শ্রীমঙ্গল (Sreemangal)</option>
+                        <option value="sajek">ঢাকা ➔ সাজেক ভ্যালি (Sajek Valley)</option>
+                        <option value="kuakata">ঢাকা ➔ কুয়াকাটা (Kuakata)</option>
+                        <option value="sundarban">ঢাকা ➔ সুন্দরবন (Sundarban)</option>
+                    </select>
+                </div>
+                <div id="route-result" class="hidden mt-3 p-3 bg-sky-50 border border-sky-200 rounded-lg text-xs text-slate-700 space-y-1"></div>
+            </div>
+
+            <!-- Budget Estimator -->
+            <div class="bg-slate-50 p-4 rounded-xl border border-slate-200">
+                <h4 class="font-bold text-xs text-slate-700 mb-2 flex items-center gap-1.5">
+                    <i class="fa-solid fa-coins text-amber-500"></i> আনুমানিক ভ্রমণ বাজেট ক্যালকুলেটর
+                </h4>
+                <div class="grid grid-cols-2 gap-2 mb-2">
+                    <div>
+                        <label class="block text-[11px] text-slate-500 mb-1">যাত্রী সংখ্যা</label>
+                        <input type="number" id="travel-people" value="1" min="1" class="w-full p-2 border border-slate-200 rounded-lg text-xs focus:outline-none">
+                    </div>
+                    <div>
+                        <label class="block text-[11px] text-slate-500 mb-1">দিন সংখ্যা</label>
+                        <input type="number" id="travel-days" value="2" min="1" class="w-full p-2 border border-slate-200 rounded-lg text-xs focus:outline-none">
+                    </div>
+                </div>
+                <button onclick="estimateBudget()" class="w-full bg-sky-600 hover:bg-sky-700 text-white font-semibold py-2 rounded-lg text-xs transition">
+                    বাজেট প্রাক্কলন করুন
+                </button>
+                <div id="budget-result" class="hidden mt-3 font-bold text-xs text-sky-800 bg-sky-50 p-2.5 rounded-lg text-center"></div>
+            </div>
+        </div>
+    </div>
+
+</div>
+
+<!-- Internal Module JavaScript -->
+<script>
+    // Live Search inside Travel Module
+    function filterTravelServices() {
+        const query = document.getElementById('travel-search').value.toLowerCase();
+        const cards = document.querySelectorAll('.travel-card');
+        
+        cards.forEach(card => {
+            const text = card.innerText.toLowerCase();
+            card.style.display = text.includes(query) ? 'block' : 'none';
+        });
+    }
+
+    // Distance and Route Calculation Script
+    function calculateTravelRoute() {
+        const dest = document.getElementById('travel-dest').value;
+        const resBox = document.getElementById('route-result');
+
+        const routes = {
+            'cox': { distance: '৩৯১ কি.মি.', time: '৮-১০ ঘণ্টা (বাস/ট্রেন)', transport: 'বাস, ট্রেন, বিমান' },
+            'sylhet': { distance: '২৪০ কি.মি.', time: '৫-৬ ঘণ্টা (বাস/ট্রেন)', transport: 'বাস, ট্রেন, বিমান' },
+            'sreemangal': { distance: '১৯৫ কি.মি.', time: '৪-৫ ঘণ্টা', transport: 'বাস, ট্রেন' },
+            'sajek': { distance: '৩৪০ কি.মি.', time: '৯-১০ ঘণ্টা (খাগড়াছড়ি হয়ে)', transport: 'বাস + চান্দের গাড়ি' },
+            'kuakata': { distance: '২৮০ কি.মি.', time: '৬-৭ ঘণ্টা (পদ্মাসেতু হয়ে)', transport: 'বাস, লঞ্চ' },
+            'sundarban': { distance: '২৫০ কি.মি.', time: '৬-৭ ঘণ্টা (খুলনা/মোংলা হয়ে)', transport: 'বাস + ট্রলার/জাহাজ' }
+        };
+
+        if (!dest || !routes[dest]) {
+            resBox.classList.add('hidden');
+            return;
+        }
+
+        const data = routes[dest];
+        resBox.classList.remove('hidden');
+        resBox.innerHTML = `
+            <p>📍 <strong>আনুমানিক দূরত্ব:</strong> ${data.distance}</p>
+            <p>⏱️ <strong>আনুমানিক সময়:</strong> ${data.time}</p>
+            <p>🚌 <strong>পরিবহন মাধ্যম:</strong> ${data.transport}</p>
+        `;
+    }
+
+    // Budget Estimator Script
+    function estimateBudget() {
+        const people = parseInt(document.getElementById('travel-people').value) || 1;
+        const days = parseInt(document.getElementById('travel-days').value) || 1;
+
+        // Approx standard budget calculation (Food + Stay + Transport)
+        const avgDailyPerPerson = 2500; 
+        const totalEstimate = people * days * avgDailyPerPerson;
+
+        const resBox = document.getElementById('budget-result');
+        resBox.classList.remove('hidden');
+        resBox.innerHTML = `আনুমানিক মোট খরচ: <span class="text-sm font-black">৳ ${totalEstimate.toLocaleString('bn-BD')} টাকা</span> (জনপ্রতি প্রায় ৳ ${(totalEstimate/people).toLocaleString('bn-BD')})`;
+    }
+</script>
