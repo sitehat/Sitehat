@@ -1,0 +1,267 @@
+<!-- Module 6: Health, Medical & Wellness -->
+<div class="space-y-6 animate-fadeIn">
+    
+    <!-- Module Header -->
+    <div class="border-b border-slate-200 pb-4 flex flex-col sm:flex-row justify-between items-start sm:items-center gap-3">
+        <div>
+            <h1 class="text-xl font-bold text-slate-800 flex items-center gap-2">
+                <i class="fa-solid fa-heart-pulse text-rose-600"></i> স্বাস্থ্য, চিকিৎসা ও সুস্থতা (Health & Wellness)
+            </h1>
+            <p class="text-xs text-slate-500 mt-1">ডাক্তার, হাসপাতাল, জরুরি অ্যাম্বুলেন্স, রক্তদান, বিএমআই ও পুষ্টি বিষয়ক গাইড</p>
+        </div>
+        <!-- Module Internal Search -->
+        <div class="relative w-full sm:w-64">
+            <i class="fa-solid fa-magnifying-glass absolute left-3 top-1/2 -translate-y-1/2 text-slate-400 text-xs"></i>
+            <input type="text" id="health-search" onkeyup="filterHealthServices()" placeholder="স্বাস্থ্য সেবা বা তথ্য খুঁজুন..." class="w-full pl-8 pr-3 py-1.5 bg-slate-100 focus:bg-white border border-slate-200 rounded-lg text-xs focus:outline-none focus:border-rose-500">
+        </div>
+    </div>
+
+    <!-- Emergency Health Hotline Banner -->
+    <div class="bg-gradient-to-r from-rose-600 to-red-700 text-white rounded-2xl p-4 shadow-sm flex flex-col md:flex-row items-center justify-between gap-4">
+        <div class="flex items-center gap-3">
+            <div class="w-12 h-12 rounded-xl bg-white/20 flex items-center justify-center text-xl shrink-0">
+                <i class="fa-solid fa-truck-medical animate-pulse"></i>
+            </div>
+            <div>
+                <h3 class="font-bold text-sm">জরুরি চিকিৎসা ও অ্যাম্বুলেন্স সেবা</h3>
+                <p class="text-xs text-rose-100">সরকারি স্বাস্থ্য বাতায়ন ১৬২৬৩ অথবা জাতীয় জরুরি সেবা ৯৯৯-এ কল করুন</p>
+            </div>
+        </div>
+        <a href="tel:16263" class="bg-white text-rose-600 px-4 py-2 rounded-xl font-bold text-xs hover:bg-rose-50 transition shrink-0 flex items-center gap-2">
+            <i class="fa-solid fa-phone"></i> ১৬২৬৩ এ কল করুন
+        </a>
+    </div>
+
+    <!-- Main Health Services Grid -->
+    <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4" id="health-services-grid">
+        
+        <!-- 1. ডাক্তার, হাসপাতাল ও ক্লিনিক -->
+        <div class="health-card bg-slate-50 border border-slate-200 hover:border-rose-400 rounded-2xl p-4 transition duration-200">
+            <div class="flex items-center gap-3 mb-3">
+                <div class="w-10 h-10 rounded-xl bg-rose-100 text-rose-600 flex items-center justify-center font-bold">
+                    <i class="fa-solid fa-user-doctor text-lg"></i>
+                </div>
+                <div>
+                    <h3 class="font-bold text-sm text-slate-800">ডাক্তার ও হাসপাতাল</h3>
+                    <p class="text-[11px] text-slate-500">অ্যাপয়েন্টমেন্ট ও চিকিৎসা কেন্দ্র</p>
+                </div>
+            </div>
+            <ul class="text-xs space-y-1.5 text-slate-600 mb-3 border-t border-slate-200/60 pt-2.5">
+                <li><a href="https://dghs.gov.bd" target="_blank" class="hover:text-rose-600 flex items-center justify-between">স্বাস্থ্য অধিদপ্তর (DGHS) ডিরেক্টরি <i class="fa-solid fa-arrow-up-right-from-square text-[10px] text-slate-400"></i></a></li>
+                <li><a href="https://doctime.com.bd" target="_blank" class="hover:text-rose-600 flex items-center justify-between">অনলাইন ডাক্তার অ্যাপয়েন্টমেন্ট <i class="fa-solid fa-arrow-up-right-from-square text-[10px] text-slate-400"></i></a></li>
+                <li><a href="https://bscmm.gov.bd" target="_blank" class="hover:text-rose-600 flex items-center justify-between">বিশেষজ্ঞ ডাক্তার তালিকা (BMDC) <i class="fa-solid fa-arrow-up-right-from-square text-[10px] text-slate-400"></i></a></li>
+            </ul>
+        </div>
+
+        <!-- 2. ওষুধ তথ্য ও ই-ফার্মেসি -->
+        <div class="health-card bg-slate-50 border border-slate-200 hover:border-blue-400 rounded-2xl p-4 transition duration-200">
+            <div class="flex items-center gap-3 mb-3">
+                <div class="w-10 h-10 rounded-xl bg-blue-100 text-blue-600 flex items-center justify-center font-bold">
+                    <i class="fa-solid fa-pills text-lg"></i>
+                </div>
+                <div>
+                    <h3 class="font-bold text-sm text-slate-800">ওষুধ তথ্য ও নির্দেশিকা</h3>
+                    <p class="text-[11px] text-slate-500">ওষুধের কাজ, মূল্য ও পার্শ্বপ্রতিক্রিয়া</p>
+                </div>
+            </div>
+            <ul class="text-xs space-y-1.5 text-slate-600 mb-3 border-t border-slate-200/60 pt-2.5">
+                <li><a href="https://medex.com.bd" target="_blank" class="hover:text-blue-600 flex items-center justify-between">MedEx (বাংলাদেশি ওষুধের ডাটাবেজ) <i class="fa-solid fa-arrow-up-right-from-square text-[10px] text-slate-400"></i></a></li>
+                <li><a href="https://dgda.gov.bd" target="_blank" class="hover:text-blue-600 flex items-center justify-between">ঔষধ প্রশাসন অধিদপ্তর (DGDA) <i class="fa-solid fa-arrow-up-right-from-square text-[10px] text-slate-400"></i></a></li>
+                <li><a href="https://arooga.com" target="_blank" class="hover:text-blue-600 flex items-center justify-between">অনলাইন ফার্মেসি ও মেডিসিন ডেলিভারি <i class="fa-solid fa-arrow-up-right-from-square text-[10px] text-slate-400"></i></a></li>
+            </ul>
+        </div>
+
+        <!-- 3. রক্তদান ও ব্লাড ব্যাংক -->
+        <div class="health-card bg-slate-50 border border-slate-200 hover:border-red-400 rounded-2xl p-4 transition duration-200">
+            <div class="flex items-center gap-3 mb-3">
+                <div class="w-10 h-10 rounded-xl bg-red-100 text-red-600 flex items-center justify-center font-bold">
+                    <i class="fa-solid fa-droplet text-lg"></i>
+                </div>
+                <div>
+                    <h3 class="font-bold text-sm text-slate-800">রক্ত ও রক্তদান (Blood Bank)</h3>
+                    <p class="text-[11px] text-slate-500">জরুরি রক্তের গ্রুপ ও ডোনার অনুসন্ধান</p>
+                </div>
+            </div>
+            <ul class="text-xs space-y-1.5 text-slate-600 mb-3 border-t border-slate-200/60 pt-2.5">
+                <li><a href="https://redcrescent.org.bd" target="_blank" class="hover:text-red-600 flex items-center justify-between">রেড ক্রিসেন্ট ব্লাড ব্যাংক <i class="fa-solid fa-arrow-up-right-from-square text-[10px] text-slate-400"></i></a></li>
+                <li><a href="https://quantummethod.org.bd/en/blood-donation" target="_blank" class="hover:text-red-600 flex items-center justify-between">কোয়ান্টাম ব্লাড ব্যাংক <i class="fa-solid fa-arrow-up-right-from-square text-[10px] text-slate-400"></i></a></li>
+                <li><a href="#" class="hover:text-red-600 flex items-center justify-between">জরুরি ব্লাড ডোনার নেটওয়ার্ক <i class="fa-solid fa-angle-right text-[10px] text-slate-400"></i></a></li>
+            </ul>
+        </div>
+
+        <!-- 4. খাদ্য, পুষ্টি ও ফিটনেস -->
+        <div class="health-card bg-slate-50 border border-slate-200 hover:border-emerald-400 rounded-2xl p-4 transition duration-200">
+            <div class="flex items-center gap-3 mb-3">
+                <div class="w-10 h-10 rounded-xl bg-emerald-100 text-emerald-600 flex items-center justify-center font-bold">
+                    <i class="fa-solid fa-apple-whole text-lg"></i>
+                </div>
+                <div>
+                    <h3 class="font-bold text-sm text-slate-800">খাদ্য, পুষ্টি ও ফিটনেস</h3>
+                    <p class="text-[11px] text-slate-500">ডায়েট চার্ট, ক্যালোরি ও ব্যায়াম</p>
+                </div>
+            </div>
+            <ul class="text-xs space-y-1.5 text-slate-600 mb-3 border-t border-slate-200/60 pt-2.5">
+                <li><a href="#" class="hover:text-emerald-600 flex items-center justify-between">দৈনন্দিন সুষম খাদ্য তালিকা (Nutrition Guide) <i class="fa-solid fa-angle-right text-[10px] text-slate-400"></i></a></li>
+                <li><a href="#" class="hover:text-emerald-600 flex items-center justify-between">ওজন কমানো ও বাড়ানোর উপায় <i class="fa-solid fa-angle-right text-[10px] text-slate-400"></i></a></li>
+                <li><a href="#" class="hover:text-emerald-600 flex items-center justify-between">সহজ হোম ওয়ার্কআউট ও ইয়োগা টিপস <i class="fa-solid fa-angle-right text-[10px] text-slate-400"></i></a></li>
+            </ul>
+        </div>
+
+        <!-- 5. মানসিক সুস্থতা -->
+        <div class="health-card bg-slate-50 border border-slate-200 hover:border-indigo-400 rounded-2xl p-4 transition duration-200">
+            <div class="flex items-center gap-3 mb-3">
+                <div class="w-10 h-10 rounded-xl bg-indigo-100 text-indigo-600 flex items-center justify-center font-bold">
+                    <i class="fa-solid fa-brain text-lg"></i>
+                </div>
+                <div>
+                    <h3 class="font-bold text-sm text-slate-800">মানসিক সুস্থতা (Mental Health)</h3>
+                    <p class="text-[11px] text-slate-500">কাউন্সেলিং, মানসিক চাপ ও ডিপ্রেশন</p>
+                </div>
+            </div>
+            <ul class="text-xs space-y-1.5 text-slate-600 mb-3 border-t border-slate-200/60 pt-2.5">
+                <li><a href="https://nimh.gov.bd" target="_blank" class="hover:text-indigo-600 flex items-center justify-between">জাতীয় মানসিক স্বাস্থ্য ইনস্টিটিউট <i class="fa-solid fa-arrow-up-right-from-square text-[10px] text-slate-400"></i></a></li>
+                <li><a href="#" class="hover:text-indigo-600 flex items-center justify-between">মানসিক চাপ ও দুশ্চিন্তা কমানোর উপায় <i class="fa-solid fa-angle-right text-[10px] text-slate-400"></i></a></li>
+                <li><a href="#" class="hover:text-indigo-600 flex items-center justify-between">অনলাইন কাউন্সেলিং হেল্পলাইন <i class="fa-solid fa-angle-right text-[10px] text-slate-400"></i></a></li>
+            </ul>
+        </div>
+
+        <!-- 6. স্বাস্থ্য সতর্কতা ও টিপস -->
+        <div class="health-card bg-slate-50 border border-slate-200 hover:border-amber-400 rounded-2xl p-4 transition duration-200">
+            <div class="flex items-center gap-3 mb-3">
+                <div class="w-10 h-10 rounded-xl bg-amber-100 text-amber-700 flex items-center justify-center font-bold">
+                    <i class="fa-solid fa-shield-virus text-lg"></i>
+                </div>
+                <div>
+                    <h3 class="font-bold text-sm text-slate-800">স্বাস্থ্য সতর্কতা ও রোগ প্রতিরোধ</h3>
+                    <p class="text-[11px] text-slate-500">ঋতুভিত্তিক রোগ ও প্রাথমিক চিকিৎসা</p>
+                </div>
+            </div>
+            <ul class="text-xs space-y-1.5 text-slate-600 mb-3 border-t border-slate-200/60 pt-2.5">
+                <li><a href="https://iedcr.gov.bd" target="_blank" class="hover:text-amber-700 flex items-center justify-between">IEDCR সংক্রামক রোগ আপডেট <i class="fa-solid fa-arrow-up-right-from-square text-[10px] text-slate-400"></i></a></li>
+                <li><a href="#" class="hover:text-amber-700 flex items-center justify-between">ডেঙ্গু ও সিজনাল জ্বর প্রতিরোধ গাইড <i class="fa-solid fa-angle-right text-[10px] text-slate-400"></i></a></li>
+                <li><a href="#" class="hover:text-amber-700 flex items-center justify-between">জরুরি ফার্স্ট এইড (First Aid) গাইড <i class="fa-solid fa-angle-right text-[10px] text-slate-400"></i></a></li>
+            </ul>
+        </div>
+
+    </div>
+
+    <!-- Interactive Health Calculators Widget -->
+    <div class="bg-white p-5 rounded-2xl border border-slate-200 shadow-sm mt-6">
+        <h3 class="font-bold text-sm text-slate-800 mb-2 flex items-center gap-2">
+            <i class="fa-solid fa-calculator text-rose-600"></i> স্বাস্থ্য ক্যালকুলেটর (Health Calculators)
+        </h3>
+        <p class="text-xs text-slate-500 mb-4">আপনার বডি মাস ইনডেক্স (BMI) এবং দৈনিক পানির প্রয়োজনীয়তা হিসাব করুন:</p>
+
+        <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+            <!-- Live BMI Calculator -->
+            <div class="bg-slate-50 p-4 rounded-xl border border-slate-200">
+                <h4 class="font-bold text-xs text-slate-700 mb-3 flex items-center gap-1.5">
+                    <i class="fa-solid fa-weight-scale text-rose-500"></i> BMI (Body Mass Index) ক্যালকুলেটর
+                </h4>
+                <div class="space-y-2">
+                    <div class="grid grid-cols-2 gap-2">
+                        <div>
+                            <label class="block text-[11px] text-slate-500 mb-1">ওজন (KG)</label>
+                            <input type="number" id="bmi-weight" placeholder="যেমন: 65" class="w-full p-2 border rounded-lg text-xs focus:outline-none focus:border-rose-500">
+                        </div>
+                        <div>
+                            <label class="block text-[11px] text-slate-500 mb-1">উচ্চতা (CM)</label>
+                            <input type="number" id="bmi-height" placeholder="যেমন: 168" class="w-full p-2 border rounded-lg text-xs focus:outline-none focus:border-rose-500">
+                        </div>
+                    </div>
+                    <button onclick="calculateBMI()" class="w-full bg-rose-600 hover:bg-rose-700 text-white font-semibold py-2 rounded-lg text-xs transition mt-2">
+                        BMI দেখুন
+                    </button>
+                </div>
+                <div id="bmi-result" class="mt-3 font-bold text-xs hidden p-2.5 rounded-lg text-center"></div>
+            </div>
+
+            <!-- Water Intake Calculator -->
+            <div class="bg-slate-50 p-4 rounded-xl border border-slate-200">
+                <h4 class="font-bold text-xs text-slate-700 mb-3 flex items-center gap-1.5">
+                    <i class="fa-solid fa-glass-water text-blue-500"></i> দৈনিক পানি পানের পরিমাণ ক্যালকুলেটর
+                </h4>
+                <div class="space-y-2">
+                    <div>
+                        <label class="block text-[11px] text-slate-500 mb-1">আপনার শরীরের ওজন (KG)</label>
+                        <input type="number" id="water-weight" placeholder="যেমন: 60" class="w-full p-2 border rounded-lg text-xs focus:outline-none focus:border-blue-500">
+                    </div>
+                    <button onclick="calculateWaterIntake()" class="w-full bg-blue-600 hover:bg-blue-700 text-white font-semibold py-2 rounded-lg text-xs transition mt-2">
+                        পানির পরিমাণ হিসাব করুন
+                    </button>
+                </div>
+                <div id="water-result" class="mt-3 font-bold text-xs text-blue-800 bg-blue-50 p-2.5 rounded-lg text-center hidden"></div>
+            </div>
+        </div>
+    </div>
+
+</div>
+
+<!-- Internal Module JavaScript -->
+<script>
+    // Live Search inside Health Module
+    function filterHealthServices() {
+        const query = document.getElementById('health-search').value.toLowerCase();
+        const cards = document.querySelectorAll('.health-card');
+        
+        cards.forEach(card => {
+            const text = card.innerText.toLowerCase();
+            card.style.display = text.includes(query) ? 'block' : 'none';
+        });
+    }
+
+    // Live BMI Calculation Script
+    function calculateBMI() {
+        const weight = parseFloat(document.getElementById('bmi-weight').value);
+        const heightCm = parseFloat(document.getElementById('bmi-height').value);
+
+        if (!weight || !heightCm || weight <= 0 || heightCm <= 0) {
+            alert("অনুগ্রহ করে সঠিক ওজন ও উচ্চতা প্রদান করুন!");
+            return;
+        }
+
+        const heightM = heightCm / 100;
+        const bmi = (weight / (heightM * heightM)).toFixed(1);
+
+        const resBox = document.getElementById('bmi-result');
+        resBox.classList.remove('hidden');
+
+        let status = "";
+        let colorClass = "";
+
+        if (bmi < 18.5) {
+            status = "কম ওজন (Underweight)";
+            colorClass = "bg-amber-100 text-amber-800";
+        } else if (bmi >= 18.5 && bmi <= 24.9) {
+            status = "স্বাভাবিক ওজন (Normal)";
+            colorClass = "bg-emerald-100 text-emerald-800";
+        } else if (bmi >= 25 && bmi <= 29.9) {
+            status = "অতিরিক্ত ওজন (Overweight)";
+            colorClass = "bg-amber-100 text-amber-800";
+        } else {
+            status = "স্থূলতা (Obese)";
+            colorClass = "bg-rose-100 text-rose-800";
+        }
+
+        resBox.className = `mt-3 font-bold text-xs p-2.5 rounded-lg text-center ${colorClass}`;
+        resBox.innerHTML = `আপনার BMI: <span class="text-sm font-black">${bmi}</span> — অবস্থা: ${status}`;
+    }
+
+    // Water Intake Calculation Script
+    function calculateWaterIntake() {
+        const weight = parseFloat(document.getElementById('water-weight').value);
+
+        if (!weight || weight <= 0) {
+            alert("অনুগ্রহ করে সঠিক ওজন প্রদান করুন!");
+            return;
+        }
+
+        // Approx 0.033 Liters per KG
+        const liters = (weight * 0.033).toFixed(1);
+        const glasses = Math.round((liters * 1000) / 250); // 250ml per glass
+
+        const resBox = document.getElementById('water-result');
+        resBox.classList.remove('hidden');
+        resBox.innerHTML = `আপনার দৈনিক পানির প্রয়োজন: <span class="text-sm font-black">${liters} লিটার</span> (প্রায় <span class="text-sm font-black">${glasses} গ্লাস</span>)`;
+    }
+</script>
