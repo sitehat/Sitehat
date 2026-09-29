@@ -1,0 +1,218 @@
+<!-- Module 9: AI & Artificial Intelligence -->
+<div class="space-y-6 animate-fadeIn">
+    
+    <!-- Module Header -->
+    <div class="border-b border-slate-200 pb-4 flex flex-col sm:flex-row justify-between items-start sm:items-center gap-3">
+        <div>
+            <h1 class="text-xl font-bold text-slate-800 flex items-center gap-2">
+                <i class="fa-solid fa-brain text-purple-600"></i> AI ও Artificial Intelligence (কৃত্রিম বুদ্ধিমত্তা)
+            </h1>
+            <p class="text-xs text-slate-500 mt-1">AI Chatbot, Image & Text AI, Document AI, Prompt Library এবং AI প্রডাক্টিভিটি টুলস</p>
+        </div>
+        <!-- Module Internal Search -->
+        <div class="relative w-full sm:w-64">
+            <i class="fa-solid fa-magnifying-glass absolute left-3 top-1/2 -translate-y-1/2 text-slate-400 text-xs"></i>
+            <input type="text" id="ai-search" onkeyup="filterAIServices()" placeholder="যেকোনো AI টুল বা প্রম্পট খুঁজুন..." class="w-full pl-8 pr-3 py-1.5 bg-slate-100 focus:bg-white border border-slate-200 rounded-lg text-xs focus:outline-none focus:border-purple-500">
+        </div>
+    </div>
+
+    <!-- Quick Interactive Prompt Helper Banner -->
+    <div class="bg-gradient-to-r from-purple-600 to-indigo-700 text-white rounded-2xl p-5 shadow-sm space-y-3">
+        <div class="flex items-center gap-2 border-b border-purple-400/50 pb-2">
+            <i class="fa-solid fa-wand-magic-sparkles text-amber-300"></i>
+            <h3 class="font-bold text-sm">ইনস্ট্যান্ট AI প্রম্পট জেনারেটর (Prompt Helper)</h3>
+        </div>
+        <div class="grid grid-cols-1 sm:grid-cols-3 gap-3">
+            <div>
+                <label class="block text-[11px] text-purple-100 mb-1">কাজের ধরণ সিলেক্ট করুন</label>
+                <select id="prompt-task" onchange="generatePrompt()" class="w-full p-2 bg-white text-slate-800 font-semibold rounded-lg text-xs focus:outline-none">
+                    <option value="writer">আর্টিকেল বা ইমেইল রাইটিং</option>
+                    <option value="coder">কোডিং সমস্যা সমাধান</option>
+                    <option value="summary">লম্বা টেক্সট বা ফাইল সামারি</option>
+                    <option value="image">Image Generation Prompt</option>
+                </select>
+            </div>
+            <div class="sm:col-span-2">
+                <label class="block text-[11px] text-purple-100 mb-1">প্রস্তুতকৃত সেরা প্রম্পট (এক ক্লিকে কপি করুন)</label>
+                <div class="flex gap-2">
+                    <input type="text" id="prompt-output" readonly value="Act as a professional writer and draft a formal email about..." class="w-full p-2 bg-white text-slate-800 font-mono text-xs rounded-lg focus:outline-none shrink border-none">
+                    <button onclick="copyPrompt()" class="bg-amber-400 hover:bg-amber-500 text-slate-900 font-bold px-3 py-1.5 rounded-lg text-xs shrink-0 transition flex items-center gap-1">
+                        <i class="fa-solid fa-copy"></i> কপি
+                    </button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Main AI Services Grid -->
+    <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4" id="ai-services-grid">
+        
+        <!-- 1. AI Chat & Assistant -->
+        <div class="ai-card bg-slate-50 border border-slate-200 hover:border-purple-400 rounded-2xl p-4 transition duration-200">
+            <div class="flex items-center gap-3 mb-3">
+                <div class="w-10 h-10 rounded-xl bg-purple-100 text-purple-600 flex items-center justify-center font-bold">
+                    <i class="fa-solid fa-comments text-lg"></i>
+                </div>
+                <div>
+                    <h3 class="font-bold text-sm text-slate-800">AI Chat & Assistant</h3>
+                    <p class="text-[11px] text-slate-500">স্মার্ট চ্যাটবট ও অ্যাসিস্ট্যান্ট</p>
+                </div>
+            </div>
+            <ul class="text-xs space-y-1.5 text-slate-600 mb-3 border-t border-slate-200/60 pt-2.5">
+                <li><a href="https://chatgpt.com" target="_blank" class="hover:text-purple-600 flex items-center justify-between">ChatGPT (OpenAI) <i class="fa-solid fa-arrow-up-right-from-square text-[10px] text-slate-400"></i></a></li>
+                <li><a href="https://gemini.google.com" target="_blank" class="hover:text-purple-600 flex items-center justify-between">Google Gemini <i class="fa-solid fa-arrow-up-right-from-square text-[10px] text-slate-400"></i></a></li>
+                <li><a href="https://claude.ai" target="_blank" class="hover:text-purple-600 flex items-center justify-between">Claude AI (Anthropic) <i class="fa-solid fa-arrow-up-right-from-square text-[10px] text-slate-400"></i></a></li>
+                <li><a href="https://copilot.microsoft.com" target="_blank" class="hover:text-purple-600 flex items-center justify-between">Microsoft Copilot <i class="fa-solid fa-arrow-up-right-from-square text-[10px] text-slate-400"></i></a></li>
+            </ul>
+        </div>
+
+        <!-- 2. Writing AI & Summarizer -->
+        <div class="ai-card bg-slate-50 border border-slate-200 hover:border-blue-400 rounded-2xl p-4 transition duration-200">
+            <div class="flex items-center gap-3 mb-3">
+                <div class="w-10 h-10 rounded-xl bg-blue-100 text-blue-600 flex items-center justify-center font-bold">
+                    <i class="fa-solid fa-pen-nib text-lg"></i>
+                </div>
+                <div>
+                    <h3 class="font-bold text-sm text-slate-800">Writing AI & Summarizer</h3>
+                    <p class="text-[11px] text-slate-500">রাইটিং, গ্রামার ও সামারি টুলস</p>
+                </div>
+            </div>
+            <ul class="text-xs space-y-1.5 text-slate-600 mb-3 border-t border-slate-200/60 pt-2.5">
+                <li><a href="https://quillbot.com" target="_blank" class="hover:text-blue-600 flex items-center justify-between">QuillBot (Paraphrase & Summary) <i class="fa-solid fa-arrow-up-right-from-square text-[10px] text-slate-400"></i></a></li>
+                <li><a href="https://www.grammarly.com" target="_blank" class="hover:text-blue-600 flex items-center justify-between">Grammarly AI Assistant <i class="fa-solid fa-arrow-up-right-from-square text-[10px] text-slate-400"></i></a></li>
+                <li><a href="https://copy.ai" target="_blank" class="hover:text-blue-600 flex items-center justify-between">Copy.ai (কপিরাইটিং ও ব্লগ) <i class="fa-solid fa-arrow-up-right-from-square text-[10px] text-slate-400"></i></a></li>
+            </ul>
+        </div>
+
+        <!-- 3. Image AI & Design -->
+        <div class="ai-card bg-slate-50 border border-slate-200 hover:border-pink-400 rounded-2xl p-4 transition duration-200">
+            <div class="flex items-center gap-3 mb-3">
+                <div class="w-10 h-10 rounded-xl bg-pink-100 text-pink-600 flex items-center justify-center font-bold">
+                    <i class="fa-solid fa-palette text-lg"></i>
+                </div>
+                <div>
+                    <h3 class="font-bold text-sm text-slate-800">Image & Design AI</h3>
+                    <p class="text-[11px] text-slate-500">ছবি তৈরি ও আর্ট জেনারেটর</p>
+                </div>
+            </div>
+            <ul class="text-xs space-y-1.5 text-slate-600 mb-3 border-t border-slate-200/60 pt-2.5">
+                <li><a href="https://midjourney.com" target="_blank" class="hover:text-pink-600 flex items-center justify-between">Midjourney <i class="fa-solid fa-arrow-up-right-from-square text-[10px] text-slate-400"></i></a></li>
+                <li><a href="https://ideogram.ai" target="_blank" class="hover:text-pink-600 flex items-center justify-between">Ideogram AI <i class="fa-solid fa-arrow-up-right-from-square text-[10px] text-slate-400"></i></a></li>
+                <li><a href="https://www.canva.com/ai-image-generator" target="_blank" class="hover:text-pink-600 flex items-center justify-between">Canva Magic Studio AI <i class="fa-solid fa-arrow-up-right-from-square text-[10px] text-slate-400"></i></a></li>
+                <li><a href="https://leonardo.ai" target="_blank" class="hover:text-pink-600 flex items-center justify-between">Leonardo.Ai <i class="fa-solid fa-arrow-up-right-from-square text-[10px] text-slate-400"></i></a></li>
+            </ul>
+        </div>
+
+        <!-- 4. Document AI & AI Search -->
+        <div class="ai-card bg-slate-50 border border-slate-200 hover:border-emerald-400 rounded-2xl p-4 transition duration-200">
+            <div class="flex items-center gap-3 mb-3">
+                <div class="w-10 h-10 rounded-xl bg-emerald-100 text-emerald-600 flex items-center justify-center font-bold">
+                    <i class="fa-solid fa-file-lines text-lg"></i>
+                </div>
+                <div>
+                    <h3 class="font-bold text-sm text-slate-800">Document AI & Search</h3>
+                    <p class="text-[11px] text-slate-500">PDF রিডার ও স্মার্ট সার্চ</p>
+                </div>
+            </div>
+            <ul class="text-xs space-y-1.5 text-slate-600 mb-3 border-t border-slate-200/60 pt-2.5">
+                <li><a href="https://perplexity.ai" target="_blank" class="hover:text-emerald-600 flex items-center justify-between">Perplexity.ai (স্মার্ট সার্চ) <i class="fa-solid fa-arrow-up-right-from-square text-[10px] text-slate-400"></i></a></li>
+                <li><a href="https://www.chatpdf.com" target="_blank" class="hover:text-emerald-600 flex items-center justify-between">ChatPDF (PDF ফাইল চ্যাট) <i class="fa-solid fa-arrow-up-right-from-square text-[10px] text-slate-400"></i></a></li>
+                <li><a href="https://humata.ai" target="_blank" class="hover:text-emerald-600 flex items-center justify-between">Humata AI (ডকুমেন্ট অ্যানালাইসিস) <i class="fa-solid fa-arrow-up-right-from-square text-[10px] text-slate-400"></i></a></li>
+            </ul>
+        </div>
+
+        <!-- 5. AI Coding & Automation -->
+        <div class="ai-card bg-slate-50 border border-slate-200 hover:border-amber-400 rounded-2xl p-4 transition duration-200">
+            <div class="flex items-center gap-3 mb-3">
+                <div class="w-10 h-10 rounded-xl bg-amber-100 text-amber-700 flex items-center justify-center font-bold">
+                    <i class="fa-solid fa-code text-lg"></i>
+                </div>
+                <div>
+                    <h3 class="font-bold text-sm text-slate-800">AI Coding & Automation</h3>
+                    <p class="text-[11px] text-slate-500">প্রোগ্রামিং ও অটোমেশন টুলস</p>
+                </div>
+            </div>
+            <ul class="text-xs space-y-1.5 text-slate-600 mb-3 border-t border-slate-200/60 pt-2.5">
+                <li><a href="https://github.com/features/copilot" target="_blank" class="hover:text-amber-700 flex items-center justify-between">GitHub Copilot <i class="fa-solid fa-arrow-up-right-from-square text-[10px] text-slate-400"></i></a></li>
+                <li><a href="https://v0.dev" target="_blank" class="hover:text-amber-700 flex items-center justify-between">v0.dev (UI Generator) <i class="fa-solid fa-arrow-up-right-from-square text-[10px] text-slate-400"></i></a></li>
+                <li><a href="https://zapier.com" target="_blank" class="hover:text-amber-700 flex items-center justify-between">Zapier AI Automation <i class="fa-solid fa-arrow-up-right-from-square text-[10px] text-slate-400"></i></a></li>
+            </ul>
+        </div>
+
+        <!-- 6. AI Translation, Education & Productivity -->
+        <div class="ai-card bg-slate-50 border border-slate-200 hover:border-teal-400 rounded-2xl p-4 transition duration-200">
+            <div class="flex items-center gap-3 mb-3">
+                <div class="w-10 h-10 rounded-xl bg-teal-100 text-teal-600 flex items-center justify-center font-bold">
+                    <i class="fa-solid fa-language text-lg"></i>
+                </div>
+                <div>
+                    <h3 class="font-bold text-sm text-slate-800">Translation & Education</h3>
+                    <p class="text-[11px] text-slate-500">অনুবাদ ও শিক্ষা বিষয়ক AI</p>
+                </div>
+            </div>
+            <ul class="text-xs space-y-1.5 text-slate-600 mb-3 border-t border-slate-200/60 pt-2.5">
+                <li><a href="https://www.deepl.com/translator" target="_blank" class="hover:text-teal-600 flex items-center justify-between">DeepL Translator <i class="fa-solid fa-arrow-up-right-from-square text-[10px] text-slate-400"></i></a></li>
+                <li><a href="https://gamma.app" target="_blank" class="hover:text-teal-600 flex items-center justify-between">Gamma AI (PPT & Presentation) <i class="fa-solid fa-arrow-up-right-from-square text-[10px] text-slate-400"></i></a></li>
+                <li><a href="https://notion.so" target="_blank" class="hover:text-teal-600 flex items-center justify-between">Notion AI Productivity <i class="fa-solid fa-arrow-up-right-from-square text-[10px] text-slate-400"></i></a></li>
+            </ul>
+        </div>
+
+    </div>
+
+    <!-- AI Prompt Library Reference Widget -->
+    <div class="bg-white p-5 rounded-2xl border border-slate-200 shadow-sm mt-6">
+        <h3 class="font-bold text-sm text-slate-800 mb-2 flex items-center gap-2">
+            <i class="fa-solid fa-book-bookmark text-purple-600"></i> Prompt Library & শিখুন কীভাবে ব্যবহার করবেন
+        </h3>
+        <p class="text-xs text-slate-500 mb-3">AI থেকে ১০০% নিখুঁত আউটপুট পাওয়ার জন্য কার্যকর কিছু রেডিমেড প্রম্পট লাইব্রেরি:</p>
+        
+        <div class="grid grid-cols-1 sm:grid-cols-2 gap-3">
+            <div class="p-3 bg-slate-50 rounded-xl border border-slate-200 text-xs">
+                <span class="font-bold text-purple-700 block mb-1">💡 লেখার কাজ সহজ করতে:</span>
+                <p class="text-slate-600 text-[11px]">"Act as a professional proofreader. Fix all grammatical errors and enhance the clarity of this Bangla text: [আপনার টেক্সট]"</p>
+            </div>
+            <div class="p-3 bg-slate-50 rounded-xl border border-slate-200 text-xs">
+                <span class="font-bold text-purple-700 block mb-1">💻 কোডিং বা ফাইল বুঝতে:</span>
+                <p class="text-slate-600 text-[11px]">"Explain this code step-by-step in simple language like I am a beginner: [আপনার কোড]"</p>
+            </div>
+        </div>
+    </div>
+
+</div>
+
+<!-- Internal Module JavaScript -->
+<script>
+    // Live Search inside AI Module
+    function filterAIServices() {
+        const query = document.getElementById('ai-search').value.toLowerCase();
+        const cards = document.querySelectorAll('.ai-card');
+        
+        cards.forEach(card => {
+            const text = card.innerText.toLowerCase();
+            card.style.display = text.includes(query) ? 'block' : 'none';
+        });
+    }
+
+    // Dynamic Prompt Generator Script
+    function generatePrompt() {
+        const task = document.getElementById('prompt-task').value;
+        const outputEl = document.getElementById('prompt-output');
+
+        const prompts = {
+            'writer': 'Act as a professional content writer. Draft an engaging article on [Topic] with clear headings, concise tone, and bullet points.',
+            'coder': 'Act as a senior software developer. Identify bugs and optimize the performance of the following JavaScript code: [Paste Code]',
+            'summary': 'Please summarize the following document into 5 key takeaways in bullet points: [Paste Text]',
+            'image': 'A hyper-realistic 8k photo of a serene futuristic city in Bangladesh, cinematic lighting, vivid colors, highly detailed.'
+        };
+
+        outputEl.value = prompts[task] || prompts['writer'];
+    }
+
+    // Copy Prompt Function
+    function copyPrompt() {
+        const promptText = document.getElementById('prompt-output');
+        promptText.select();
+        document.execCommand('copy');
+        alert('প্রম্পটটি সফলভাবে কপি হয়েছে!');
+    }
+</script>
