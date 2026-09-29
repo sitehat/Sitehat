@@ -1,0 +1,262 @@
+<!-- Module 13: Cyber Security & Privacy -->
+<div class="space-y-6 animate-fadeIn">
+    
+    <!-- Module Header -->
+    <div class="border-b border-slate-200 pb-4 flex flex-col sm:flex-row justify-between items-start sm:items-center gap-3">
+        <div>
+            <h1 class="text-xl font-bold text-slate-800 flex items-center gap-2">
+                <i class="fa-solid fa-shield-halved text-emerald-600"></i> সাইবার নিরাপত্তা ও প্রাইভেসি (Cyber Security & Privacy)
+            </h1>
+            <p class="text-xs text-slate-500 mt-1">অ্যাকাউন্ট সিকিউরিটি, ২FA, ফিশিং প্রতিরোধ, ফোন ও ব্রাউজার প্রাইভেসি এবং ডাটা প্রোটেকশন</p>
+        </div>
+        <!-- Module Internal Search -->
+        <div class="relative w-full sm:w-64">
+            <i class="fa-solid fa-magnifying-glass absolute left-3 top-1/2 -translate-y-1/2 text-slate-400 text-xs"></i>
+            <input type="text" id="security-search" onkeyup="filterSecurityServices()" placeholder="নিরাপত্তা সেবা বা টপিক খুঁজুন..." class="w-full pl-8 pr-3 py-1.5 bg-slate-100 focus:bg-white border border-slate-200 rounded-lg text-xs focus:outline-none focus:border-emerald-500">
+        </div>
+    </div>
+
+    <!-- Quick Password Strength Checker & Security Helper -->
+    <div class="bg-gradient-to-r from-emerald-600 via-teal-700 to-slate-800 text-white rounded-2xl p-5 shadow-sm space-y-4">
+        <div class="flex flex-col sm:flex-row sm:items-center justify-between gap-3 border-b border-white/20 pb-3">
+            <div class="flex items-center gap-3">
+                <div class="text-3xl">
+                    <i class="fa-solid fa-lock text-emerald-300"></i>
+                </div>
+                <div>
+                    <h3 class="font-bold text-base">ইনস্ট্যান্ট পাসওয়ার্ড স্ট্রেন্থ চেকার (Password Checker)</h3>
+                    <p class="text-xs text-emerald-100">আপনার পাসওয়ার্ড কতটা শক্তিশালী তা সরাসরি পরীক্ষা করে দেখুন</p>
+                </div>
+            </div>
+            <a href="https://haveibeenpwned.com" target="_blank" class="bg-white/20 hover:bg-white/30 backdrop-blur-md px-3 py-1.5 rounded-xl text-xs font-semibold transition text-center self-start sm:self-auto">
+                <i class="fa-solid fa-user-shield text-emerald-200"></i> ইমেইল লিক হয়েছে কি না যাচাই করুন
+            </a>
+        </div>
+
+        <!-- Password Strength Tool -->
+        <div class="grid grid-cols-1 sm:grid-cols-3 gap-3 items-center">
+            <div class="sm:col-span-2 space-y-1.5">
+                <label class="block text-[11px] text-emerald-100">একটি নমুনা পাসওয়ার্ড টাইপ করুন:</label>
+                <div class="relative">
+                    <input type="password" id="pass-input" onkeyup="checkPasswordStrength()" placeholder="যেমন: P@ssw0rd#2026!" class="w-full p-2.5 pr-10 bg-white text-slate-800 font-mono text-xs rounded-lg focus:outline-none">
+                    <button type="button" onclick="togglePassVisibility()" class="absolute right-3 top-1/2 -translate-y-1/2 text-slate-500 hover:text-slate-800 text-xs">
+                        <i class="fa-solid fa-eye" id="pass-toggle-icon"></i>
+                    </button>
+                </div>
+            </div>
+            <div>
+                <label class="block text-[11px] text-emerald-100 mb-1">পাসওয়ার্ডের স্থায়িত্ব:</label>
+                <div id="pass-strength-badge" class="p-2.5 bg-slate-900/60 backdrop-blur-md text-slate-300 font-bold rounded-lg text-xs text-center border border-white/10 flex items-center justify-center">
+                    পাসওয়ার্ড ইনপুট দিন
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Main Cyber Security Services Grid -->
+    <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4" id="security-services-grid">
+        
+        <!-- 1. Password Safety & 2FA -->
+        <div class="security-card bg-slate-50 border border-slate-200 hover:border-emerald-400 rounded-2xl p-4 transition duration-200">
+            <div class="flex items-center gap-3 mb-3">
+                <div class="w-10 h-10 rounded-xl bg-emerald-100 text-emerald-600 flex items-center justify-center font-bold">
+                    <i class="fa-solid fa-key text-lg"></i>
+                </div>
+                <div>
+                    <h3 class="font-bold text-sm text-slate-800">Password Safety & 2FA</h3>
+                    <p class="text-[11px] text-slate-500">পাসওয়ার্ড সুরক্ষা ও টু-ফ্যাক্টর অথেনটিকেশন</p>
+                </div>
+            </div>
+            <ul class="text-xs space-y-1.5 text-slate-600 mb-3 border-t border-slate-200/60 pt-2.5">
+                <li><a href="https://bitwarden.com" target="_blank" class="hover:text-emerald-600 flex items-center justify-between">Bitwarden (ফ্রি ওপেন সোর্স পাসওয়ার্ড ম্যানেজার) <i class="fa-solid fa-arrow-up-right-from-square text-[10px] text-slate-400"></i></a></li>
+                <li><a href="https://authy.com" target="_blank" class="hover:text-emerald-600 flex items-center justify-between">Twilio Authy (২FA অ্যাপ) <i class="fa-solid fa-arrow-up-right-from-square text-[10px] text-slate-400"></i></a></li>
+                <li><a href="https://safety.google/authentication/" target="_blank" class="hover:text-emerald-600 flex items-center justify-between">Google 2-Step Verification সেটআপ <i class="fa-solid fa-arrow-up-right-from-square text-[10px] text-slate-400"></i></a></li>
+            </ul>
+        </div>
+
+        <!-- 2. Account Security & Phishing -->
+        <div class="security-card bg-slate-50 border border-slate-200 hover:border-rose-400 rounded-2xl p-4 transition duration-200">
+            <div class="flex items-center gap-3 mb-3">
+                <div class="w-10 h-10 rounded-xl bg-rose-100 text-rose-600 flex items-center justify-center font-bold">
+                    <i class="fa-solid fa-user-shield text-lg"></i>
+                </div>
+                <div>
+                    <h3 class="font-bold text-sm text-slate-800">Account Security & Phishing</h3>
+                    <p class="text-[11px] text-slate-500">অ্যাকাউন্ট নিরাপত্তা ও ফিশিং স্ক্যাম প্রতিরোধ</p>
+                </div>
+            </div>
+            <ul class="text-xs space-y-1.5 text-slate-600 mb-3 border-t border-slate-200/60 pt-2.5">
+                <li><a href="https://virustotal.com" target="_blank" class="hover:text-rose-600 flex items-center justify-between">VirusTotal (সন্দেহজনক লিংক ও ফাইল স্ক্যানার) <i class="fa-solid fa-arrow-up-right-from-square text-[10px] text-slate-400"></i></a></li>
+                <li><a href="https://phishbooth.com" target="_blank" class="hover:text-rose-600 flex items-center justify-between">ফিশিং ওয়েবসাইট চেনার টিপস <i class="fa-solid fa-angle-right text-[10px] text-slate-400"></i></a></li>
+                <li><a href="https://myaccount.google.com/security-checkup" target="_blank" class="hover:text-rose-600 flex items-center justify-between">Google Security Checkup <i class="fa-solid fa-arrow-up-right-from-square text-[10px] text-slate-400"></i></a></li>
+            </ul>
+        </div>
+
+        <!-- 3. Phone & Device Security -->
+        <div class="security-card bg-slate-50 border border-slate-200 hover:border-sky-400 rounded-2xl p-4 transition duration-200">
+            <div class="flex items-center gap-3 mb-3">
+                <div class="w-10 h-10 rounded-xl bg-sky-100 text-sky-600 flex items-center justify-center font-bold">
+                    <i class="fa-solid fa-mobile-screen-button text-lg"></i>
+                </div>
+                <div>
+                    <h3 class="font-bold text-sm text-slate-800">Phone & Device Security</h3>
+                    <p class="text-[11px] text-slate-500">মোবাইল ও ডিভাইস সুরক্ষার টিপস</p>
+                </div>
+            </div>
+            <ul class="text-xs space-y-1.5 text-slate-600 mb-3 border-t border-slate-200/60 pt-2.5">
+                <li><a href="https://www.google.com/android/find" target="_blank" class="hover:text-sky-600 flex items-center justify-between">Find My Device (হারানো ফোন ট্র্যাক করা) <i class="fa-solid fa-arrow-up-right-from-square text-[10px] text-slate-400"></i></a></li>
+                <li><a href="https://www.icloud.com/find" target="_blank" class="hover:text-sky-600 flex items-center justify-between">Apple Find My iPhone <i class="fa-solid fa-arrow-up-right-from-square text-[10px] text-slate-400"></i></a></li>
+                <li><a href="#" class="hover:text-sky-600 flex items-center justify-between">মোবাইলের অপ্রয়োজনীয় অ্যাপ পারমিশন চেক <i class="fa-solid fa-angle-right text-[10px] text-slate-400"></i></a></li>
+            </ul>
+        </div>
+
+        <!-- 4. Browser Privacy & Safe Browsing -->
+        <div class="security-card bg-slate-50 border border-slate-200 hover:border-indigo-400 rounded-2xl p-4 transition duration-200">
+            <div class="flex items-center gap-3 mb-3">
+                <div class="w-10 h-10 rounded-xl bg-indigo-100 text-indigo-600 flex items-center justify-center font-bold">
+                    <i class="fa-solid fa-globe text-lg"></i>
+                </div>
+                <div>
+                    <h3 class="font-bold text-sm text-slate-800">Browser Privacy & Safe Browsing</h3>
+                    <p class="text-[11px] text-slate-500">নিরাপদ ব্রাউজিং ও ট্র্যাকার ব্লক</p>
+                </div>
+            </div>
+            <ul class="text-xs space-y-1.5 text-slate-600 mb-3 border-t border-slate-200/60 pt-2.5">
+                <li><a href="https://brave.com" target="_blank" class="hover:text-indigo-600 flex items-center justify-between">Brave Browser (প্রাইভেসি কেন্দ্রিক ব্রাউজার) <i class="fa-solid fa-arrow-up-right-from-square text-[10px] text-slate-400"></i></a></li>
+                <li><a href="https://ublockorigin.com" target="_blank" class="hover:text-indigo-600 flex items-center justify-between">uBlock Origin (অ্যাড ও ট্র্যাকার ব্লকার) <i class="fa-solid fa-arrow-up-right-from-square text-[10px] text-slate-400"></i></a></li>
+                <li><a href="https://coveryourtracks.eff.org" target="_blank" class="hover:text-indigo-600 flex items-center justify-between">EFF Cover Your Tracks (ব্রাউজার টেস্ট) <i class="fa-solid fa-arrow-up-right-from-square text-[10px] text-slate-400"></i></a></li>
+            </ul>
+        </div>
+
+        <!-- 5. Online Privacy & Data Protection -->
+        <div class="security-card bg-slate-50 border border-slate-200 hover:border-amber-400 rounded-2xl p-4 transition duration-200">
+            <div class="flex items-center gap-3 mb-3">
+                <div class="w-10 h-10 rounded-xl bg-amber-100 text-amber-600 flex items-center justify-center font-bold">
+                    <i class="fa-solid fa-user-lock text-lg"></i>
+                </div>
+                <div>
+                    <h3 class="font-bold text-sm text-slate-800">Online Privacy & Data Protection</h3>
+                    <p class="text-[11px] text-slate-500">অনলাইন প্রাইভেসি ও ব্যক্তিগত ডাটা সুরক্ষা</p>
+                </div>
+            </div>
+            <ul class="text-xs space-y-1.5 text-slate-600 mb-3 border-t border-slate-200/60 pt-2.5">
+                <li><a href="https://privacyguides.org" target="_blank" class="hover:text-amber-600 flex items-center justify-between">Privacy Guides (প্রাইভেসি গাইডলাইন) <i class="fa-solid fa-arrow-up-right-from-square text-[10px] text-slate-400"></i></a></li>
+                <li><a href="https://proton.me/mail" target="_blank" class="hover:text-amber-600 flex items-center justify-between">ProtonMail (এনক্রিপ্টেড সেফ ইমেইল) <i class="fa-solid fa-arrow-up-right-from-square text-[10px] text-slate-400"></i></a></li>
+                <li><a href="https://signal.org" target="_blank" class="hover:text-amber-600 flex items-center justify-between">Signal Messenger (সুরক্ষিত মেসেজিং) <i class="fa-solid fa-arrow-up-right-from-square text-[10px] text-slate-400"></i></a></li>
+            </ul>
+        </div>
+
+        <!-- 6. Scam Awareness & Backup -->
+        <div class="security-card bg-slate-50 border border-slate-200 hover:border-purple-400 rounded-2xl p-4 transition duration-200">
+            <div class="flex items-center gap-3 mb-3">
+                <div class="w-10 h-10 rounded-xl bg-purple-100 text-purple-600 flex items-center justify-center font-bold">
+                    <i class="fa-solid fa-floppy-disk text-lg"></i>
+                </div>
+                <div>
+                    <h3 class="font-bold text-sm text-slate-800">Scam Awareness & Backup</h3>
+                    <p class="text-[11px] text-slate-500">অনলাইন প্রতারণা সচেতনতা ও ডাটা ব্যাকআপ</p>
+                </div>
+            </div>
+            <ul class="text-xs space-y-1.5 text-slate-600 mb-3 border-t border-slate-200/60 pt-2.5">
+                <li><a href="https://drive.google.com" target="_blank" class="hover:text-purple-600 flex items-center justify-between">Google Drive ക്ലൗഡ് ব্যাকআপ <i class="fa-solid fa-arrow-up-right-from-square text-[10px] text-slate-400"></i></a></li>
+                <li><a href="#" class="hover:text-purple-600 flex items-center justify-between">৩-২-১ ডাটা ব্যাকআপ রুলস শিখুন <i class="fa-solid fa-angle-right text-[10px] text-slate-400"></i></a></li>
+                <li><a href="#" class="hover:text-purple-600 flex items-center justify-between">বিকাশ/নগদ ও ওটিপি (OTP) জালিয়াতি সতর্কতা <i class="fa-solid fa-angle-right text-[10px] text-slate-400"></i></a></li>
+            </ul>
+        </div>
+
+    </div>
+
+    <!-- Cyber Crime Emergency Helpline Banner -->
+    <div class="bg-white p-5 rounded-2xl border border-slate-200 shadow-sm mt-6">
+        <h3 class="font-bold text-sm text-slate-800 mb-2 flex items-center gap-2">
+            <i class="fa-solid fa-land-mine-on text-rose-600"></i> বাংলাদেশে সাইবার অপরাধের শিকার হলে আইনি সহায়তা
+        </h3>
+        <p class="text-xs text-slate-500 mb-3">ফেসবুক হ্যাক, ব্ল্যাকমেইল বা আর্থিক জালিয়াতির শিকার হলে সরাসরি পুলিশের সহায়তা নিন:</p>
+        
+        <div class="grid grid-cols-1 sm:grid-cols-3 gap-3 text-xs">
+            <div class="bg-rose-50 p-3 rounded-xl border border-rose-200 flex flex-col justify-between">
+                <div>
+                    <span class="font-bold text-slate-800 block">জাতীয় সাইবার হেল্পলাইন</span>
+                    <span class="text-[11px] text-slate-500">২৪ ঘণ্টা তাৎক্ষণিক তথ্য ও সেবা</span>
+                </div>
+                <a href="tel:13219" class="mt-2 bg-rose-600 hover:bg-rose-700 text-white font-bold py-1 px-3 rounded-lg text-center transition">১৩২১৯</a>
+            </div>
+
+            <div class="bg-sky-50 p-3 rounded-xl border border-sky-200 flex flex-col justify-between">
+                <div>
+                    <span class="font-bold text-slate-800 block">পুলিশ সাইবার সাপোর্ট ফর উইমেন</span>
+                    <span class="text-[11px] text-slate-500">নারীদের জন্য নিরাপদ সাইবার সেবা</span>
+                </div>
+                <a href="tel:01320000888" class="mt-2 bg-sky-600 hover:bg-sky-700 text-white font-bold py-1 px-3 rounded-lg text-center transition">০১৩২০০০০৮৮৮</a>
+            </div>
+
+            <div class="bg-emerald-50 p-3 rounded-xl border border-emerald-200 flex flex-col justify-between">
+                <div>
+                    <span class="font-bold text-slate-800 block">BGD e-GOV CIRT Portal</span>
+                    <span class="text-[11px] text-slate-500">সরকারি সাইবার ইন্সিডেন্ট রিপোর্ট</span>
+                </div>
+                <a href="https://www.cirt.gov.bd/report-an-incident/" target="_blank" class="mt-2 bg-emerald-600 hover:bg-emerald-700 text-white font-bold py-1 px-3 rounded-lg text-center transition">অনলাইন রিপোর্ট করুন</a>
+            </div>
+        </div>
+    </div>
+
+</div>
+
+<!-- Internal Module JavaScript -->
+<script>
+    // Live Search inside Security Module
+    function filterSecurityServices() {
+        const query = document.getElementById('security-search').value.toLowerCase();
+        const cards = document.querySelectorAll('.security-card');
+        
+        cards.forEach(card => {
+            const text = card.innerText.toLowerCase();
+            card.style.display = text.includes(query) ? 'block' : 'none';
+        });
+    }
+
+    // Toggle Password Visibility
+    function togglePassVisibility() {
+        const passInput = document.getElementById('pass-input');
+        const icon = document.getElementById('pass-toggle-icon');
+        if (passInput.type === 'password') {
+            passInput.type = 'text';
+            icon.classList.remove('fa-eye');
+            icon.classList.add('fa-eye-slash');
+        } else {
+            passInput.type = 'password';
+            icon.classList.remove('fa-eye-slash');
+            icon.classList.add('fa-eye');
+        }
+    }
+
+    // Live Password Strength Checker
+    function checkPasswordStrength() {
+        const val = document.getElementById('pass-input').value;
+        const badge = document.getElementById('pass-strength-badge');
+
+        if (!val) {
+            badge.innerText = 'পাসওয়ার্ড ইনপুট দিন';
+            badge.className = 'p-2.5 bg-slate-900/60 backdrop-blur-md text-slate-300 font-bold rounded-lg text-xs text-center border border-white/10 flex items-center justify-center';
+            return;
+        }
+
+        let score = 0;
+        if (val.length >= 8) score++;
+        if (val.length >= 12) score++;
+        if (/[A-Z]/.test(val)) score++;
+        if (/[0-9]/.test(val)) score++;
+        if (/[^A-Za-z0-9]/.test(val)) score++;
+
+        if (score <= 2) {
+            badge.innerText = 'খুবই দুর্বল (Weak) ⚠️';
+            badge.className = 'p-2.5 bg-rose-600 text-white font-bold rounded-lg text-xs text-center border border-white/10 flex items-center justify-center animate-pulse';
+        } else if (score === 3 || score === 4) {
+            badge.innerText = 'মাঝারি (Medium) 🟡';
+            badge.className = 'p-2.5 bg-amber-500 text-slate-900 font-bold rounded-lg text-xs text-center border border-white/10 flex items-center justify-center';
+        } else {
+            badge.innerText = 'খুবই শক্তিশালী (Strong) 🛡️';
+            badge.className = 'p-2.5 bg-emerald-500 text-slate-900 font-bold rounded-lg text-xs text-center border border-white/10 flex items-center justify-center';
+        }
+    }
+</script>
