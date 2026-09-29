@@ -1,0 +1,204 @@
+<!-- Module 26: Events, Calendar & Schedules -->
+<div class="space-y-6 animate-fadeIn">
+    
+    <!-- Module Header -->
+    <div class="border-b border-slate-200 pb-4 flex flex-col sm:flex-row justify-between items-start sm:items-center gap-3">
+        <div>
+            <h1 class="text-xl font-bold text-slate-800 flex items-center gap-2">
+                <i class="fa-solid fa-calendar-check text-indigo-600"></i> ইভেন্ট, ক্যালেন্ডার ও সময়সূচি
+            </h1>
+            <p class="text-xs text-slate-500 mt-1">সরকারি ছুটি, ইভেন্ট, পরীক্ষার তারিখ, আবেদনের শেষ সময় ও পরিবহন সময়সূচি</p>
+        </div>
+    </div>
+
+    <!-- Category Filter Tabs -->
+    <div class="flex items-center gap-2 overflow-x-auto pb-2 border-b border-slate-200 text-xs font-semibold scrollbar-none">
+        <button onclick="switchEventTab('all')" class="event-tab active px-4 py-2 rounded-xl border border-indigo-600 bg-indigo-600 text-white whitespace-nowrap transition">
+            <i class="fa-solid fa-layer-group"></i> সকল আপডেট
+        </button>
+        <button onclick="switchEventTab('holidays')" class="event-tab px-4 py-2 rounded-xl border border-slate-200 bg-slate-50 text-slate-600 hover:bg-slate-100 whitespace-nowrap transition">
+            <i class="fa-solid fa-umbrella-beach text-rose-500"></i> সরকারি ছুটি (Public Holidays)
+        </button>
+        <button onclick="switchEventTab('exams')" class="event-tab px-4 py-2 rounded-xl border border-slate-200 bg-slate-50 text-slate-600 hover:bg-slate-100 whitespace-nowrap transition">
+            <i class="fa-solid fa-graduation-cap text-amber-500"></i> পরীক্ষা ও আবেদন (Deadlines)
+        </button>
+        <button onclick="switchEventTab('transport')" class="event-tab px-4 py-2 rounded-xl border border-slate-200 bg-slate-50 text-slate-600 hover:bg-slate-100 whitespace-nowrap transition">
+            <i class="fa-solid fa-train-subway text-emerald-500"></i> পরিবহন সময়সূচি (Transport)
+        </button>
+    </div>
+
+    <!-- Main Content Grid -->
+    <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-5">
+
+        <!-- 1. Upcoming Public Holidays -->
+        <div class="event-card cat-holidays bg-slate-50 border border-slate-200 rounded-2xl p-4 space-y-3">
+            <div class="flex items-center justify-between border-b border-slate-200/80 pb-2">
+                <h3 class="font-bold text-xs text-slate-800 flex items-center gap-2">
+                    <i class="fa-solid fa-calendar-minus text-rose-600"></i> আসন্ন সরকারি ছুটি
+                </h3>
+                <span class="text-[10px] text-slate-400">বাংলাদেশ</span>
+            </div>
+            <div class="space-y-2">
+                <div class="p-2.5 bg-white border border-slate-100 rounded-xl flex items-center justify-between">
+                    <div>
+                        <span class="font-bold text-xs text-slate-800 block">দুর্গাপূজা (বিজয়াদশমী)</span>
+                        <span class="text-[10px] text-slate-400">সাধারণ ছুটি</span>
+                    </div>
+                    <span class="px-2 py-1 bg-rose-50 text-rose-600 border border-rose-100 rounded-lg text-[10px] font-bold">১৩ অক্টোবর</span>
+                </div>
+                <div class="p-2.5 bg-white border border-slate-100 rounded-xl flex items-center justify-between">
+                    <div>
+                        <span class="font-bold text-xs text-slate-800 block">বিজয় দিবস</span>
+                        <span class="text-[10px] text-slate-400">জাতীয় দিবস</span>
+                    </div>
+                    <span class="px-2 py-1 bg-rose-50 text-rose-600 border border-rose-100 rounded-lg text-[10px] font-bold">১৬ ডিসেম্বর</span>
+                </div>
+                <div class="p-2.5 bg-white border border-slate-100 rounded-xl flex items-center justify-between">
+                    <div>
+                        <span class="font-bold text-xs text-slate-800 block">যীশু খ্রীষ্টের জন্মদিন (বড়দিন)</span>
+                        <span class="text-[10px] text-slate-400">ধর্মীয় ছুটি</span>
+                    </div>
+                    <span class="px-2 py-1 bg-rose-50 text-rose-600 border border-rose-100 rounded-lg text-[10px] font-bold">২৫ ডিসেম্বর</span>
+                </div>
+            </div>
+        </div>
+
+        <!-- 2. Exam Dates & Application Deadlines -->
+        <div class="event-card cat-exams bg-slate-50 border border-slate-200 rounded-2xl p-4 space-y-3">
+            <div class="flex items-center justify-between border-b border-slate-200/80 pb-2">
+                <h3 class="font-bold text-xs text-slate-800 flex items-center gap-2">
+                    <i class="fa-solid fa-clock-rotate-left text-amber-600"></i> পরীক্ষা ও আবেদনের ডেডলাইন
+                </h3>
+                <span class="text-[10px] text-slate-400">গুরুত্বপূর্ণ সময়সূচি</span>
+            </div>
+            <div class="space-y-2">
+                <div class="p-2.5 bg-white border border-slate-100 rounded-xl space-y-1">
+                    <div class="flex justify-between items-center">
+                        <span class="font-bold text-xs text-slate-800">বিসিএস (BCS) প্রিলিমিনারি পরীক্ষা</span>
+                        <span class="text-[10px] font-semibold text-amber-600">আবেদন চলছে</span>
+                    </div>
+                    <div class="flex justify-between text-[10px] text-slate-500">
+                        <span>আবেদনের শেষ তারিখ:</span>
+                        <span class="font-semibold text-slate-700">১৫ নভেম্বর</span>
+                    </div>
+                </div>
+                <div class="p-2.5 bg-white border border-slate-100 rounded-xl space-y-1">
+                    <div class="flex justify-between items-center">
+                        <span class="font-bold text-xs text-slate-800">বিশ্ববিদ্যালয় ভর্তি পরীক্ষা</span>
+                        <span class="text-[10px] font-semibold text-rose-600">জরুরি</span>
+                    </div>
+                    <div class="flex justify-between text-[10px] text-slate-500">
+                        <span>আবেদনের শেষ তারিখ:</span>
+                        <span class="font-semibold text-slate-700">২০ অক্টোবর</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- 3. Transport Schedule (Metro & Train) -->
+        <div class="event-card cat-transport bg-slate-50 border border-slate-200 rounded-2xl p-4 space-y-3">
+            <div class="flex items-center justify-between border-b border-slate-200/80 pb-2">
+                <h3 class="font-bold text-xs text-slate-800 flex items-center gap-2">
+                    <i class="fa-solid fa-train-subway text-emerald-600"></i> পরিবহন সময়সূচি (Transport)
+                </h3>
+                <span class="text-[10px] text-slate-400">লাইভ ট্র্যাকিং</span>
+            </div>
+            <div class="space-y-2">
+                <div class="p-2.5 bg-white border border-slate-100 rounded-xl flex items-center justify-between">
+                    <div class="flex items-center gap-2">
+                        <i class="fa-solid fa-train text-emerald-500"></i>
+                        <div>
+                            <span class="font-bold text-xs text-slate-800 block">ঢাকা মেট্রোরেল (MRT 6)</span>
+                            <span class="text-[10px] text-slate-400">উত্তরা উত্তর ⇄ মতিঝিল</span>
+                        </div>
+                    </div>
+                    <span class="text-[10px] font-semibold text-emerald-700 bg-emerald-50 px-2 py-1 rounded-lg">সকাল ৭:১০ - রাত ৯:০০</span>
+                </div>
+                <div class="p-2.5 bg-white border border-slate-100 rounded-xl flex items-center justify-between">
+                    <div class="flex items-center gap-2">
+                        <i class="fa-solid fa-plane text-sky-500"></i>
+                        <div>
+                            <span class="font-bold text-xs text-slate-800 block">অভ্যন্তরীণ ফ্লাইট সূচি</span>
+                            <span class="text-[10px] text-slate-400">ঢাকা, চট্টগ্রাম, কক্সবাজার</span>
+                        </div>
+                    </div>
+                    <button onclick="showTransportDetails()" class="text-[10px] text-indigo-600 font-semibold hover:underline">তালিকা দেখুন</button>
+                </div>
+            </div>
+            <div id="transport-modal-info" class="p-2 bg-emerald-50 border border-emerald-100 rounded-xl text-[11px] text-emerald-900 hidden">
+                সর্বশেষ ফ্লাইট ও আন্তঃনগর ট্রেনের সূচি লোড করা হয়েছে।
+            </div>
+        </div>
+
+        <!-- 4. Dynamic Event Reminder / Note -->
+        <div class="event-card cat-holidays bg-slate-50 border border-slate-200 rounded-2xl p-4 space-y-3">
+            <div class="flex items-center justify-between border-b border-slate-200/80 pb-2">
+                <h3 class="font-bold text-xs text-slate-800 flex items-center gap-2">
+                    <i class="fa-solid fa-bell text-indigo-600"></i> ব্যক্তিগত ইভেন্ট রিমাইন্ডার
+                </h3>
+                <span class="text-[10px] text-slate-400">কাস্টম ইভেন্ট</span>
+            </div>
+            <div class="space-y-2">
+                <input type="text" id="event-title" placeholder="ইভেন্টের নাম লিখুন..." class="w-full px-3 py-1.5 bg-white border border-slate-200 rounded-xl text-xs focus:outline-none focus:border-indigo-500">
+                <input type="date" id="event-date" class="w-full px-3 py-1.5 bg-white border border-slate-200 rounded-xl text-xs focus:outline-none focus:border-indigo-500">
+                <button onclick="addCustomEvent()" class="w-full bg-indigo-600 hover:bg-indigo-700 text-white py-1.5 rounded-xl text-xs font-semibold transition">
+                    ইভেন্ট সেভ করুন
+                </button>
+            </div>
+            <ul id="custom-events-list" class="space-y-1.5 text-xs text-slate-700">
+                <!-- Dynamic Events Render Here -->
+            </ul>
+        </div>
+
+    </div>
+
+</div>
+
+<!-- Internal Module JavaScript -->
+<script>
+    // Switch Category Tabs
+    function switchEventTab(category) {
+        const tabs = document.querySelectorAll('.event-tab');
+        tabs.forEach(tab => {
+            tab.className = 'event-tab px-4 py-2 rounded-xl border border-slate-200 bg-slate-50 text-slate-600 hover:bg-slate-100 whitespace-nowrap transition';
+        });
+
+        if (event && event.currentTarget) {
+            event.currentTarget.className = 'event-tab active px-4 py-2 rounded-xl border border-indigo-600 bg-indigo-600 text-white whitespace-nowrap transition';
+        }
+
+        const cards = document.querySelectorAll('.event-card');
+        cards.forEach(card => {
+            if (category === 'all' || card.classList.contains(`cat-${category}`)) {
+                card.classList.remove('hidden');
+            } else {
+                card.classList.add('hidden');
+            }
+        });
+    }
+
+    // Transport Details Toggle
+    function showTransportDetails() {
+        const info = document.getElementById('transport-modal-info');
+        info.classList.toggle('hidden');
+    }
+
+    // Add Custom Event Logic
+    function addCustomEvent() {
+        const title = document.getElementById('event-title').value.trim();
+        const date = document.getElementById('event-date').value;
+        const list = document.getElementById('custom-events-list');
+
+        if (!title || !date) return;
+
+        const li = document.createElement('li');
+        li.className = 'p-2 bg-white rounded-lg border border-slate-200 flex justify-between items-center text-[11px]';
+        li.innerHTML = `<span class="font-semibold text-slate-800">${title}</span> <span class="text-indigo-600 font-mono">${date}</span>`;
+        
+        list.appendChild(li);
+
+        // Reset Inputs
+        document.getElementById('event-title').value = '';
+        document.getElementById('event-date').value = '';
+    }
+  </script>
