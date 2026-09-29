@@ -1,0 +1,219 @@
+<!-- Module 25: Information, Documents & References -->
+<div class="space-y-6 animate-fadeIn">
+    
+    <!-- Module Header -->
+    <div class="border-b border-slate-200 pb-4 flex flex-col sm:flex-row justify-between items-start sm:items-center gap-3">
+        <div>
+            <h1 class="text-xl font-bold text-slate-800 flex items-center gap-2">
+                <i class="fa-solid fa-book-bookmark text-indigo-600"></i> তথ্য, ডকুমেন্ট ও রেফারেন্স
+            </h1>
+            <p class="text-xs text-slate-500 mt-1">অভিধান, অনুবাদ, বিশ্বকোষ, পরিমাপের রেফারেন্স, ফরম ও সরকারি টেমপ্লেট সংগ্রহ</p>
+        </div>
+    </div>
+
+    <!-- Quick Navigation Category Tabs -->
+    <div class="flex items-center gap-2 overflow-x-auto pb-2 border-b border-slate-200 text-xs font-semibold scrollbar-none">
+        <button onclick="switchRefTab('all')" class="ref-tab active px-4 py-2 rounded-xl border border-indigo-600 bg-indigo-600 text-white whitespace-nowrap transition">
+            <i class="fa-solid fa-border-all"></i> সকল ক্যাটাগরি
+        </button>
+        <button onclick="switchRefTab('dict')" class="ref-tab px-4 py-2 rounded-xl border border-slate-200 bg-slate-50 text-slate-600 hover:bg-slate-100 whitespace-nowrap transition">
+            <i class="fa-solid fa-language text-sky-500"></i> অভিধান ও অনুবাদ
+        </button>
+        <button onclick="switchRefTab('docs')" class="ref-tab px-4 py-2 rounded-xl border border-slate-200 bg-slate-50 text-slate-600 hover:bg-slate-100 whitespace-nowrap transition">
+            <i class="fa-solid fa-file-contract text-emerald-500"></i> ডকুমেন্ট ও ফরম টেমপ্লেট
+        </button>
+        <button onclick="switchRefTab('knowledge')" class="ref-tab px-4 py-2 rounded-xl border border-slate-200 bg-slate-50 text-slate-600 hover:bg-slate-100 whitespace-nowrap transition">
+            <i class="fa-solid fa-graduation-cap text-amber-500"></i> রেফারেন্স ও এনসাইক্লোপিডিয়া
+        </button>
+    </div>
+
+    <!-- Main Content Grid -->
+    <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-5">
+
+        <!-- 1. Interactive Dictionary & Acronym Search -->
+        <div class="ref-card cat-dict bg-slate-50 border border-slate-200 rounded-2xl p-4 space-y-3">
+            <div class="flex items-center justify-between border-b border-slate-200/80 pb-2">
+                <h3 class="font-bold text-xs text-slate-800 flex items-center gap-2">
+                    <i class="fa-solid fa-spell-check text-sky-600"></i> অভিধান ও Acronym সার্চ
+                </h3>
+                <span class="text-[10px] text-slate-400">শব্দার্থ ও রূপ</span>
+            </div>
+            <div class="space-y-2">
+                <div class="flex gap-2">
+                    <input type="text" id="dict-input" placeholder="শব্দ বা Acronym লিখুন (যেমন: NID, CV)..." class="flex-1 px-3 py-1.5 bg-white border border-slate-200 rounded-xl text-xs focus:outline-none focus:border-sky-500">
+                    <button onclick="searchWord()" class="bg-sky-600 hover:bg-sky-700 text-white px-3 py-1.5 rounded-xl text-xs font-semibold transition">
+                        খুঁজুন
+                    </button>
+                </div>
+                <div id="dict-result" class="p-3 bg-white rounded-xl border border-slate-200 text-xs text-slate-700 hidden">
+                    <!-- Dynamic Dictionary Result -->
+                </div>
+            </div>
+        </div>
+
+        <!-- 2. Quick Translator Box -->
+        <div class="ref-card cat-dict bg-slate-50 border border-slate-200 rounded-2xl p-4 space-y-3">
+            <div class="flex items-center justify-between border-b border-slate-200/80 pb-2">
+                <h3 class="font-bold text-xs text-slate-800 flex items-center gap-2">
+                    <i class="fa-solid fa-language text-indigo-600"></i> তাৎক্ষণিক অনুবাদ (Translation)
+                </h3>
+                <span class="text-[10px] text-slate-400">বাংলা ⇄ English</span>
+            </div>
+            <div class="space-y-2">
+                <textarea id="trans-text" rows="2" placeholder="অনুবাদ করার লেখা লিখুন..." class="w-full p-2.5 bg-white border border-slate-200 rounded-xl text-xs focus:outline-none focus:border-indigo-500 resize-none"></textarea>
+                <div class="flex justify-between items-center">
+                    <span class="text-[10px] text-slate-400">স্বয়ংক্রিয় ভাষা শনাক্তকরণ</span>
+                    <button onclick="dummyTranslate()" class="bg-indigo-600 hover:bg-indigo-700 text-white px-4 py-1.5 rounded-xl text-xs font-semibold transition">
+                        অনুবাদ করুন
+                    </button>
+                </div>
+                <div id="trans-output" class="p-2.5 bg-indigo-50 border border-indigo-100 rounded-xl text-xs text-indigo-900 font-medium hidden"></div>
+            </div>
+        </div>
+
+        <!-- 3. Document Templates & Forms -->
+        <div class="ref-card cat-docs bg-slate-50 border border-slate-200 rounded-2xl p-4 space-y-3">
+            <div class="flex items-center justify-between border-b border-slate-200/80 pb-2">
+                <h3 class="font-bold text-xs text-slate-800 flex items-center gap-2">
+                    <i class="fa-solid fa-folder-open text-emerald-600"></i> ডকুমেন্ট টেমপ্লেট ও ফরম
+                </h3>
+                <span class="text-[10px] text-slate-400">ডাউনলোডযোগ্য</span>
+            </div>
+            <ul class="text-xs space-y-2 text-slate-600">
+                <li class="p-2.5 bg-white rounded-xl border border-slate-100 flex items-center justify-between">
+                    <div>
+                        <span class="font-semibold block">বাসা ভাড়ার চুক্তিপত্র (Agreement)</span>
+                        <span class="text-[10px] text-slate-400">Word / PDF ফরম্যাট</span>
+                    </div>
+                    <button class="text-emerald-600 hover:bg-emerald-50 p-1.5 rounded-lg border border-emerald-200 text-[11px]"><i class="fa-solid fa-download"></i></button>
+                </li>
+                <li class="p-2.5 bg-white rounded-xl border border-slate-100 flex items-center justify-between">
+                    <div>
+                        <span class="font-semibold block">চাকরির বায়োডাটা / প্রফেশনাল CV</span>
+                        <span class="text-[10px] text-slate-400">কাস্টমাইজযোগ্য ফরম্যাট</span>
+                    </div>
+                    <button class="text-emerald-600 hover:bg-emerald-50 p-1.5 rounded-lg border border-emerald-200 text-[11px]"><i class="fa-solid fa-download"></i></button>
+                </li>
+                <li class="p-2.5 bg-white rounded-xl border border-slate-100 flex items-center justify-between">
+                    <div>
+                        <span class="font-semibold block">ছুটির আবেদনপত্র (Leave Application)</span>
+                        <span class="text-[10px] text-slate-400">বাংলা ও ইংরেজি</span>
+                    </div>
+                    <button class="text-emerald-600 hover:bg-emerald-50 p-1.5 rounded-lg border border-emerald-200 text-[11px]"><i class="fa-solid fa-download"></i></button>
+                </li>
+            </ul>
+        </div>
+
+        <!-- 4. Unit Reference Guide -->
+        <div class="ref-card cat-knowledge bg-slate-50 border border-slate-200 rounded-2xl p-4 space-y-3">
+            <div class="flex items-center justify-between border-b border-slate-200/80 pb-2">
+                <h3 class="font-bold text-xs text-slate-800 flex items-center gap-2">
+                    <i class="fa-solid fa-ruler text-amber-600"></i> এককের পরিমাণ (Unit Reference)
+                </h3>
+                <span class="text-[10px] text-slate-400">পরিমাপ তালিকা</span>
+            </div>
+            <div class="bg-white rounded-xl p-3 border border-slate-200 text-xs space-y-2">
+                <div class="flex justify-between border-b border-slate-100 pb-1">
+                    <span class="text-slate-500">১ শতাংশ (Decimal)</span>
+                    <span class="font-bold text-slate-800">৪৩৫.৬ বর্গফুট</span>
+                </div>
+                <div class="flex justify-between border-b border-slate-100 pb-1">
+                    <span class="text-slate-500">১ কাঠা</span>
+                    <span class="font-bold text-slate-800">৭২০ বর্গফুট (১.৬৫ শতাংশ)</span>
+                </div>
+                <div class="flex justify-between border-b border-slate-100 pb-1">
+                    <span class="text-slate-500">১ বিঘা</span>
+                    <span class="font-bold text-slate-800">২০ কাঠা (৩৩ শতাংশ)</span>
+                </div>
+                <div class="flex justify-between">
+                    <span class="text-slate-500">১ একর</span>
+                    <span class="font-bold text-slate-800">১০০ শতাংশ (৩ বিঘা)</span>
+                </div>
+            </div>
+        </div>
+
+        <!-- 5. Encyclopedia & Reference Materials -->
+        <div class="ref-card cat-knowledge bg-slate-50 border border-slate-200 rounded-2xl p-4 space-y-3">
+            <div class="flex items-center justify-between border-b border-slate-200/80 pb-2">
+                <h3 class="font-bold text-xs text-slate-800 flex items-center gap-2">
+                    <i class="fa-solid fa-book-atlas text-rose-600"></i> এনসাইক্লোপিডিয়া ও রেফারেন্স
+                </h3>
+                <span class="text-[10px] text-slate-400">জ্ঞানভান্ডার</span>
+            </div>
+            <ul class="text-xs space-y-2 text-slate-600">
+                <li class="p-2 bg-white rounded-xl border border-slate-100 flex items-center justify-between cursor-pointer hover:border-rose-300 transition">
+                    <span><i class="fa-solid fa-flag text-rose-500 mr-2"></i>বাংলাদেশের ভৌগোলিক তথ্য ও ইতিহাস</span>
+                    <i class="fa-solid fa-chevron-right text-[10px] text-slate-400"></i>
+                </li>
+                <li class="p-2 bg-white rounded-xl border border-slate-100 flex items-center justify-between cursor-pointer hover:border-rose-300 transition">
+                    <span><i class="fa-solid fa-scale-balanced text-rose-500 mr-2"></i>মৌলিক আইন ও নাগরিক অধিকার</span>
+                    <i class="fa-solid fa-chevron-right text-[10px] text-slate-400"></i>
+                </li>
+                <li class="p-2 bg-white rounded-xl border border-slate-100 flex items-center justify-between cursor-pointer hover:border-rose-300 transition">
+                    <span><i class="fa-solid fa-phone-volume text-rose-500 mr-2"></i>গুরুত্বপূর্ণ সরকারি দপ্তর ও ওয়েবসাইটের ডিরেক্টরি</span>
+                    <i class="fa-solid fa-chevron-right text-[10px] text-slate-400"></i>
+                </li>
+            </ul>
+        </div>
+
+    </div>
+
+</div>
+
+<!-- Internal Module JavaScript -->
+<script>
+    // Tab Filtering Logic
+    function switchRefTab(category) {
+        const tabs = document.querySelectorAll('.ref-tab');
+        tabs.forEach(tab => {
+            tab.className = 'ref-tab px-4 py-2 rounded-xl border border-slate-200 bg-slate-50 text-slate-600 hover:bg-slate-100 whitespace-nowrap transition';
+        });
+
+        if(event && event.currentTarget) {
+            event.currentTarget.className = 'ref-tab active px-4 py-2 rounded-xl border border-indigo-600 bg-indigo-600 text-white whitespace-nowrap transition';
+        }
+
+        const cards = document.querySelectorAll('.ref-card');
+        cards.forEach(card => {
+            if (category === 'all' || card.classList.contains(`cat-${category}`)) {
+                card.classList.remove('hidden');
+            } else {
+                card.classList.add('hidden');
+            }
+        });
+    }
+
+    // Dummy Word Search / Acronym Lookup
+    const dummyDB = {
+        'NID': 'National Identity Card (জাতীয় পরিচয়পত্র)',
+        'CV': 'Curriculum Vitae (জীবনবৃত্তান্ত)',
+        'TIN': 'Taxpayer Identification Number (করদাতা শনাক্তকরণ নম্বর)',
+        'TIN-NUMBER': 'করদাতা শনাক্তকরণ নম্বর',
+        'PDF': 'Portable Document Format'
+    };
+
+    function searchWord() {
+        const query = document.getElementById('dict-input').value.trim().toUpperCase();
+        const resDiv = document.getElementById('dict-result');
+        
+        if (!query) return;
+
+        if (dummyDB[query]) {
+            resDiv.innerHTML = `<span class="font-bold text-sky-700">${query}:</span> ${dummyDB[query]}`;
+        } else {
+            resDiv.innerHTML = `<span class="text-slate-500">"${query}" এর ব্যাখ্যা পাওয়া যায়নি। অন্য শব্দ খুঁজুন।</span>`;
+        }
+        resDiv.classList.remove('hidden');
+    }
+
+    // Dummy Translation Output
+    function dummyTranslate() {
+        const input = document.getElementById('trans-text').value.trim();
+        const output = document.getElementById('trans-output');
+
+        if (!input) return;
+
+        output.innerText = `অনুবাদিত ফলাফল: "${input}" [স্যাম্পল অনুবাদ তৈরি হয়েছে]`;
+        output.classList.remove('hidden');
+    }
+                                                                                                                                  </script>
