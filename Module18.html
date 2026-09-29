@@ -1,0 +1,180 @@
+<!-- Module 18: Sitehat Utility Update Centre -->
+<div class="space-y-6 animate-fadeIn">
+    
+    <!-- Module Header -->
+    <div class="border-b border-slate-200 pb-4 flex flex-col sm:flex-row justify-between items-start sm:items-center gap-3">
+        <div>
+            <h1 class="text-xl font-bold text-slate-800 flex items-center gap-2">
+                <i class="fa-solid fa-triangle-exclamation text-amber-500"></i> প্রয়োজনীয় আপডেট ও সতর্কতা (Utility Update Centre)
+            </h1>
+            <p class="text-xs text-slate-500 mt-1">জরুরি সেবা পরিবর্তন, সরকারি আপডেট, আবহাওয়া সতর্কতা, সিস্টেম ডাউনটাইম ও নিরাপত্তা বিজ্ঞপ্তি</p>
+        </div>
+        <!-- Module Internal Search -->
+        <div class="relative w-full sm:w-64">
+            <i class="fa-solid fa-magnifying-glass absolute left-3 top-1/2 -translate-y-1/2 text-slate-400 text-xs"></i>
+            <input type="text" id="update-search" onkeyup="filterUpdateServices()" placeholder="আপডেট বা সতর্কতা খুঁজুন..." class="w-full pl-8 pr-3 py-1.5 bg-slate-100 focus:bg-white border border-slate-200 rounded-lg text-xs focus:outline-none focus:border-amber-500">
+        </div>
+    </div>
+
+    <!-- Live System Status & Critical Banner -->
+    <div class="bg-gradient-to-r from-amber-600 via-orange-600 to-slate-900 text-white rounded-2xl p-5 shadow-sm space-y-4">
+        <div class="flex flex-col sm:flex-row sm:items-center justify-between gap-3 border-b border-white/20 pb-3">
+            <div class="flex items-center gap-3">
+                <div class="text-3xl">
+                    <i class="fa-solid fa-bullhorn text-amber-300"></i>
+                </div>
+                <div>
+                    <h3 class="font-bold text-base">লাইভ ইউটিলিটি স্ট্যাটাস মনিটর</h3>
+                    <p class="text-xs text-amber-100">সরকারি পোর্টাল ও জরুরি নাগরিক সেবার সাম্প্রতিক আপডেট</p>
+                </div>
+            </div>
+            <span class="bg-amber-400/20 text-amber-200 border border-amber-300/30 px-3 py-1 rounded-full text-xs font-semibold flex items-center gap-1.5 self-start sm:self-auto">
+                <span class="w-2 h-2 rounded-full bg-emerald-400 animate-pulse"></span> সেবা সচল রয়েছে
+            </span>
+        </div>
+
+        <!-- System Alerts Ticker / Cards -->
+        <div class="grid grid-cols-1 sm:grid-cols-3 gap-3">
+            <div class="bg-white/10 backdrop-blur-md p-3 rounded-xl border border-white/10">
+                <span class="text-[10px] uppercase font-bold text-amber-300 tracking-wider block mb-1">সর্বশেষ ঘোষণা</span>
+                <p class="text-xs font-semibold leading-snug">অনলাইন এনআইডি ও ই-পাসপোর্ট পোর্টালে সাপ্তাহিক রক্ষণাবেক্ষণ কার্যক্রম চলছে।</p>
+            </div>
+            <div class="bg-white/10 backdrop-blur-md p-3 rounded-xl border border-white/10">
+                <span class="text-[10px] uppercase font-bold text-amber-300 tracking-wider block mb-1">পরিবহন আপডেট</span>
+                <p class="text-xs font-semibold leading-snug">মেট্রোরেল এবং রেলওয়ের ই-টিকিটিং সার্ভার স্বাভাবিক নিয়মে সক্রিয় আছে।</p>
+            </div>
+            <div class="bg-white/10 backdrop-blur-md p-3 rounded-xl border border-white/10">
+                <span class="text-[10px] uppercase font-bold text-amber-300 tracking-wider block mb-1">সাইবার নিরাপত্তা</span>
+                <p class="text-xs font-semibold leading-snug">ওটিপি (OTP) ও ব্যাংকিং পাসওয়ার্ড গোপন রাখুন। ভুয়া লিংকে ক্লিক করা থেকে বিরত থাকুন।</p>
+            </div>
+        </div>
+    </div>
+
+    <!-- Main Updates Grid -->
+    <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4" id="updates-services-grid">
+        
+        <!-- 1. সেবা পরিবর্তন ও সরকারি আপডেট -->
+        <div class="update-card bg-slate-50 border border-slate-200 hover:border-amber-400 rounded-2xl p-4 transition duration-200">
+            <div class="flex items-center gap-3 mb-3">
+                <div class="w-10 h-10 rounded-xl bg-amber-100 text-amber-600 flex items-center justify-center font-bold">
+                    <i class="fa-solid fa-arrows-rotate text-lg"></i>
+                </div>
+                <div>
+                    <h3 class="font-bold text-sm text-slate-800">সেবা ও সরকারি নিয়ম পরিবর্তন</h3>
+                    <p class="text-[11px] text-slate-500">Govt Policy & Service Updates</p>
+                </div>
+            </div>
+            <ul class="text-xs space-y-1.5 text-slate-600 mb-3 border-t border-slate-200/60 pt-2.5">
+                <li><a href="https://bangladesh.gov.bd" target="_blank" class="hover:text-amber-600 flex items-center justify-between">জাতীয় তথ্য বাতায়ন গ্যাজেট ও নোটিশ <i class="fa-solid fa-arrow-up-right-from-square text-[10px] text-slate-400"></i></a></li>
+                <li><a href="#" class="hover:text-amber-600 flex items-center justify-between">ট্যাক্স, ভ্যাট ও সরকারি ফি সংক্রান্ত সাম্প্রতিক পরিবর্তন <i class="fa-solid fa-angle-right text-[10px] text-slate-400"></i></a></li>
+                <li><a href="#" class="hover:text-amber-600 flex items-center justify-between">পাসপোর্ট ও এনআইডি আবেদন প্রক্রিয়ার নতুন নিয়ম <i class="fa-solid fa-angle-right text-[10px] text-slate-400"></i></a></li>
+            </ul>
+        </div>
+
+        <!-- 2. নিরাপত্তা ও সাইবার সতর্কতা -->
+        <div class="update-card bg-slate-50 border border-slate-200 hover:border-rose-400 rounded-2xl p-4 transition duration-200">
+            <div class="flex items-center gap-3 mb-3">
+                <div class="w-10 h-10 rounded-xl bg-rose-100 text-rose-600 flex items-center justify-center font-bold">
+                    <i class="fa-solid fa-shield-virus text-lg"></i>
+                </div>
+                <div>
+                    <h3 class="font-bold text-sm text-slate-800">নিরাপত্তা ও সাইবার সতর্কতা</h3>
+                    <p class="text-[11px] text-slate-500">Cyber Security & Scam Alerts</p>
+                </div>
+            </div>
+            <ul class="text-xs space-y-1.5 text-slate-600 mb-3 border-t border-slate-200/60 pt-2.5">
+                <li><a href="https://cirt.gov.bd" target="_blank" class="hover:text-rose-600 flex items-center justify-between">BGD e-GOV CIRT সাইবার সিকিউরিটি অ্যালার্ট <i class="fa-solid fa-arrow-up-right-from-square text-[10px] text-slate-400"></i></a></li>
+                <li><a href="#" class="hover:text-rose-600 flex items-center justify-between">মোবাইল ব্যাংকিং ও ফিশিং লিংক প্রতিরোধ সহায়িকা <i class="fa-solid fa-angle-right text-[10px] text-slate-400"></i></a></li>
+                <li><a href="#" class="hover:text-rose-600 flex items-center justify-between">সোশ্যাল মিডিয়া অ্যাকাউন্ট হ্যাকিং থেকে সুরক্ষার উপায় <i class="fa-solid fa-angle-right text-[10px] text-slate-400"></i></a></li>
+            </ul>
+        </div>
+
+        <!-- 3. পরিবহন ও যাতায়াত আপডেট -->
+        <div class="update-card bg-slate-50 border border-slate-200 hover:border-sky-400 rounded-2xl p-4 transition duration-200">
+            <div class="flex items-center gap-3 mb-3">
+                <div class="w-10 h-10 rounded-xl bg-sky-100 text-sky-600 flex items-center justify-center font-bold">
+                    <i class="fa-solid fa-bus-simple text-lg"></i>
+                </div>
+                <div>
+                    <h3 class="font-bold text-sm text-slate-800">পরিবহন ও যাতায়াত আপডেট</h3>
+                    <p class="text-[11px] text-slate-500">Transit Schedules & Road Status</p>
+                </div>
+            </div>
+            <ul class="text-xs space-y-1.5 text-slate-600 mb-3 border-t border-slate-200/60 pt-2.5">
+                <li><a href="http://www.railway.gov.bd" target="_blank" class="hover:text-sky-600 flex items-center justify-between">বাংলাদেশ রেলওয়ে সিডিউল পরিবর্তন বার্তা <i class="fa-solid fa-arrow-up-right-from-square text-[10px] text-slate-400"></i></a></li>
+                <li><a href="#" class="hover:text-sky-600 flex items-center justify-between">মেট্রোরেল চলাচলের সময়সূচি ও বিশেষ বিজ্ঞপ্তি <i class="fa-solid fa-angle-right text-[10px] text-slate-400"></i></a></li>
+                <li><a href="#" class="hover:text-sky-600 flex items-center justify-between">সড়ক ও হাইওয়ে ডাইভারশন নোটিশ <i class="fa-solid fa-angle-right text-[10px] text-slate-400"></i></a></li>
+            </ul>
+        </div>
+
+        <!-- 4. আবহাওয়া ও দুর্যোগ সতর্কতা -->
+        <div class="update-card bg-slate-50 border border-slate-200 hover:border-teal-400 rounded-2xl p-4 transition duration-200">
+            <div class="flex items-center gap-3 mb-3">
+                <div class="w-10 h-10 rounded-xl bg-teal-100 text-teal-600 flex items-center justify-center font-bold">
+                    <i class="fa-solid fa-cloud-bolt text-lg"></i>
+                </div>
+                <div>
+                    <h3 class="font-bold text-sm text-slate-800">আবহাওয়া ও দুর্যোগ সতর্কতা</h3>
+                    <p class="text-[11px] text-slate-500">Weather Warnings & Signal Updates</p>
+                </div>
+            </div>
+            <ul class="text-xs space-y-1.5 text-slate-600 mb-3 border-t border-slate-200/60 pt-2.5">
+                <li><a href="http://bmd.gov.bd" target="_blank" class="hover:text-teal-600 flex items-center justify-between">বাংলাদেশ আবহাওয়া অধিদপ্তর (BMD) সংকেত <i class="fa-solid fa-arrow-up-right-from-square text-[10px] text-slate-400"></i></a></li>
+                <li><a href="http://ffwc.gov.bd" target="_blank" class="hover:text-teal-600 flex items-center justify-between">বন্যা পূর্বাভাস ও সতর্কীকরণ কেন্দ্র <i class="fa-solid fa-arrow-up-right-from-square text-[10px] text-slate-400"></i></a></li>
+                <li><a href="#" class="hover:text-teal-600 flex items-center justify-between">নদী সমুদ্র বন্দর বিশেষ আবহাওয়া বুলেটিন <i class="fa-solid fa-angle-right text-[10px] text-slate-400"></i></a></li>
+            </ul>
+        </div>
+
+        <!-- 5. প্রযুক্তি ও সেবা বন্ধের খবর (Outage) -->
+        <div class="update-card bg-slate-50 border border-slate-200 hover:border-indigo-400 rounded-2xl p-4 transition duration-200">
+            <div class="flex items-center gap-3 mb-3">
+                <div class="w-10 h-10 rounded-xl bg-indigo-100 text-indigo-600 flex items-center justify-center font-bold">
+                    <i class="fa-solid fa-power-off text-lg"></i>
+                </div>
+                <div>
+                    <h3 class="font-bold text-sm text-slate-800">সেবা বন্ধ ও ডাউনের খবর</h3>
+                    <p class="text-[11px] text-slate-500">Outage & Maintenance Notices</p>
+                </div>
+            </div>
+            <ul class="text-xs space-y-1.5 text-slate-600 mb-3 border-t border-slate-200/60 pt-2.5">
+                <li><a href="#" class="hover:text-indigo-600 flex items-center justify-between">জাতীয় সার্ভার ডাউনটাইম ট্র্যাকার <i class="fa-solid fa-angle-right text-[10px] text-slate-400"></i></a></li>
+                <li><a href="#" class="hover:text-indigo-600 flex items-center justify-between">ব্যাংকিং অ্যাপ ও এটিএম রক্ষণাবেক্ষণ শিডিউল <i class="fa-solid fa-angle-right text-[10px] text-slate-400"></i></a></li>
+                <li><a href="#" class="hover:text-indigo-600 flex items-center justify-between">বিদ্যুৎ শাটডাউন ও জরুরি মেরামত বিজ্ঞপ্তি <i class="fa-solid fa-angle-right text-[10px] text-slate-400"></i></a></li>
+            </ul>
+        </div>
+
+        <!-- 6. গুরুত্বপূর্ণ সাধারণ ঘোষণা -->
+        <div class="update-card bg-slate-50 border border-slate-200 hover:border-purple-400 rounded-2xl p-4 transition duration-200">
+            <div class="flex items-center gap-3 mb-3">
+                <div class="w-10 h-10 rounded-xl bg-purple-100 text-purple-600 flex items-center justify-center font-bold">
+                    <i class="fa-solid fa-scroll text-lg"></i>
+                </div>
+                <div>
+                    <h3 class="font-bold text-sm text-slate-800">গুরুত্বপূর্ণ সরকারি নোটিশ</h3>
+                    <p class="text-[11px] text-slate-500">Official Circulars & Press Release</p>
+                </div>
+            </div>
+            <ul class="text-xs space-y-1.5 text-slate-600 mb-3 border-t border-slate-200/60 pt-2.5">
+                <li><a href="http://www.moca.gov.bd" target="_blank" class="hover:text-purple-600 flex items-center justify-between">সরকারি ছুটি ও অফিস সময়সূচি সংক্রান্ত প্রজ্ঞাপন <i class="fa-solid fa-arrow-up-right-from-square text-[10px] text-slate-400"></i></a></li>
+                <li><a href="#" class="hover:text-purple-600 flex items-center justify-between">শিক্ষাপ্রতিষ্ঠান খোলা ও বন্ধের সার্কুলার <i class="fa-solid fa-angle-right text-[10px] text-slate-400"></i></a></li>
+                <li><a href="#" class="hover:text-purple-600 flex items-center justify-between">জরুরি সরকারি প্রেসবুলোটিন ও নির্দেশিকা <i class="fa-solid fa-angle-right text-[10px] text-slate-400"></i></a></li>
+            </ul>
+        </div>
+
+    </div>
+
+</div>
+
+<!-- Internal Module JavaScript -->
+<script>
+    // Live Search inside Utility Updates Module
+    function filterUpdateServices() {
+        const query = document.getElementById('update-search').value.toLowerCase();
+        const cards = document.querySelectorAll('.update-card');
+        
+        cards.forEach(card => {
+            const text = card.innerText.toLowerCase();
+            card.style.display = text.includes(query) ? 'block' : 'none';
+        });
+    }
+              </script>
