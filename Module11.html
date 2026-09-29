@@ -1,0 +1,249 @@
+<!-- Module 11: Country, World & International Info -->
+<div class="space-y-6 animate-fadeIn">
+    
+    <!-- Module Header -->
+    <div class="border-b border-slate-200 pb-4 flex flex-col sm:flex-row justify-between items-start sm:items-center gap-3">
+        <div>
+            <h1 class="text-xl font-bold text-slate-800 flex items-center gap-2">
+                <i class="fa-solid fa-earth-americas text-indigo-600"></i> দেশ, বিশ্ব ও আন্তর্জাতিক তথ্য (Country & World Info)
+            </h1>
+            <p class="text-xs text-slate-500 mt-1">দেশ অনুসন্ধান, বিশ্বমানচিত্র, টাইম জোন, মুদ্রা, জনসংখ্যা, বিশ্ব দিবস ও আন্তর্জাতিক তুলনা</p>
+        </div>
+        <!-- Module Internal Search -->
+        <div class="relative w-full sm:w-64">
+            <i class="fa-solid fa-magnifying-glass absolute left-3 top-1/2 -translate-y-1/2 text-slate-400 text-xs"></i>
+            <input type="text" id="world-search" onkeyup="filterWorldServices()" placeholder="দেশ বা আন্তর্জাতিক সেবা খুঁজুন..." class="w-full pl-8 pr-3 py-1.5 bg-slate-100 focus:bg-white border border-slate-200 rounded-lg text-xs focus:outline-none focus:border-indigo-500">
+        </div>
+    </div>
+
+    <!-- Quick World Widget (Global Time & Currency Converter) -->
+    <div class="bg-gradient-to-r from-indigo-700 via-purple-700 to-slate-800 text-white rounded-2xl p-5 shadow-sm space-y-4">
+        <div class="flex flex-col sm:flex-row sm:items-center justify-between gap-3 border-b border-white/20 pb-3">
+            <div class="flex items-center gap-3">
+                <div class="text-3xl">
+                    <i class="fa-solid fa-globe text-indigo-300 animate-spin-slow"></i>
+                </div>
+                <div>
+                    <h3 class="font-bold text-base">গ্লোবাল ইনফরমেশন ও টাইম হাব</h3>
+                    <p class="text-xs text-indigo-200">আন্তর্জাতিক সময়, দেশের বিবরণ ও তাৎক্ষণিক মুদ্রা পরিবর্তন</p>
+                </div>
+            </div>
+            <a href="https://www.google.com/maps" target="_blank" class="bg-white/20 hover:bg-white/30 backdrop-blur-md px-3 py-1.5 rounded-xl text-xs font-semibold transition text-center self-start sm:self-auto">
+                <i class="fa-solid fa-map-location-dot text-indigo-200"></i> গুগল ওয়ার্ল্ড ম্যাপ
+            </a>
+        </div>
+
+        <!-- Interactive Quick Utilities: World Clock & Quick Currency Converter -->
+        <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-3 items-center">
+            <!-- World Clock Box -->
+            <div class="bg-white/10 backdrop-blur-md p-3 rounded-xl border border-white/10 text-xs space-y-1">
+                <div class="text-indigo-200 font-semibold flex justify-between">
+                    <span>বাংলাদেশ সময় (GMT+6):</span>
+                    <span id="bd-live-time" class="font-bold text-white">--:--:--</span>
+                </div>
+                <div class="text-indigo-200 font-semibold flex justify-between">
+                    <span>লন্ডন সময় (UTC/BST):</span>
+                    <span id="london-live-time" class="font-bold text-white">--:--:--</span>
+                </div>
+            </div>
+
+            <!-- Quick Currency Converter -->
+            <div class="bg-white/10 backdrop-blur-md p-3 rounded-xl border border-white/10 text-xs space-y-1.5 col-span-1 sm:col-span-1 lg:col-span-2">
+                <span class="text-indigo-200 font-semibold block mb-1">মুদ্রা রূপান্তরকারী (USD ➔ BDT আনুমানিক):</span>
+                <div class="flex items-center gap-2">
+                    <input type="number" id="usd-val" value="1" oninput="convertUsdToBdt()" placeholder="USD" class="w-1/2 p-1.5 bg-white text-slate-800 font-bold rounded text-xs focus:outline-none">
+                    <span class="font-bold text-white">$ =</span>
+                    <input type="text" id="bdt-val" readonly value="১২০.০০ ৳" class="w-1/2 p-1.5 bg-slate-900/60 text-yellow-300 font-bold rounded text-xs border border-white/10">
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Main International Services Grid -->
+    <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4" id="world-services-grid">
+        
+        <!-- 1. দেশ অনুসন্ধান ও পরিচিতি -->
+        <div class="world-card bg-slate-50 border border-slate-200 hover:border-indigo-400 rounded-2xl p-4 transition duration-200">
+            <div class="flex items-center gap-3 mb-3">
+                <div class="w-10 h-10 rounded-xl bg-indigo-100 text-indigo-600 flex items-center justify-center font-bold">
+                    <i class="fa-solid fa-flag text-lg"></i>
+                </div>
+                <div>
+                    <h3 class="font-bold text-sm text-slate-800">দেশ অনুসন্ধান ও রাজধানী</h3>
+                    <p class="text-[11px] text-slate-500">Country Finder & Capital Cities</p>
+                </div>
+            </div>
+            <ul class="text-xs space-y-1.5 text-slate-600 mb-3 border-t border-slate-200/60 pt-2.5">
+                <li><a href="https://www.britannica.com/topic/list-of-countries-1993160" target="_blank" class="hover:text-indigo-600 flex items-center justify-between">বিশ্বের সকল দেশের তালিকা ও রাজধানী <i class="fa-solid fa-arrow-up-right-from-square text-[10px] text-slate-400"></i></a></li>
+                <li><a href="https://restcountries.com" target="_blank" class="hover:text-indigo-600 flex items-center justify-between">দেশ ভিত্তিক মৌলিক ডাটাবেজ <i class="fa-solid fa-arrow-up-right-from-square text-[10px] text-slate-400"></i></a></li>
+                <li><a href="https://www.cia.gov/the-world-factbook/" target="_blank" class="hover:text-indigo-600 flex items-center justify-between">CIA The World Factbook <i class="fa-solid fa-arrow-up-right-from-square text-[10px] text-slate-400"></i></a></li>
+            </ul>
+        </div>
+
+        <!-- 2. জনসংখ্যা ও আয়তন -->
+        <div class="world-card bg-slate-50 border border-slate-200 hover:border-emerald-400 rounded-2xl p-4 transition duration-200">
+            <div class="flex items-center gap-3 mb-3">
+                <div class="w-10 h-10 rounded-xl bg-emerald-100 text-emerald-600 flex items-center justify-center font-bold">
+                    <i class="fa-solid fa-users text-lg"></i>
+                </div>
+                <div>
+                    <h3 class="font-bold text-sm text-slate-800">জনসংখ্যা ও ভৌগোলিক আয়তন</h3>
+                    <p class="text-[11px] text-slate-500">Population & Geographic Area</p>
+                </div>
+            </div>
+            <ul class="text-xs space-y-1.5 text-slate-600 mb-3 border-t border-slate-200/60 pt-2.5">
+                <li><a href="https://www.worldometers.info/world-population/" target="_blank" class="hover:text-emerald-600 flex items-center justify-between">Worldometer লাইভ জনসংখ্যা কাউন্টার <i class="fa-solid fa-arrow-up-right-from-square text-[10px] text-slate-400"></i></a></li>
+                <li><a href="https://data.worldbank.org/indicator/SP.POP.TOTL" target="_blank" class="hover:text-emerald-600 flex items-center justify-between">বিশ্বব্যাংক জনসংখ্যা ও আয়তন ডাটা <i class="fa-solid fa-arrow-up-right-from-square text-[10px] text-slate-400"></i></a></li>
+                <li><a href="#" class="hover:text-emerald-600 flex items-center justify-between">আয়তন অনুযায়ী বিশ্ব র্যাঙ্কিং <i class="fa-solid fa-angle-right text-[10px] text-slate-400"></i></a></li>
+            </ul>
+        </div>
+
+        <!-- 3. মুদ্রা ও টাইম জোন -->
+        <div class="world-card bg-slate-50 border border-slate-200 hover:border-amber-400 rounded-2xl p-4 transition duration-200">
+            <div class="flex items-center gap-3 mb-3">
+                <div class="w-10 h-10 rounded-xl bg-amber-100 text-amber-600 flex items-center justify-center font-bold">
+                    <i class="fa-solid fa-clock text-lg"></i>
+                </div>
+                <div>
+                    <h3 class="font-bold text-sm text-slate-800">সময়, Time Zone ও মুদ্রা</h3>
+                    <p class="text-[11px] text-slate-500">Time Zones & World Currencies</p>
+                </div>
+            </div>
+            <ul class="text-xs space-y-1.5 text-slate-600 mb-3 border-t border-slate-200/60 pt-2.5">
+                <li><a href="https://www.timeanddate.com/worldclock/" target="_blank" class="hover:text-amber-600 flex items-center justify-between">Timeanddate ওয়ার্ল্ড ক্লক <i class="fa-solid fa-arrow-up-right-from-square text-[10px] text-slate-400"></i></a></li>
+                <li><a href="https://www.xe.com/currencyconverter/" target="_blank" class="hover:text-amber-600 flex items-center justify-between">XE Currency কারেন্সি কনভার্টার <i class="fa-solid fa-arrow-up-right-from-square text-[10px] text-slate-400"></i></a></li>
+                <li><a href="#" class="hover:text-amber-600 flex items-center justify-between">আন্তর্জাতিক টাইম জোন ম্যাপ (GMT/UTC) <i class="fa-solid fa-angle-right text-[10px] text-slate-400"></i></a></li>
+            </ul>
+        </div>
+
+        <!-- 4. আন্তর্জাতিক তথ্য ও জাতিসংঘ -->
+        <div class="world-card bg-slate-50 border border-slate-200 hover:border-sky-400 rounded-2xl p-4 transition duration-200">
+            <div class="flex items-center gap-3 mb-3">
+                <div class="w-10 h-10 rounded-xl bg-sky-100 text-sky-600 flex items-center justify-center font-bold">
+                    <i class="fa-solid fa-building-columns text-lg"></i>
+                </div>
+                <div>
+                    <h3 class="font-bold text-sm text-slate-800">আন্তর্জাতিক সংস্থা ও তথ্য</h3>
+                    <p class="text-[11px] text-slate-500">UN, International Organizations</p>
+                </div>
+            </div>
+            <ul class="text-xs space-y-1.5 text-slate-600 mb-3 border-t border-slate-200/60 pt-2.5">
+                <li><a href="https://www.un.org" target="_blank" class="hover:text-sky-600 flex items-center justify-between">জাতিসংঘ (United Nations) পোর্টাল <i class="fa-solid fa-arrow-up-right-from-square text-[10px] text-slate-400"></i></a></li>
+                <li><a href="https://www.who.int" target="_blank" class="hover:text-sky-600 flex items-center justify-between">বিশ্ব স্বাস্থ্য সংস্থা (WHO) <i class="fa-solid fa-arrow-up-right-from-square text-[10px] text-slate-400"></i></a></li>
+                <li><a href="https://www.unesco.org" target="_blank" class="hover:text-sky-600 flex items-center justify-between">ইউনেস্কো (UNESCO) বিশ্ব ঐতিহ্য <i class="fa-solid fa-arrow-up-right-from-square text-[10px] text-slate-400"></i></a></li>
+            </ul>
+        </div>
+
+        <!-- 5. বিশ্ব দিবসসমূহ -->
+        <div class="world-card bg-slate-50 border border-slate-200 hover:border-rose-400 rounded-2xl p-4 transition duration-200">
+            <div class="flex items-center gap-3 mb-3">
+                <div class="w-10 h-10 rounded-xl bg-rose-100 text-rose-600 flex items-center justify-center font-bold">
+                    <i class="fa-solid fa-calendar-check text-lg"></i>
+                </div>
+                <div>
+                    <h3 class="font-bold text-sm text-slate-800">আন্তর্জাতিক ও বিশ্ব দিবস</h3>
+                    <p class="text-[11px] text-slate-500">International Days & Observances</p>
+                </div>
+            </div>
+            <ul class="text-xs space-y-1.5 text-slate-600 mb-3 border-t border-slate-200/60 pt-2.5">
+                <li><a href="https://www.un.org/en/observances/international-days" target="_blank" class="hover:text-rose-600 flex items-center justify-between">জাতিসংঘ স্বীকৃত বিশ্ব দিবসের ক্যালেন্ডার <i class="fa-solid fa-arrow-up-right-from-square text-[10px] text-slate-400"></i></a></li>
+                <li><a href="#" class="hover:text-rose-600 flex items-center justify-between">গুরুত্বপূর্ণ আন্তর্জাতিক দিবসসমূহের তালিকা <i class="fa-solid fa-angle-right text-[10px] text-slate-400"></i></a></li>
+                <li><a href="#" class="hover:text-rose-600 flex items-center justify-between">বাংলাদেশ জাতীয় ও আন্তর্জাতিক দিবসাবলি <i class="fa-solid fa-angle-right text-[10px] text-slate-400"></i></a></li>
+            </ul>
+        </div>
+
+        <!-- 6. Country Comparison (তুলনামূলক বিশ্লেষণ) -->
+        <div class="world-card bg-slate-50 border border-slate-200 hover:border-purple-400 rounded-2xl p-4 transition duration-200">
+            <div class="flex items-center gap-3 mb-3">
+                <div class="w-10 h-10 rounded-xl bg-purple-100 text-purple-600 flex items-center justify-center font-bold">
+                    <i class="fa-solid fa-code-compare text-lg"></i>
+                </div>
+                <div>
+                    <h3 class="font-bold text-sm text-slate-800">Country Comparison</h3>
+                    <p class="text-[11px] text-slate-500">দেশসমূহের অর্থনৈতিক ও সামাজিক তুলনা</p>
+                </div>
+            </div>
+            <ul class="text-xs space-y-1.5 text-slate-600 mb-3 border-t border-slate-200/60 pt-2.5">
+                <li><a href="https://www.numbeo.com/cost-of-living/comparison.jsp" target="_blank" class="hover:text-purple-600 flex items-center justify-between">Numbeo জীবনযাত্রার খরচ তুলনা <i class="fa-solid fa-arrow-up-right-from-square text-[10px] text-slate-400"></i></a></li>
+                <li><a href="https://indexmundi.com/factbook/compare/" target="_blank" class="hover:text-purple-600 flex items-center justify-between">IndexMundi দুটি দেশের ডেটা তুলনা <i class="fa-solid fa-arrow-up-right-from-square text-[10px] text-slate-400"></i></a></li>
+                <li><a href="https://countryeconomy.com" target="_blank" class="hover:text-purple-600 flex items-center justify-between">জিডিপি (GDP) ও অর্থনৈতিক সূচক তুলনা <i class="fa-solid fa-arrow-up-right-from-square text-[10px] text-slate-400"></i></a></li>
+            </ul>
+        </div>
+
+    </div>
+
+    <!-- Quick Country Fact Table -->
+    <div class="bg-white p-5 rounded-2xl border border-slate-200 shadow-sm mt-6">
+        <h3 class="font-bold text-sm text-slate-800 mb-3 flex items-center gap-2">
+            <i class="fa-solid fa-circle-info text-indigo-600"></i> এক নজরে বাংলাদেশ (Quick Bangladesh Facts)
+        </h3>
+        <div class="grid grid-cols-2 sm:grid-cols-4 gap-3 text-xs">
+            <div class="bg-slate-50 p-2.5 rounded-xl border border-slate-100">
+                <span class="text-slate-400 block text-[10px]">রাজধানী</span>
+                <span class="font-bold text-slate-700">ঢাকা</span>
+            </div>
+            <div class="bg-slate-50 p-2.5 rounded-xl border border-slate-100">
+                <span class="text-slate-400 block text-[10px]">মুদ্রা</span>
+                <span class="font-bold text-slate-700">টাকা (BDT / ৳)</span>
+            </div>
+            <div class="bg-slate-50 p-2.5 rounded-xl border border-slate-100">
+                <span class="text-slate-400 block text-[10px]">রাষ্ট্রভাষা</span>
+                <span class="font-bold text-slate-700">বাংলা</span>
+            </div>
+            <div class="bg-slate-50 p-2.5 rounded-xl border border-slate-100">
+                <span class="text-slate-400 block text-[10px]">টাইম জোন</span>
+                <span class="font-bold text-slate-700">GMT+6 (BST)</span>
+            </div>
+        </div>
+    </div>
+
+</div>
+
+<!-- Internal Module JavaScript -->
+<script>
+    // Live Search inside World Module
+    function filterWorldServices() {
+        const query = document.getElementById('world-search').value.toLowerCase();
+        const cards = document.querySelectorAll('.world-card');
+        
+        cards.forEach(card => {
+            const text = card.innerText.toLowerCase();
+            card.style.display = text.includes(query) ? 'block' : 'none';
+        });
+    }
+
+    // Live World Clock Simulation
+    function updateLiveClocks() {
+        const now = new Date();
+        
+        // BD Time (Local)
+        const bdOptions = { timeZone: 'Asia/Dhaka', hour: '2-digit', minute: '2-digit', second: '2-digit', hour12: true };
+        const bdTimeStr = new Intl.DateTimeFormat('bn-BD', bdOptions).format(now);
+        const bdElem = document.getElementById('bd-live-time');
+        if (bdElem) bdElem.innerText = bdTimeStr;
+
+        // London Time
+        const londonOptions = { timeZone: 'Europe/London', hour: '2-digit', minute: '2-digit', second: '2-digit', hour12: true };
+        const londonTimeStr = new Intl.DateTimeFormat('bn-BD', londonOptions).format(now);
+        const londonElem = document.getElementById('london-live-time');
+        if (londonElem) londonElem.innerText = londonTimeStr;
+    }
+
+    setInterval(updateLiveClocks, 1000);
+    updateLiveClocks();
+
+    // USD to BDT Converter
+    function convertUsdToBdt() {
+        const usdInput = document.getElementById('usd-val');
+        const bdtOutput = document.getElementById('bdt-val');
+        const rate = 120.00; // Estimated rate
+        const usd = parseFloat(usdInput.value);
+
+        if (!isNaN(usd) && usd >= 0) {
+            const bdt = (usd * rate).toFixed(2);
+            bdtOutput.value = `${bdt} ৳`;
+        } else {
+            bdtOutput.value = '০.০০ ৳';
+        }
+    }
+</script>
