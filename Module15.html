@@ -1,0 +1,225 @@
+<!-- Module 15: Agriculture, Livestock & Fisheries -->
+<div class="space-y-6 animate-fadeIn">
+    
+    <!-- Module Header -->
+    <div class="border-b border-slate-200 pb-4 flex flex-col sm:flex-row justify-between items-start sm:items-center gap-3">
+        <div>
+            <h1 class="text-xl font-bold text-slate-800 flex items-center gap-2">
+                <i class="fa-solid fa-wheat-awn text-emerald-600"></i> কৃষি, প্রাণিসম্পদ ও মৎস্য (Agriculture & Farming)
+            </h1>
+            <p class="text-xs text-slate-500 mt-1">ফসল, সার-সেচ, বালাই ব্যবস্থাপনা, কৃষি প্রযুক্তি, গবাদিপশু, হাঁস-মুরগি, মৎস্য খামার ও সহায়তা</p>
+        </div>
+        <!-- Module Internal Search -->
+        <div class="relative w-full sm:w-64">
+            <i class="fa-solid fa-magnifying-glass absolute left-3 top-1/2 -translate-y-1/2 text-slate-400 text-xs"></i>
+            <input type="text" id="agri-search" onkeyup="filterAgriServices()" placeholder="কৃষি বা খামার তথ্য খুঁজুন..." class="w-full pl-8 pr-3 py-1.5 bg-slate-100 focus:bg-white border border-slate-200 rounded-lg text-xs focus:outline-none focus:border-emerald-500">
+        </div>
+    </div>
+
+    <!-- Quick Agri Calculator & Weather Banner -->
+    <div class="bg-gradient-to-r from-emerald-700 via-green-700 to-teal-800 text-white rounded-2xl p-5 shadow-sm space-y-4">
+        <div class="flex flex-col sm:flex-row sm:items-center justify-between gap-3 border-b border-white/20 pb-3">
+            <div class="flex items-center gap-3">
+                <div class="text-3xl">
+                    <i class="fa-solid fa-seedling text-emerald-300"></i>
+                </div>
+                <div>
+                    <h3 class="font-bold text-base">জমি ও সার পরিমাপ ক্যালকুলেটর</h3>
+                    <p class="text-xs text-emerald-100">জমির আয়তন অনুযায়ী আনুমানিক ইউরিয়া সারের পরিমাণ নির্ধারণ করুন</p>
+                </div>
+            </div>
+            <a href="http://www.dae.gov.bd" target="_blank" class="bg-white/20 hover:bg-white/30 backdrop-blur-md px-3 py-1.5 rounded-xl text-xs font-semibold transition text-center self-start sm:self-auto">
+                <i class="fa-solid fa-building-columns text-emerald-200"></i> কৃষি সম্প্রসারণ অধিদপ্তর
+            </a>
+        </div>
+
+        <!-- Fertilizer Calculator Widget -->
+        <div class="grid grid-cols-1 sm:grid-cols-3 gap-3 items-end">
+            <div>
+                <label class="block text-[11px] text-emerald-100 mb-1">জমির পরিমাণ (শতক):</label>
+                <input type="number" id="land-shotok" value="10" oninput="calcFertilizer()" class="w-full p-2 bg-white text-slate-800 font-bold rounded-lg text-xs focus:outline-none">
+            </div>
+            <div>
+                <label class="block text-[11px] text-emerald-100 mb-1">ফসলের ধরণ:</label>
+                <select id="crop-type" onchange="calcFertilizer()" class="w-full p-2 bg-white text-slate-800 font-bold rounded-lg text-xs focus:outline-none">
+                    <option value="1">ধান (উফশী)</option>
+                    <option value="1.2">গম / ভুট্টা</option>
+                    <option value="0.8">শাকসবজি</option>
+                </select>
+            </div>
+            <div>
+                <label class="block text-[11px] text-emerald-100 mb-1">আনুমানিক ইউরিয়া প্রয়োজন:</label>
+                <div id="fertilizer-output" class="p-2 bg-slate-900/60 backdrop-blur-md text-yellow-300 font-bold rounded-lg text-xs text-center border border-white/10 h-9 flex items-center justify-center">
+                    ১.০ কেজি
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Main Agriculture Services Grid -->
+    <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4" id="agri-services-grid">
+        
+        <!-- 1. ফসল, বীজ ও সার -->
+        <div class="agri-card bg-slate-50 border border-slate-200 hover:border-emerald-400 rounded-2xl p-4 transition duration-200">
+            <div class="flex items-center gap-3 mb-3">
+                <div class="w-10 h-10 rounded-xl bg-emerald-100 text-emerald-600 flex items-center justify-center font-bold">
+                    <i class="fa-solid fa-plant-wilt text-lg"></i>
+                </div>
+                <div>
+                    <h3 class="font-bold text-sm text-slate-800">ফসল, বীজ ও সার তথ্য</h3>
+                    <p class="text-[11px] text-slate-500">Crops, High Yield Seeds & Fertilizer</p>
+                </div>
+            </div>
+            <ul class="text-xs space-y-1.5 text-slate-600 mb-3 border-t border-slate-200/60 pt-2.5">
+                <li><a href="http://www.badc.gov.bd" target="_blank" class="hover:text-emerald-600 flex items-center justify-between">BADC বীজ ও সার সরবরাহ পোর্টাল <i class="fa-solid fa-arrow-up-right-from-square text-[10px] text-slate-400"></i></a></li>
+                <li><a href="http://www.bri.gov.bd" target="_blank" class="hover:text-emerald-600 flex items-center justify-between">বাংলাদেশ ধান গবেষণা ইনস্টিটিউট (BRRI) <i class="fa-solid fa-arrow-up-right-from-square text-[10px] text-slate-400"></i></a></li>
+                <li><a href="#" class="hover:text-emerald-600 flex items-center justify-between">সুষম সার প্রয়োগ ও মাটি পরীক্ষা নির্দেশিকা <i class="fa-solid fa-angle-right text-[10px] text-slate-400"></i></a></li>
+            </ul>
+        </div>
+
+        <!-- 2. সেচ, রোগ-পোকা ও বালাই ব্যবস্থাপনা -->
+        <div class="agri-card bg-slate-50 border border-slate-200 hover:border-teal-400 rounded-2xl p-4 transition duration-200">
+            <div class="flex items-center gap-3 mb-3">
+                <div class="w-10 h-10 rounded-xl bg-teal-100 text-teal-600 flex items-center justify-center font-bold">
+                    <i class="fa-solid fa-bug text-lg"></i>
+                </div>
+                <div>
+                    <h3 class="font-bold text-sm text-slate-800">সেচ ও বালাই ব্যবস্থাপনা (IPM)</h3>
+                    <p class="text-[11px] text-slate-500">Irrigation & Pest Management</p>
+                </div>
+            </div>
+            <ul class="text-xs space-y-1.5 text-slate-600 mb-3 border-t border-slate-200/60 pt-2.5">
+                <li><a href="http://www.ais.gov.bd" target="_blank" class="hover:text-teal-600 flex items-center justify-between">কৃষি তথ্য সার্ভিস (AIS) - রোগ-পোকা গাইড <i class="fa-solid fa-arrow-up-right-from-square text-[10px] text-slate-400"></i></a></li>
+                <li><a href="#" class="hover:text-teal-600 flex items-center justify-between">সমন্বিত বালাই ব্যবস্থাপনা (IPM) কৌশল <i class="fa-solid fa-angle-right text-[10px] text-slate-400"></i></a></li>
+                <li><a href="#" class="hover:text-teal-600 flex items-center justify-between">আধুনিক ড্রিপ ও সেচ প্রযুক্তি নির্দেশিকা <i class="fa-solid fa-angle-right text-[10px] text-slate-400"></i></a></li>
+            </ul>
+        </div>
+
+        <!-- 3. কৃষি আবহাওয়া ও কৃষি বাজার -->
+        <div class="agri-card bg-slate-50 border border-slate-200 hover:border-amber-400 rounded-2xl p-4 transition duration-200">
+            <div class="flex items-center gap-3 mb-3">
+                <div class="w-10 h-10 rounded-xl bg-amber-100 text-amber-600 flex items-center justify-center font-bold">
+                    <i class="fa-solid fa-cloud-sun-rain text-lg"></i>
+                </div>
+                <div>
+                    <h3 class="font-bold text-sm text-slate-800">কৃষি আবহাওয়া ও বাজার দর</h3>
+                    <p class="text-[11px] text-slate-500">Agri Weather Advisory & Market Price</p>
+                </div>
+            </div>
+            <ul class="text-xs space-y-1.5 text-slate-600 mb-3 border-t border-slate-200/60 pt-2.5">
+                <li><a href="http://www.dam.gov.bd" target="_blank" class="hover:text-amber-600 flex items-center justify-between">কৃষি বিপণন অধিদপ্তর (দৈনিক বাজার দর) <i class="fa-solid fa-arrow-up-right-from-square text-[10px] text-slate-400"></i></a></li>
+                <li><a href="http://www.bamis.gov.bd" target="_blank" class="hover:text-amber-600 flex items-center justify-between">কৃষি আবহাওয়া তথ্য পদ্ধতি (BAMIS) <i class="fa-solid fa-arrow-up-right-from-square text-[10px] text-slate-400"></i></a></li>
+                <li><a href="#" class="hover:text-amber-600 flex items-center justify-between">ঋতুভিত্তিক কৃষি পরামর্শ বুলেটিন <i class="fa-solid fa-angle-right text-[10px] text-slate-400"></i></a></li>
+            </ul>
+        </div>
+
+        <!-- 4. প্রাণিসম্পদ (গবাদিপশু ও হাঁস-মুরগি) -->
+        <div class="agri-card bg-slate-50 border border-slate-200 hover:border-orange-400 rounded-2xl p-4 transition duration-200">
+            <div class="flex items-center gap-3 mb-3">
+                <div class="w-10 h-10 rounded-xl bg-orange-100 text-orange-600 flex items-center justify-center font-bold">
+                    <i class="fa-solid fa-cow text-lg"></i>
+                </div>
+                <div>
+                    <h3 class="font-bold text-sm text-slate-800">প্রাণিসম্পদ ও পোল্ট্রি খামার</h3>
+                    <p class="text-[11px] text-slate-500">Cattle, Poultry & Dairy Farming</p>
+                </div>
+            </div>
+            <ul class="text-xs space-y-1.5 text-slate-600 mb-3 border-t border-slate-200/60 pt-2.5">
+                <li><a href="http://www.dls.gov.bd" target="_blank" class="hover:text-orange-600 flex items-center justify-between">প্রাণিসম্পদ অধিদপ্তর (DLS) <i class="fa-solid fa-arrow-up-right-from-square text-[10px] text-slate-400"></i></a></li>
+                <li><a href="#" class="hover:text-orange-600 flex items-center justify-between">গবাদিপশুর জাত উন্নয়ন ও কৃত্রিম প্রজনন <i class="fa-solid fa-angle-right text-[10px] text-slate-400"></i></a></li>
+                <li><a href="#" class="hover:text-orange-600 flex items-center justify-between">হাঁস-মুরগির টিকাদান (Vaccination) সময়সূচী <i class="fa-solid fa-angle-right text-[10px] text-slate-400"></i></a></li>
+            </ul>
+        </div>
+
+        <!-- 5. মৎস্য চাষ ও খামার -->
+        <div class="agri-card bg-slate-50 border border-slate-200 hover:border-sky-400 rounded-2xl p-4 transition duration-200">
+            <div class="flex items-center gap-3 mb-3">
+                <div class="w-10 h-10 rounded-xl bg-sky-100 text-sky-600 flex items-center justify-center font-bold">
+                    <i class="fa-solid fa-fish-fins text-lg"></i>
+                </div>
+                <div>
+                    <h3 class="font-bold text-sm text-slate-800">মৎস্য চাষ ও আধুনিক প্রযুক্তি</h3>
+                    <p class="text-[11px] text-slate-500">Fisheries, Biofloc & Aquaculture</p>
+                </div>
+            </div>
+            <ul class="text-xs space-y-1.5 text-slate-600 mb-3 border-t border-slate-200/60 pt-2.5">
+                <li><a href="http://www.fisheries.gov.bd" target="_blank" class="hover:text-sky-600 flex items-center justify-between">মৎস্য অধিদপ্তর (DoF) <i class="fa-solid fa-arrow-up-right-from-square text-[10px] text-slate-400"></i></a></li>
+                <li><a href="http://www.fri.gov.bd" target="_blank" class="hover:text-sky-600 flex items-center justify-between">বাংলাদেশ মৎস্য গবেষণা ইনস্টিটিউট (BFRI) <i class="fa-solid fa-arrow-up-right-from-square text-[10px] text-slate-400"></i></a></li>
+                <li><a href="#" class="hover:text-sky-600 flex items-center justify-between">বায়োফ্লক (Biofloc) ও আধুনিক পুকুর ব্যবস্থাপনা <i class="fa-solid fa-angle-right text-[10px] text-slate-400"></i></a></li>
+            </ul>
+        </div>
+
+        <!-- 6. কৃষি প্রযুক্তি ও সরকারি সহায়তা -->
+        <div class="agri-card bg-slate-50 border border-slate-200 hover:border-purple-400 rounded-2xl p-4 transition duration-200">
+            <div class="flex items-center gap-3 mb-3">
+                <div class="w-10 h-10 rounded-xl bg-purple-100 text-purple-600 flex items-center justify-center font-bold">
+                    <i class="fa-solid fa-tractor text-lg"></i>
+                </div>
+                <div>
+                    <h3 class="font-bold text-sm text-slate-800">কৃষি প্রযুক্তি ও ঋণ/সহায়তা</h3>
+                    <p class="text-[11px] text-slate-500">Agri Tech, Subsidy & Loans</p>
+                </div>
+            </div>
+            <ul class="text-xs space-y-1.5 text-slate-600 mb-3 border-t border-slate-200/60 pt-2.5">
+                <li><a href="https://www.krishi.gov.bd" target="_blank" class="hover:text-purple-600 flex items-center justify-between">জাতীয় কৃষি পোর্টাল <i class="fa-solid fa-arrow-up-right-from-square text-[10px] text-slate-400"></i></a></li>
+                <li><a href="https://www.rakub.org.bd" target="_blank" class="hover:text-purple-600 flex items-center justify-between">কৃষি ব্যাংক লোন ও ভর্তুকি সহায়তা <i class="fa-solid fa-arrow-up-right-from-square text-[10px] text-slate-400"></i></a></li>
+                <li><a href="#" class="hover:text-purple-600 flex items-center justify-between">স্মার্ট কৃষি যান্ত্রিকীকরণ (হারভেস্টার ও রাইস ট্রান্সপ্লান্টার) <i class="fa-solid fa-angle-right text-[10px] text-slate-400"></i></a></li>
+            </ul>
+        </div>
+
+    </div>
+
+    <!-- Krishi Call Center Helpline Callout -->
+    <div class="bg-white p-5 rounded-2xl border border-slate-200 shadow-sm mt-6">
+        <h3 class="font-bold text-sm text-slate-800 mb-2 flex items-center gap-2">
+            <i class="fa-solid fa-headset text-emerald-600"></i> সরাসরি কৃষি বিশেষজ্ঞের পরামর্শ পেতে কৃষি কল সেন্টার
+        </h3>
+        <p class="text-xs text-slate-500 mb-3">ফসল, পশুপালন বা মাছ চাষ সংক্রান্ত যেকোনো সমস্যায় অভিজ্ঞ কৃষি কর্মকর্তাদের সাথে সরাসরি কথা বলুন:</p>
+        <div class="grid grid-cols-1 sm:grid-cols-2 gap-3">
+            <div class="flex items-center justify-between bg-emerald-50 p-3 rounded-xl border border-emerald-200">
+                <div>
+                    <h4 class="font-bold text-xs text-slate-800">কৃষি কল সেন্টার হটলাইন</h4>
+                    <p class="text-[11px] text-slate-500">যেকোনো মোবাইল থেকে ফ্রি কল করুন</p>
+                </div>
+                <a href="tel:16123" class="bg-emerald-600 hover:bg-emerald-700 text-white px-3 py-1.5 rounded-lg text-xs font-bold transition">১৬১২৩</a>
+            </div>
+            <div class="flex items-center justify-between bg-teal-50 p-3 rounded-xl border border-teal-200">
+                <div>
+                    <h4 class="font-bold text-xs text-slate-800">প্রাণিসম্পদ সেবা হটলাইন</h4>
+                    <p class="text-[11px] text-slate-500">গবাদিপশু ও পোল্ট্রি চিকিৎসা পরামর্শ</p>
+                </div>
+                <a href="tel:16358" class="bg-teal-600 hover:bg-teal-700 text-white px-3 py-1.5 rounded-lg text-xs font-bold transition">১৬৩৫৮</a>
+            </div>
+        </div>
+    </div>
+
+</div>
+
+<!-- Internal Module JavaScript -->
+<script>
+    // Live Search inside Agriculture Module
+    function filterAgriServices() {
+        const query = document.getElementById('agri-search').value.toLowerCase();
+        const cards = document.querySelectorAll('.agri-card');
+        
+        cards.forEach(card => {
+            const text = card.innerText.toLowerCase();
+            card.style.display = text.includes(query) ? 'block' : 'none';
+        });
+    }
+
+    // Fertilizer Calculator Logic
+    function calcFertilizer() {
+        const shotok = parseFloat(document.getElementById('land-shotok').value);
+        const cropMultiplier = parseFloat(document.getElementById('crop-type').value);
+        const output = document.getElementById('fertilizer-output');
+
+        if (!isNaN(shotok) && shotok > 0) {
+            // Standard base: ~0.1 kg urea per shotok * crop multiplier
+            const ureaAmount = (shotok * 0.1 * cropMultiplier).toFixed(1);
+            output.innerText = `${ureaAmount} কেজি`;
+        } else {
+            output.innerText = '০ কেজি';
+        }
+    }
+</script>
