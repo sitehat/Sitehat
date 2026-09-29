@@ -1,0 +1,210 @@
+<!-- Module 24: Design, Media & Creative -->
+<div class="space-y-6 animate-fadeIn">
+    
+    <!-- Module Header -->
+    <div class="border-b border-slate-200 pb-4 flex flex-col sm:flex-row justify-between items-start sm:items-center gap-3">
+        <div>
+            <h1 class="text-xl font-bold text-slate-800 flex items-center gap-2">
+                <i class="fa-solid fa-palette text-indigo-600"></i> ডিজাইন, মিডিয়া ও ক্রিয়েটিভ
+            </h1>
+            <p class="text-xs text-slate-500 mt-1">ছবি, লোগো, কালার, ফন্ট, ভিডিও, অডিও ও সোশ্যাল মিডিয়া কন্টেন্ট তৈরির টুলস</p>
+        </div>
+    </div>
+
+    <!-- Quick Tool Categories Nav -->
+    <div class="flex items-center gap-2 overflow-x-auto pb-2 border-b border-slate-200 text-xs font-semibold scrollbar-none">
+        <button onclick="switchDesignTab('all')" class="design-tab active px-4 py-2 rounded-xl border border-indigo-600 bg-indigo-600 text-white whitespace-nowrap transition">
+            <i class="fa-solid fa-shapes"></i> সকল টুলস
+        </button>
+        <button onclick="switchDesignTab('image')" class="design-tab px-4 py-2 rounded-xl border border-slate-200 bg-slate-50 text-slate-600 hover:bg-slate-100 whitespace-nowrap transition">
+            <i class="fa-solid fa-image text-emerald-500"></i> Image & Logo
+        </button>
+        <button onclick="switchDesignTab('color')" class="design-tab px-4 py-2 rounded-xl border border-slate-200 bg-slate-50 text-slate-600 hover:bg-slate-100 whitespace-nowrap transition">
+            <i class="fa-solid fa-droplet text-rose-500"></i> Color & Fonts
+        </button>
+        <button onclick="switchDesignTab('media')" class="design-tab px-4 py-2 rounded-xl border border-slate-200 bg-slate-50 text-slate-600 hover:bg-slate-100 whitespace-nowrap transition">
+            <i class="fa-solid fa-video text-purple-500"></i> Video & Audio
+        </button>
+        <button onclick="switchDesignTab('social')" class="design-tab px-4 py-2 rounded-xl border border-slate-200 bg-slate-50 text-slate-600 hover:bg-slate-100 whitespace-nowrap transition">
+            <i class="fa-solid fa-hashtag text-sky-500"></i> Social & Resources
+        </button>
+    </div>
+
+    <!-- Interactive Tools Container -->
+    <div id="design-tools-grid" class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-5">
+
+        <!-- 1. Image & Logo Tools -->
+        <div class="design-card cat-image bg-slate-50 border border-slate-200 rounded-2xl p-4 space-y-3">
+            <div class="flex items-center justify-between border-b border-slate-200/80 pb-2">
+                <h3 class="font-bold text-xs text-slate-800 flex items-center gap-2">
+                    <i class="fa-solid fa-icons text-emerald-600"></i> Image & Logo Tools
+                </h3>
+                <span class="text-[10px] text-slate-400">গ্রাফিক্স ও ছবি</span>
+            </div>
+            <ul class="text-xs space-y-2 text-slate-600">
+                <li class="p-2 bg-white rounded-xl border border-slate-100 flex items-center justify-between hover:border-emerald-300 transition cursor-pointer">
+                    <span><i class="fa-solid fa-crop-simple text-emerald-500 mr-2"></i>Image Resizer & Crop</span>
+                    <i class="fa-solid fa-chevron-right text-[10px] text-slate-400"></i>
+                </li>
+                <li class="p-2 bg-white rounded-xl border border-slate-100 flex items-center justify-between hover:border-emerald-300 transition cursor-pointer">
+                    <span><i class="fa-solid fa-wand-magic-sparkles text-emerald-500 mr-2"></i>Background Remover</span>
+                    <i class="fa-solid fa-chevron-right text-[10px] text-slate-400"></i>
+                </li>
+                <li class="p-2 bg-white rounded-xl border border-slate-100 flex items-center justify-between hover:border-emerald-300 transition cursor-pointer">
+                    <span><i class="fa-solid fa-bezier-curve text-emerald-500 mr-2"></i>SVG / Logo Generator</span>
+                    <i class="fa-solid fa-chevron-right text-[10px] text-slate-400"></i>
+                </li>
+            </ul>
+        </div>
+
+        <!-- 2. Interactive Color Palette Generator -->
+        <div class="design-card cat-color bg-slate-50 border border-slate-200 rounded-2xl p-4 space-y-3">
+            <div class="flex items-center justify-between border-b border-slate-200/80 pb-2">
+                <h3 class="font-bold text-xs text-slate-800 flex items-center gap-2">
+                    <i class="fa-solid fa-eye-dropper text-rose-600"></i> Color Tools
+                </h3>
+                <button onclick="generatePalette()" class="text-[10px] text-indigo-600 hover:underline font-semibold flex items-center gap-1">
+                    <i class="fa-solid fa-rotate"></i> নতুন প্যালেট
+                </button>
+            </div>
+            <p class="text-[11px] text-slate-500">কালার কোডে ক্লিক করে হেক্স কোড কপি করুন:</p>
+            <div id="palette-container" class="grid grid-cols-5 gap-1.5 h-16 rounded-xl overflow-hidden p-1 bg-white border border-slate-200">
+                <!-- Color slots rendered via JS -->
+            </div>
+            <div id="copy-toast" class="text-[10px] text-emerald-600 font-semibold text-center hidden">
+                কোড কপি হয়েছে!
+            </div>
+        </div>
+
+        <!-- 3. Font Tools -->
+        <div class="design-card cat-color bg-slate-50 border border-slate-200 rounded-2xl p-4 space-y-3">
+            <div class="flex items-center justify-between border-b border-slate-200/80 pb-2">
+                <h3 class="font-bold text-xs text-slate-800 flex items-center gap-2">
+                    <i class="fa-solid fa-font text-indigo-600"></i> Font & Typography
+                </h3>
+                <span class="text-[10px] text-slate-400">ফন্ট সংকলন</span>
+            </div>
+            <div class="space-y-2">
+                <input type="text" id="font-preview-input" placeholder="ফন্ট প্রিভিউ লিখুন..." oninput="updateFontPreview()" class="w-full px-2.5 py-1.5 bg-white border border-slate-200 rounded-lg text-xs focus:outline-none focus:border-indigo-500">
+                <div id="font-preview-text" class="p-3 bg-white rounded-xl border border-slate-200 text-sm font-semibold text-slate-800 text-center truncate">
+                    বাংলা ও ইংরেজি ফন্ট স্টাইল
+                </div>
+            </div>
+        </div>
+
+        <!-- 4. Video & Audio Tools -->
+        <div class="design-card cat-media bg-slate-50 border border-slate-200 rounded-2xl p-4 space-y-3">
+            <div class="flex items-center justify-between border-b border-slate-200/80 pb-2">
+                <h3 class="font-bold text-xs text-slate-800 flex items-center gap-2">
+                    <i class="fa-solid fa-compact-disc text-purple-600"></i> Video & Audio Tools
+                </h3>
+                <span class="text-[10px] text-slate-400">মিডিয়া এডিটিং</span>
+            </div>
+            <ul class="text-xs space-y-2 text-slate-600">
+                <li class="p-2 bg-white rounded-xl border border-slate-100 flex items-center justify-between hover:border-purple-300 transition cursor-pointer">
+                    <span><i class="fa-solid fa-file-video text-purple-500 mr-2"></i>Video Converter / Compressor</span>
+                    <i class="fa-solid fa-chevron-right text-[10px] text-slate-400"></i>
+                </li>
+                <li class="p-2 bg-white rounded-xl border border-slate-100 flex items-center justify-between hover:border-purple-300 transition cursor-pointer">
+                    <span><i class="fa-solid fa-scissors text-purple-500 mr-2"></i>Audio Cutter & Trimmer</span>
+                    <i class="fa-solid fa-chevron-right text-[10px] text-slate-400"></i>
+                </li>
+            </ul>
+        </div>
+
+        <!-- 5. Screenshot Tools -->
+        <div class="design-card cat-media bg-slate-50 border border-slate-200 rounded-2xl p-4 space-y-3">
+            <div class="flex items-center justify-between border-b border-slate-200/80 pb-2">
+                <h3 class="font-bold text-xs text-slate-800 flex items-center gap-2">
+                    <i class="fa-solid fa-desktop text-sky-600"></i> Screenshot Tools
+                </h3>
+                <span class="text-[10px] text-slate-400">মকআপ ও ফ্রেম</span>
+            </div>
+            <ul class="text-xs space-y-2 text-slate-600">
+                <li class="p-2 bg-white rounded-xl border border-slate-100 flex items-center justify-between hover:border-sky-300 transition cursor-pointer">
+                    <span><i class="fa-solid fa-mobile-screen text-sky-500 mr-2"></i>Device Mockup Frame</span>
+                    <i class="fa-solid fa-chevron-right text-[10px] text-slate-400"></i>
+                </li>
+                <li class="p-2 bg-white rounded-xl border border-slate-100 flex items-center justify-between hover:border-sky-300 transition cursor-pointer">
+                    <span><i class="fa-solid fa-camera text-sky-500 mr-2"></i>Web Page Screen Capture</span>
+                    <i class="fa-solid fa-chevron-right text-[10px] text-slate-400"></i>
+                </li>
+            </ul>
+        </div>
+
+        <!-- 6. Social Media & Design Resources -->
+        <div class="design-card cat-social bg-slate-50 border border-slate-200 rounded-2xl p-4 space-y-3">
+            <div class="flex items-center justify-between border-b border-slate-200/80 pb-2">
+                <h3 class="font-bold text-xs text-slate-800 flex items-center gap-2">
+                    <i class="fa-solid fa-share-nodes text-amber-600"></i> Social & Design Resources
+                </h3>
+                <span class="text-[10px] text-slate-400">সম্পদ ও কন্টেন্ট</span>
+            </div>
+            <ul class="text-xs space-y-2 text-slate-600">
+                <li class="p-2 bg-white rounded-xl border border-slate-100 flex items-center justify-between hover:border-amber-300 transition cursor-pointer">
+                    <span><i class="fa-solid fa-hashtag text-amber-500 mr-2"></i>Social Media Content Generator</span>
+                    <i class="fa-solid fa-chevron-right text-[10px] text-slate-400"></i>
+                </li>
+                <li class="p-2 bg-white rounded-xl border border-slate-100 flex items-center justify-between hover:border-amber-300 transition cursor-pointer">
+                    <span><i class="fa-solid fa-box-archive text-amber-500 mr-2"></i>Free Stock Photos & Vectors</span>
+                    <i class="fa-solid fa-chevron-right text-[10px] text-slate-400"></i>
+                </li>
+            </ul>
+        </div>
+
+    </div>
+
+</div>
+
+<!-- Internal Module JavaScript -->
+<script>
+    // Tab Filter Logic
+    function switchDesignTab(category) {
+        const tabs = document.querySelectorAll('.design-tab');
+        tabs.forEach(tab => {
+            tab.className = 'design-tab px-4 py-2 rounded-xl border border-slate-200 bg-slate-50 text-slate-600 hover:bg-slate-100 whitespace-nowrap transition';
+        });
+
+        if(event && event.currentTarget) {
+            event.currentTarget.className = 'design-tab active px-4 py-2 rounded-xl border border-indigo-600 bg-indigo-600 text-white whitespace-nowrap transition';
+        }
+
+        const cards = document.querySelectorAll('.design-card');
+        cards.forEach(card => {
+            if (category === 'all' || card.classList.contains(`cat-${category}`)) {
+                card.classList.remove('hidden');
+            } else {
+                card.classList.add('hidden');
+            }
+        });
+    }
+
+    // Dynamic Color Palette Generator
+    function generatePalette() {
+        const container = document.getElementById('palette-container');
+        container.innerHTML = '';
+        
+        for (let i = 0; i < 5; i++) {
+            const randomColor = '#' + Math.floor(Math.random()*16777215).toString(16).padStart(6, '0');
+            const div = document.createElement('div');
+            div.className = 'h-full rounded-lg cursor-pointer flex items-end justify-center pb-1 text-[9px] font-mono text-white shadow-inner transition transform hover:scale-105';
+            div.style.backgroundColor = randomColor;
+            div.innerText = randomColor;
+            div.onclick = function() {
+                navigator.clipboard.writeText(randomColor);
+                const toast = document.getElementById('copy-toast');
+                toast.classList.remove('hidden');
+                setTimeout(() => toast.classList.add('hidden'), 1500);
+            };
+            container.appendChild(div);
+        }
+    }
+    generatePalette(); // Initial load
+
+    // Font Live Preview
+    function updateFontPreview() {
+        const inputVal = document.getElementById('font-preview-input').value;
+        const previewText = document.getElementById('font-preview-text');
+        previewText.innerText = inputVal.trim() !== '' ? inputVal : 'বাংলা ও ইংরেজি ফন্ট স্টাইল';
+    }
+          </script>
