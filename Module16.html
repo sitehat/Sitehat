@@ -1,0 +1,211 @@
+<!-- Module 16: Law, Justice & Legal Aid -->
+<div class="space-y-6 animate-fadeIn">
+    
+    <!-- Module Header -->
+    <div class="border-b border-slate-200 pb-4 flex flex-col sm:flex-row justify-between items-start sm:items-center gap-3">
+        <div>
+            <h1 class="text-xl font-bold text-slate-800 flex items-center gap-2">
+                <i class="fa-solid fa-scale-balanced text-indigo-600"></i> আইন, বিচার ও আইনি সহায়তা (Law, Justice & Legal Services)
+            </h1>
+            <p class="text-xs text-slate-500 mt-1">বাংলাদেশের আইন, আদালত, মামলার তথ্য, আইনি ফরম, ভূমি-পারিবারিক-ভোক্তা আইন এবং লিগ্যাল এইড</p>
+        </div>
+        <!-- Module Internal Search -->
+        <div class="relative w-full sm:w-64">
+            <i class="fa-solid fa-magnifying-glass absolute left-3 top-1/2 -translate-y-1/2 text-slate-400 text-xs"></i>
+            <input type="text" id="law-search" onkeyup="filterLawServices()" placeholder="আইন বা আইনি সেবা খুঁজুন..." class="w-full pl-8 pr-3 py-1.5 bg-slate-100 focus:bg-white border border-slate-200 rounded-lg text-xs focus:outline-none focus:border-indigo-500">
+        </div>
+    </div>
+
+    <!-- Free Legal Aid National Hotline & E-Court Utility -->
+    <div class="bg-gradient-to-r from-indigo-800 via-purple-800 to-slate-900 text-white rounded-2xl p-5 shadow-sm space-y-4">
+        <div class="flex flex-col sm:flex-row sm:items-center justify-between gap-3 border-b border-white/20 pb-3">
+            <div class="flex items-center gap-3">
+                <div class="text-3xl">
+                    <i class="fa-solid fa-hand-holding-hand text-indigo-300"></i>
+                </div>
+                <div>
+                    <h3 class="font-bold text-base">বিনামূল্যে সরকারি আইনি সহায়তা (Government Legal Aid)</h3>
+                    <p class="text-xs text-indigo-200">আর্থিক অসচ্ছলদের জন্য জাতীয় আইনগত সহায়তা প্রদান সংস্থার আইনি পরামর্শ ও আইনজীবী সেবা</p>
+                </div>
+            </div>
+            <a href="http://bdlaws.minlaw.gov.bd" target="_blank" class="bg-white/20 hover:bg-white/30 backdrop-blur-md px-3 py-1.5 rounded-xl text-xs font-semibold transition text-center self-start sm:self-auto">
+                <i class="fa-solid fa-book-journal-whills text-indigo-200"></i> বাংলাদেশের সকল আইন পড়ুন
+            </a>
+        </div>
+
+        <!-- Callout Helpline Box -->
+        <div class="grid grid-cols-1 sm:grid-cols-3 gap-3 items-center">
+            <div class="sm:col-span-2 space-y-1">
+                <span class="text-xs text-indigo-200 block font-semibold">জাতীয় লিগ্যাল এইড হেল্পলাইন (টোল-ফ্রি):</span>
+                <p class="text-xs text-slate-200 leading-relaxed">
+                    যে কোনো সরকারি ছুটির দিনসহ ২৪ ঘণ্টা বিনামূল্যে আইনি পরামর্শ ও তথ্য পেতে সরাসরি কল করুন।
+                </p>
+            </div>
+            <div class="flex justify-start sm:justify-end">
+                <a href="tel:16430" class="w-full sm:w-auto bg-amber-500 hover:bg-amber-600 text-slate-900 font-bold px-5 py-2.5 rounded-xl text-xs text-center shadow-md transition flex items-center justify-center gap-2">
+                    <i class="fa-solid fa-phone-volume"></i> কল করুন: ১৬৪৩০
+                </a>
+            </div>
+        </div>
+    </div>
+
+    <!-- Main Law & Legal Services Grid -->
+    <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4" id="law-services-grid">
+        
+        <!-- 1. আইন তথ্য ও আইন পড়ুন -->
+        <div class="law-card bg-slate-50 border border-slate-200 hover:border-indigo-400 rounded-2xl p-4 transition duration-200">
+            <div class="flex items-center gap-3 mb-3">
+                <div class="w-10 h-10 rounded-xl bg-indigo-100 text-indigo-600 flex items-center justify-center font-bold">
+                    <i class="fa-solid fa-book-bookmark text-lg"></i>
+                </div>
+                <div>
+                    <h3 class="font-bold text-sm text-slate-800">আইন তথ্য ও আইন সংকলন</h3>
+                    <p class="text-[11px] text-slate-500">Laws of Bangladesh Portal</p>
+                </div>
+            </div>
+            <ul class="text-xs space-y-1.5 text-slate-600 mb-3 border-t border-slate-200/60 pt-2.5">
+                <li><a href="http://bdlaws.minlaw.gov.bd" target="_blank" class="hover:text-indigo-600 flex items-center justify-between">জাতীয় আইন পোর্টাল (BD Laws) <i class="fa-solid fa-arrow-up-right-from-square text-[10px] text-slate-400"></i></a></li>
+                <li><a href="http://www.lawjusticediv.gov.bd" target="_blank" class="hover:text-indigo-600 flex items-center justify-between">আইন ও বিচার বিভাগ, আইন মন্ত্রণালয় <i class="fa-solid fa-arrow-up-right-from-square text-[10px] text-slate-400"></i></a></li>
+                <li><a href="#" class="hover:text-indigo-600 flex items-center justify-between">বাংলাদেশের গ্যাজেট ও নতুন অধ্যাদেশ <i class="fa-solid fa-angle-right text-[10px] text-slate-400"></i></a></li>
+            </ul>
+        </div>
+
+        <!-- 2. আদালত ও মামলা তথ্য -->
+        <div class="law-card bg-slate-50 border border-slate-200 hover:border-purple-400 rounded-2xl p-4 transition duration-200">
+            <div class="flex items-center gap-3 mb-3">
+                <div class="w-10 h-10 rounded-xl bg-purple-100 text-purple-600 flex items-center justify-center font-bold">
+                    <i class="fa-solid fa-building-columns text-lg"></i>
+                </div>
+                <div>
+                    <h3 class="font-bold text-sm text-slate-800">আদালত ও ই-কোর্ট তথ্য</h3>
+                    <p class="text-[11px] text-slate-500">Supreme Court & Case Status</p>
+                </div>
+            </div>
+            <ul class="text-xs space-y-1.5 text-slate-600 mb-3 border-t border-slate-200/60 pt-2.5">
+                <li><a href="http://www.supremecourt.gov.bd" target="_blank" class="hover:text-purple-600 flex items-center justify-between">বাংলাদেশ সুপ্রিম কোর্ট পোর্টাল <i class="fa-solid fa-arrow-up-right-from-square text-[10px] text-slate-400"></i></a></li>
+                <li><a href="https://causelist.judiciary.org.bd" target="_blank" class="hover:text-purple-600 flex items-center justify-between">অনলাইন নিম্ন আদালতের কার্যতালিকা (Cause List) <i class="fa-solid fa-arrow-up-right-from-square text-[10px] text-slate-400"></i></a></li>
+                <li><a href="#" class="hover:text-purple-600 flex items-center justify-between">ই-কোর্ট ও মামলা ট্র্যাকিং সহায়িকা <i class="fa-solid fa-angle-right text-[10px] text-slate-400"></i></a></li>
+            </ul>
+        </div>
+
+        <!-- 3. আইনি ফরম ও প্রসেস -->
+        <div class="law-card bg-slate-50 border border-slate-200 hover:border-sky-400 rounded-2xl p-4 transition duration-200">
+            <div class="flex items-center gap-3 mb-3">
+                <div class="w-10 h-10 rounded-xl bg-sky-100 text-sky-600 flex items-center justify-center font-bold">
+                    <i class="fa-solid fa-file-signature text-lg"></i>
+                </div>
+                <div>
+                    <h3 class="font-bold text-sm text-slate-800">আইনি ফরম ও দরখাস্ত</h3>
+                    <p class="text-[11px] text-slate-500">Legal Drafts & Court Forms</p>
+                </div>
+            </div>
+            <ul class="text-xs space-y-1.5 text-slate-600 mb-3 border-t border-slate-200/60 pt-2.5">
+                <li><a href="http://www.forms.gov.bd" target="_blank" class="hover:text-sky-600 flex items-center justify-between">সরকারি ফরম পোর্টাল (আইনি ফরম) <i class="fa-solid fa-arrow-up-right-from-square text-[10px] text-slate-400"></i></a></li>
+                <li><a href="#" class="hover:text-sky-600 flex items-center justify-between">চুক্তিপত্র, হলফনামা ও পাওয়ার অব অ্যাটর্নি ফরম্যাট <i class="fa-solid fa-angle-right text-[10px] text-slate-400"></i></a></li>
+                <li><a href="#" class="hover:text-sky-600 flex items-center justify-between">জিডি (General Diary) ও নোটিশ খসড়া <i class="fa-solid fa-angle-right text-[10px] text-slate-400"></i></a></li>
+            </ul>
+        </div>
+
+        <!-- 4. ভূমি আইন ও নামজারি -->
+        <div class="law-card bg-slate-50 border border-slate-200 hover:border-emerald-400 rounded-2xl p-4 transition duration-200">
+            <div class="flex items-center gap-3 mb-3">
+                <div class="w-10 h-10 rounded-xl bg-emerald-100 text-emerald-600 flex items-center justify-center font-bold">
+                    <i class="fa-solid fa-landmark text-lg"></i>
+                </div>
+                <div>
+                    <h3 class="font-bold text-sm text-slate-800">ভূমি আইন ও সম্পত্তি সুরক্ষা</h3>
+                    <p class="text-[11px] text-slate-500">Land Laws, Registry & Mutation</p>
+                </div>
+            </div>
+            <ul class="text-xs space-y-1.5 text-slate-600 mb-3 border-t border-slate-200/60 pt-2.5">
+                <li><a href="https://land.gov.bd" target="_blank" class="hover:text-emerald-600 flex items-center justify-between">ভূমি মন্ত্রণালয় পোর্টাল ও ই-নামজারি <i class="fa-solid fa-arrow-up-right-from-square text-[10px] text-slate-400"></i></a></li>
+                <li><a href="#" class="hover:text-emerald-600 flex items-center justify-between">ভূমি অপরাধ প্রতিরোধ ও প্রতিকার আইন, ২০২৩ <i class="fa-solid fa-angle-right text-[10px] text-slate-400"></i></a></li>
+                <li><a href="#" class="hover:text-emerald-600 flex items-center justify-between">জমি দলিলের রেজিষ্ট্রেশন ও রেজিস্ট্রি ফি গাইড <i class="fa-solid fa-angle-right text-[10px] text-slate-400"></i></a></li>
+            </ul>
+        </div>
+
+        <!-- 5. পারিবারিক ও নাগরিক আইন -->
+        <div class="law-card bg-slate-50 border border-slate-200 hover:border-rose-400 rounded-2xl p-4 transition duration-200">
+            <div class="flex items-center gap-3 mb-3">
+                <div class="w-10 h-10 rounded-xl bg-rose-100 text-rose-600 flex items-center justify-center font-bold">
+                    <i class="fa-solid fa-people-roof text-lg"></i>
+                </div>
+                <div>
+                    <h3 class="font-bold text-sm text-slate-800">পারিবারিক ও নাগরিক আইন</h3>
+                    <p class="text-[11px] text-slate-500">Family Court & Civil Rights</p>
+                </div>
+            </div>
+            <ul class="text-xs space-y-1.5 text-slate-600 mb-3 border-t border-slate-200/60 pt-2.5">
+                <li><a href="#" class="hover:text-rose-600 flex items-center justify-between">বিবাহ, দেনমোহর, খোরপোশ ও তালাক আইন <i class="fa-solid fa-angle-right text-[10px] text-slate-400"></i></a></li>
+                <li><a href="#" class="hover:text-rose-600 flex items-center justify-between">গার্হস্থ্য সহিংসতা (প্রতিরোধ ও সুরক্ষা) আইন <i class="fa-solid fa-angle-right text-[10px] text-slate-400"></i></a></li>
+                <li><a href="#" class="hover:text-rose-600 flex items-center justify-between">সন্তানের অভিভাবকত্ব ও পারিবারিক আদালত সেবা <i class="fa-solid fa-angle-right text-[10px] text-slate-400"></i></a></li>
+            </ul>
+        </div>
+
+        <!-- 6. ভোক্তা ও শ্রম আইন -->
+        <div class="law-card bg-slate-50 border border-slate-200 hover:border-amber-400 rounded-2xl p-4 transition duration-200">
+            <div class="flex items-center gap-3 mb-3">
+                <div class="w-10 h-10 rounded-xl bg-amber-100 text-amber-600 flex items-center justify-center font-bold">
+                    <i class="fa-solid fa-user-shield text-lg"></i>
+                </div>
+                <div>
+                    <h3 class="font-bold text-sm text-slate-800">ভোক্তা অধিকার ও শ্রম আইন</h3>
+                    <p class="text-[11px] text-slate-500">Consumer Rights & Labor Law</p>
+                </div>
+            </div>
+            <ul class="text-xs space-y-1.5 text-slate-600 mb-3 border-t border-slate-200/60 pt-2.5">
+                <li><a href="https://dncrp.gov.bd" target="_blank" class="hover:text-amber-600 flex items-center justify-between">জাতীয় ভোক্তা-অধিকার সংরক্ষণ অধিদপ্তর (১৬১২১) <i class="fa-solid fa-arrow-up-right-from-square text-[10px] text-slate-400"></i></a></li>
+                <li><a href="http://www.mole.gov.bd" target="_blank" class="hover:text-amber-600 flex items-center justify-between">বাংলাদেশ শ্রম আইন, ২০০৬ (শ্রমিকের অধিকার ও ছুটির নিয়ম) <i class="fa-solid fa-arrow-up-right-from-square text-[10px] text-slate-400"></i></a></li>
+                <li><a href="#" class="hover:text-amber-600 flex items-center justify-between">ভোক্তা অধিকার লংঘনে অনলাইনে অভিযোগ দায়ের <i class="fa-solid fa-angle-right text-[10px] text-slate-400"></i></a></li>
+            </ul>
+        </div>
+
+    </div>
+
+    <!-- Legal Helpline Contacts -->
+    <div class="bg-white p-5 rounded-2xl border border-slate-200 shadow-sm mt-6">
+        <h3 class="font-bold text-sm text-slate-800 mb-3 flex items-center gap-2">
+            <i class="fa-solid fa-gavel text-indigo-600"></i> জরুরি আইনি ও ভোক্তা সহায়তা হটলাইনসমূহ
+        </h3>
+        <div class="grid grid-cols-1 sm:grid-cols-3 gap-3 text-xs">
+            <div class="p-3 bg-slate-50 rounded-xl border border-slate-200 flex flex-col justify-between">
+                <div>
+                    <span class="font-bold text-slate-800 block">সরকারি আইনি সহায়তা (National Legal Aid)</span>
+                    <span class="text-[11px] text-slate-500">বিনামূল্যে লিগ্যাল অ্যাডভাইস ও কেস সহায়তা</span>
+                </div>
+                <a href="tel:16430" class="mt-2 text-center bg-indigo-600 hover:bg-indigo-700 text-white font-bold py-1 px-3 rounded-lg transition">১৬৪৩০</a>
+            </div>
+
+            <div class="p-3 bg-slate-50 rounded-xl border border-slate-200 flex flex-col justify-between">
+                <div>
+                    <span class="font-bold text-slate-800 block">ভোক্তা অধিকার অভিযোগ হেল্পলাইন</span>
+                    <span class="text-[11px] text-slate-500">পণ্য বা সেবায় প্রতারিত হলে অভিযোগ দিন</span>
+                </div>
+                <a href="tel:16121" class="mt-2 text-center bg-amber-600 hover:bg-amber-700 text-white font-bold py-1 px-3 rounded-lg transition">১৬১২১</a>
+            </div>
+
+            <div class="p-3 bg-slate-50 rounded-xl border border-slate-200 flex flex-col justify-between">
+                <div>
+                    <span class="font-bold text-slate-800 block">জাতীয় জরুরী সেবা (National Emergency)</span>
+                    <span class="text-[11px] text-slate-500">তাৎক্ষণিক পুলিশি সহায়তা ও আইনি ব্যাকআপ</span>
+                </div>
+                <a href="tel:999" class="mt-2 text-center bg-rose-600 hover:bg-rose-700 text-white font-bold py-1 px-3 rounded-lg transition">৯৯৯</a>
+            </div>
+        </div>
+    </div>
+
+</div>
+
+<!-- Internal Module JavaScript -->
+<script>
+    // Live Search inside Law Module
+    function filterLawServices() {
+        const query = document.getElementById('law-search').value.toLowerCase();
+        const cards = document.querySelectorAll('.law-card');
+        
+        cards.forEach(card => {
+            const text = card.innerText.toLowerCase();
+            card.style.display = text.includes(query) ? 'block' : 'none';
+        });
+    }
+                      </script>
