@@ -1,0 +1,446 @@
+<!DOCTYPE html>
+<html lang="bn">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sitehat — আপনার জীবনের সব প্রয়োজন, এক জায়গায়</title>
+    <!-- Tailwind CSS CDN -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <!-- FontAwesome Icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <!-- Google Fonts (Hind Siliguri / Noto Sans Bengali) -->
+    <link href="https://fonts.googleapis.com/css2?family=Hind+Siliguri:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <!-- QRCode JS Library -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/qrcodejs/1.0.0/qrcode.min.js"></script>
+    <style>
+        body { font-family: 'Hind Siliguri', sans-serif; background-color: #f3f4f6; }
+        .hero-bg {
+            background: linear-gradient(135deg, #0b2545 0%, #134074 50%, #001220 100%);
+            position: relative;
+            overflow: hidden;
+        }
+        .hero-bg::before {
+            content: '';
+            position: absolute;
+            top: 0; right: 0; bottom: 0; left: 0;
+            background: url('https://images.unsplash.com/photo-1506744038136-46273834b3fb?auto=format&fit=crop&w=1200&q=80') center/cover no-repeat;
+            opacity: 0.25;
+        }
+        /* Custom scrollbar */
+        ::-webkit-scrollbar { width: 5px; }
+        ::-webkit-scrollbar-track { background: #f1f1f1; }
+        ::-webkit-scrollbar-thumb { background: #cbd5e1; border-radius: 4px; }
+        ::-webkit-scrollbar-thumb:hover { background: #94a3b8; }
+    </style>
+</head>
+<body class="text-slate-800 flex flex-col min-h-screen">
+
+    <!-- Top Navigation Bar -->
+    <header class="bg-white border-b border-slate-200 sticky top-0 z-50 shadow-sm">
+        <div class="max-w-[1440px] mx-auto px-4 py-2.5 flex items-center justify-between gap-4">
+            <!-- Logo -->
+            <div class="flex items-center gap-2 cursor-pointer shrink-0" onclick="location.reload()">
+                <div class="bg-gradient-to-tr from-blue-600 to-indigo-600 text-white p-2 rounded-xl flex items-center justify-center font-bold text-xl w-10 h-10 shadow-md">
+                    S
+                </div>
+                <div>
+                    <span class="text-2xl font-extrabold tracking-tight text-slate-800 leading-none block">Sitehat</span>
+                    <span class="text-[10px] text-slate-500 font-medium tracking-wide">Your Life. Simplified.</span>
+                </div>
+            </div>
+
+            <!-- Top Search Input -->
+            <div class="flex-grow max-w-xl hidden md:block">
+                <div class="relative">
+                    <i class="fa-solid fa-magnifying-glass absolute left-3.5 top-1/2 -translate-y-1/2 text-slate-400 text-sm"></i>
+                    <input type="text" id="top-search" onkeyup="searchService()" placeholder="এখানে যা খুঁজছেন লিখুন... (যেমন: ১০০ ডলার কত টাকা, NID, PDF...)" class="w-full pl-10 pr-4 py-2 bg-slate-100 hover:bg-slate-200/70 focus:bg-white border border-transparent focus:border-blue-500 rounded-full text-xs transition focus:outline-none">
+                </div>
+            </div>
+
+            <!-- Top Right Actions -->
+            <div class="flex items-center gap-3 shrink-0">
+                <button class="flex items-center gap-1.5 text-xs text-slate-600 bg-slate-100 px-3 py-1.5 rounded-full hover:bg-slate-200">
+                    <span class="w-4 h-4 rounded-full bg-red-600 text-white text-[9px] font-bold flex items-center justify-center">🇧🇩</span> বাংলা <i class="fa-solid fa-chevron-down text-[10px]"></i>
+                </button>
+                <button class="p-2 text-slate-600 hover:bg-slate-100 rounded-full text-sm"><i class="fa-regular fa-sun"></i></button>
+                <button class="p-2 text-slate-600 hover:bg-slate-100 rounded-full text-sm relative">
+                    <i class="fa-regular fa-bell"></i>
+                    <span class="absolute top-1 right-1 w-2 h-2 bg-red-500 rounded-full"></span>
+                </button>
+                <div class="h-6 w-px bg-slate-200 hidden sm:block"></div>
+                <button onclick="loadModule('module20.html', this)" class="text-xs text-blue-600 font-semibold hover:bg-blue-50 px-3 py-1.5 rounded-lg border border-blue-200 hidden sm:block">লগইন</button>
+                <button onclick="loadModule('module20.html', this)" class="text-xs text-white font-semibold bg-blue-600 hover:bg-blue-700 px-3.5 py-1.5 rounded-lg shadow-sm">রেজিস্ট্রেশন</button>
+            </div>
+        </div>
+    </header>
+
+    <!-- Main Container -->
+    <div class="max-w-[1440px] mx-auto px-2 sm:px-4 py-4 flex-grow w-full flex flex-col lg:flex-row gap-4">
+        
+        <!-- Left Sidebar Navigation -->
+        <aside class="w-full lg:w-56 shrink-0 space-y-4">
+            <div class="bg-white p-2 rounded-2xl border border-slate-200 shadow-sm max-h-[80vh] overflow-y-auto">
+                <nav class="space-y-0.5 text-xs font-semibold text-slate-600" id="category-list">
+                    <button onclick="loadModule('default_home.html', this)" class="nav-btn active-nav w-full text-left px-3 py-2.5 rounded-xl bg-blue-50 text-blue-600 flex items-center gap-3 transition">
+                        <i class="fa-solid fa-house w-4 text-center"></i> হোম
+                    </button>
+                    <button onclick="loadModule('module1.html', this)" class="nav-btn w-full text-left px-3 py-2.5 rounded-xl hover:bg-slate-100 flex items-center gap-3 transition">
+                        <i class="fa-solid fa-landmark w-4 text-center text-blue-600"></i> ১. সরকারি সেবা
+                    </button>
+                    <button onclick="loadModule('module2.html', this)" class="nav-btn w-full text-left px-3 py-2.5 rounded-xl hover:bg-slate-100 flex items-center gap-3 transition">
+                        <i class="fa-solid fa-briefcase w-4 text-center text-amber-600"></i> ২. চাকরি ও ক্যারিয়ার
+                    </button>
+                    <button onclick="loadModule('module3.html', this)" class="nav-btn w-full text-left px-3 py-2.5 rounded-xl hover:bg-slate-100 flex items-center gap-3 transition">
+                        <i class="fa-solid fa-graduation-cap w-4 text-center text-indigo-600"></i> ৩. শিক্ষা ও শেখা
+                    </button>
+                    <button onclick="loadModule('module4.html', this)" class="nav-btn w-full text-left px-3 py-2.5 rounded-xl hover:bg-slate-100 flex items-center gap-3 transition">
+                        <i class="fa-solid fa-wallet w-4 text-center text-emerald-600"></i> ৪. ব্যাংকিং ও অর্থ
+                    </button>
+                    <button onclick="loadModule('module5.html', this)" class="nav-btn w-full text-left px-3 py-2.5 rounded-xl hover:bg-slate-100 flex items-center gap-3 transition">
+                        <i class="fa-solid fa-screwdriver-wrench w-4 text-center text-cyan-600"></i> ৫. টুলস ও ইউটিলিটি
+                    </button>
+                    <button onclick="loadModule('module6.html', this)" class="nav-btn w-full text-left px-3 py-2.5 rounded-xl hover:bg-slate-100 flex items-center gap-3 transition">
+                        <i class="fa-solid fa-heart-pulse w-4 text-center text-rose-600"></i> ৬. স্বাস্থ্য ও চিকিৎসা
+                    </button>
+                    <button onclick="loadModule('module7.html', this)" class="nav-btn w-full text-left px-3 py-2.5 rounded-xl hover:bg-slate-100 flex items-center gap-3 transition">
+                        <i class="fa-solid fa-plane w-4 text-center text-sky-600"></i> ৭. ভ্রমণ ও পরিবহন
+                    </button>
+                    <button onclick="loadModule('module8.html', this)" class="nav-btn w-full text-left px-3 py-2.5 rounded-xl hover:bg-slate-100 flex items-center gap-3 transition">
+                        <i class="fa-solid fa-cart-shopping w-4 text-center text-orange-600"></i> ৮. কেনাকাটা
+                    </button>
+                    <button onclick="loadModule('module9.html', this)" class="nav-btn w-full text-left px-3 py-2.5 rounded-xl hover:bg-slate-100 flex items-center gap-3 transition">
+                        <i class="fa-solid fa-robot w-4 text-center text-purple-600"></i> ৯. AI সহকারী
+                    </button>
+                    <button onclick="loadModule('module10.html', this)" class="nav-btn w-full text-left px-3 py-2.5 rounded-xl hover:bg-slate-100 flex items-center gap-3 transition">
+                        <i class="fa-solid fa-cloud-sun w-4 text-center text-teal-600"></i> ১০. আবহাওয়া
+                    </button>
+                    <button onclick="loadModule('module11.html', this)" class="nav-btn w-full text-left px-3 py-2.5 rounded-xl hover:bg-slate-100 flex items-center gap-3 transition"><i class="fa-solid fa-globe w-4 text-center text-blue-500"></i> ১১. দেশ ও বিশ্ব</button>
+                    <button onclick="loadModule('module12.html', this)" class="nav-btn w-full text-left px-3 py-2.5 rounded-xl hover:bg-slate-100 flex items-center gap-3 transition"><i class="fa-solid fa-laptop-code w-4 text-center text-violet-600"></i> ১২. প্রযুক্তি ও আইটি</button>
+                    <button onclick="loadModule('module13.html', this)" class="nav-btn w-full text-left px-3 py-2.5 rounded-xl hover:bg-slate-100 flex items-center gap-3 transition"><i class="fa-solid fa-shield-halved w-4 text-center text-red-500"></i> ১৩. সাইবার নিরাপত্তা</button>
+                    <button onclick="loadModule('module14.html', this)" class="nav-btn w-full text-left px-3 py-2.5 rounded-xl hover:bg-slate-100 flex items-center gap-3 transition"><i class="fa-solid fa-store w-4 text-center text-emerald-700"></i> ১৪. ব্যবসা ও ফ্রিল্যান্সিং</button>
+                    <button onclick="loadModule('module15.html', this)" class="nav-btn w-full text-left px-3 py-2.5 rounded-xl hover:bg-slate-100 flex items-center gap-3 transition"><i class="fa-solid fa-wheat-awn w-4 text-center text-green-600"></i> ১৫. কৃষি ও খামার</button>
+                    <button onclick="loadModule('module16.html', this)" class="nav-btn w-full text-left px-3 py-2.5 rounded-xl hover:bg-slate-100 flex items-center gap-3 transition"><i class="fa-solid fa-scale-balanced w-4 text-center text-amber-700"></i> ১৬. আইন ও বিচার</button>
+                    <button onclick="loadModule('module17.html', this)" class="nav-btn w-full text-left px-3 py-2.5 rounded-xl hover:bg-slate-100 flex items-center gap-3 transition"><i class="fa-solid fa-location-dot w-4 text-center text-rose-500"></i> ১৭. জরুরি সেবা</button>
+                    <button onclick="loadModule('module18.html', this)" class="nav-btn w-full text-left px-3 py-2.5 rounded-xl hover:bg-slate-100 flex items-center gap-3 transition"><i class="fa-solid fa-bell w-4 text-center text-yellow-600"></i> ১৮. আপডেট</button>
+                    <button onclick="loadModule('module19.html', this)" class="nav-btn w-full text-left px-3 py-2.5 rounded-xl hover:bg-slate-100 flex items-center gap-3 transition"><i class="fa-solid fa-link w-4 text-center text-indigo-500"></i> ১৯. দরকারি সাইট</button>
+                    <button onclick="loadModule('module20.html', this)" class="nav-btn w-full text-left px-3 py-2.5 rounded-xl hover:bg-slate-100 flex items-center gap-3 transition"><i class="fa-solid fa-user-gear w-4 text-center text-slate-700"></i> ২০. My Sitehat</button>
+                    <button onclick="loadModule('module21.html', this)" class="nav-btn w-full text-left px-3 py-2.5 rounded-xl hover:bg-slate-100 flex items-center gap-3 transition"><i class="fa-solid fa-house-chimney w-4 text-center text-pink-600"></i> ২১. পরিবার</button>
+                    <button onclick="loadModule('module22.html', this)" class="nav-btn w-full text-left px-3 py-2.5 rounded-xl hover:bg-slate-100 flex items-center gap-3 transition"><i class="fa-solid fa-comments w-4 text-center text-emerald-500"></i> ২২. যোগাযোগ হাব</button>
+                    <button onclick="loadModule('module23.html', this)" class="nav-btn w-full text-left px-3 py-2.5 rounded-xl hover:bg-slate-100 flex items-center gap-3 transition"><i class="fa-solid fa-clock w-4 text-center text-blue-600"></i> ২৩. সময় ও তারিখ</button>
+                    <button onclick="loadModule('module24.html', this)" class="nav-btn w-full text-left px-3 py-2.5 rounded-xl hover:bg-slate-100 flex items-center gap-3 transition"><i class="fa-solid fa-palette w-4 text-center text-purple-500"></i> ২৪. ডিজাইন</button>
+                    <button onclick="loadModule('module25.html', this)" class="nav-btn w-full text-left px-3 py-2.5 rounded-xl hover:bg-slate-100 flex items-center gap-3 transition"><i class="fa-solid fa-book w-4 text-center text-amber-600"></i> ২৫. ডিকশনারি</button>
+                    <button onclick="loadModule('module26.html', this)" class="nav-btn w-full text-left px-3 py-2.5 rounded-xl hover:bg-slate-100 flex items-center gap-3 transition"><i class="fa-solid fa-calendar-days w-4 text-center text-teal-600"></i> ২৬. ইভেন্ট</button>
+                </nav>
+            </div>
+
+            <!-- Sitehat AI Box (Sidebar Bottom) -->
+            <div class="bg-gradient-to-br from-indigo-50 to-blue-50 border border-indigo-100 rounded-2xl p-3 flex items-center gap-3">
+                <div class="w-10 h-10 rounded-full bg-indigo-600 text-yellow-300 flex items-center justify-center font-bold shadow-md shrink-0">
+                    <i class="fa-solid fa-wand-magic-sparkles"></i>
+                </div>
+                <div>
+                    <h4 class="font-bold text-xs text-slate-800">Sitehat AI</h4>
+                    <p class="text-[10px] text-slate-500">আপনার ব্যক্তিগত AI সহকারী</p>
+                    <button onclick="loadModule('module9.html', this)" class="mt-1 bg-blue-600 text-white text-[10px] font-bold px-3 py-1 rounded-full hover:bg-blue-700">এখন ব্যবহার করুন →</button>
+                </div>
+            </div>
+        </aside>
+
+        <!-- Dynamic Main Content (Middle Column) -->
+        <main id="main-content" class="flex-grow min-w-0 space-y-6">
+            
+            <!-- Hero Banner Section -->
+            <section class="hero-bg text-white rounded-3xl p-6 sm:p-8 shadow-md relative">
+                <div class="relative z-10 max-w-2xl">
+                    <h1 class="text-2xl sm:text-3xl font-extrabold mb-1">সাইটহাট</h1>
+                    <p class="text-sm sm:text-base text-blue-100 mb-6 font-medium">আপনার জীবনের সব প্রয়োজন, এক জায়গায়</p>
+                    <p class="text-xs text-blue-200 mb-3">তথ্য খুঁজুন • কাজ করুন • শিখুন • এগিয়ে যান</p>
+
+                    <!-- Main Search Box -->
+                    <div class="relative flex items-center mb-3">
+                        <i class="fa-solid fa-magnifying-glass absolute left-4 text-slate-400 text-sm"></i>
+                        <input type="text" placeholder="আপনি কী করতে চান? (যেমন: NID, চাকরির খবর, PDF কমানো, ট্রেনের সময়সূচি...)" class="w-full pl-11 pr-24 py-3 rounded-full text-slate-800 text-xs sm:text-sm focus:outline-none shadow-lg">
+                        <button class="absolute right-1.5 bg-blue-600 hover:bg-blue-700 text-white px-5 py-2 rounded-full text-xs font-semibold flex items-center gap-1.5 transition">
+                            <i class="fa-solid fa-magnifying-glass"></i> খুঁজুন
+                        </button>
+                    </div>
+
+                    <!-- Quick Search Tags -->
+                    <div class="flex flex-wrap gap-2 text-[11px]">
+                        <button onclick="loadModule('module4.html')" class="bg-white/10 hover:bg-white/20 backdrop-blur-md text-white px-3 py-1 rounded-full border border-white/10">১০০ ডলার কত টাকা</button>
+                        <button onclick="loadModule('module1.html')" class="bg-white/10 hover:bg-white/20 backdrop-blur-md text-white px-3 py-1 rounded-full border border-white/10">NID অনলাইন</button>
+                        <button onclick="loadModule('module5.html')" class="bg-white/10 hover:bg-white/20 backdrop-blur-md text-white px-3 py-1 rounded-full border border-white/10">PDF কমানো</button>
+                        <button onclick="loadModule('module7.html')" class="bg-white/10 hover:bg-white/20 backdrop-blur-md text-white px-3 py-1 rounded-full border border-white/10">ঢাকা থেকে চট্টগ্রাম ট্রেন</button>
+                        <button onclick="loadModule('module10.html')" class="bg-white/10 hover:bg-white/20 backdrop-blur-md text-white px-3 py-1 rounded-full border border-white/10">আবহাওয়া</button>
+                        <button onclick="loadModule('module23.html')" class="bg-white/10 hover:bg-white/20 backdrop-blur-md text-white px-3 py-1 rounded-full border border-white/10">বয়স ক্যালকুলেটর</button>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Popular Tools Section -->
+            <section class="bg-white p-5 rounded-2xl border border-slate-200 shadow-sm">
+                <div class="flex justify-between items-center mb-4">
+                    <div>
+                        <h2 class="text-base font-bold text-slate-800 flex items-center gap-2">
+                            <i class="fa-solid fa-bolt text-yellow-500"></i> জনপ্রিয় টুলস
+                        </h2>
+                        <p class="text-[11px] text-slate-500">দ্রুত, সহজ এবং সম্পূর্ণ ফ্রি — কোনো লগইন ছাড়াই ব্যবহার করুন</p>
+                    </div>
+                    <button onclick="loadModule('module5.html')" class="text-xs text-blue-600 font-semibold hover:underline">সব টুলস দেখুন →</button>
+                </div>
+
+                <!-- Tools Grid -->
+                <div class="grid grid-cols-2 sm:grid-cols-3 gap-3">
+                    <div onclick="loadModule('module23.html')" class="p-3 rounded-xl border border-slate-100 bg-slate-50 hover:border-blue-200 hover:shadow-md cursor-pointer transition flex items-center gap-3">
+                        <div class="w-10 h-10 rounded-lg bg-blue-500 text-white flex items-center justify-center shrink-0"><i class="fa-solid fa-calculator text-lg"></i></div>
+                        <div><h3 class="font-bold text-xs text-slate-800">ক্যালকুলেটর</h3><p class="text-[10px] text-slate-500">ক্যালকুলেটর</p></div>
+                    </div>
+                    <div onclick="loadModule('module4.html')" class="p-3 rounded-xl border border-slate-100 bg-slate-50 hover:border-emerald-200 hover:shadow-md cursor-pointer transition flex items-center gap-3">
+                        <div class="w-10 h-10 rounded-lg bg-emerald-500 text-white flex items-center justify-center shrink-0"><i class="fa-solid fa-sack-dollar text-lg"></i></div>
+                        <div><h3 class="font-bold text-xs text-slate-800">মুদ্রা বিনিময়</h3><p class="text-[10px] text-slate-500">টাকা থেকে ডলার</p></div>
+                    </div>
+                    <div onclick="loadModule('module5.html')" class="p-3 rounded-xl border border-slate-100 bg-slate-50 hover:border-purple-200 hover:shadow-md cursor-pointer transition flex items-center gap-3">
+                        <div class="w-10 h-10 rounded-lg bg-purple-500 text-white flex items-center justify-center shrink-0"><i class="fa-solid fa-ruler-combined text-lg"></i></div>
+                        <div><h3 class="font-bold text-xs text-slate-800">ইউনিট কনভার্টার</h3><p class="text-[10px] text-slate-500">দৈর্ঘ্য, ওজন, তাপমাত্রা</p></div>
+                    </div>
+                    <div onclick="loadModule('module5.html')" class="p-3 rounded-xl border border-slate-100 bg-slate-50 hover:border-rose-200 hover:shadow-md cursor-pointer transition flex items-center gap-3">
+                        <div class="w-10 h-10 rounded-lg bg-rose-500 text-white flex items-center justify-center shrink-0"><i class="fa-solid fa-file-pdf text-lg"></i></div>
+                        <div><h3 class="font-bold text-xs text-slate-800">PDF টুলস</h3><p class="text-[10px] text-slate-500">মার্জ, কম্প্রেস, কনভার্ট</p></div>
+                    </div>
+                    <div onclick="loadModule('module5.html')" class="p-3 rounded-xl border border-slate-100 bg-slate-50 hover:border-amber-200 hover:shadow-md cursor-pointer transition flex items-center gap-3">
+                        <div class="w-10 h-10 rounded-lg bg-amber-500 text-white flex items-center justify-center shrink-0"><i class="fa-solid fa-image text-lg"></i></div>
+                        <div><h3 class="font-bold text-xs text-slate-800">ইমেজ কম্প্রেস</h3><p class="text-[10px] text-slate-500">ছবি সাইজ কমান</p></div>
+                    </div>
+                    <div onclick="loadModule('module5.html')" class="p-3 rounded-xl border border-slate-100 bg-slate-50 hover:border-cyan-200 hover:shadow-md cursor-pointer transition flex items-center gap-3">
+                        <div class="w-10 h-10 rounded-lg bg-cyan-500 text-white flex items-center justify-center shrink-0"><i class="fa-solid fa-qrcode text-lg"></i></div>
+                        <div><h3 class="font-bold text-xs text-slate-800">QR জেনারেটর</h3><p class="text-[10px] text-slate-500">QR কোড তৈরি</p></div>
+                    </div>
+                    <div onclick="loadModule('module23.html')" class="p-3 rounded-xl border border-slate-100 bg-slate-50 hover:border-blue-200 hover:shadow-md cursor-pointer transition flex items-center gap-3">
+                        <div class="w-10 h-10 rounded-lg bg-blue-600 text-white flex items-center justify-center shrink-0"><i class="fa-solid fa-cake-candles text-lg"></i></div>
+                        <div><h3 class="font-bold text-xs text-slate-800">বয়স ক্যালকুলেটর</h3><p class="text-[10px] text-slate-500">জন্ম তারিখ থেকে</p></div>
+                    </div>
+                    <div onclick="loadModule('module4.html')" class="p-3 rounded-xl border border-slate-100 bg-slate-50 hover:border-red-200 hover:shadow-md cursor-pointer transition flex items-center gap-3">
+                        <div class="w-10 h-10 rounded-lg bg-red-500 text-white flex items-center justify-center shrink-0"><i class="fa-solid fa-percent text-lg"></i></div>
+                        <div><h3 class="font-bold text-xs text-slate-800">পার্সেন্টেজ ক্যালকুলেটর</h3><p class="text-[10px] text-slate-500">শতকরা হিসাব</p></div>
+                    </div>
+                    <div onclick="loadModule('module4.html')" class="p-3 rounded-xl border border-slate-100 bg-slate-50 hover:border-teal-200 hover:shadow-md cursor-pointer transition flex items-center gap-3">
+                        <div class="w-10 h-10 rounded-lg bg-teal-500 text-white flex items-center justify-center shrink-0"><i class="fa-solid fa-coins text-lg"></i></div>
+                        <div><h3 class="font-bold text-xs text-slate-800">EMI ক্যালকুলেটর</h3><p class="text-[10px] text-slate-500">কিস্তি হিসাব</p></div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Quick Access Section -->
+            <section class="bg-white p-5 rounded-2xl border border-slate-200 shadow-sm">
+                <div class="flex justify-between items-center mb-4">
+                    <div>
+                        <h2 class="text-base font-bold text-slate-800 flex items-center gap-2">
+                            <i class="fa-solid fa-bookmark text-blue-600"></i> আপনার জন্য দ্রুত অ্যাক্সেস
+                        </h2>
+                        <p class="text-[11px] text-slate-500">আপনি যেসব সেবা বেশি ব্যবহার করেন, সেগুলো এখানে</p>
+                    </div>
+                    <button class="text-xs text-blue-600 font-semibold hover:underline">কাস্টমাইজ করুন →</button>
+                </div>
+
+                <div class="flex flex-wrap gap-2">
+                    <button onclick="loadModule('module1.html')" class="px-4 py-2 bg-slate-50 border border-slate-200 rounded-full text-xs font-semibold text-slate-700 hover:bg-blue-50 hover:border-blue-200 hover:text-blue-600 flex items-center gap-2"><i class="fa-solid fa-landmark text-blue-600"></i> সরকারি সেবা</button>
+                    <button onclick="loadModule('module2.html')" class="px-4 py-2 bg-slate-50 border border-slate-200 rounded-full text-xs font-semibold text-slate-700 hover:bg-amber-50 hover:border-amber-200 hover:text-amber-600 flex items-center gap-2"><i class="fa-solid fa-briefcase text-amber-600"></i> চাকরির খবর</button>
+                    <button onclick="loadModule('module1.html')" class="px-4 py-2 bg-slate-50 border border-slate-200 rounded-full text-xs font-semibold text-slate-700 hover:bg-emerald-50 hover:border-emerald-200 hover:text-emerald-600 flex items-center gap-2"><i class="fa-solid fa-id-card text-emerald-600"></i> NID সেবা</button>
+                    <button onclick="loadModule('module10.html')" class="px-4 py-2 bg-slate-50 border border-slate-200 rounded-full text-xs font-semibold text-slate-700 hover:bg-sky-50 hover:border-sky-200 hover:text-sky-600 flex items-center gap-2"><i class="fa-solid fa-cloud-sun text-sky-500"></i> আবহাওয়া</button>
+                    <button onclick="loadModule('module5.html')" class="px-4 py-2 bg-slate-50 border border-slate-200 rounded-full text-xs font-semibold text-slate-700 hover:bg-rose-50 hover:border-rose-200 hover:text-rose-600 flex items-center gap-2"><i class="fa-solid fa-file-pdf text-rose-500"></i> PDF টুলস</button>
+                    <button onclick="loadModule('module7.html')" class="px-4 py-2 bg-slate-50 border border-slate-200 rounded-full text-xs font-semibold text-slate-700 hover:bg-indigo-50 hover:border-indigo-200 hover:text-indigo-600 flex items-center gap-2"><i class="fa-solid fa-train text-indigo-600"></i> ট্রেন/বাস</button>
+                </div>
+            </section>
+
+            <!-- Main Services Grid -->
+            <section class="bg-white p-5 rounded-2xl border border-slate-200 shadow-sm">
+                <div class="flex justify-between items-center mb-4">
+                    <div>
+                        <h2 class="text-base font-bold text-slate-800 flex items-center gap-2">
+                            <i class="fa-solid fa-layer-group text-indigo-600"></i> প্রধান সেবা সমূহ
+                        </h2>
+                        <p class="text-[11px] text-slate-500">আপনার দৈনন্দিন জীবনকে সহজ করতে আমাদের সেবা সমূহ</p>
+                    </div>
+                    <button onclick="loadModule('module1.html')" class="text-xs text-blue-600 font-semibold hover:underline">সব সেবা দেখুন →</button>
+                </div>
+
+                <div class="grid grid-cols-1 sm:grid-cols-2 gap-3">
+                    <div onclick="loadModule('module1.html')" class="p-3.5 rounded-xl border border-slate-100 bg-slate-50 hover:border-blue-300 hover:bg-blue-50/50 cursor-pointer transition flex items-center gap-3">
+                        <div class="w-10 h-10 rounded-xl bg-emerald-600 text-white flex items-center justify-center shrink-0"><i class="fa-solid fa-building-columns text-lg"></i></div>
+                        <div><h3 class="font-bold text-xs text-slate-800">সরকারি সেবা</h3><p class="text-[11px] text-slate-500">NID, পাসপোর্ট, ভূমি, ট্যাক্স...</p></div>
+                    </div>
+                    <div onclick="loadModule('module2.html')" class="p-3.5 rounded-xl border border-slate-100 bg-slate-50 hover:border-blue-300 hover:bg-blue-50/50 cursor-pointer transition flex items-center gap-3">
+                        <div class="w-10 h-10 rounded-xl bg-blue-600 text-white flex items-center justify-center shrink-0"><i class="fa-solid fa-briefcase text-lg"></i></div>
+                        <div><h3 class="font-bold text-xs text-slate-800">চাকরি</h3><p class="text-[11px] text-slate-500">সরকারি ও বেসরকারি চাকরি</p></div>
+                    </div>
+                    <div onclick="loadModule('module3.html')" class="p-3.5 rounded-xl border border-slate-100 bg-slate-50 hover:border-blue-300 hover:bg-blue-50/50 cursor-pointer transition flex items-center gap-3">
+                        <div class="w-10 h-10 rounded-xl bg-sky-500 text-white flex items-center justify-center shrink-0"><i class="fa-solid fa-graduation-cap text-lg"></i></div>
+                        <div><h3 class="font-bold text-xs text-slate-800">শিক্ষা</h3><p class="text-[11px] text-slate-500">কোর্স, বিশ্ববিদ্যালয়, স্কলারশিপ</p></div>
+                    </div>
+                    <div onclick="loadModule('module4.html')" class="p-3.5 rounded-xl border border-slate-100 bg-slate-50 hover:border-blue-300 hover:bg-blue-50/50 cursor-pointer transition flex items-center gap-3">
+                        <div class="w-10 h-10 rounded-xl bg-rose-500 text-white flex items-center justify-center shrink-0"><i class="fa-solid fa-wallet text-lg"></i></div>
+                        <div><h3 class="font-bold text-xs text-slate-800">টাকা-পয়সা</h3><p class="text-[11px] text-slate-500">ব্যাংক, মোবাইল ব্যাংকিং, বিনিয়োগ</p></div>
+                    </div>
+                </div>
+            </section>
+
+        </main>
+
+        <!-- Right Sidebar (User, Weather, Links) -->
+        <aside class="w-full lg:w-72 shrink-0 space-y-4">
+            
+            <!-- User Profile Box -->
+            <div class="bg-white p-4 rounded-2xl border border-slate-200 shadow-sm">
+                <div class="flex items-center gap-3 mb-3">
+                    <div class="w-10 h-10 rounded-full bg-slate-200 flex items-center justify-center text-slate-600 font-bold text-lg">
+                        <i class="fa-regular fa-user"></i>
+                    </div>
+                    <div>
+                        <h4 class="font-bold text-xs text-slate-800">স্বাগতম, Hasan Roni</h4>
+                        <p class="text-[10px] text-slate-500">আপনার সাথে আবার দেখা পেয়ে ভালো লাগছে!</p>
+                    </div>
+                </div>
+                <div class="grid grid-cols-2 gap-2">
+                    <button onclick="loadModule('module20.html')" class="py-1.5 px-3 bg-slate-100 hover:bg-slate-200 text-slate-700 text-xs font-semibold rounded-lg">লগইন</button>
+                    <button onclick="loadModule('module20.html')" class="py-1.5 px-3 bg-blue-600 hover:bg-blue-700 text-white text-xs font-semibold rounded-lg">রেজিস্ট্রেশন</button>
+                </div>
+            </div>
+
+            <!-- Weather Widget -->
+            <div class="bg-white p-4 rounded-2xl border border-slate-200 shadow-sm">
+                <div class="flex justify-between items-start mb-2">
+                    <div>
+                        <div class="text-xs font-bold text-slate-800 flex items-center gap-1">
+                            <i class="fa-solid fa-location-dot text-rose-500"></i> ঢাকা, বাংলাদেশ
+                        </div>
+                        <div class="text-[10px] text-slate-400">সোমাবার, ২৮ এপ্রিল ২০২৬</div>
+                    </div>
+                </div>
+                <div class="flex items-center justify-between mt-2">
+                    <div class="flex items-center gap-2">
+                        <i class="fa-solid fa-sun text-yellow-400 text-3xl"></i>
+                        <div>
+                            <span class="text-2xl font-extrabold text-slate-800">৩২°C</span>
+                        </div>
+                    </div>
+                    <div class="text-right text-[10px] text-slate-500">
+                        <p class="font-semibold text-slate-700">আংশিক মেঘলা</p>
+                        <p>H: ৩৪° L: ২৬°</p>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Quick Links -->
+            <div class="bg-white p-4 rounded-2xl border border-slate-200 shadow-sm">
+                <div class="flex justify-between items-center mb-3">
+                    <h4 class="font-bold text-xs text-slate-800">দ্রুত লিংকস</h4>
+                    <span class="text-[10px] text-blue-600 font-semibold cursor-pointer">সব লিংকস →</span>
+                </div>
+                <div class="space-y-2 text-xs font-medium text-slate-700">
+                    <a href="https://youtube.com" target="_blank" class="flex items-center gap-2.5 p-1.5 hover:bg-slate-50 rounded-lg transition"><i class="fa-brands fa-youtube text-red-600 text-sm"></i> YouTube</a>
+                    <a href="https://facebook.com" target="_blank" class="flex items-center gap-2.5 p-1.5 hover:bg-slate-50 rounded-lg transition"><i class="fa-brands fa-facebook text-blue-600 text-sm"></i> Facebook</a>
+                    <a href="https://gmail.com" target="_blank" class="flex items-center gap-2.5 p-1.5 hover:bg-slate-50 rounded-lg transition"><i class="fa-solid fa-envelope text-rose-500 text-sm"></i> Gmail</a>
+                    <a href="https://maps.google.com" target="_blank" class="flex items-center gap-2.5 p-1.5 hover:bg-slate-50 rounded-lg transition"><i class="fa-solid fa-map-location-dot text-emerald-600 text-sm"></i> Google Maps</a>
+                    <a href="https://daraz.com.bd" target="_blank" class="flex items-center gap-2.5 p-1.5 hover:bg-slate-50 rounded-lg transition"><i class="fa-solid fa-bag-shopping text-orange-500 text-sm"></i> Daraz</a>
+                </div>
+            </div>
+
+            <!-- Popular Websites Grid -->
+            <div class="bg-white p-4 rounded-2xl border border-slate-200 shadow-sm">
+                <h4 class="font-bold text-xs text-slate-800 mb-3">জনপ্রিয় ওয়েবসাইট</h4>
+                <div class="grid grid-cols-3 gap-2 text-center text-[10px] font-semibold text-slate-600">
+                    <a href="https://google.com" target="_blank" class="p-2 border rounded-xl hover:bg-slate-50 flex flex-col items-center gap-1"><i class="fa-brands fa-google text-blue-500 text-base"></i> Google</a>
+                    <a href="https://youtube.com" target="_blank" class="p-2 border rounded-xl hover:bg-slate-50 flex flex-col items-center gap-1"><i class="fa-brands fa-youtube text-red-600 text-base"></i> YouTube</a>
+                    <a href="https://facebook.com" target="_blank" class="p-2 border rounded-xl hover:bg-slate-50 flex flex-col items-center gap-1"><i class="fa-brands fa-facebook text-blue-600 text-base"></i> Facebook</a>
+                    <a href="https://wikipedia.org" target="_blank" class="p-2 border rounded-xl hover:bg-slate-50 flex flex-col items-center gap-1"><i class="fa-brands fa-wikipedia-w text-slate-800 text-base"></i> Wikipedia</a>
+                    <a href="https://amazon.com" target="_blank" class="p-2 border rounded-xl hover:bg-slate-50 flex flex-col items-center gap-1"><i class="fa-brands fa-amazon text-amber-500 text-base"></i> Amazon</a>
+                    <a href="https://daraz.com.bd" target="_blank" class="p-2 border rounded-xl hover:bg-slate-50 flex flex-col items-center gap-1"><i class="fa-solid fa-shop text-orange-500 text-base"></i> Daraz</a>
+                </div>
+            </div>
+
+        </aside>
+    </div>
+
+    <!-- Footer -->
+    <footer class="bg-slate-900 text-slate-400 text-xs mt-8 border-t border-slate-800">
+        <div class="max-w-[1440px] mx-auto px-4 py-8 grid grid-cols-2 md:grid-cols-4 gap-6">
+            <div>
+                <div class="flex items-center gap-2 mb-3">
+                    <div class="bg-blue-600 text-white p-1.5 rounded-lg font-bold text-sm">S</div>
+                    <span class="text-lg font-bold text-white">Sitehat</span>
+                </div>
+                <p class="text-[11px] leading-relaxed">আপনার দৈনন্দিন জীবনের সকল ডিজিটাল সেবা ও প্রয়োজনীয় তথ্য এক প্ল্যাটফর্মে।</p>
+            </div>
+            <div>
+                <h5 class="font-bold text-white mb-2">দ্রুত লিংকস</h5>
+                <ul class="space-y-1 text-[11px]">
+                    <li><a href="#" class="hover:text-white">হোম</a></li>
+                    <li><a href="#" class="hover:text-white">অনুসন্ধান</a></li>
+                    <li><a href="#" class="hover:text-white">কাজ / টুলস</a></li>
+                    <li><a href="#" class="hover:text-white">চাকরি</a></li>
+                </ul>
+            </div>
+            <div>
+                <h5 class="font-bold text-white mb-2">সহায়তা</h5>
+                <ul class="space-y-1 text-[11px]">
+                    <li><a href="#" class="hover:text-white">FAQ</a></li>
+                    <li><a href="#" class="hover:text-white">যোগাযোগ করুন</a></li>
+                    <li><a href="#" class="hover:text-white">গোপনীয়তা নীতি</a></li>
+                </ul>
+            </div>
+            <div>
+                <h5 class="font-bold text-white mb-2">আমাদের সাথে থাকুন</h5>
+                <div class="flex gap-3 text-base text-slate-400 mt-2">
+                    <a href="#" class="hover:text-white"><i class="fa-brands fa-facebook"></i></a>
+                    <a href="#" class="hover:text-white"><i class="fa-brands fa-youtube"></i></a>
+                    <a href="#" class="hover:text-white"><i class="fa-brands fa-x-twitter"></i></a>
+                    <a href="#" class="hover:text-white"><i class="fa-brands fa-instagram"></i></a>
+                </div>
+            </div>
+        </div>
+        <div class="border-t border-slate-800 py-3 text-center text-[10px] text-slate-500">
+            © 2026 Sitehat. সর্বস্বত্ব সংরক্ষিত। ❤️ বাংলাদেশের জন্য
+        </div>
+    </footer>
+
+    <!-- Script to Handle Dynamic AJAX Loading -->
+    <script>
+        function loadModule(file, element) {
+            // Check if user clicked homepage or individual module
+            if(file === 'default_home.html') {
+                location.reload();
+                return;
+            }
+
+            fetch(file)
+                .then(response => {
+                    if (!response.ok) throw new Error('File not found');
+                    return response.text();
+                })
+                .then(data => {
+                    document.getElementById('main-content').innerHTML = `<div class="bg-white p-6 rounded-2xl border border-slate-200 shadow-sm">${data}</div>`;
+                })
+                .catch(err => {
+                    console.error('Error loading module:', err);
+                });
+
+            // Update Active Tab Styles in Left Menu
+            if(element) {
+                document.querySelectorAll('.nav-btn').forEach(b => {
+                    b.classList.remove('bg-blue-50', 'text-blue-600');
+                });
+                element.classList.add('bg-blue-50', 'text-blue-600');
+            }
+        }
+
+        // Live Left Menu Search Filter
+        function searchService() {
+            const query = document.getElementById('top-search').value.toLowerCase();
+            const buttons = document.querySelectorAll('#category-list button');
+            buttons.forEach(btn => {
+                btn.style.display = btn.innerText.toLowerCase().includes(query) ? 'flex' : 'none';
+            });
+        }
+    </script>
+</body>
+</html>
