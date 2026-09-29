@@ -1,0 +1,204 @@
+<!-- Module 8: Shopping & Consumer Rights -->
+<div class="space-y-6 animate-fadeIn">
+    
+    <!-- Module Header -->
+    <div class="border-b border-slate-200 pb-4 flex flex-col sm:flex-row justify-between items-start sm:items-center gap-3">
+        <div>
+            <h1 class="text-xl font-bold text-slate-800 flex items-center gap-2">
+                <i class="fa-solid fa-cart-shopping text-orange-600"></i> কেনাকাটা ও ভোক্তা সেবা (Shopping & Consumer Rights)
+            </h1>
+            <p class="text-xs text-slate-500 mt-1">অনলাইন শপিং, মার্কেটপ্লেস, ডিসকাউন্ট অফার, নিরাপদ কেনাকাটা ও ভোক্তা অধিকার সেবা</p>
+        </div>
+        <!-- Module Internal Search -->
+        <div class="relative w-full sm:w-64">
+            <i class="fa-solid fa-magnifying-glass absolute left-3 top-1/2 -translate-y-1/2 text-slate-400 text-xs"></i>
+            <input type="text" id="shop-search" onkeyup="filterShopServices()" placeholder="পণ্য বা শপিং সেবা খুঁজুন..." class="w-full pl-8 pr-3 py-1.5 bg-slate-100 focus:bg-white border border-slate-200 rounded-lg text-xs focus:outline-none focus:border-orange-500">
+        </div>
+    </div>
+
+    <!-- Live Discount & Offer Calculator Banner -->
+    <div class="bg-gradient-to-r from-orange-500 to-amber-600 text-white rounded-2xl p-5 shadow-sm space-y-3">
+        <div class="flex items-center gap-2 border-b border-orange-400/50 pb-2">
+            <i class="fa-solid fa-tags text-yellow-200"></i>
+            <h3 class="font-bold text-sm">ইনস্ট্যান্ট ডিসকাউন্ট ও অফার ক্যালকুলেটর</h3>
+        </div>
+        <div class="grid grid-cols-1 sm:grid-cols-3 gap-3">
+            <div>
+                <label class="block text-[11px] text-orange-100 mb-1">পণ্যের মূল দাম (টাকা)</label>
+                <input type="number" id="disc-price" value="1200" oninput="calculateDiscount()" class="w-full p-2 bg-white text-slate-800 font-bold rounded-lg text-xs focus:outline-none">
+            </div>
+            <div>
+                <label class="block text-[11px] text-orange-100 mb-1">ছাড় / Discount (%)</label>
+                <input type="number" id="disc-percent" value="15" oninput="calculateDiscount()" class="w-full p-2 bg-white text-slate-800 font-bold rounded-lg text-xs focus:outline-none">
+            </div>
+            <div>
+                <label class="block text-[11px] text-orange-100 mb-1">ছাড়ের পর চূড়ান্ত দাম (BDT)</label>
+                <div id="disc-result" class="p-2 bg-slate-900 text-amber-300 font-extrabold rounded-lg text-xs text-center flex items-center justify-center h-9">
+                    ৳ ১,০২০.০০ টাকা
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Main Shopping Services Grid -->
+    <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4" id="shop-services-grid">
+        
+        <!-- 1. অনলাইন শপিং ও ই-কমার্স -->
+        <div class="shop-card bg-slate-50 border border-slate-200 hover:border-orange-400 rounded-2xl p-4 transition duration-200">
+            <div class="flex items-center gap-3 mb-3">
+                <div class="w-10 h-10 rounded-xl bg-orange-100 text-orange-600 flex items-center justify-center font-bold">
+                    <i class="fa-solid fa-bag-shopping text-lg"></i>
+                </div>
+                <div>
+                    <h3 class="font-bold text-sm text-slate-800">অনলাইন শপিং ও মার্কেটপ্লেস</h3>
+                    <p class="text-[11px] text-slate-500">জনপ্রিয় ই-কমার্স প্ল্যাটফর্ম</p>
+                </div>
+            </div>
+            <ul class="text-xs space-y-1.5 text-slate-600 mb-3 border-t border-slate-200/60 pt-2.5">
+                <li><a href="https://www.daraz.com.bd" target="_blank" class="hover:text-orange-600 flex items-center justify-between">Daraz Bangladesh <i class="fa-solid fa-arrow-up-right-from-square text-[10px] text-slate-400"></i></a></li>
+                <li><a href="https://www.bikroy.com" target="_blank" class="hover:text-orange-600 flex items-center justify-between">Bikroy.com (পুরাতন ও নতুন কেনাবেচা) <i class="fa-solid fa-arrow-up-right-from-square text-[10px] text-slate-400"></i></a></li>
+                <li><a href="https://www.chaldal.com" target="_blank" class="hover:text-orange-600 flex items-center justify-between">Chaldal (অনলাইন গ্রোসারি) <i class="fa-solid fa-arrow-up-right-from-square text-[10px] text-slate-400"></i></a></li>
+            </ul>
+        </div>
+
+        <!-- 2. কুপন, ডিল ও দাম তুলনা -->
+        <div class="shop-card bg-slate-50 border border-slate-200 hover:border-amber-400 rounded-2xl p-4 transition duration-200">
+            <div class="flex items-center gap-3 mb-3">
+                <div class="w-10 h-10 rounded-xl bg-amber-100 text-amber-700 flex items-center justify-center font-bold">
+                    <i class="fa-solid fa-percent text-lg"></i>
+                </div>
+                <div>
+                    <h3 class="font-bold text-sm text-slate-800">কুপন, অফার ও দাম তুলনা</h3>
+                    <p class="text-[11px] text-slate-500">সেরা ডিসকাউন্ট ও প্রমো কোড</p>
+                </div>
+            </div>
+            <ul class="text-xs space-y-1.5 text-slate-600 mb-3 border-t border-slate-200/60 pt-2.5">
+                <li><a href="#" class="hover:text-amber-700 flex items-center justify-between">আজকের অফার ও ডিসকাউন্ট ভাউচার <i class="fa-solid fa-angle-right text-[10px] text-slate-400"></i></a></li>
+                <li><a href="#" class="hover:text-amber-700 flex items-center justify-between">বিভিন্ন শপের পণ্যের দাম তুলনা (Price Compare) <i class="fa-solid fa-angle-right text-[10px] text-slate-400"></i></a></li>
+                <li><a href="#" class="hover:text-amber-700 flex items-center justify-between">ব্যাংক ও MFS ক্যাশব্যাক অফার তালিকা <i class="fa-solid fa-angle-right text-[10px] text-slate-400"></i></a></li>
+            </ul>
+        </div>
+
+        <!-- 3. ডেলিভারি, পার্সেল ও ট্র্যাকিং -->
+        <div class="shop-card bg-slate-50 border border-slate-200 hover:border-blue-400 rounded-2xl p-4 transition duration-200">
+            <div class="flex items-center gap-3 mb-3">
+                <div class="w-10 h-10 rounded-xl bg-blue-100 text-blue-600 flex items-center justify-center font-bold">
+                    <i class="fa-solid fa-truck-fast text-lg"></i>
+                </div>
+                <div>
+                    <h3 class="font-bold text-sm text-slate-800">ডেলিভারি ও পার্সেল সেবা</h3>
+                    <p class="text-[11px] text-slate-500">কুরিয়ার ও ট্র্যাকিং ট্র্যাকার</p>
+                </div>
+            </div>
+            <ul class="text-xs space-y-1.5 text-slate-600 mb-3 border-t border-slate-200/60 pt-2.5">
+                <li><a href="https://redx.com.bd" target="_blank" class="hover:text-blue-600 flex items-center justify-between">RedX কুরিয়ার ট্র্যাকিং <i class="fa-solid fa-arrow-up-right-from-square text-[10px] text-slate-400"></i></a></li>
+                <li><a href="https://steadfast.com.bd" target="_blank" class="hover:text-blue-600 flex items-center justify-between">Steadfast Courier <i class="fa-solid fa-arrow-up-right-from-square text-[10px] text-slate-400"></i></a></li>
+                <li><a href="https://paperfly.com.bd" target="_blank" class="hover:text-blue-600 flex items-center justify-between">Paperfly ডেলিভারি সার্ভিস <i class="fa-solid fa-arrow-up-right-from-square text-[10px] text-slate-400"></i></a></li>
+            </ul>
+        </div>
+
+        <!-- 4. রিটার্ন, রিফান্ড ও রিভিউ -->
+        <div class="shop-card bg-slate-50 border border-slate-200 hover:border-emerald-400 rounded-2xl p-4 transition duration-200">
+            <div class="flex items-center gap-3 mb-3">
+                <div class="w-10 h-10 rounded-xl bg-emerald-100 text-emerald-600 flex items-center justify-center font-bold">
+                    <i class="fa-solid fa-rotate-left text-lg"></i>
+                </div>
+                <div>
+                    <h3 class="font-bold text-sm text-slate-800">রিটার্ন, রিফান্ড ও রিভিউ</h3>
+                    <p class="text-[11px] text-slate-500">পণ্য ফেরত ও সততা নীতি</p>
+                </div>
+            </div>
+            <ul class="text-xs space-y-1.5 text-slate-600 mb-3 border-t border-slate-200/60 pt-2.5">
+                <li><a href="#" class="hover:text-emerald-600 flex items-center justify-between">পণ্য পছন্দ না হলে ফেরতের নিয়ম (Return Policy) <i class="fa-solid fa-angle-right text-[10px] text-slate-400"></i></a></li>
+                <li><a href="#" class="hover:text-emerald-600 flex items-center justify-between">অনলাইন কেনাকাটায় রিফান্ড পাওয়ার উপায় <i class="fa-solid fa-angle-right text-[10px] text-slate-400"></i></a></li>
+                <li><a href="#" class="hover:text-emerald-600 flex items-center justify-between">আসল ও ভুয়া প্রোডাক্ট রিভিউ চেনার উপায় <i class="fa-solid fa-angle-right text-[10px] text-slate-400"></i></a></li>
+            </ul>
+        </div>
+
+        <!-- 5. নিরাপদ অনলাইন কেনাকাটা -->
+        <div class="shop-card bg-slate-50 border border-slate-200 hover:border-purple-400 rounded-2xl p-4 transition duration-200">
+            <div class="flex items-center gap-3 mb-3">
+                <div class="w-10 h-10 rounded-xl bg-purple-100 text-purple-600 flex items-center justify-center font-bold">
+                    <i class="fa-solid fa-shield-halved text-lg"></i>
+                </div>
+                <div>
+                    <h3 class="font-bold text-sm text-slate-800">নিরাপদ কেনাকাটা (Safe Shopping)</h3>
+                    <p class="text-[11px] text-slate-500">প্রতারণা থেকে সুরক্ষার টিপস</p>
+                </div>
+            </div>
+            <ul class="text-xs space-y-1.5 text-slate-600 mb-3 border-t border-slate-200/60 pt-2.5">
+                <li><a href="#" class="hover:text-purple-600 flex items-center justify-between">ক্যাশ অন ডেলিভারিতে সাবধানতা <i class="fa-solid fa-angle-right text-[10px] text-slate-400"></i></a></li>
+                <li><a href="#" class="hover:text-purple-600 flex items-center justify-between">ফেইক ফেসবুক পেজ চেনার সহজ উপায় <i class="fa-solid fa-angle-right text-[10px] text-slate-400"></i></a></li>
+                <li><a href="#" class="hover:text-purple-600 flex items-center justify-between">অনলাইন কার্ড পেমেন্টে সিকিউরিটি গাইড <i class="fa-solid fa-angle-right text-[10px] text-slate-400"></i></a></li>
+            </ul>
+        </div>
+
+        <!-- 6. ভোক্তা অধিকার ও অভিযোগ (Consumer Rights) -->
+        <div class="shop-card bg-slate-50 border border-slate-200 hover:border-rose-400 rounded-2xl p-4 transition duration-200">
+            <div class="flex items-center gap-3 mb-3">
+                <div class="w-10 h-10 rounded-xl bg-rose-100 text-rose-600 flex items-center justify-center font-bold">
+                    <i class="fa-solid fa-scale-balanced text-lg"></i>
+                </div>
+                <div>
+                    <h3 class="font-bold text-sm text-slate-800">ভোক্তা অধিকার (Consumer Rights)</h3>
+                    <p class="text-[11px] text-slate-500">অভিযোগ দায়ের ও আইনি সেবা</p>
+                </div>
+            </div>
+            <ul class="text-xs space-y-1.5 text-slate-600 mb-3 border-t border-slate-200/60 pt-2.5">
+                <li><a href="https://dncrp.gov.bd" target="_blank" class="hover:text-rose-600 flex items-center justify-between">ভোক্তা অধিকার সংরক্ষণ অধিদপ্তর (DNCRP) <i class="fa-solid fa-arrow-up-right-from-square text-[10px] text-slate-400"></i></a></li>
+                <li><a href="tel:16121" class="hover:text-rose-600 flex items-center justify-between">ভোক্তা অভিযোগ হটলাইন: ১৬১২১ <i class="fa-solid fa-phone text-[10px] text-slate-400"></i></a></li>
+                <li><a href="https://dncrp.portal.gov.bd/site/forms" target="_blank" class="hover:text-rose-600 flex items-center justify-between">অনলাইনে প্রতারণার অভিযোগ জমা দিন <i class="fa-solid fa-arrow-up-right-from-square text-[10px] text-slate-400"></i></a></li>
+            </ul>
+        </div>
+
+    </div>
+
+    <!-- Consumer Helpline Emergency Widget -->
+    <div class="bg-white p-5 rounded-2xl border border-slate-200 shadow-sm mt-6">
+        <h3 class="font-bold text-sm text-slate-800 mb-2 flex items-center gap-2">
+            <i class="fa-solid fa-gavel text-rose-600"></i> জাতীয় ভোক্তা অধিকার হটলাইন
+        </h3>
+        <p class="text-xs text-slate-500 mb-3">কেনাকাটায় প্রতারিত হলে বা ভেজাল পণ্য পেলে জাতীয় ভোক্তা অধিকার সংরক্ষণ অধিদপ্তরে অভিযোগ জানান:</p>
+        <div class="flex flex-wrap items-center justify-between bg-rose-50 p-4 rounded-xl border border-rose-200 gap-3">
+            <div class="flex items-center gap-3">
+                <div class="w-10 h-10 rounded-full bg-rose-600 text-white flex items-center justify-center font-bold">
+                    <i class="fa-solid fa-headset text-lg"></i>
+                </div>
+                <div>
+                    <h4 class="font-bold text-xs text-slate-800">ভোক্তা অধিকার কল সেন্টার</h4>
+                    <p class="text-[11px] text-slate-500">সরকারি ছুটির দিন ব্যতীত প্রতিদিন সেবা খোলা</p>
+                </div>
+            </div>
+            <a href="tel:16121" class="bg-rose-600 hover:bg-rose-700 text-white px-4 py-2 rounded-xl text-xs font-bold transition flex items-center gap-2">
+                <i class="fa-solid fa-phone"></i> ১৬১২১ এ কল করুন
+            </a>
+        </div>
+    </div>
+
+</div>
+
+<!-- Internal Module JavaScript -->
+<script>
+    // Live Search inside Shopping Module
+    function filterShopServices() {
+        const query = document.getElementById('shop-search').value.toLowerCase();
+        const cards = document.querySelectorAll('.shop-card');
+        
+        cards.forEach(card => {
+            const text = card.innerText.toLowerCase();
+            card.style.display = text.includes(query) ? 'block' : 'none';
+        });
+    }
+
+    // Live Discount Calculation Script
+    function calculateDiscount() {
+        const price = parseFloat(document.getElementById('disc-price').value) || 0;
+        const percent = parseFloat(document.getElementById('disc-percent').value) || 0;
+
+        const discountAmount = (price * percent) / 100;
+        const finalPrice = price - discountAmount;
+
+        const resBox = document.getElementById('disc-result');
+        resBox.innerText = `৳ ${finalPrice.toLocaleString('bn-BD', { minimumFractionDigits: 2 })} টাকা`;
+    }
+</script>
