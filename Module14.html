@@ -1,0 +1,224 @@
+<!-- Module 14: Business, Entrepreneurship & Freelancing -->
+<div class="space-y-6 animate-fadeIn">
+    
+    <!-- Module Header -->
+    <div class="border-b border-slate-200 pb-4 flex flex-col sm:flex-row justify-between items-start sm:items-center gap-3">
+        <div>
+            <h1 class="text-xl font-bold text-slate-800 flex items-center gap-2">
+                <i class="fa-solid fa-briefcase text-amber-600"></i> ব্যবসা, উদ্যোক্তা ও ফ্রিল্যান্সিং (Business & Freelancing)
+            </h1>
+            <p class="text-xs text-slate-500 mt-1">ব্যবসা ট্রেড লাইসেন্স, হিসাব-নিকাশ, ডিজিটাল মার্কেটিং, ই-কমার্স, ফ্রিল্যান্সিং ও রিমোট ওয়ার্ক গাইড</p>
+        </div>
+        <!-- Module Internal Search -->
+        <div class="relative w-full sm:w-64">
+            <i class="fa-solid fa-magnifying-glass absolute left-3 top-1/2 -translate-y-1/2 text-slate-400 text-xs"></i>
+            <input type="text" id="biz-search" onkeyup="filterBizServices()" placeholder="ব্যবসা বা ফ্রিল্যান্সিং সেবা খুঁজুন..." class="w-full pl-8 pr-3 py-1.5 bg-slate-100 focus:bg-white border border-slate-200 rounded-lg text-xs focus:outline-none focus:border-amber-500">
+        </div>
+    </div>
+
+    <!-- Quick Utility: Project Profit & Freelance Rate Calculator -->
+    <div class="bg-gradient-to-r from-amber-600 via-orange-600 to-slate-800 text-white rounded-2xl p-5 shadow-sm space-y-4">
+        <div class="flex flex-col sm:flex-row sm:items-center justify-between gap-3 border-b border-white/20 pb-3">
+            <div class="flex items-center gap-3">
+                <div class="text-3xl">
+                    <i class="fa-solid fa-calculator text-amber-300"></i>
+                </div>
+                <div>
+                    <h3 class="font-bold text-base">প্রজেক্ট লাভ ও আওয়ারলি রেট ক্যালকুলেটর</h3>
+                    <p class="text-xs text-amber-100">ব্যবসার প্রফিট মার্জিন অথবা ফ্রিল্যান্সিং কাজের চার্জ হিসাব করুন</p>
+                </div>
+            </div>
+            <a href="https://www.upwork.com" target="_blank" class="bg-white/20 hover:bg-white/30 backdrop-blur-md px-3 py-1.5 rounded-xl text-xs font-semibold transition text-center self-start sm:self-auto">
+                <i class="fa-solid fa-laptop-code text-amber-200"></i> আপওয়ার্ক মার্কেটপ্লেস
+            </a>
+        </div>
+
+        <!-- Profit Calculator Widget -->
+        <div class="grid grid-cols-1 sm:grid-cols-3 gap-3 items-end">
+            <div>
+                <label class="block text-[11px] text-amber-100 mb-1">মোট খরচ / প্রজেক্ট বাজেট (৳):</label>
+                <input type="number" id="biz-cost" value="10000" oninput="calcBizProfit()" class="w-full p-2 bg-white text-slate-800 font-bold rounded-lg text-xs focus:outline-none">
+            </div>
+            <div>
+                <label class="block text-[11px] text-amber-100 mb-1">প্রত্যাশিত লাভ (Profit %):</label>
+                <input type="number" id="biz-margin" value="20" oninput="calcBizProfit()" class="w-full p-2 bg-white text-slate-800 font-bold rounded-lg text-xs focus:outline-none">
+            </div>
+            <div>
+                <label class="block text-[11px] text-amber-100 mb-1">বিক্রয় মূল্য / ক্লায়েন্ট চার্জ:</label>
+                <div id="biz-price-output" class="p-2 bg-slate-900/60 backdrop-blur-md text-yellow-300 font-bold rounded-lg text-xs text-center border border-white/10 h-9 flex items-center justify-center">
+                    ১২,০০০ ৳
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Main Business & Freelancing Grid -->
+    <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4" id="biz-services-grid">
+        
+        <!-- 1. ব্যবসা শুরু ও নিবন্ধন -->
+        <div class="biz-card bg-slate-50 border border-slate-200 hover:border-amber-400 rounded-2xl p-4 transition duration-200">
+            <div class="flex items-center gap-3 mb-3">
+                <div class="w-10 h-10 rounded-xl bg-amber-100 text-amber-600 flex items-center justify-center font-bold">
+                    <i class="fa-solid fa-file-contract text-lg"></i>
+                </div>
+                <div>
+                    <h3 class="font-bold text-sm text-slate-800">ব্যবসা নিবন্ধন ও আইনি সেবা</h3>
+                    <p class="text-[11px] text-slate-500">Trade License, TIN, BIN & RJSC</p>
+                </div>
+            </div>
+            <ul class="text-xs space-y-1.5 text-slate-600 mb-3 border-t border-slate-200/60 pt-2.5">
+                <li><a href="https://tin.nbr.gov.bd" target="_blank" class="hover:text-amber-600 flex items-center justify-between">ই-টিআইএন (e-TIN) নিবন্ধন পোর্টাল <i class="fa-solid fa-arrow-up-right-from-square text-[10px] text-slate-400"></i></a></li>
+                <li><a href="https://vat.gov.bd" target="_blank" class="hover:text-amber-600 flex items-center justify-between">অনলাইন ভ্যাট/BIN নিবন্ধন <i class="fa-solid fa-arrow-up-right-from-square text-[10px] text-slate-400"></i></a></li>
+                <li><a href="http://www.roc.gov.bd" target="_blank" class="hover:text-amber-600 flex items-center justify-between">RJSC লিমিটেড কোম্পানি রেজিস্ট্রেশন <i class="fa-solid fa-arrow-up-right-from-square text-[10px] text-slate-400"></i></a></li>
+            </ul>
+        </div>
+
+        <!-- 2. ব্যবসার হিসাব ও Accounting -->
+        <div class="biz-card bg-slate-50 border border-slate-200 hover:border-emerald-400 rounded-2xl p-4 transition duration-200">
+            <div class="flex items-center gap-3 mb-3">
+                <div class="w-10 h-10 rounded-xl bg-emerald-100 text-emerald-600 flex items-center justify-center font-bold">
+                    <i class="fa-solid fa-book-bookmark text-lg"></i>
+                </div>
+                <div>
+                    <h3 class="font-bold text-sm text-slate-800">ব্যবসার হিসাব ও সফটওয়্যার</h3>
+                    <p class="text-[11px] text-slate-500">Bookkeeping & Invoicing Tools</p>
+                </div>
+            </div>
+            <ul class="text-xs space-y-1.5 text-slate-600 mb-3 border-t border-slate-200/60 pt-2.5">
+                <li><a href="https://quickbooks.intuit.com" target="_blank" class="hover:text-emerald-600 flex items-center justify-between">QuickBooks হিসাব সফটওয়্যার <i class="fa-solid fa-arrow-up-right-from-square text-[10px] text-slate-400"></i></a></li>
+                <li><a href="https://www.waveapps.com" target="_blank" class="hover:text-emerald-600 flex items-center justify-between">Wave (ফ্রি ইনভয়েসিং ও অ্যাকাউন্টিং) <i class="fa-solid fa-arrow-up-right-from-square text-[10px] text-slate-400"></i></a></li>
+                <li><a href="#" class="hover:text-emerald-600 flex items-center justify-between">ছোট ব্যবসার জন্য এক্সেল ট্র্যাকার টেমপ্লেট <i class="fa-solid fa-angle-right text-[10px] text-slate-400"></i></a></li>
+            </ul>
+        </div>
+
+        <!-- 3. ডিজিটাল মার্কেটিং ও E-commerce -->
+        <div class="biz-card bg-slate-50 border border-slate-200 hover:border-sky-400 rounded-2xl p-4 transition duration-200">
+            <div class="flex items-center gap-3 mb-3">
+                <div class="w-10 h-10 rounded-xl bg-sky-100 text-sky-600 flex items-center justify-center font-bold">
+                    <i class="fa-solid fa-cart-shopping text-lg"></i>
+                </div>
+                <div>
+                    <h3 class="font-bold text-sm text-slate-800">ডিজিটাল মার্কেটিং ও ই-কমার্স</h3>
+                    <p class="text-[11px] text-slate-500">E-commerce, Ads & Payment Gateway</p>
+                </div>
+            </div>
+            <ul class="text-xs space-y-1.5 text-slate-600 mb-3 border-t border-slate-200/60 pt-2.5">
+                <li><a href="https://www.facebook.com/business" target="_blank" class="hover:text-sky-600 flex items-center justify-between">Meta Business Suite (ফেসবুক পেজ অ্যাড) <i class="fa-solid fa-arrow-up-right-from-square text-[10px] text-slate-400"></i></a></li>
+                <li><a href="https://sslcommerz.com" target="_blank" class="hover:text-sky-600 flex items-center justify-between">SSLCommerz পেমেন্ট গেটওয়ে মার্চেন্ট <i class="fa-solid fa-arrow-up-right-from-square text-[10px] text-slate-400"></i></a></li>
+                <li><a href="https://www.shopify.com" target="_blank" class="hover:text-sky-600 flex items-center justify-between">Shopify দিয়ে অনলাইন স্টোর তৈরি <i class="fa-solid fa-arrow-up-right-from-square text-[10px] text-slate-400"></i></a></li>
+            </ul>
+        </div>
+
+        <!-- 4. ফ্রিল্যান্সিং মার্কেটপ্লেস -->
+        <div class="biz-card bg-slate-50 border border-slate-200 hover:border-indigo-400 rounded-2xl p-4 transition duration-200">
+            <div class="flex items-center gap-3 mb-3">
+                <div class="w-10 h-10 rounded-xl bg-indigo-100 text-indigo-600 flex items-center justify-center font-bold">
+                    <i class="fa-solid fa-laptop-code text-lg"></i>
+                </div>
+                <div>
+                    <h3 class="font-bold text-sm text-slate-800">ফ্রিল্যান্সিং মার্কেটপ্লেস</h3>
+                    <p class="text-[11px] text-slate-500">Upwork, Fiverr & Freelancer</p>
+                </div>
+            </div>
+            <ul class="text-xs space-y-1.5 text-slate-600 mb-3 border-t border-slate-200/60 pt-2.5">
+                <li><a href="https://www.upwork.com" target="_blank" class="hover:text-indigo-600 flex items-center justify-between">Upwork (হাই-লেভেল প্রজেক্ট) <i class="fa-solid fa-arrow-up-right-from-square text-[10px] text-slate-400"></i></a></li>
+                <li><a href="https://www.fiverr.com" target="_blank" class="hover:text-indigo-600 flex items-center justify-between">Fiverr (গিগ ভিত্তিক ফ্রিল্যান্সিং) <i class="fa-solid fa-arrow-up-right-from-square text-[10px] text-slate-400"></i></a></li>
+                <li><a href="https://www.freelancer.com" target="_blank" class="hover:text-indigo-600 flex items-center justify-between">Freelancer.com পোর্টালে কন্টেস্ট <i class="fa-solid fa-arrow-up-right-from-square text-[10px] text-slate-400"></i></a></li>
+            </ul>
+        </div>
+
+        <!-- 5. Remote Work & Client Management -->
+        <div class="biz-card bg-slate-50 border border-slate-200 hover:border-rose-400 rounded-2xl p-4 transition duration-200">
+            <div class="flex items-center gap-3 mb-3">
+                <div class="w-10 h-10 rounded-xl bg-rose-100 text-rose-600 flex items-center justify-center font-bold">
+                    <i class="fa-solid fa-globe text-lg"></i>
+                </div>
+                <div>
+                    <h3 class="font-bold text-sm text-slate-800">Remote Work & Client Tools</h3>
+                    <p class="text-[11px] text-slate-500">রিমোট জব ও ক্লায়েন্ট যোগাযোগ</p>
+                </div>
+            </div>
+            <ul class="text-xs space-y-1.5 text-slate-600 mb-3 border-t border-slate-200/60 pt-2.5">
+                <li><a href="https://weworkremotely.com" target="_blank" class="hover:text-rose-600 flex items-center justify-between">We Work Remotely (রিমোট জবস) <i class="fa-solid fa-arrow-up-right-from-square text-[10px] text-slate-400"></i></a></li>
+                <li><a href="https://trello.com" target="_blank" class="hover:text-rose-600 flex items-center justify-between">Trello / Notion (প্রজেক্ট ম্যানেজমেন্ট) <i class="fa-solid fa-arrow-up-right-from-square text-[10px] text-slate-400"></i></a></li>
+                <li><a href="https://www.payoneer.com" target="_blank" class="hover:text-rose-600 flex items-center justify-between">Payoneer (আন্তর্জাতিক পেমেন্ট রিসিভ) <i class="fa-solid fa-arrow-up-right-from-square text-[10px] text-slate-400"></i></a></li>
+            </ul>
+        </div>
+
+        <!-- 6. Startup & উদ্যোক্তা গাইড -->
+        <div class="biz-card bg-slate-50 border border-slate-200 hover:border-purple-400 rounded-2xl p-4 transition duration-200">
+            <div class="flex items-center gap-3 mb-3">
+                <div class="w-10 h-10 rounded-xl bg-purple-100 text-purple-600 flex items-center justify-center font-bold">
+                    <i class="fa-solid fa-lightbulb text-lg"></i>
+                </div>
+                <div>
+                    <h3 class="font-bold text-sm text-slate-800">Startup & উদ্যোক্তা ফান্ডিং</h3>
+                    <p class="text-[11px] text-slate-500">Small Business & Startup Support</p>
+                </div>
+            </div>
+            <ul class="text-xs space-y-1.5 text-slate-600 mb-3 border-t border-slate-200/60 pt-2.5">
+                <li><a href="https://startupbangladesh.vc" target="_blank" class="hover:text-purple-600 flex items-center justify-between">স্টার্টআপ বাংলাদেশ লিমিটেড (ফান্ডিং) <i class="fa-solid fa-arrow-up-right-from-square text-[10px] text-slate-400"></i></a></li>
+                <li><a href="https://bscic.gov.bd" target="_blank" class="hover:text-purple-600 flex items-center justify-between">বিসিক (BSCIC) উদ্যোক্তা সহায়তা <i class="fa-solid fa-arrow-up-right-from-square text-[10px] text-slate-400"></i></a></li>
+                <li><a href="#" class="hover:text-purple-600 flex items-center justify-between">স্মল বিজনেসের জন্য ব্যাংক লোনের গাইডলাইন <i class="fa-solid fa-angle-right text-[10px] text-slate-400"></i></a></li>
+            </ul>
+        </div>
+
+    </div>
+
+    <!-- Quick Entrepreneur Checklist -->
+    <div class="bg-white p-5 rounded-2xl border border-slate-200 shadow-sm mt-6">
+        <h3 class="font-bold text-sm text-slate-800 mb-3 flex items-center gap-2">
+            <i class="fa-solid fa-circle-check text-amber-600"></i> নতুন উদ্যোক্তার জন্য চেকলিস্ট (New Business Checklist)
+        </h3>
+        <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-3 text-xs">
+            <div class="p-2.5 rounded-xl bg-slate-50 border border-slate-100 flex items-center gap-2">
+                <i class="fa-solid fa-check text-emerald-500"></i>
+                <span class="text-slate-700">মার্কেট রিসার্চ ও বিজনেস প্ল্যান</span>
+            </div>
+            <div class="p-2.5 rounded-xl bg-slate-50 border border-slate-100 flex items-center gap-2">
+                <i class="fa-solid fa-check text-emerald-500"></i>
+                <span class="text-slate-700">ট্রেড লাইসেন্স ও ই-টিআইএন গ্রহণ</span>
+            </div>
+            <div class="p-2.5 rounded-xl bg-slate-50 border border-slate-100 flex items-center gap-2">
+                <i class="fa-solid fa-check text-emerald-500"></i>
+                <span class="text-slate-700">বিজনেস ব্যাংক অ্যাকাউন্ট খোলা</span>
+            </div>
+            <div class="p-2.5 rounded-xl bg-slate-50 border border-slate-100 flex items-center gap-2">
+                <i class="fa-solid fa-check text-emerald-500"></i>
+                <span class="text-slate-700">ডিজিটাল ও সোশ্যাল উপস্থিতি</span>
+            </div>
+        </div>
+    </div>
+
+</div>
+
+<!-- Internal Module JavaScript -->
+<script>
+    // Live Search inside Business Module
+    function filterBizServices() {
+        const query = document.getElementById('biz-search').value.toLowerCase();
+        const cards = document.querySelectorAll('.biz-card');
+        
+        cards.forEach(card => {
+            const text = card.innerText.toLowerCase();
+            card.style.display = text.includes(query) ? 'block' : 'none';
+        });
+    }
+
+    // Profit Calculator Logic
+    function calcBizProfit() {
+        const costInput = document.getElementById('biz-cost').value;
+        const marginInput = document.getElementById('biz-margin').value;
+        const output = document.getElementById('biz-price-output');
+
+        const cost = parseFloat(costInput);
+        const margin = parseFloat(marginInput);
+
+        if (!isNaN(cost) && !isNaN(margin) && cost >= 0) {
+            const finalPrice = cost + (cost * (margin / 100));
+            output.innerText = `${finalPrice.toLocaleString('bn-BD')} ৳`;
+        } else {
+            output.innerText = '০ ৳';
+        }
+    }
+</script>
