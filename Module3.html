@@ -1,0 +1,254 @@
+<!-- Module 3: Education & Learning -->
+<div class="space-y-6 animate-fadeIn">
+    
+    <!-- Module Header -->
+    <div class="border-b border-slate-200 pb-4 flex flex-col sm:flex-row justify-between items-start sm:items-center gap-3">
+        <div>
+            <h1 class="text-xl font-bold text-slate-800 flex items-center gap-2">
+                <i class="fa-solid fa-graduation-cap text-indigo-600"></i> শিক্ষা ও শেখা (Education & Learning)
+            </h1>
+            <p class="text-xs text-slate-500 mt-1">ভর্তি, পরীক্ষার ফলাফল, অনলাইন কোর্স, স্কলারশিপ ও স্টাডি রিসোর্স একই জায়গায়</p>
+        </div>
+        <!-- Module Internal Search -->
+        <div class="relative w-full sm:w-64">
+            <i class="fa-solid fa-magnifying-glass absolute left-3 top-1/2 -translate-y-1/2 text-slate-400 text-xs"></i>
+            <input type="text" id="edu-search" onkeyup="filterEduServices()" placeholder="শিক্ষা সংক্রান্ত তথ্য খুঁজুন..." class="w-full pl-8 pr-3 py-1.5 bg-slate-100 focus:bg-white border border-slate-200 rounded-lg text-xs focus:outline-none focus:border-indigo-500">
+        </div>
+    </div>
+
+    <!-- Quick Announcement Banner -->
+    <div class="bg-gradient-to-r from-indigo-600 to-blue-700 text-white rounded-2xl p-4 shadow-sm flex flex-col md:flex-row items-center justify-between gap-4">
+        <div class="flex items-center gap-3">
+            <div class="w-12 h-12 rounded-xl bg-white/20 flex items-center justify-center text-xl shrink-0">
+                <i class="fa-solid fa-bullhorn animate-bounce"></i>
+            </div>
+            <div>
+                <h3 class="font-bold text-sm">শিক্ষা বোর্ড ও ভর্তি পোর্টাল আপডেট</h3>
+                <p class="text-xs text-indigo-100">SSC/HSC ফলাফল, একাদশ শ্রেণীতে ভর্তি এবং বিশ্ববিদ্যালয় গুচ্ছ ভর্তি তথ্য</p>
+            </div>
+        </div>
+        <a href="http://www.educationboardresults.gov.bd" target="_blank" class="bg-white text-indigo-600 px-4 py-2 rounded-xl font-bold text-xs hover:bg-indigo-50 transition shrink-0">
+            পরীক্ষার ফলাফল দেখুন →
+        </a>
+    </div>
+
+    <!-- Main Education Grid -->
+    <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4" id="edu-services-grid">
+        
+        <!-- 1. ভর্তি ও পরীক্ষা -->
+        <div class="edu-card bg-slate-50 border border-slate-200 hover:border-indigo-400 rounded-2xl p-4 transition duration-200">
+            <div class="flex items-center gap-3 mb-3">
+                <div class="w-10 h-10 rounded-xl bg-indigo-100 text-indigo-600 flex items-center justify-center font-bold">
+                    <i class="fa-solid fa-user-graduate text-lg"></i>
+                </div>
+                <div>
+                    <h3 class="font-bold text-sm text-slate-800">ভর্তি ও পরীক্ষা তথ্য</h3>
+                    <p class="text-[11px] text-slate-500">স্কুল, কলেজ ও বিশ্ববিদ্যালয় ভর্তি</p>
+                </div>
+            </div>
+            <ul class="text-xs space-y-1.5 text-slate-600 mb-3 border-t border-slate-200/60 pt-2.5">
+                <li><a href="http://xiclassadmission.gov.bd" target="_blank" class="hover:text-indigo-600 flex items-center justify-between">একাদশ শ্রেণী (11th Class) ভর্তি <i class="fa-solid fa-arrow-up-right-from-square text-[10px] text-slate-400"></i></a></li>
+                <li><a href="https://gstadmission.ac.bd" target="_blank" class="hover:text-indigo-600 flex items-center justify-between">গুচ্ছ বিশ্ববিদ্যালয় ভর্তি পরীক্ষা <i class="fa-solid fa-arrow-up-right-from-square text-[10px] text-slate-400"></i></a></li>
+                <li><a href="http://www.educationboard.gov.bd" target="_blank" class="hover:text-indigo-600 flex items-center justify-between">পাবলিক পরীক্ষার রুটিন ও নোটিশ <i class="fa-solid fa-arrow-up-right-from-square text-[10px] text-slate-400"></i></a></li>
+            </ul>
+        </div>
+
+        <!-- 2. বোর্ডের ফলাফল -->
+        <div class="edu-card bg-slate-50 border border-slate-200 hover:border-emerald-400 rounded-2xl p-4 transition duration-200">
+            <div class="flex items-center gap-3 mb-3">
+                <div class="w-10 h-10 rounded-xl bg-emerald-100 text-emerald-600 flex items-center justify-center font-bold">
+                    <i class="fa-solid fa-square-poll-vertical text-lg"></i>
+                </div>
+                <div>
+                    <h3 class="font-bold text-sm text-slate-800">পরীক্ষার ফলাফল (Results)</h3>
+                    <p class="text-[11px] text-slate-500">JSC, SSC, HSC ও ডিগ্রী ফলাফল</p>
+                </div>
+            </div>
+            <ul class="text-xs space-y-1.5 text-slate-600 mb-3 border-t border-slate-200/60 pt-2.5">
+                <li><a href="http://www.educationboardresults.gov.bd" target="_blank" class="hover:text-emerald-600 flex items-center justify-between">Education Board Results <i class="fa-solid fa-arrow-up-right-from-square text-[10px] text-slate-400"></i></a></li>
+                <li><a href="https://eboardresults.com" target="_blank" class="hover:text-emerald-600 flex items-center justify-between">Eboard Results (Web-Based) <i class="fa-solid fa-arrow-up-right-from-square text-[10px] text-slate-400"></i></a></li>
+                <li><a href="http://www.nu.ac.bd/results" target="_blank" class="hover:text-emerald-600 flex items-center justify-between">জাতীয় বিশ্ববিদ্যালয় (NU) ফলাফল <i class="fa-solid fa-arrow-up-right-from-square text-[10px] text-slate-400"></i></a></li>
+            </ul>
+        </div>
+
+        <!-- 3. স্কুল, কলেজ ও বিশ্ববিদ্যালয় -->
+        <div class="edu-card bg-slate-50 border border-slate-200 hover:border-blue-400 rounded-2xl p-4 transition duration-200">
+            <div class="flex items-center gap-3 mb-3">
+                <div class="w-10 h-10 rounded-xl bg-blue-100 text-blue-600 flex items-center justify-center font-bold">
+                    <i class="fa-solid fa-building-columns text-lg"></i>
+                </div>
+                <div>
+                    <h3 class="font-bold text-sm text-slate-800">শিক্ষা প্রতিষ্ঠান ডিরেক্টরি</h3>
+                    <p class="text-[11px] text-slate-500">শিক্ষক ও শিক্ষার্থীদের তথ্য</p>
+                </div>
+            </div>
+            <ul class="text-xs space-y-1.5 text-slate-600 mb-3 border-t border-slate-200/60 pt-2.5">
+                <li><a href="https://ugc.gov.bd" target="_blank" class="hover:text-blue-600 flex items-center justify-between">অনুমোদিত বিশ্ববিদ্যালয় তালিকা (UGC) <i class="fa-solid fa-arrow-up-right-from-square text-[10px] text-slate-400"></i></a></li>
+                <li><a href="http://www.dshe.gov.bd" target="_blank" class="hover:text-blue-600 flex items-center justify-between">মাধ্যমিক ও উচ্চশিক্ষা অধিদপ্তর <i class="fa-solid fa-arrow-up-right-from-square text-[10px] text-slate-400"></i></a></li>
+                <li><a href="http://www.nctb.gov.bd" target="_blank" class="hover:text-blue-600 flex items-center justify-between">NCTB পাঠ্যপুস্তক ও কারিকুলাম <i class="fa-solid fa-arrow-up-right-from-square text-[10px] text-slate-400"></i></a></li>
+            </ul>
+        </div>
+
+        <!-- 4. অনলাইন শিক্ষা ও কোর্স -->
+        <div class="edu-card bg-slate-50 border border-slate-200 hover:border-amber-400 rounded-2xl p-4 transition duration-200">
+            <div class="flex items-center gap-3 mb-3">
+                <div class="w-10 h-10 rounded-xl bg-amber-100 text-amber-700 flex items-center justify-center font-bold">
+                    <i class="fa-solid fa-laptop-code text-lg"></i>
+                </div>
+                <div>
+                    <h3 class="font-bold text-sm text-slate-800">অনলাইন শিক্ষা ও কোর্স</h3>
+                    <p class="text-[11px] text-slate-500">ফ্রি ও পেইড লার্নিং প্ল্যাটফর্ম</p>
+                </div>
+            </div>
+            <ul class="text-xs space-y-1.5 text-slate-600 mb-3 border-t border-slate-200/60 pt-2.5">
+                <li><a href="https://10minuteschool.com" target="_blank" class="hover:text-amber-700 flex items-center justify-between">১০ মিনিট স্কুল (10 MS) <i class="fa-solid fa-arrow-up-right-from-square text-[10px] text-slate-400"></i></a></li>
+                <li><a href="https://muktopaath.gov.bd" target="_blank" class="hover:text-amber-700 flex items-center justify-between">মুক্তপাঠ (সরকারি ই-লার্নিং) <i class="fa-solid fa-arrow-up-right-from-square text-[10px] text-slate-400"></i></a></li>
+                <li><a href="https://www.coursera.org" target="_blank" class="hover:text-amber-700 flex items-center justify-between">Coursera & edX প্ল্যাটফর্ম <i class="fa-solid fa-arrow-up-right-from-square text-[10px] text-slate-400"></i></a></li>
+            </ul>
+        </div>
+
+        <!-- 5. প্রশ্নব্যাংক, নোট ও রিসোর্স -->
+        <div class="edu-card bg-slate-50 border border-slate-200 hover:border-purple-400 rounded-2xl p-4 transition duration-200">
+            <div class="flex items-center gap-3 mb-3">
+                <div class="w-10 h-10 rounded-xl bg-purple-100 text-purple-600 flex items-center justify-center font-bold">
+                    <i class="fa-solid fa-book-open-reader text-lg"></i>
+                </div>
+                <div>
+                    <h3 class="font-bold text-sm text-slate-800">স্টাডি টুলস ও প্রশ্নব্যাংক</h3>
+                    <p class="text-[11px] text-slate-500">বিগত বছরের প্রশ্ন ও স্টাডি নোট</p>
+                </div>
+            </div>
+            <ul class="text-xs space-y-1.5 text-slate-600 mb-3 border-t border-slate-200/60 pt-2.5">
+                <li><a href="http://www.nctb.gov.bd/site/page/890ec210-951c-4389-9833-c21b2dd76bc4" target="_blank" class="hover:text-purple-600 flex items-center justify-between">অনলাইন পাঠ্যবই (E-Book PDF) <i class="fa-solid fa-arrow-up-right-from-square text-[10px] text-slate-400"></i></a></li>
+                <li><a href="#" class="hover:text-purple-600 flex items-center justify-between">BCS ও বিশ্ববিদ্যালয়ের প্রশ্নব্যাংক <i class="fa-solid fa-angle-right text-[10px] text-slate-400"></i></a></li>
+                <li><a href="#" class="hover:text-purple-600 flex items-center justify-between">অধ্যায়ভিত্তিক শর্ট নোট ও সাজেশন <i class="fa-solid fa-angle-right text-[10px] text-slate-400"></i></a></li>
+            </ul>
+        </div>
+
+        <!-- 6. স্কলারশিপ ও বিদেশে পড়াশোনা -->
+        <div class="edu-card bg-slate-50 border border-slate-200 hover:border-rose-400 rounded-2xl p-4 transition duration-200">
+            <div class="flex items-center gap-3 mb-3">
+                <div class="w-10 h-10 rounded-xl bg-rose-100 text-rose-600 flex items-center justify-center font-bold">
+                    <i class="fa-solid fa-earth-americas text-lg"></i>
+                </div>
+                <div>
+                    <h3 class="font-bold text-sm text-slate-800">স্কলারশিপ ও বিদেশে পড়াশোনা</h3>
+                    <p class="text-[11px] text-slate-500">উচ্চশিক্ষা ও বৃত্তি আবেদন</p>
+                </div>
+            </div>
+            <ul class="text-xs space-y-1.5 text-slate-600 mb-3 border-t border-slate-200/60 pt-2.5">
+                <li><a href="http://www.shed.gov.bd" target="_blank" class="hover:text-rose-600 flex items-center justify-between">সরকারি বৈদেশিক বৃত্তি নোটিশ <i class="fa-solid fa-arrow-up-right-from-square text-[10px] text-slate-400"></i></a></li>
+                <li><a href="https://www.chevening.org" target="_blank" class="hover:text-rose-600 flex items-center justify-between">Chevening / Erasmus / Fulbright <i class="fa-solid fa-arrow-up-right-from-square text-[10px] text-slate-400"></i></a></li>
+                <li><a href="https://www.ielts.org" target="_blank" class="hover:text-rose-600 flex items-center justify-between">IELTS / GRE প্রস্তুতি গাইড <i class="fa-solid fa-arrow-up-right-from-square text-[10px] text-slate-400"></i></a></li>
+            </ul>
+        </div>
+
+    </div>
+
+    <!-- Interactive GPA / CGPA Calculator Widget -->
+    <div class="bg-white p-5 rounded-2xl border border-slate-200 shadow-sm mt-6">
+        <h3 class="font-bold text-sm text-slate-800 mb-2 flex items-center gap-2">
+            <i class="fa-solid fa-calculator text-indigo-600"></i> পয়েন্ট ও রেজাল্ট ক্যালকুলেটর (GPA / CGPA Calculator)
+        </h3>
+        <p class="text-xs text-slate-500 mb-4">সহজেই আপনার বিষয়ভিত্তিক গ্রেড বা সেমিস্টার জিপিএ দিয়ে গড় রেজাল্ট হিসাব করুন:</p>
+
+        <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+            <!-- School/College GPA Calculator -->
+            <div class="bg-slate-50 p-4 rounded-xl border border-slate-200">
+                <h4 class="font-bold text-xs text-slate-700 mb-3 flex items-center gap-1.5">
+                    <i class="fa-solid fa-school text-indigo-500"></i> SSC/HSC জিপিএ ক্যালকুলেটর
+                </h4>
+                <div class="space-y-2">
+                    <div class="grid grid-cols-3 gap-2">
+                        <input type="number" id="sub1" step="0.01" placeholder="বিষয় ১ জিপিএ" class="p-2 border rounded-lg text-xs focus:outline-none focus:border-indigo-500">
+                        <input type="number" id="sub2" step="0.01" placeholder="বিষয় ২ জিপিএ" class="p-2 border rounded-lg text-xs focus:outline-none focus:border-indigo-500">
+                        <input type="number" id="sub3" step="0.01" placeholder="বিষয় ৩ জিপিএ" class="p-2 border rounded-lg text-xs focus:outline-none focus:border-indigo-500">
+                    </div>
+                    <div class="grid grid-cols-3 gap-2">
+                        <input type="number" id="sub4" step="0.01" placeholder="বিষয় ৪ জিপিএ" class="p-2 border rounded-lg text-xs focus:outline-none focus:border-indigo-500">
+                        <input type="number" id="sub5" step="0.01" placeholder="বিষয় ৫ জিপিএ" class="p-2 border rounded-lg text-xs focus:outline-none focus:border-indigo-500">
+                        <button onclick="calculateGpa()" class="bg-indigo-600 hover:bg-indigo-700 text-white font-semibold rounded-lg text-xs transition">হিসাব করুন</button>
+                    </div>
+                </div>
+                <div id="gpa-result" class="mt-3 font-bold text-xs text-indigo-700 hidden bg-indigo-50 p-2 rounded-lg text-center"></div>
+            </div>
+
+            <!-- University CGPA Calculator -->
+            <div class="bg-slate-50 p-4 rounded-xl border border-slate-200">
+                <h4 class="font-bold text-xs text-slate-700 mb-3 flex items-center gap-1.5">
+                    <i class="fa-solid fa-graduation-cap text-indigo-500"></i> বিশ্ববিদ্যালয় CGPA ক্যালকুলেটর
+                </h4>
+                <div class="space-y-2">
+                    <div class="grid grid-cols-2 gap-2">
+                        <input type="number" id="cgpa1" step="0.01" placeholder="১ম সেমিস্টার GPA" class="p-2 border rounded-lg text-xs focus:outline-none focus:border-indigo-500">
+                        <input type="number" id="cgpa2" step="0.01" placeholder="২য় সেমিস্টার GPA" class="p-2 border rounded-lg text-xs focus:outline-none focus:border-indigo-500">
+                    </div>
+                    <div class="grid grid-cols-2 gap-2">
+                        <input type="number" id="cgpa3" step="0.01" placeholder="৩য় সেমিস্টার GPA" class="p-2 border rounded-lg text-xs focus:outline-none focus:border-indigo-500">
+                        <button onclick="calculateCgpa()" class="bg-indigo-600 hover:bg-indigo-700 text-white font-semibold rounded-lg text-xs transition">CGPA দেখুন</button>
+                    </div>
+                </div>
+                <div id="cgpa-result" class="mt-3 font-bold text-xs text-indigo-700 hidden bg-indigo-50 p-2 rounded-lg text-center"></div>
+            </div>
+        </div>
+    </div>
+
+</div>
+
+<!-- Internal Module JavaScript -->
+<script>
+    // Live Search inside Edu Module
+    function filterEduServices() {
+        const query = document.getElementById('edu-search').value.toLowerCase();
+        const cards = document.querySelectorAll('.edu-card');
+        
+        cards.forEach(card => {
+            const text = card.innerText.toLowerCase();
+            card.style.display = text.includes(query) ? 'block' : 'none';
+        });
+    }
+
+    // School/College GPA Calculation Script
+    function calculateGpa() {
+        const s1 = parseFloat(document.getElementById('sub1').value) || 0;
+        const s2 = parseFloat(document.getElementById('sub2').value) || 0;
+        const s3 = parseFloat(document.getElementById('sub3').value) || 0;
+        const s4 = parseFloat(document.getElementById('sub4').value) || 0;
+        const s5 = parseFloat(document.getElementById('sub5').value) || 0;
+
+        const inputs = [s1, s2, s3, s4, s5].filter(v => v > 0);
+        
+        if(inputs.length === 0) {
+            alert("অনুগ্রহ করে অন্তত একটি বিষয়ের জিপিএ প্রদান করুন!");
+            return;
+        }
+
+        const sum = inputs.reduce((a, b) => a + b, 0);
+        const avg = (sum / inputs.length).toFixed(2);
+
+        const resBox = document.getElementById('gpa-result');
+        resBox.classList.remove('hidden');
+        resBox.innerHTML = `আপনার আনুমানিক গড় জিপিএ (GPA): <span class="text-sm font-extrabold">${avg}</span> out of 5.00`;
+    }
+
+    // University CGPA Calculation Script
+    function calculateCgpa() {
+        const c1 = parseFloat(document.getElementById('cgpa1').value) || 0;
+        const c2 = parseFloat(document.getElementById('cgpa2').value) || 0;
+        const c3 = parseFloat(document.getElementById('cgpa3').value) || 0;
+
+        const inputs = [c1, c2, c3].filter(v => v > 0);
+
+        if(inputs.length === 0) {
+            alert("অনুগ্রহ করে সেমিস্টারের জিপিএ প্রদান করুন!");
+            return;
+        }
+
+        const sum = inputs.reduce((a, b) => a + b, 0);
+        const avg = (sum / inputs.length).toFixed(2);
+
+        const resBox = document.getElementById('cgpa-result');
+        resBox.classList.remove('hidden');
+        resBox.innerHTML = `আপনার সিজিপিএ (CGPA): <span class="text-sm font-extrabold">${avg}</span> out of 4.00`;
+    }
+          </script>
