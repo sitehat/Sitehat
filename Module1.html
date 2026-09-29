@@ -1,0 +1,303 @@
+<!-- Module 1: Government & Citizen Services -->
+<div class="space-y-6 animate-fadeIn">
+    
+    <!-- Module Header -->
+    <div class="border-b border-slate-200 pb-4 flex flex-col sm:flex-row justify-between items-start sm:items-center gap-3">
+        <div>
+            <h1 class="text-xl font-bold text-slate-800 flex items-center gap-2">
+                <i class="fa-solid fa-landmark text-blue-600"></i> সরকারি সেবা ও নাগরিক সেবা
+            </h1>
+            <p class="text-xs text-slate-500 mt-1">এক ক্লিকেই সকল সরকারি পোর্টাল, আবেদন ফরম, ফি হিসাব ও নাগরিক সহায়তার তথ্য</p>
+        </div>
+        <!-- Module Internal Search -->
+        <div class="relative w-full sm:w-64">
+            <i class="fa-solid fa-magnifying-glass absolute left-3 top-1/2 -translate-y-1/2 text-slate-400 text-xs"></i>
+            <input type="text" id="gov-search" onkeyup="filterGovServices()" placeholder="সরকারি সেবা খুঁজুন..." class="w-full pl-8 pr-3 py-1.5 bg-slate-100 focus:bg-white border border-slate-200 rounded-lg text-xs focus:outline-none focus:border-blue-500">
+        </div>
+    </div>
+
+    <!-- Quick Emergency Gov Helpline Banner -->
+    <div class="bg-gradient-to-r from-red-600 to-rose-700 text-white rounded-2xl p-4 shadow-sm flex flex-col md:flex-row items-center justify-between gap-4">
+        <div class="flex items-center gap-3">
+            <div class="w-12 h-12 rounded-xl bg-white/20 flex items-center justify-center text-xl shrink-0">
+                <i class="fa-solid fa-phone-volume animate-pulse"></i>
+            </div>
+            <div>
+                <h3 class="font-bold text-sm">জরুরি সরকারি হেল্পলাইন ও নম্বর</h3>
+                <p class="text-xs text-red-100">জাতীয় তথ্য সেবা: <span class="font-bold underline">৩৩৩</span> | জরুরি সেবা: <span class="font-bold underline">৯৯৯</span> | দুদক: <span class="font-bold underline">১০৬</span></p>
+            </div>
+        </div>
+        <button onclick="toggleSection('helpline-modal')" class="bg-white text-red-600 px-4 py-2 rounded-xl font-bold text-xs hover:bg-red-50 transition shrink-0">
+            সকল হেল্পলাইন দেখুন
+        </button>
+    </div>
+
+    <!-- Main Gov Services Grid -->
+    <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4" id="gov-services-grid">
+        
+        <!-- 1. NID সেবা -->
+        <div class="service-card bg-slate-50 border border-slate-200 hover:border-blue-400 rounded-2xl p-4 transition duration-200">
+            <div class="flex items-center gap-3 mb-3">
+                <div class="w-10 h-10 rounded-xl bg-blue-100 text-blue-600 flex items-center justify-center font-bold">
+                    <i class="fa-solid fa-id-card text-lg"></i>
+                </div>
+                <div>
+                    <h3 class="font-bold text-sm text-slate-800">NID সেবা</h3>
+                    <p class="text-[11px] text-slate-500">স্মার্ট কার্ড ও জাতীয় পরিচয়পত্র</p>
+                </div>
+            </div>
+            <ul class="text-xs space-y-1.5 text-slate-600 mb-3 border-t border-slate-200/60 pt-2.5">
+                <li><a href="https://services.nidw.gov.bd" target="_blank" class="hover:text-blue-600 flex items-center justify-between">নতুন NID নিবন্ধন <i class="fa-solid fa-arrow-up-right-from-square text-[10px] text-slate-400"></i></a></li>
+                <li><a href="https://services.nidw.gov.bd" target="_blank" class="hover:text-blue-600 flex items-center justify-between">NID সংশোধন আবেদন <i class="fa-solid fa-arrow-up-right-from-square text-[10px] text-slate-400"></i></a></li>
+                <li><a href="https://services.nidw.gov.bd" target="_blank" class="hover:text-blue-600 flex items-center justify-between">অনলাইন কপি ডাউনলোড <i class="fa-solid fa-arrow-up-right-from-square text-[10px] text-slate-400"></i></a></li>
+            </ul>
+        </div>
+
+        <!-- 2. জন্ম ও মৃত্যু নিবন্ধন -->
+        <div class="service-card bg-slate-50 border border-slate-200 hover:border-emerald-400 rounded-2xl p-4 transition duration-200">
+            <div class="flex items-center gap-3 mb-3">
+                <div class="w-10 h-10 rounded-xl bg-emerald-100 text-emerald-600 flex items-center justify-center font-bold">
+                    <i class="fa-solid fa-baby text-lg"></i>
+                </div>
+                <div>
+                    <h3 class="font-bold text-sm text-slate-800">জন্ম ও মৃত্যু নিবন্ধন</h3>
+                    <p class="text-[11px] text-slate-500">BDRIS অনলাইন পোর্টাল</p>
+                </div>
+            </div>
+            <ul class="text-xs space-y-1.5 text-slate-600 mb-3 border-t border-slate-200/60 pt-2.5">
+                <li><a href="https://bdris.gov.bd" target="_blank" class="hover:text-emerald-600 flex items-center justify-between">নতুন জন্ম নিবন্ধন আবেদন <i class="fa-solid fa-arrow-up-right-from-square text-[10px] text-slate-400"></i></a></li>
+                <li><a href="https://bdris.gov.bd" target="_blank" class="hover:text-emerald-600 flex items-center justify-between">সনদ তথ্য যাচাই <i class="fa-solid fa-arrow-up-right-from-square text-[10px] text-slate-400"></i></a></li>
+                <li><a href="https://bdris.gov.bd" target="_blank" class="hover:text-emerald-600 flex items-center justify-between">আবেদন স্থিতি পরীক্ষা <i class="fa-solid fa-arrow-up-right-from-square text-[10px] text-slate-400"></i></a></li>
+            </ul>
+        </div>
+
+        <!-- 3. ই-পাসপোর্ট সেবা -->
+        <div class="service-card bg-slate-50 border border-slate-200 hover:border-purple-400 rounded-2xl p-4 transition duration-200">
+            <div class="flex items-center gap-3 mb-3">
+                <div class="w-10 h-10 rounded-xl bg-purple-100 text-purple-600 flex items-center justify-center font-bold">
+                    <i class="fa-solid fa-passport text-lg"></i>
+                </div>
+                <div>
+                    <h3 class="font-bold text-sm text-slate-800">পাসপোর্ট ও ভিসা</h3>
+                    <p class="text-[11px] text-slate-500">ই-পাসপোর্ট অনলাইন আবেদন</p>
+                </div>
+            </div>
+            <ul class="text-xs space-y-1.5 text-slate-600 mb-3 border-t border-slate-200/60 pt-2.5">
+                <li><a href="https://www.epassport.gov.bd" target="_blank" class="hover:text-purple-600 flex items-center justify-between">ই-পাসপোর্ট আবেদন <i class="fa-solid fa-arrow-up-right-from-square text-[10px] text-slate-400"></i></a></li>
+                <li><a href="https://www.epassport.gov.bd" target="_blank" class="hover:text-purple-600 flex items-center justify-between">আবেদনের স্ট্যাটাস চেক <i class="fa-solid fa-arrow-up-right-from-square text-[10px] text-slate-400"></i></a></li>
+                <li><a href="https://www.epassport.gov.bd" target="_blank" class="hover:text-purple-600 flex items-center justify-between">ফি ও জরুরি অ্যাপয়েন্টমেন্ট <i class="fa-solid fa-arrow-up-right-from-square text-[10px] text-slate-400"></i></a></li>
+            </ul>
+        </div>
+
+        <!-- 4. ভূমি সেবা -->
+        <div class="service-card bg-slate-50 border border-slate-200 hover:border-amber-400 rounded-2xl p-4 transition duration-200">
+            <div class="flex items-center gap-3 mb-3">
+                <div class="w-10 h-10 rounded-xl bg-amber-100 text-amber-700 flex items-center justify-center font-bold">
+                    <i class="fa-solid fa-map-location-dot text-lg"></i>
+                </div>
+                <div>
+                    <h3 class="font-bold text-sm text-slate-800">ভূমি সেবা (Land Services)</h3>
+                    <p class="text-[11px] text-slate-500">ই-নামজারি ও খতিয়ান</p>
+                </div>
+            </div>
+            <ul class="text-xs space-y-1.5 text-slate-600 mb-3 border-t border-slate-200/60 pt-2.5">
+                <li><a href="https://land.gov.bd" target="_blank" class="hover:text-amber-700 flex items-center justify-between">ই-নামজারি আবেদন <i class="fa-solid fa-arrow-up-right-from-square text-[10px] text-slate-400"></i></a></li>
+                <li><a href="https://eporchia.gov.bd" target="_blank" class="hover:text-amber-700 flex items-center justify-between">অনলাইন খতিয়ান / পর্চা অনুসন্ধান <i class="fa-solid fa-arrow-up-right-from-square text-[10px] text-slate-400"></i></a></li>
+                <li><a href="https://ldtax.gov.bd" target="_blank" class="hover:text-amber-700 flex items-center justify-between">ভূমি উন্নয়ন কর (খাজনা) পরিশোধ <i class="fa-solid fa-arrow-up-right-from-square text-[10px] text-slate-400"></i></a></li>
+            </ul>
+        </div>
+
+        <!-- 5. কর ও e-TIN -->
+        <div class="service-card bg-slate-50 border border-slate-200 hover:border-indigo-400 rounded-2xl p-4 transition duration-200">
+            <div class="flex items-center gap-3 mb-3">
+                <div class="w-10 h-10 rounded-xl bg-indigo-100 text-indigo-600 flex items-center justify-center font-bold">
+                    <i class="fa-solid fa-file-invoice-dollar text-lg"></i>
+                </div>
+                <div>
+                    <h3 class="font-bold text-sm text-slate-800">কর ও e-TIN</h3>
+                    <p class="text-[11px] text-slate-500">NBR আয়কর ও টিন সার্টিফিকেট</p>
+                </div>
+            </div>
+            <ul class="text-xs space-y-1.5 text-slate-600 mb-3 border-t border-slate-200/60 pt-2.5">
+                <li><a href="https://secure.incometax.gov.bd" target="_blank" class="hover:text-indigo-600 flex items-center justify-between">নতুন e-TIN রেজিস্ট্রেশন <i class="fa-solid fa-arrow-up-right-from-square text-[10px] text-slate-400"></i></a></li>
+                <li><a href="https://etaxnbr.gov.bd" target="_blank" class="hover:text-indigo-600 flex items-center justify-between">ই-রিটার্ন অনলাইন দাখিল <i class="fa-solid fa-arrow-up-right-from-square text-[10px] text-slate-400"></i></a></li>
+                <li><a href="https://secure.incometax.gov.bd" target="_blank" class="hover:text-indigo-600 flex items-center justify-between">TIN সার্টিফিকেট ডাউনলোড <i class="fa-solid fa-arrow-up-right-from-square text-[10px] text-slate-400"></i></a></li>
+            </ul>
+        </div>
+
+        <!-- 6. BRTA সেবা -->
+        <div class="service-card bg-slate-50 border border-slate-200 hover:border-cyan-400 rounded-2xl p-4 transition duration-200">
+            <div class="flex items-center gap-3 mb-3">
+                <div class="w-10 h-10 rounded-xl bg-cyan-100 text-cyan-600 flex items-center justify-center font-bold">
+                    <i class="fa-solid fa-car text-lg"></i>
+                </div>
+                <div>
+                    <h3 class="font-bold text-sm text-slate-800">BRTA ড্রাইভিং ও ফিটনেস</h3>
+                    <p class="text-[11px] text-slate-500">BRTA সার্ভিস পোর্টাল (BSP)</p>
+                </div>
+            </div>
+            <ul class="text-xs space-y-1.5 text-slate-600 mb-3 border-t border-slate-200/60 pt-2.5">
+                <li><a href="https://bsp.brta.gov.bd" target="_blank" class="hover:text-cyan-600 flex items-center justify-between">ড্রাইভিং লাইসেন্স আবেদন <i class="fa-solid fa-arrow-up-right-from-square text-[10px] text-slate-400"></i></a></li>
+                <li><a href="https://bsp.brta.gov.bd" target="_blank" class="hover:text-cyan-600 flex items-center justify-between">গাড়ির রেজিস্ট্রেশন ও রিন্যুয়াল <i class="fa-solid fa-arrow-up-right-from-square text-[10px] text-slate-400"></i></a></li>
+                <li><a href="https://bsp.brta.gov.bd" target="_blank" class="hover:text-cyan-600 flex items-center justify-between">ফিটনেস ও ট্যাক্স টোকেন <i class="fa-solid fa-arrow-up-right-from-square text-[10px] text-slate-400"></i></a></li>
+            </ul>
+        </div>
+
+        <!-- 7. বিদ্যুৎ, গ্যাস ও পানি -->
+        <div class="service-card bg-slate-50 border border-slate-200 hover:border-yellow-400 rounded-2xl p-4 transition duration-200">
+            <div class="flex items-center gap-3 mb-3">
+                <div class="w-10 h-10 rounded-xl bg-yellow-100 text-yellow-700 flex items-center justify-center font-bold">
+                    <i class="fa-solid fa-bolt text-lg"></i>
+                </div>
+                <div>
+                    <h3 class="font-bold text-sm text-slate-800">বিদ্যুৎ, গ্যাস ও সিটি সেবা</h3>
+                    <p class="text-[11px] text-slate-500">ইউটিলিটি বিল ও নতুন সংযোগ</p>
+                </div>
+            </div>
+            <ul class="text-xs space-y-1.5 text-slate-600 mb-3 border-t border-slate-200/60 pt-2.5">
+                <li><a href="https://rebpbd.org" target="_blank" class="hover:text-yellow-600 flex items-center justify-between">পল্লী বিদ্যুৎ নতুন সংযোগ <i class="fa-solid fa-arrow-up-right-from-square text-[10px] text-slate-400"></i></a></li>
+                <li><a href="https://dpdc.org.bd" target="_blank" class="hover:text-yellow-600 flex items-center justify-between">DPDC/DESCO বিল প্রদেয় <i class="fa-solid fa-arrow-up-right-from-square text-[10px] text-slate-400"></i></a></li>
+                <li><a href="https://dwasa.org.bd" target="_blank" class="hover:text-yellow-600 flex items-center justify-between">ওয়াসা ও গ্যাস বিল সার্ভিস <i class="fa-solid fa-arrow-up-right-from-square text-[10px] text-slate-400"></i></a></li>
+            </ul>
+        </div>
+
+        <!-- 8. সরকারি ফরম ও আবেদন -->
+        <div class="service-card bg-slate-50 border border-slate-200 hover:border-teal-400 rounded-2xl p-4 transition duration-200">
+            <div class="flex items-center gap-3 mb-3">
+                <div class="w-10 h-10 rounded-xl bg-teal-100 text-teal-600 flex items-center justify-center font-bold">
+                    <i class="fa-solid fa-file-lines text-lg"></i>
+                </div>
+                <div>
+                    <h3 class="font-bold text-sm text-slate-800">সরকারি ফরম ও ফরম রিপোজিটরি</h3>
+                    <p class="text-[11px] text-slate-500">বাংলাদেশ ফরম পোর্টাল</p>
+                </div>
+            </div>
+            <ul class="text-xs space-y-1.5 text-slate-600 mb-3 border-t border-slate-200/60 pt-2.5">
+                <li><a href="http://www.forms.gov.bd" target="_blank" class="hover:text-teal-600 flex items-center justify-between">সকল সরকারি ডাউনলোডযোগ্য ফরম <i class="fa-solid fa-arrow-up-right-from-square text-[10px] text-slate-400"></i></a></li>
+                <li><a href="https://mygov.bd" target="_blank" class="hover:text-teal-600 flex items-center justify-between">MyGov এক ঠিকানায় সরকারি আবেদন <i class="fa-solid fa-arrow-up-right-from-square text-[10px] text-slate-400"></i></a></li>
+                <li><a href="http://www.bangladesh.gov.bd" target="_blank" class="hover:text-teal-600 flex items-center justify-between">জাতীয় তথ্য বাতায়ন (Portal) <i class="fa-solid fa-arrow-up-right-from-square text-[10px] text-slate-400"></i></a></li>
+            </ul>
+        </div>
+
+        <!-- 9. নাগরিক অধিকার ও তথ্য আইন -->
+        <div class="service-card bg-slate-50 border border-slate-200 hover:border-rose-400 rounded-2xl p-4 transition duration-200">
+            <div class="flex items-center gap-3 mb-3">
+                <div class="w-10 h-10 rounded-xl bg-rose-100 text-rose-600 flex items-center justify-center font-bold">
+                    <i class="fa-solid fa-scale-balanced text-lg"></i>
+                </div>
+                <div>
+                    <h3 class="font-bold text-sm text-slate-800">নাগরিক অধিকার ও RTI</h3>
+                    <p class="text-[11px] text-slate-500">তথ্য অধিকার ও অভিযোগ প্রতিকার</p>
+                </div>
+            </div>
+            <ul class="text-xs space-y-1.5 text-slate-600 mb-3 border-t border-slate-200/60 pt-2.5">
+                <li><a href="https://rtims.inforcom.gov.bd" target="_blank" class="hover:text-rose-600 flex items-center justify-between">তথ্য অধিকার আইনে আবেদন <i class="fa-solid fa-arrow-up-right-from-square text-[10px] text-slate-400"></i></a></li>
+                <li><a href="https://grs.gov.bd" target="_blank" class="hover:text-rose-600 flex items-center justify-between">অভিযোগ প্রতিকার ব্যবস্থা (GRS) <i class="fa-solid fa-arrow-up-right-from-square text-[10px] text-slate-400"></i></a></li>
+                <li><a href="https://dncrp.portal.gov.bd" target="_blank" class="hover:text-rose-600 flex items-center justify-between">ভোক্তা অধিকার সংরক্ষণ অভিযোগ <i class="fa-solid fa-arrow-up-right-from-square text-[10px] text-slate-400"></i></a></li>
+            </ul>
+        </div>
+
+    </div>
+
+    <!-- Interactive Gov Fee Calculator Widget -->
+    <div class="bg-white p-5 rounded-2xl border border-slate-200 shadow-sm mt-6">
+        <h3 class="font-bold text-sm text-slate-800 mb-2 flex items-center gap-2">
+            <i class="fa-solid fa-calculator text-blue-600"></i> সরকারি ফি ক্যালকুলেটর (দ্রুত আনুমানিক হিসাব)
+        </h3>
+        <p class="text-xs text-slate-500 mb-4">সরকারি সেবার আনুমানিক ফি এবং চালানের পরিমাণ নির্ধারণ করতে নিচে নির্বাচন করুন:</p>
+
+        <div class="grid grid-cols-1 sm:grid-cols-3 gap-3">
+            <div>
+                <label class="block text-xs font-semibold text-slate-600 mb-1">সেবার নাম নির্বাচন করুন</label>
+                <select id="fee-service-type" onchange="calculateGovFee()" class="w-full bg-slate-50 border border-slate-200 rounded-lg p-2 text-xs focus:outline-none focus:border-blue-500">
+                    <option value="pas-reg">ই-পাসপোর্ট (৪৮ পৃষ্ঠা, ৫ বছর - নিয়মিত)</option>
+                    <option value="pas-exp">ই-পাসপোর্ট (৪৮ পৃষ্ঠা, ৫ বছর - জরুরি)</option>
+                    <option value="pas-reg-10">ই-পাসপোর্ট (৪৮ পৃষ্ঠা, ১০ বছর - নিয়মিত)</option>
+                    <option value="nid-reprint">NID সংশোধন / রিপ্রিন্ট ফি</option>
+                    <option value="tin">e-TIN সনদপত্র ইস্যু</option>
+                </select>
+            </div>
+            <div>
+                <label class="block text-xs font-semibold text-slate-600 mb-1">ভ্যাট / প্রসেসিং সহ আনুমানিক ফি</label>
+                <div id="fee-display" class="bg-blue-50 border border-blue-200 font-bold text-blue-700 rounded-lg p-2 text-sm text-center">
+                    ৳ ৪,০২৫ টাকা
+                </div>
+            </div>
+            <div class="flex items-end">
+                <a href="https://ekalan.gov.bd" target="_blank" class="w-full bg-blue-600 hover:bg-blue-700 text-white font-semibold py-2 text-center rounded-lg text-xs transition">
+                    চালান পে করুন (A-Challan) →
+                </a>
+            </div>
+        </div>
+    </div>
+
+    <!-- Helpline Modal / List Section -->
+    <div id="helpline-modal" class="hidden bg-slate-900 text-white p-5 rounded-2xl shadow-xl space-y-3">
+        <div class="flex justify-between items-center border-b border-slate-700 pb-2">
+            <h4 class="font-bold text-sm text-yellow-400">গুরুত্বপূর্ণ সরকারি ডিরেক্টরি ও হটলাইন</h4>
+            <button onclick="toggleSection('helpline-modal')" class="text-slate-400 hover:text-white text-xs">বন্ধ করুন ✖</button>
+        </div>
+        <div class="grid grid-cols-2 sm:grid-cols-4 gap-3 text-xs">
+            <div class="p-2 bg-slate-800 rounded-lg"><span class="block font-bold text-blue-400">৩৩৩</span> জাতীয় তথ্য সেবা</div>
+            <div class="p-2 bg-slate-800 rounded-lg"><span class="block font-bold text-red-400">৯৯৯</span> জরুরি পুলিশ/ফায়ার/এ্যাম্বুলেন্স</div>
+            <div class="p-2 bg-slate-800 rounded-lg"><span class="block font-bold text-amber-400">১০৯</span> নারী ও শিশু নির্যাতন প্রতিরোধ</div>
+            <div class="p-2 bg-slate-800 rounded-lg"><span class="block font-bold text-emerald-400">১০৬</span> দুর্নীতি দমন কমিশন (দুদক)</div>
+            <div class="p-2 bg-slate-800 rounded-lg"><span class="block font-bold text-cyan-400">১৬১২২</span> ভূমি সেবা হটলাইন</div>
+            <div class="p-2 bg-slate-800 rounded-lg"><span class="block font-bold text-purple-400">১৬১০৮</span> আইনি সহায়তা সেন্টার</div>
+            <div class="p-2 bg-slate-800 rounded-lg"><span class="block font-bold text-rose-400">১৬২৬৩</span> স্বাস্থ্য বাতায়ন</div>
+            <div class="p-2 bg-slate-800 rounded-lg"><span class="block font-bold text-teal-400">১০৯০</span> দুর্যোগের আগাম বার্তা</div>
+        </div>
+    </div>
+
+</div>
+
+<!-- Internal Module JavaScript -->
+<script>
+    // Live Search inside Gov Module
+    function filterGovServices() {
+        const query = document.getElementById('gov-search').value.toLowerCase();
+        const cards = document.querySelectorAll('.service-card');
+        
+        cards.forEach(card => {
+            const text = card.innerText.toLowerCase();
+            card.style.display = text.includes(query) ? 'block' : 'none';
+        });
+    }
+
+    // Dynamic Fee Calculator Script
+    function calculateGovFee() {
+        const selected = document.getElementById('fee-service-type').value;
+        const display = document.getElementById('fee-display');
+
+        let fee = '';
+        switch (selected) {
+            case 'pas-reg':
+                fee = '৳ ৪,০২৫ টাকা';
+                break;
+            case 'pas-exp':
+                fee = '৳ ৬,৩২৫ টাকা';
+                break;
+            case 'pas-reg-10':
+                fee = '৳ ৫,৭৫০ টাকা';
+                break;
+            case 'nid-reprint':
+                fee = '৳ ৩৪৫ টাকা (১৫% ভ্যাট সহ)';
+                break;
+            case 'tin':
+                fee = '৳ ০ টাকা (সম্পূর্ণ ফ্রি)';
+                break;
+            default:
+                fee = '৳ ০ টাকা';
+        }
+        display.innerText = fee;
+    }
+
+    // Utility toggle function
+    function toggle function
+    function toggleSection(id) {
+        const el = document.getElementById(id);
+        if (el) {
+            el.classList.toggle('hidden');
+        }
+    }
+</script>
