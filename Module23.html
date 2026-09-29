@@ -1,0 +1,284 @@
+<!-- Module 23: Time, Date & Daily Calculations -->
+<div class="space-y-6 animate-fadeIn">
+    
+    <!-- Module Header -->
+    <div class="border-b border-slate-200 pb-4 flex flex-col sm:flex-row justify-between items-start sm:items-center gap-3">
+        <div>
+            <h1 class="text-xl font-bold text-slate-800 flex items-center gap-2">
+                <i class="fa-solid fa-clock text-indigo-600"></i> সময়, তারিখ ও দৈনন্দিন ক্যালকুলেশন
+            </h1>
+            <p class="text-xs text-slate-500 mt-1">বয়স হিসাব, তারিখের ব্যবধান, টাইম জোন, বিশ্ব ঘড়ি, কর্মদিবস ও ক্যালেন্ডার টুলস</p>
+        </div>
+    </div>
+
+    <!-- Quick Stats & World Clock Banner -->
+    <div class="bg-slate-900 text-white rounded-2xl p-5 shadow-sm space-y-4">
+        <div class="flex items-center justify-between border-b border-white/10 pb-3">
+            <h3 class="font-bold text-sm flex items-center gap-2">
+                <i class="fa-solid fa-earth-americas text-indigo-400"></i> বিশ্ব ঘড়ি (World Clock)
+            </h3>
+            <span class="text-[10px] text-slate-400">লাইভ আপডেট</span>
+        </div>
+
+        <div class="grid grid-cols-2 sm:grid-cols-4 gap-3 text-center">
+            <div class="bg-white/5 border border-white/10 p-3 rounded-xl">
+                <span class="text-[10px] text-slate-400 block font-semibold">ঢাকা (BST)</span>
+                <span id="wc-dhaka" class="text-base font-extrabold text-indigo-300">--:--:--</span>
+            </div>
+            <div class="bg-white/5 border border-white/10 p-3 rounded-xl">
+                <span class="text-[10px] text-slate-400 block font-semibold">লন্ডন (GMT/BST)</span>
+                <span id="wc-london" class="text-base font-extrabold text-emerald-300">--:--:--</span>
+            </div>
+            <div class="bg-white/5 border border-white/10 p-3 rounded-xl">
+                <span class="text-[10px] text-slate-400 block font-semibold">নিউ ইয়র্ক (EST)</span>
+                <span id="wc-ny" class="text-base font-extrabold text-amber-300">--:--:--</span>
+            </div>
+            <div class="bg-white/5 border border-white/10 p-3 rounded-xl">
+                <span class="text-[10px] text-slate-400 block font-semibold">টোকিও (JST)</span>
+                <span id="wc-tokyo" class="text-base font-extrabold text-rose-300">--:--:--</span>
+            </div>
+        </div>
+    </div>
+
+    <!-- Calculations Tools Grid -->
+    <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-5">
+
+        <!-- 1. Age Calculator -->
+        <div class="bg-slate-50 border border-slate-200 rounded-2xl p-4 space-y-3">
+            <div class="flex items-center gap-2 border-b border-slate-200/80 pb-2">
+                <i class="fa-solid fa-cake-candles text-indigo-600"></i>
+                <h3 class="font-bold text-xs text-slate-800">বয়স গণনা (Age Calculator)</h3>
+            </div>
+            <div class="space-y-2">
+                <label class="block text-[11px] font-semibold text-slate-600">জন্ম তারিখ বেছে নিন:</label>
+                <input type="date" id="dob-input" class="w-full px-3 py-1.5 bg-white border border-slate-200 rounded-xl text-xs focus:outline-none focus:border-indigo-500">
+                <button onclick="calculateAge()" class="w-full bg-indigo-600 hover:bg-indigo-700 text-white py-1.5 rounded-xl text-xs font-semibold transition">
+                    বয়স দেখুন
+                </button>
+            </div>
+            <div id="age-result" class="p-2.5 bg-indigo-50 border border-indigo-100 rounded-xl text-xs text-indigo-900 text-center font-semibold hidden"></div>
+        </div>
+
+        <!-- 2. Date Difference -->
+        <div class="bg-slate-50 border border-slate-200 rounded-2xl p-4 space-y-3">
+            <div class="flex items-center gap-2 border-b border-slate-200/80 pb-2">
+                <i class="fa-solid fa-calendar-day text-emerald-600"></i>
+                <h3 class="font-bold text-xs text-slate-800">তারিখের ব্যবধান (Date Difference)</h3>
+            </div>
+            <div class="space-y-2">
+                <div class="grid grid-cols-2 gap-2">
+                    <div>
+                        <label class="block text-[10px] font-semibold text-slate-600 mb-0.5">প্রথম তারিখ</label>
+                        <input type="date" id="date1" class="w-full p-1.5 bg-white border border-slate-200 rounded-lg text-xs">
+                    </div>
+                    <div>
+                        <label class="block text-[10px] font-semibold text-slate-600 mb-0.5">দ্বিতীয় তারিখ</label>
+                        <input type="date" id="date2" class="w-full p-1.5 bg-white border border-slate-200 rounded-lg text-xs">
+                    </div>
+                </div>
+                <button onclick="calculateDateDiff()" class="w-full bg-emerald-600 hover:bg-emerald-700 text-white py-1.5 rounded-xl text-xs font-semibold transition">
+                    পার্থক্য হিসাব করুন
+                </button>
+            </div>
+            <div id="diff-result" class="p-2.5 bg-emerald-50 border border-emerald-100 rounded-xl text-xs text-emerald-900 text-center font-semibold hidden"></div>
+        </div>
+
+        <!-- 3. Working Days Calculator -->
+        <div class="bg-slate-50 border border-slate-200 rounded-2xl p-4 space-y-3">
+            <div class="flex items-center gap-2 border-b border-slate-200/80 pb-2">
+                <i class="fa-solid fa-briefcase text-amber-600"></i>
+                <h3 class="font-bold text-xs text-slate-800">কর্মদিবস গণনা (Working Days)</h3>
+            </div>
+            <div class="space-y-2">
+                <div class="grid grid-cols-2 gap-2">
+                    <div>
+                        <label class="block text-[10px] font-semibold text-slate-600 mb-0.5">শুরুর তারিখ</label>
+                        <input type="date" id="work-start" class="w-full p-1.5 bg-white border border-slate-200 rounded-lg text-xs">
+                    </div>
+                    <div>
+                        <label class="block text-[10px] font-semibold text-slate-600 mb-0.5">শেষের তারিখ</label>
+                        <input type="date" id="work-end" class="w-full p-1.5 bg-white border border-slate-200 rounded-lg text-xs">
+                    </div>
+                </div>
+                <button onclick="calculateWorkingDays()" class="w-full bg-amber-600 hover:bg-amber-700 text-white py-1.5 rounded-xl text-xs font-semibold transition">
+                    কর্মদিবস দেখুন (শুক্রবার ও শনিবার বাদে)
+                </button>
+            </div>
+            <div id="work-result" class="p-2.5 bg-amber-50 border border-amber-100 rounded-xl text-xs text-amber-900 text-center font-semibold hidden"></div>
+        </div>
+
+        <!-- 4. Add/Subtract Days -->
+        <div class="bg-slate-50 border border-slate-200 rounded-2xl p-4 space-y-3">
+            <div class="flex items-center gap-2 border-b border-slate-200/80 pb-2">
+                <i class="fa-solid fa-plus-minus text-sky-600"></i>
+                <h3 class="font-bold text-xs text-slate-800">দিন যোগ / বিয়োগ (Add/Subtract)</h3>
+            </div>
+            <div class="space-y-2">
+                <input type="date" id="base-date" class="w-full p-1.5 bg-white border border-slate-200 rounded-lg text-xs">
+                <div class="flex gap-2">
+                    <input type="number" id="days-count" placeholder="দিনের সংখ্যা" class="w-full p-1.5 bg-white border border-slate-200 rounded-lg text-xs">
+                    <button onclick="modifyDays('add')" class="bg-sky-600 text-white px-3 py-1.5 rounded-lg text-xs font-semibold">+</button>
+                    <button onclick="modifyDays('sub')" class="bg-rose-600 text-white px-3 py-1.5 rounded-lg text-xs font-semibold">-</button>
+                </div>
+            </div>
+            <div id="mod-result" class="p-2.5 bg-sky-50 border border-sky-100 rounded-xl text-xs text-sky-900 text-center font-semibold hidden"></div>
+        </div>
+
+        <!-- 5. Time Zone Converter -->
+        <div class="bg-slate-50 border border-slate-200 rounded-2xl p-4 space-y-3">
+            <div class="flex items-center gap-2 border-b border-slate-200/80 pb-2">
+                <i class="fa-solid fa-right-left text-purple-600"></i>
+                <h3 class="font-bold text-xs text-slate-800">টাইম জোন রূপান্তর (Time Zone)</h3>
+            </div>
+            <div class="space-y-2">
+                <input type="time" id="tz-time" value="12:00" class="w-full p-1.5 bg-white border border-slate-200 rounded-lg text-xs">
+                <select id="tz-target" onchange="convertTimeZone()" class="w-full p-1.5 bg-white border border-slate-200 rounded-lg text-xs">
+                    <option value="0">런던 (GMT - 6 Hours)</option>
+                    <option value="-10">নিউ ইয়র্ক (EST - 10 Hours)</option>
+                    <option value="3">টোকিও (JST + 3 Hours)</option>
+                    <option value="-2">দুবাই (GST - 2 Hours)</option>
+                </select>
+            </div>
+            <div id="tz-result" class="p-2.5 bg-purple-50 border border-purple-100 rounded-xl text-xs text-purple-900 text-center font-semibold">
+                রূপান্তরিত সময় এখানে দেখাবে
+            </div>
+        </div>
+
+        <!-- 6. Calendar Shortcut & Info -->
+        <div class="bg-slate-50 border border-slate-200 rounded-2xl p-4 space-y-3">
+            <div class="flex items-center gap-2 border-b border-slate-200/80 pb-2">
+                <i class="fa-solid fa-calendar-days text-rose-600"></i>
+                <h3 class="font-bold text-xs text-slate-800">ক্যালেন্ডার ও আজকের দিন</h3>
+            </div>
+            <div class="text-center p-3 bg-white border border-slate-200 rounded-xl space-y-1">
+                <span id="today-day" class="text-xs font-bold text-rose-600 uppercase block">--</span>
+                <span id="today-date" class="text-xl font-extrabold text-slate-800 block">--</span>
+                <span id="today-year" class="text-xs text-slate-500 block">--</span>
+            </div>
+        </div>
+
+    </div>
+
+</div>
+
+<!-- Internal Module JavaScript -->
+<script>
+    // Live World Clock Tracker
+    function updateWorldClock() {
+        const now = new Date();
+        
+        const options = { timeZone: 'Asia/Dhaka', hour: '2-digit', minute: '2-digit', second: '2-digit', hour12: true };
+        document.getElementById('wc-dhaka').innerText = new Intl.DateTimeFormat('en-US', options).format(now);
+        
+        options.timeZone = 'Europe/London';
+        document.getElementById('wc-london').innerText = new Intl.DateTimeFormat('en-US', options).format(now);
+        
+        options.timeZone = 'America/New_York';
+        document.getElementById('wc-ny').innerText = new Intl.DateTimeFormat('en-US', options).format(now);
+        
+        options.timeZone = 'Asia/Tokyo';
+        document.getElementById('wc-tokyo').innerText = new Intl.DateTimeFormat('en-US', options).format(now);
+
+        // Update Today Info Card
+        const todayOpts = { weekday: 'long', year: 'numeric', month: 'long', day: 'numeric' };
+        const parts = new Intl.DateTimeFormat('bn-BD', todayOpts).formatToParts(now);
+        document.getElementById('today-day').innerText = now.toLocaleDateString('bn-BD', { weekday: 'long' });
+        document.getElementById('today-date').innerText = now.getDate() + ' ' + now.toLocaleDateString('bn-BD', { month: 'short' });
+        document.getElementById('today-year').innerText = now.getFullYear();
+    }
+    setInterval(updateWorldClock, 1000);
+    updateWorldClock();
+
+    // 1. Age Calculator
+    function calculateAge() {
+        const dobVal = document.getElementById('dob-input').value;
+        const resDiv = document.getElementById('age-result');
+        if (!dobVal) return;
+
+        const dob = new Date(dobVal);
+        const today = new Date();
+
+        let years = today.getFullYear() - dob.getFullYear();
+        let months = today.getMonth() - dob.getMonth();
+        let days = today.getDate() - dob.getDate();
+
+        if (days < 0) {
+            months--;
+            days += new Date(today.getFullYear(), today.getMonth(), 0).getDate();
+        }
+        if (months < 0) {
+            years--;
+            months += 12;
+        }
+
+        resDiv.innerHTML = `আপনার বয়স: <b>${years}</b> বছর, <b>${months}</b> মাস, <b>${days}</b> দিন।`;
+        resDiv.classList.remove('hidden');
+    }
+
+    // 2. Date Difference
+    function calculateDateDiff() {
+        const d1 = new Date(document.getElementById('date1').value);
+        const d2 = new Date(document.getElementById('date2').value);
+        const resDiv = document.getElementById('diff-result');
+
+        if (isNaN(d1) || isNaN(d2)) return;
+
+        const diffTime = Math.abs(d2 - d1);
+        const diffDays = Math.ceil(diffTime / (1000 * 60 * 60 * 24));
+
+        resDiv.innerHTML = `ব্যবধান: <b>${diffDays}</b> দিন।`;
+        resDiv.classList.remove('hidden');
+    }
+
+    // 3. Working Days (Excluding Fri & Sat for BD)
+    function calculateWorkingDays() {
+        const start = new Date(document.getElementById('work-start').value);
+        const end = new Date(document.getElementById('work-end').value);
+        const resDiv = document.getElementById('work-result');
+
+        if (isNaN(start) || isNaN(end) || start > end) return;
+
+        let count = 0;
+        let cur = new Date(start);
+
+        while (cur <= end) {
+            const day = cur.getDay();
+            if (day !== 5 && day !== 6) { // 5 = Friday, 6 = Saturday
+                count++;
+            }
+            cur.setDate(cur.getDate() + 1);
+        }
+
+        resDiv.innerHTML = `মোট কর্মদিবস: <b>${count}</b> দিন।`;
+        resDiv.classList.remove('hidden');
+    }
+
+    // 4. Add/Subtract Days
+    function modifyDays(action) {
+        const base = new Date(document.getElementById('base-date').value);
+        const days = parseInt(document.getElementById('days-count').value) || 0;
+        const resDiv = document.getElementById('mod-result');
+
+        if (isNaN(base)) return;
+
+        if (action === 'add') base.setDate(base.getDate() + days);
+        else base.setDate(base.getDate() - days);
+
+        resDiv.innerHTML = `ফলাফল তারিখ: <b>${base.toLocaleDateString('bn-BD')}</b>`;
+        resDiv.classList.remove('hidden');
+    }
+
+    // 5. Simple Time Zone Converter
+    function convertTimeZone() {
+        const timeVal = document.getElementById('tz-time').value;
+        const offset = parseInt(document.getElementById('tz-target').value);
+        const resDiv = document.getElementById('tz-result');
+
+        if (!timeVal) return;
+
+        let [hours, minutes] = timeVal.split(':').map(Number);
+        hours = (hours + offset + 24) % 24;
+
+        resDiv.innerHTML = `তারিখ ও সময় অনুযায়ী রূপান্তরিত সময়: <b>${String(hours).padStart(2, '0')}:${String(minutes).padStart(2, '0')}</b>`;
+    }
+</script>
