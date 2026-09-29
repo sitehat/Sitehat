@@ -1,0 +1,241 @@
+<!-- Module 10: Weather & Daily Information -->
+<div class="space-y-6 animate-fadeIn">
+    
+    <!-- Module Header -->
+    <div class="border-b border-slate-200 pb-4 flex flex-col sm:flex-row justify-between items-start sm:items-center gap-3">
+        <div>
+            <h1 class="text-xl font-bold text-slate-800 flex items-center gap-2">
+                <i class="fa-solid fa-cloud-sun-rain text-amber-500"></i> আবহাওয়া ও দৈনন্দিন তথ্য (Weather & Daily Info)
+            </h1>
+            <p class="text-xs text-slate-500 mt-1">আজকের আবহাওয়া, বৃষ্টির পূর্বাভাস, ঝড়-বন্যা সতর্কতা, UV ইনডেক্স ও দৈনন্দিন সময়সূচী</p>
+        </div>
+        <!-- Module Internal Search -->
+        <div class="relative w-full sm:w-64">
+            <i class="fa-solid fa-magnifying-glass absolute left-3 top-1/2 -translate-y-1/2 text-slate-400 text-xs"></i>
+            <input type="text" id="weather-search" onkeyup="filterWeatherServices()" placeholder="জেলা বা আবহাওয়া সেবা খুঁজুন..." class="w-full pl-8 pr-3 py-1.5 bg-slate-100 focus:bg-white border border-slate-200 rounded-lg text-xs focus:outline-none focus:border-amber-500">
+        </div>
+    </div>
+
+    <!-- Weather Quick Banner & Converter -->
+    <div class="bg-gradient-to-r from-amber-500 via-orange-500 to-sky-600 text-white rounded-2xl p-5 shadow-sm space-y-4">
+        <div class="flex flex-col sm:flex-row sm:items-center justify-between gap-3 border-b border-white/20 pb-3">
+            <div class="flex items-center gap-3">
+                <div class="text-4xl">
+                    <i class="fa-solid fa-sun text-yellow-300 animate-spin-slow"></i>
+                </div>
+                <div>
+                    <h3 class="font-bold text-base">বাংলাদেশ আবহাওয়া পূর্বাভাস ড্যাশবোর্ড</h3>
+                    <p class="text-xs text-amber-100">লাইভ আপডেট, স্যাটেলাইট ম্যাপ ও আর্দ্রতা তথ্য</p>
+                </div>
+            </div>
+            <a href="https://live.bmd.gov.bd" target="_blank" class="bg-white/20 hover:bg-white/30 backdrop-blur-md px-3 py-1.5 rounded-xl text-xs font-semibold transition text-center self-start sm:self-auto">
+                <i class="fa-solid fa-satellite text-yellow-300"></i> আবহাওয়া অধিদপ্তর লাইভ
+            </a>
+        </div>
+
+        <!-- Temperature Converter Widget -->
+        <div class="grid grid-cols-1 sm:grid-cols-3 gap-3 items-end">
+            <div>
+                <label class="block text-[11px] text-amber-100 mb-1">সেলসিয়াস (°C)</label>
+                <input type="number" id="temp-celsius" value="30" oninput="convertTemp('C')" class="w-full p-2 bg-white text-slate-800 font-bold rounded-lg text-xs focus:outline-none">
+            </div>
+            <div>
+                <label class="block text-[11px] text-amber-100 mb-1">ফারেনহাইট (°F)</label>
+                <input type="number" id="temp-fahrenheit" value="86" oninput="convertTemp('F')" class="w-full p-2 bg-white text-slate-800 font-bold rounded-lg text-xs focus:outline-none">
+            </div>
+            <div>
+                <div id="temp-status" class="p-2 bg-slate-900/60 backdrop-blur-md text-yellow-300 font-bold rounded-lg text-xs text-center border border-white/10 h-9 flex items-center justify-center">
+                    সহনীয় উষ্ণ আবহাওয়া
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Main Weather Services Grid -->
+    <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4" id="weather-services-grid">
+        
+        <!-- 1. আজকের আবহাওয়া ও পূর্বাভাস -->
+        <div class="weather-card bg-slate-50 border border-slate-200 hover:border-amber-400 rounded-2xl p-4 transition duration-200">
+            <div class="flex items-center gap-3 mb-3">
+                <div class="w-10 h-10 rounded-xl bg-amber-100 text-amber-600 flex items-center justify-center font-bold">
+                    <i class="fa-solid fa-cloud-sun text-lg"></i>
+                </div>
+                <div>
+                    <h3 class="font-bold text-sm text-slate-800">আজকের আবহাওয়া ও Forecast</h3>
+                    <p class="text-[11px] text-slate-500">Hourly & 7-Day Weather Updates</p>
+                </div>
+            </div>
+            <ul class="text-xs space-y-1.5 text-slate-600 mb-3 border-t border-slate-200/60 pt-2.5">
+                <li><a href="https://weather.com/bn-BD/weather/today/l/Dhaka" target="_blank" class="hover:text-amber-600 flex items-center justify-between">আজকের Hourly পূর্বাভাস (Weather.com) <i class="fa-solid fa-arrow-up-right-from-square text-[10px] text-slate-400"></i></a></li>
+                <li><a href="https://www.accuweather.com/bn/bd/bangladesh-weather" target="_blank" class="hover:text-amber-600 flex items-center justify-between">AccuWeather সাপ্তাহিক পূর্বাভাস <i class="fa-solid fa-arrow-up-right-from-square text-[10px] text-slate-400"></i></a></li>
+                <li><a href="https://www.windy.com" target="_blank" class="hover:text-amber-600 flex items-center justify-between">Windy রিয়েল-টাইম আবহাওয়া ম্যাপ <i class="fa-solid fa-arrow-up-right-from-square text-[10px] text-slate-400"></i></a></li>
+            </ul>
+        </div>
+
+        <!-- 2. বৃষ্টি, আর্দ্রতা ও তাপমাত্রা -->
+        <div class="weather-card bg-slate-50 border border-slate-200 hover:border-blue-400 rounded-2xl p-4 transition duration-200">
+            <div class="flex items-center gap-3 mb-3">
+                <div class="w-10 h-10 rounded-xl bg-blue-100 text-blue-600 flex items-center justify-center font-bold">
+                    <i class="fa-solid fa-droplet text-lg"></i>
+                </div>
+                <div>
+                    <h3 class="font-bold text-sm text-slate-800">বৃষ্টি, আর্দ্রতা ও বায়ু</h3>
+                    <p class="text-[11px] text-slate-500">Rainfall, Humidity & Wind Speed</p>
+                </div>
+            </div>
+            <ul class="text-xs space-y-1.5 text-slate-600 mb-3 border-t border-slate-200/60 pt-2.5">
+                <li><a href="https://www.bmd.gov.bd" target="_blank" class="hover:text-blue-600 flex items-center justify-between">বৃষ্টিপাতের সম্ভাবনা ও পরিমাণ <i class="fa-solid fa-arrow-up-right-from-square text-[10px] text-slate-400"></i></a></li>
+                <li><a href="#" class="hover:text-blue-600 flex items-center justify-between">বাতাসের গতিবেগ ও দিকনির্দেশনা <i class="fa-solid fa-angle-right text-[10px] text-slate-400"></i></a></li>
+                <li><a href="#" class="hover:text-blue-600 flex items-center justify-between">আর্দ্রতা (Humidity) ও ফিল-লাইক টেম্পারেচার <i class="fa-solid fa-angle-right text-[10px] text-slate-400"></i></a></li>
+            </ul>
+        </div>
+
+        <!-- 3. সূর্যাস্ত, সূর্যোদয় ও দৈনন্দিন তথ্য -->
+        <div class="weather-card bg-slate-50 border border-slate-200 hover:border-orange-400 rounded-2xl p-4 transition duration-200">
+            <div class="flex items-center gap-3 mb-3">
+                <div class="w-10 h-10 rounded-xl bg-orange-100 text-orange-600 flex items-center justify-center font-bold">
+                    <i class="fa-solid fa-mountain-sun text-lg"></i>
+                </div>
+                <div>
+                    <h3 class="font-bold text-sm text-slate-800">Sunrise, Sunset & UV</h3>
+                    <p class="text-[11px] text-slate-500">সূর্যোদয়, সূর্যাস্ত ও আল্ট্রাভায়োলেট ইনডেক্স</p>
+                </div>
+            </div>
+            <ul class="text-xs space-y-1.5 text-slate-600 mb-3 border-t border-slate-200/60 pt-2.5">
+                <li><a href="https://www.timeanddate.com/sun/bangladesh/dhaka" target="_blank" class="hover:text-orange-600 flex items-center justify-between">সূর্যোদয় ও সূর্যাস্ত সময়সূচী <i class="fa-solid fa-arrow-up-right-from-square text-[10px] text-slate-400"></i></a></li>
+                <li><a href="#" class="hover:text-orange-600 flex items-center justify-between">আজকের UV ইনডেক্স ও ত্বকের সুরক্ষার টিপস <i class="fa-solid fa-angle-right text-[10px] text-slate-400"></i></a></li>
+                <li><a href="#" class="hover:text-orange-600 flex items-center justify-between">দিনের দৈর্ঘ্য ও চন্দ্রকলা তথ্য <i class="fa-solid fa-angle-right text-[10px] text-slate-400"></i></a></li>
+            </ul>
+        </div>
+
+        <!-- 4. ঝড় ও সাইক্লোন সতর্কতা -->
+        <div class="weather-card bg-slate-50 border border-slate-200 hover:border-rose-400 rounded-2xl p-4 transition duration-200">
+            <div class="flex items-center gap-3 mb-3">
+                <div class="w-10 h-10 rounded-xl bg-rose-100 text-rose-600 flex items-center justify-center font-bold">
+                    <i class="fa-solid fa-tornado text-lg"></i>
+                </div>
+                <div>
+                    <h3 class="font-bold text-sm text-slate-800">ঝড় ও মহাবিপদ সতর্কতা</h3>
+                    <p class="text-[11px] text-slate-500">সমুদ্র ও নদী সমুদ্রবন্দরের সংকেত</p>
+                </div>
+            </div>
+            <ul class="text-xs space-y-1.5 text-slate-600 mb-3 border-t border-slate-200/60 pt-2.5">
+                <li><a href="https://live.bmd.gov.bd" target="_blank" class="hover:text-rose-600 flex items-center justify-between">বিশেষ আবহাওয়া বিজ্ঞপ্তি (Cyclone Warning) <i class="fa-solid fa-arrow-up-right-from-square text-[10px] text-slate-400"></i></a></li>
+                <li><a href="#" class="hover:text-rose-600 flex items-center justify-between">সমুদ্র বন্দর ও নদীবন্দরের সতর্ক সংকেত <i class="fa-solid fa-angle-right text-[10px] text-slate-400"></i></a></li>
+                <li><a href="http://www.ddm.gov.bd" target="_blank" class="hover:text-rose-600 flex items-center justify-between">দুর্যোগ ব্যবস্থাপনা অধিদপ্তর পোর্টাল <i class="fa-solid fa-arrow-up-right-from-square text-[10px] text-slate-400"></i></a></li>
+            </ul>
+        </div>
+
+        <!-- 5. বন্যা পূর্বাভাস ও নদী গবেষণা -->
+        <div class="weather-card bg-slate-50 border border-slate-200 hover:border-teal-400 rounded-2xl p-4 transition duration-200">
+            <div class="flex items-center gap-3 mb-3">
+                <div class="w-10 h-10 rounded-xl bg-teal-100 text-teal-600 flex items-center justify-center font-bold">
+                    <i class="fa-solid fa-water text-lg"></i>
+                </div>
+                <div>
+                    <h3 class="font-bold text-sm text-slate-800">বন্যা সতর্কতা ও নদীর পানি</h3>
+                    <p class="text-[11px] text-slate-500">Flood Forecasting & Water Level</p>
+                </div>
+            </div>
+            <ul class="text-xs space-y-1.5 text-slate-600 mb-3 border-t border-slate-200/60 pt-2.5">
+                <li><a href="http://www.ffwc.gov.bd" target="_blank" class="hover:text-teal-600 flex items-center justify-between">বন্যা পূর্বাভাস ও সতর্কীকরণ কেন্দ্র <i class="fa-solid fa-arrow-up-right-from-square text-[10px] text-slate-400"></i></a></li>
+                <li><a href="#" class="hover:text-teal-600 flex items-center justify-between">প্রধান প্রধান নদীর পানি সমতল পরিস্থিতি <i class="fa-solid fa-angle-right text-[10px] text-slate-400"></i></a></li>
+                <li><a href="http://www.bwdb.gov.bd" target="_blank" class="hover:text-teal-600 flex items-center justify-between">বাংলাদেশ পানি উন্নয়ন বোর্ড <i class="fa-solid fa-arrow-up-right-from-square text-[10px] text-slate-400"></i></a></li>
+            </ul>
+        </div>
+
+        <!-- 6. বায়ু মান ইনডেক্স (AQI) -->
+        <div class="weather-card bg-slate-50 border border-slate-200 hover:border-emerald-400 rounded-2xl p-4 transition duration-200">
+            <div class="flex items-center gap-3 mb-3">
+                <div class="w-10 h-10 rounded-xl bg-emerald-100 text-emerald-600 flex items-center justify-center font-bold">
+                    <i class="fa-solid fa-wind text-lg"></i>
+                </div>
+                <div>
+                    <h3 class="font-bold text-sm text-slate-800">বায়ুদূষণ ও AQI তথ্য</h3>
+                    <p class="text-[11px] text-slate-500">Air Quality Index Tracker</p>
+                </div>
+            </div>
+            <ul class="text-xs space-y-1.5 text-slate-600 mb-3 border-t border-slate-200/60 pt-2.5">
+                <li><a href="https://www.iqair.com/bangladesh/dhaka" target="_blank" class="hover:text-emerald-600 flex items-center justify-between">IQAir ঢাকা বায়ু মান সূচক <i class="fa-solid fa-arrow-up-right-from-square text-[10px] text-slate-400"></i></a></li>
+                <li><a href="#" class="hover:text-emerald-600 flex items-center justify-between">আজকের ঢাকার বায়ু মান আপডেট <i class="fa-solid fa-angle-right text-[10px] text-slate-400"></i></a></li>
+                <li><a href="#" class="hover:text-emerald-600 flex items-center justify-between">মাস্ক পরা ও স্বাস্থ্যবিধি সংক্রান্ত গাইড <i class="fa-solid fa-angle-right text-[10px] text-slate-400"></i></a></li>
+            </ul>
+        </div>
+
+    </div>
+
+    <!-- Emergency Disaster Hotline Callout -->
+    <div class="bg-white p-5 rounded-2xl border border-slate-200 shadow-sm mt-6">
+        <h3 class="font-bold text-sm text-slate-800 mb-2 flex items-center gap-2">
+            <i class="fa-solid fa-phone-volume text-rose-600"></i> দুর্যোগকালীন জরুরি সরকারি হটলাইন
+        </h3>
+        <p class="text-xs text-slate-500 mb-3">ঝড়, বন্যা বা যেকোনো প্রাকৃতিক দুর্যোগে তাৎক্ষণিক সরকারি সহায়তার জন্য ডায়াল করুন:</p>
+        <div class="grid grid-cols-1 sm:grid-cols-2 gap-3">
+            <div class="flex items-center justify-between bg-rose-50 p-3 rounded-xl border border-rose-200">
+                <div>
+                    <h4 class="font-bold text-xs text-slate-800">জাতীয় জরুরি সেবা</h4>
+                    <p class="text-[11px] text-slate-500">পুলিশ, ফায়ার সার্ভিস ও এম্বুলেন্স</p>
+                </div>
+                <a href="tel:999" class="bg-rose-600 hover:bg-rose-700 text-white px-3 py-1.5 rounded-lg text-xs font-bold transition">৯৯৯</a>
+            </div>
+            <div class="flex items-center justify-between bg-amber-50 p-3 rounded-xl border border-amber-200">
+                <div>
+                    <h4 class="font-bold text-xs text-slate-800">দুর্যোগের আগাম তথ্য কেন্দ্র</h4>
+                    <p class="text-[11px] text-slate-500">দুর্যোগ বার্তা পেতে ইন্টারেক্টিভ হটলাইন</p>
+                </div>
+                <a href="tel:1090" class="bg-amber-600 hover:bg-amber-700 text-white px-3 py-1.5 rounded-lg text-xs font-bold transition">১০৯০</a>
+            </div>
+        </div>
+    </div>
+
+</div>
+
+<!-- Internal Module JavaScript -->
+<script>
+    // Live Search inside Weather Module
+    function filterWeatherServices() {
+        const query = document.getElementById('weather-search').value.toLowerCase();
+        const cards = document.querySelectorAll('.weather-card');
+        
+        cards.forEach(card => {
+            const text = card.innerText.toLowerCase();
+            card.style.display = text.includes(query) ? 'block' : 'none';
+        });
+    }
+
+    // Temperature Converter Script
+    function convertTemp(source) {
+        const celsiusInput = document.getElementById('temp-celsius');
+        const fahrenheitInput = document.getElementById('temp-fahrenheit');
+        const statusBox = document.getElementById('temp-status');
+
+        if (source === 'C') {
+            const c = parseFloat(celsiusInput.value);
+            if (!isNaN(c)) {
+                const f = (c * 9/5) + 32;
+                fahrenheitInput.value = f.toFixed(1);
+                updateTempStatus(c);
+            }
+        } else {
+            const f = parseFloat(fahrenheitInput.value);
+            if (!isNaN(f)) {
+                const c = (f - 32) * 5/9;
+                celsiusInput.value = c.toFixed(1);
+                updateTempStatus(c);
+            }
+        }
+    }
+
+    function updateTempStatus(celsius) {
+        const statusBox = document.getElementById('temp-status');
+        if (celsius < 18) {
+            statusBox.innerText = 'শীতল আবহাওয়া ❄️';
+        } else if (celsius >= 18 && celsius <= 32) {
+            statusBox.innerText = 'সহনীয় উষ্ণ আবহাওয়া ☀️';
+        } else if (celsius > 32 && celsius <= 38) {
+            statusBox.innerText = 'প্রচণ্ড গরম/তীব্র তাপদাহ 🌡️';
+        } else {
+            statusBox.innerText = 'অতি তীব্র তাপদাহ! সতর্ক থাকুন ⚠️';
+        }
+    }
+</script>
