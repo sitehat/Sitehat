@@ -1,0 +1,212 @@
+<!-- Module 2: Jobs, Career & Skills -->
+<div class="space-y-6 animate-fadeIn">
+    
+    <!-- Module Header -->
+    <div class="border-b border-slate-200 pb-4 flex flex-col sm:flex-row justify-between items-start sm:items-center gap-3">
+        <div>
+            <h1 class="text-xl font-bold text-slate-800 flex items-center gap-2">
+                <i class="fa-solid fa-briefcase text-emerald-600"></i> চাকরি, ক্যারিয়ার ও দক্ষতা (Jobs & Career)
+            </h1>
+            <p class="text-xs text-slate-500 mt-1">সব ধরনের সরকারি-বেসরকারি নিয়োগ বিজ্ঞপ্তি, সিভি তৈরি ও ক্যারিয়ার গাইডলাইন</p>
+        </div>
+        <!-- Module Internal Search -->
+        <div class="relative w-full sm:w-64">
+            <i class="fa-solid fa-magnifying-glass absolute left-3 top-1/2 -translate-y-1/2 text-slate-400 text-xs"></i>
+            <input type="text" id="job-search" onkeyup="filterJobServices()" placeholder="চাকরি বা স্কিল খুঁজুন..." class="w-full pl-8 pr-3 py-1.5 bg-slate-100 focus:bg-white border border-slate-200 rounded-lg text-xs focus:outline-none focus:border-emerald-500">
+        </div>
+    </div>
+
+    <!-- Quick Job Alert Banner -->
+    <div class="bg-gradient-to-r from-emerald-600 to-teal-700 text-white rounded-2xl p-4 shadow-sm flex flex-col md:flex-row items-center justify-between gap-4">
+        <div class="flex items-center gap-3">
+            <div class="w-12 h-12 rounded-xl bg-white/20 flex items-center justify-center text-xl shrink-0">
+                <i class="fa-solid fa-bell animate-bounce"></i>
+            </div>
+            <div>
+                <h3 class="font-bold text-sm">নতুন সরকারি ও ব্যাংক চাকরির সার্কুলার</h3>
+                <p class="text-xs text-emerald-100">BPSC, ব্যাংক ট্রেইনি অফিসার ও বিভিন্ন সরকারি দপ্তরের নিয়োগ বিজ্ঞপ্তি</p>
+            </div>
+        </div>
+        <a href="http://bpsc.teletalk.com.bd" target="_blank" class="bg-white text-emerald-700 px-4 py-2 rounded-xl font-bold text-xs hover:bg-emerald-50 transition shrink-0">
+            BPSC আবেদন করুন →
+        </a>
+    </div>
+
+    <!-- Main Jobs Grid -->
+    <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4" id="job-services-grid">
+        
+        <!-- 1. সরকারি চাকরি ও আবেদন -->
+        <div class="job-card bg-slate-50 border border-slate-200 hover:border-emerald-400 rounded-2xl p-4 transition duration-200">
+            <div class="flex items-center gap-3 mb-3">
+                <div class="w-10 h-10 rounded-xl bg-emerald-100 text-emerald-600 flex items-center justify-center font-bold">
+                    <i class="fa-solid fa-building-flag text-lg"></i>
+                </div>
+                <div>
+                    <h3 class="font-bold text-sm text-slate-800">সরকারি চাকরি (Govt Jobs)</h3>
+                    <p class="text-[11px] text-slate-500">বিপিএসসি, মন্ত্রণালয় ও অধিদপ্তর</p>
+                </div>
+            </div>
+            <ul class="text-xs space-y-1.5 text-slate-600 mb-3 border-t border-slate-200/60 pt-2.5">
+                <li><a href="http://bpsc.teletalk.com.bd" target="_blank" class="hover:text-emerald-600 flex items-center justify-between">BCS ও নন-ক্যাডার আবেদন <i class="fa-solid fa-arrow-up-right-from-square text-[10px] text-slate-400"></i></a></li>
+                <li><a href="http://alljobs.teletalk.com.bd" target="_blank" class="hover:text-emerald-600 flex items-center justify-between">Teletalk AllJobs পোর্টাল <i class="fa-solid fa-arrow-up-right-from-square text-[10px] text-slate-400"></i></a></li>
+                <li><a href="https://bangladesh.gov.bd" target="_blank" class="hover:text-emerald-600 flex items-center justify-between">সরকারি চাকরির নোটিশ বোর্ড <i class="fa-solid fa-arrow-up-right-from-square text-[10px] text-slate-400"></i></a></li>
+            </ul>
+        </div>
+
+        <!-- 2. ব্যাংক চাকরি -->
+        <div class="job-card bg-slate-50 border border-slate-200 hover:border-blue-400 rounded-2xl p-4 transition duration-200">
+            <div class="flex items-center gap-3 mb-3">
+                <div class="w-10 h-10 rounded-xl bg-blue-100 text-blue-600 flex items-center justify-center font-bold">
+                    <i class="fa-solid fa-piggy-bank text-lg"></i>
+                </div>
+                <div>
+                    <h3 class="font-bold text-sm text-slate-800">ব্যাংক চাকরি (Bank Jobs)</h3>
+                    <p class="text-[11px] text-slate-500">বাংলাদেশ ব্যাংক ও প্রাইভেট ব্যাংক</p>
+                </div>
+            </div>
+            <ul class="text-xs space-y-1.5 text-slate-600 mb-3 border-t border-slate-200/60 pt-2.5">
+                <li><a href="https://erecruiter.bb.org.bd" target="_blank" class="hover:text-blue-600 flex items-center justify-between">বাংলাদেশ ব্যাংক ই-রিক্রুটমেন্ট <i class="fa-solid fa-arrow-up-right-from-square text-[10px] text-slate-400"></i></a></li>
+                <li><a href="https://bdjobs.com" target="_blank" class="hover:text-blue-600 flex items-center justify-between">বেসরকারি ব্যাংক জবস <i class="fa-solid fa-arrow-up-right-from-square text-[10px] text-slate-400"></i></a></li>
+                <li><a href="https://erecruiter.bb.org.bd" target="_blank" class="hover:text-blue-600 flex items-center justify-between">কম্বাইন্ড ব্যাংক ট্র্যাকিং <i class="fa-solid fa-arrow-up-right-from-square text-[10px] text-slate-400"></i></a></li>
+            </ul>
+        </div>
+
+        <!-- 3. বেসরকারি চাকরি ও পোর্টাল -->
+        <div class="job-card bg-slate-50 border border-slate-200 hover:border-indigo-400 rounded-2xl p-4 transition duration-200">
+            <div class="flex items-center gap-3 mb-3">
+                <div class="w-10 h-10 rounded-xl bg-indigo-100 text-indigo-600 flex items-center justify-center font-bold">
+                    <i class="fa-solid fa-building text-lg"></i>
+                </div>
+                <div>
+                    <h3 class="font-bold text-sm text-slate-800">বেসরকারি চাকরি ও ইন্টার্নশিপ</h3>
+                    <p class="text-[11px] text-slate-500">করপোরেট, এনজিও ও স্টার্টআপ</p>
+                </div>
+            </div>
+            <ul class="text-xs space-y-1.5 text-slate-600 mb-3 border-t border-slate-200/60 pt-2.5">
+                <li><a href="https://jobs.bdjobs.com" target="_blank" class="hover:text-indigo-600 flex items-center justify-between">Bdjobs সার্কুলার <i class="fa-solid fa-arrow-up-right-from-square text-[10px] text-slate-400"></i></a></li>
+                <li><a href="https://linkedin.com/jobs" target="_blank" class="hover:text-indigo-600 flex items-center justify-between">LinkedIn Jobs Bangladesh <i class="fa-solid fa-arrow-up-right-from-square text-[10px] text-slate-400"></i></a></li>
+                <li><a href="https://ngojobsbd.com" target="_blank" class="hover:text-indigo-600 flex items-center justify-between">NGO & Development Jobs <i class="fa-solid fa-arrow-up-right-from-square text-[10px] text-slate-400"></i></a></li>
+            </ul>
+        </div>
+
+        <!-- 4. রিমোট জব ও ফ্রিল্যান্সিং -->
+        <div class="job-card bg-slate-50 border border-slate-200 hover:border-amber-400 rounded-2xl p-4 transition duration-200">
+            <div class="flex items-center gap-3 mb-3">
+                <div class="w-10 h-10 rounded-xl bg-amber-100 text-amber-700 flex items-center justify-center font-bold">
+                    <i class="fa-solid fa-laptop-house text-lg"></i>
+                </div>
+                <div>
+                    <h3 class="font-bold text-sm text-slate-800">ফ্রিল্যান্সিং & Remote Jobs</h3>
+                    <p class="text-[11px] text-slate-500">ঘরে বসে আন্তর্জাতিক কাজ</p>
+                </div>
+            </div>
+            <ul class="text-xs space-y-1.5 text-slate-600 mb-3 border-t border-slate-200/60 pt-2.5">
+                <li><a href="https://www.upwork.com" target="_blank" class="hover:text-amber-700 flex items-center justify-between">Upwork Marketplace <i class="fa-solid fa-arrow-up-right-from-square text-[10px] text-slate-400"></i></a></li>
+                <li><a href="https://www.fiverr.com" target="_blank" class="hover:text-amber-700 flex items-center justify-between">Fiverr Gigs <i class="fa-solid fa-arrow-up-right-from-square text-[10px] text-slate-400"></i></a></li>
+                <li><a href="https://weworkremotely.com" target="_blank" class="hover:text-amber-700 flex items-center justify-between">We Work Remotely <i class="fa-solid fa-arrow-up-right-from-square text-[10px] text-slate-400"></i></a></li>
+            </ul>
+        </div>
+
+        <!-- 5. CV, Cover Letter & Profile -->
+        <div class="job-card bg-slate-50 border border-slate-200 hover:border-purple-400 rounded-2xl p-4 transition duration-200">
+            <div class="flex items-center gap-3 mb-3">
+                <div class="w-10 h-10 rounded-xl bg-purple-100 text-purple-600 flex items-center justify-center font-bold">
+                    <i class="fa-solid fa-file-contract text-lg"></i>
+                </div>
+                <div>
+                    <h3 class="font-bold text-sm text-slate-800">CV, Resume & Cover Letter</h3>
+                    <p class="text-[11px] text-slate-500">প্রফেশনাল প্রোফাইল ও টেমপ্লেট</p>
+                </div>
+            </div>
+            <ul class="text-xs space-y-1.5 text-slate-600 mb-3 border-t border-slate-200/60 pt-2.5">
+                <li><a href="https://www.canva.com/resumes/templates" target="_blank" class="hover:text-purple-600 flex items-center justify-between">Canva ফ্রি সিভি টেমপ্লেট <i class="fa-solid fa-arrow-up-right-from-square text-[10px] text-slate-400"></i></a></li>
+                <li><a href="https://novoresume.com" target="_blank" class="hover:text-purple-600 flex items-center justify-between">Novoresume Builder <i class="fa-solid fa-arrow-up-right-from-square text-[10px] text-slate-400"></i></a></li>
+                <li><a href="https://linkedin.com" target="_blank" class="hover:text-purple-600 flex items-center justify-between">LinkedIn Profile Optimization <i class="fa-solid fa-arrow-up-right-from-square text-[10px] text-slate-400"></i></a></li>
+            </ul>
+        </div>
+
+        <!-- 6. ইন্টারভিউ প্রস্তুতি & Skill Development -->
+        <div class="job-card bg-slate-50 border border-slate-200 hover:border-cyan-400 rounded-2xl p-4 transition duration-200">
+            <div class="flex items-center gap-3 mb-3">
+                <div class="w-10 h-10 rounded-xl bg-cyan-100 text-cyan-600 flex items-center justify-center font-bold">
+                    <i class="fa-solid fa-user-gear text-lg"></i>
+                </div>
+                <div>
+                    <h3 class="font-bold text-sm text-slate-800">ইন্টারভিউ প্রস্তুতি & Skills</h3>
+                    <p class="text-[11px] text-slate-500">পরীক্ষা প্রস্তুতি ও ক্যারিয়ার গাইড</p>
+                </div>
+            </div>
+            <ul class="text-xs space-y-1.5 text-slate-600 mb-3 border-t border-slate-200/60 pt-2.5">
+                <li><a href="https://www.glassdoor.com" target="_blank" class="hover:text-cyan-600 flex items-center justify-between">ইন্টারভিউ প্রশ্ন ও অভিজ্ঞতা <i class="fa-solid fa-arrow-up-right-from-square text-[10px] text-slate-400"></i></a></li>
+                <li><a href="https://coursera.org" target="_blank" class="hover:text-cyan-600 flex items-center justify-between">প্রফেশনাল স্কিল কোর্স <i class="fa-solid fa-arrow-up-right-from-square text-[10px] text-slate-400"></i></a></li>
+                <li><a href="https://eduskill.gov.bd" target="_blank" class="hover:text-cyan-600 flex items-center justify-between">জাতীয় দক্ষতা উন্নয়ন কর্তৃপক্ষ <i class="fa-solid fa-arrow-up-right-from-square text-[10px] text-slate-400"></i></a></li>
+            </ul>
+        </div>
+
+    </div>
+
+    <!-- Interactive CV Quick Builder Widget -->
+    <div class="bg-white p-5 rounded-2xl border border-slate-200 shadow-sm mt-6">
+        <h3 class="font-bold text-sm text-slate-800 mb-2 flex items-center gap-2">
+            <i class="fa-solid fa-id-card text-emerald-600"></i> দ্রুত সিভি প্রস্তুতকারক (Quick Resume Information Generator)
+        </h3>
+        <p class="text-xs text-slate-500 mb-4">নিচে তথ্যগুলো পূরণ করে তাৎক্ষণিক আপনার পেশাগত তথ্য কপি বা প্রিন্ট ফরম্যাটে প্রস্তুত করুন:</p>
+
+        <div class="grid grid-cols-1 sm:grid-cols-2 gap-3 mb-3">
+            <input type="text" id="cv-name" placeholder="আপনার পূর্ণ নাম" class="p-2 border rounded-lg text-xs focus:outline-none focus:border-emerald-500">
+            <input type="text" id="cv-title" placeholder="পেশা / পদবী (যেমন: সফটওয়্যার ইঞ্জিনিয়ার)" class="p-2 border rounded-lg text-xs focus:outline-none focus:border-emerald-500">
+            <input type="email" id="cv-email" placeholder="ইমেইল ঠিকানা" class="p-2 border rounded-lg text-xs focus:outline-none focus:border-emerald-500">
+            <input type="text" id="cv-phone" placeholder="মোবাইল নম্বর" class="p-2 border rounded-lg text-xs focus:outline-none focus:border-emerald-500">
+        </div>
+        <textarea id="cv-skills" placeholder="আপনার মূল দক্ষতাগুলো (যেমন: HTML, Python, Graphic Design, Communication)" class="w-full p-2 border rounded-lg text-xs focus:outline-none focus:border-emerald-500 mb-3" rows="2"></textarea>
+        
+        <button onclick="generateCvPreview()" class="bg-emerald-600 hover:bg-emerald-700 text-white font-semibold px-4 py-2 rounded-lg text-xs transition">
+            সিভি সামারি দেখুন
+        </button>
+
+        <div id="cv-output" class="hidden mt-4 p-4 bg-slate-50 border border-slate-200 rounded-xl space-y-2">
+            <div class="flex justify-between items-center border-b pb-2">
+                <h4 id="out-name" class="font-bold text-sm text-slate-800"></h4>
+                <span id="out-title" class="text-xs font-semibold text-emerald-600 bg-emerald-50 px-2 py-0.5 rounded"></span>
+            </div>
+            <p class="text-xs text-slate-600"><strong>যোগাযোগ:</strong> <span id="out-contact"></span></p>
+            <p class="text-xs text-slate-600"><strong>দক্ষতা:</strong> <span id="out-skills"></span></p>
+        </div>
+    </div>
+
+</div>
+
+<!-- Internal Module JavaScript -->
+<script>
+    // Live Search inside Jobs Module
+    function filterJobServices() {
+        const query = document.getElementById('job-search').value.toLowerCase();
+        const cards = document.querySelectorAll('.job-card');
+        
+        cards.forEach(card => {
+            const text = card.innerText.toLowerCase();
+            card.style.display = text.includes(query) ? 'block' : 'none';
+        });
+    }
+
+    // Interactive CV Preview Script
+    function generateCvPreview() {
+        const name = document.getElementById('cv-name').value;
+        const title = document.getElementById('cv-title').value;
+        const email = document.getElementById('cv-email').value;
+        const phone = document.getElementById('cv-phone').value;
+        const skills = document.getElementById('cv-skills').value;
+
+        if(!name || !email) {
+            alert("অনুগ্রহ করে অন্তত আপনার নাম এবং ইমেইল প্রদান করুন!");
+            return;
+        }
+
+        document.getElementById('out-name').innerText = name;
+        document.getElementById('out-title').innerText = title || 'Job Seeker';
+        document.getElementById('out-contact').innerText = `${email} | ${phone || 'N/A'}`;
+        document.getElementById('out-skills').innerText = skills || 'N/A';
+
+        document.getElementById('cv-output').classList.remove('hidden');
+    }
+</script>
