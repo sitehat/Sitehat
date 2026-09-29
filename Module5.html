@@ -1,0 +1,291 @@
+<!-- Module 5: Tools & Calculators -->
+<div class="space-y-6 animate-fadeIn">
+    
+    <!-- Module Header -->
+    <div class="border-b border-slate-200 pb-4 flex flex-col sm:flex-row justify-between items-start sm:items-center gap-3">
+        <div>
+            <h1 class="text-xl font-bold text-slate-800 flex items-center gap-2">
+                <i class="fa-solid fa-toolbox text-indigo-600"></i> টুলস ও ক্যালকুলেটর (Tools & Calculators)
+            </h1>
+            <p class="text-xs text-slate-500 mt-1">PDF, ইমেজ, টেক্সট, ক্যালকুলেটর, কনভার্টার ও প্রয়োজনীয় ডেইলি ইউটিলিটি টুলস</p>
+        </div>
+        <!-- Module Internal Search -->
+        <div class="relative w-full sm:w-64">
+            <i class="fa-solid fa-magnifying-glass absolute left-3 top-1/2 -translate-y-1/2 text-slate-400 text-xs"></i>
+            <input type="text" id="tool-search" onkeyup="filterTools()" placeholder="যেকোনো টুল খুঁজুন..." class="w-full pl-8 pr-3 py-1.5 bg-slate-100 focus:bg-white border border-slate-200 rounded-lg text-xs focus:outline-none focus:border-indigo-500">
+        </div>
+    </div>
+
+    <!-- Quick Live Utility Bar (Interactive Tools Widget) -->
+    <div class="bg-gradient-to-r from-indigo-600 to-purple-600 text-white rounded-2xl p-4 shadow-sm space-y-3">
+        <h3 class="font-bold text-sm flex items-center gap-2">
+            <i class="fa-solid fa-wand-magic-sparkles text-amber-300"></i> ইনস্ট্যান্ট অনলাইন টেক্সট ও সিকিউরিটি টুলস
+        </h3>
+        <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+            <!-- Word & Character Counter -->
+            <div class="bg-white/10 p-3 rounded-xl border border-white/20">
+                <label class="block text-[11px] font-semibold text-indigo-100 mb-1">Word & Character Counter</label>
+                <textarea id="live-text-input" oninput="countText()" placeholder="এখানে আপনার টেক্সট পেস্ট বা টাইপ করুন..." class="w-full p-2 bg-white text-slate-800 rounded-lg text-xs focus:outline-none h-16 resize-none"></textarea>
+                <div class="flex justify-between items-center text-[11px] mt-1 font-semibold text-indigo-100">
+                    <span>শব্দ (Words): <strong id="word-count" class="text-white font-bold">0</strong></span>
+                    <span>বর্ণ (Characters): <strong id="char-count" class="text-white font-bold">0</strong></span>
+                </div>
+            </div>
+
+            <!-- Password & QR Generator -->
+            <div class="bg-white/10 p-3 rounded-xl border border-white/20 flex flex-col justify-between space-y-2">
+                <div>
+                    <label class="block text-[11px] font-semibold text-indigo-100 mb-1">স্ট্রং পাসওয়ার্ড জেনারেটর</label>
+                    <div class="flex gap-2">
+                        <input type="text" id="pass-output" readonly placeholder="পাসওয়ার্ড তৈরি করুন" class="w-full p-2 bg-white text-slate-800 font-mono font-bold rounded-lg text-xs focus:outline-none">
+                        <button onclick="generatePassword()" class="bg-amber-400 hover:bg-amber-500 text-slate-900 font-bold px-3 py-1.5 rounded-lg text-xs shrink-0 transition">তৈরি করুন</button>
+                    </div>
+                </div>
+                <div class="pt-1 border-t border-white/10 flex justify-between items-center">
+                    <span class="text-[11px] text-indigo-100">কিউআর কোড স্ক্যানার ও জেনারেটর</span>
+                    <button onclick="alert('QR Generator সিলেক্ট করতে নিচের কিউআর কোড কার্ডে ক্লিক করুন।')" class="bg-white/20 hover:bg-white/30 text-white px-2.5 py-1 rounded-lg text-[11px] transition">QR টুলস →</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Main Tools Grid -->
+    <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4" id="tools-grid">
+        
+        <!-- 1. PDF Tools -->
+        <div class="tool-card bg-slate-50 border border-slate-200 hover:border-red-400 rounded-2xl p-4 transition duration-200">
+            <div class="flex items-center gap-3 mb-3">
+                <div class="w-10 h-10 rounded-xl bg-red-100 text-red-600 flex items-center justify-center font-bold">
+                    <i class="fa-solid fa-file-pdf text-lg"></i>
+                </div>
+                <div>
+                    <h3 class="font-bold text-sm text-slate-800">📄 PDF টুলস</h3>
+                    <p class="text-[11px] text-slate-500">PDF সম্পাদনা ও ফাইল কনভার্ট</p>
+                </div>
+            </div>
+            <ul class="text-xs space-y-1.5 text-slate-600 border-t border-slate-200/60 pt-2.5">
+                <li><a href="https://www.ilovepdf.com/merge_pdf" target="_blank" class="hover:text-red-600 flex items-center justify-between">PDF Merge (জোড়া লাগানো) <i class="fa-solid fa-arrow-up-right-from-square text-[10px] text-slate-400"></i></a></li>
+                <li><a href="https://www.ilovepdf.com/split_pdf" target="_blank" class="hover:text-red-600 flex items-center justify-between">PDF Split (আলাদা করা) <i class="fa-solid fa-arrow-up-right-from-square text-[10px] text-slate-400"></i></a></li>
+                <li><a href="https://www.ilovepdf.com/compress_pdf" target="_blank" class="hover:text-red-600 flex items-center justify-between">PDF Compress (সাইজ কমানো) <i class="fa-solid fa-arrow-up-right-from-square text-[10px] text-slate-400"></i></a></li>
+                <li><a href="https://www.ilovepdf.com/pdf_to_word" target="_blank" class="hover:text-red-600 flex items-center justify-between">PDF Convert & Lock/Unlock <i class="fa-solid fa-arrow-up-right-from-square text-[10px] text-slate-400"></i></a></li>
+            </ul>
+        </div>
+
+        <!-- 2. Image Tools -->
+        <div class="tool-card bg-slate-50 border border-slate-200 hover:border-blue-400 rounded-2xl p-4 transition duration-200">
+            <div class="flex items-center gap-3 mb-3">
+                <div class="w-10 h-10 rounded-xl bg-blue-100 text-blue-600 flex items-center justify-center font-bold">
+                    <i class="fa-solid fa-image text-lg"></i>
+                </div>
+                <div>
+                    <h3 class="font-bold text-sm text-slate-800">🖼️ Image টুলস</h3>
+                    <p class="text-[11px] text-slate-500">ছবি এডিট, রিসাইজ ও রিমুভ BG</p>
+                </div>
+            </div>
+            <ul class="text-xs space-y-1.5 text-slate-600 border-t border-slate-200/60 pt-2.5">
+                <li><a href="https://tinypng.com" target="_blank" class="hover:text-blue-600 flex items-center justify-between">Image Compress (কম্প্রেশন) <i class="fa-solid fa-arrow-up-right-from-square text-[10px] text-slate-400"></i></a></li>
+                <li><a href="https://www.remove.bg" target="_blank" class="hover:text-blue-600 flex items-center justify-between">Background Remover (ব্যাকগ্রাউন্ড রিমুভ) <i class="fa-solid fa-arrow-up-right-from-square text-[10px] text-slate-400"></i></a></li>
+                <li><a href="https://iloveimg.com/resize-image" target="_blank" class="hover:text-blue-600 flex items-center justify-between">Resize, Crop & Convert <i class="fa-solid fa-arrow-up-right-from-square text-[10px] text-slate-400"></i></a></li>
+                <li><a href="https://iloveimg.com/jpg-to-pdf" target="_blank" class="hover:text-blue-600 flex items-center justify-between">Image থেকে PDF কনভার্টার <i class="fa-solid fa-arrow-up-right-from-square text-[10px] text-slate-400"></i></a></li>
+            </ul>
+        </div>
+
+        <!-- 3. Text Tools -->
+        <div class="tool-card bg-slate-50 border border-slate-200 hover:border-emerald-400 rounded-2xl p-4 transition duration-200">
+            <div class="flex items-center gap-3 mb-3">
+                <div class="w-10 h-10 rounded-xl bg-emerald-100 text-emerald-600 flex items-center justify-center font-bold">
+                    <i class="fa-solid fa-font text-lg"></i>
+                </div>
+                <div>
+                    <h3 class="font-bold text-sm text-slate-800">📝 Text & Formatter</h3>
+                    <p class="text-[11px] text-slate-500">টেক্সট ফরম্যাটিং ও কাউন্টার</p>
+                </div>
+            </div>
+            <ul class="text-xs space-y-1.5 text-slate-600 border-t border-slate-200/60 pt-2.5">
+                <li><a href="https://convertcase.net" target="_blank" class="hover:text-emerald-600 flex items-center justify-between">Case Converter (UPPER/lower) <i class="fa-solid fa-arrow-up-right-from-square text-[10px] text-slate-400"></i></a></li>
+                <li><a href="https://diffchecker.com" target="_blank" class="hover:text-emerald-600 flex items-center justify-between">Text Compare (পার্থক্য চেক) <i class="fa-solid fa-arrow-up-right-from-square text-[10px] text-slate-400"></i></a></li>
+                <li><a href="#" onclick="alert('উপরের লাইভ বক্সে এটি চালু আছে!')" class="hover:text-emerald-600 flex items-center justify-between">Word / Character Counter <i class="fa-solid fa-check text-[10px] text-emerald-500"></i></a></li>
+                <li><a href="https://editpad.org" target="_blank" class="hover:text-emerald-600 flex items-center justify-between">Remove Extra Spaces & Formatter <i class="fa-solid fa-arrow-up-right-from-square text-[10px] text-slate-400"></i></a></li>
+            </ul>
+        </div>
+
+        <!-- 4. QR / Barcode -->
+        <div class="tool-card bg-slate-50 border border-slate-200 hover:border-purple-400 rounded-2xl p-4 transition duration-200">
+            <div class="flex items-center gap-3 mb-3">
+                <div class="w-10 h-10 rounded-xl bg-purple-100 text-purple-600 flex items-center justify-center font-bold">
+                    <i class="fa-solid fa-qrcode text-lg"></i>
+                </div>
+                <div>
+                    <h3 class="font-bold text-sm text-slate-800">🔳 QR & Barcode</h3>
+                    <p class="text-[11px] text-slate-500">কিউআর জেনারেটর ও স্ক্যানার</p>
+                </div>
+            </div>
+            <ul class="text-xs space-y-1.5 text-slate-600 border-t border-slate-200/60 pt-2.5">
+                <li><a href="https://www.qr-code-generator.com" target="_blank" class="hover:text-purple-600 flex items-center justify-between">QR Code Generator <i class="fa-solid fa-arrow-up-right-from-square text-[10px] text-slate-400"></i></a></li>
+                <li><a href="https://scanqr.org" target="_blank" class="hover:text-purple-600 flex items-center justify-between">Online QR Scanner <i class="fa-solid fa-arrow-up-right-from-square text-[10px] text-slate-400"></i></a></li>
+                <li><a href="https://barcode.tec-it.com" target="_blank" class="hover:text-purple-600 flex items-center justify-between">Barcode Generator <i class="fa-solid fa-arrow-up-right-from-square text-[10px] text-slate-400"></i></a></li>
+            </ul>
+        </div>
+
+        <!-- 5. Calculator Tools -->
+        <div class="tool-card bg-slate-50 border border-slate-200 hover:border-amber-400 rounded-2xl p-4 transition duration-200">
+            <div class="flex items-center gap-3 mb-3">
+                <div class="w-10 h-10 rounded-xl bg-amber-100 text-amber-700 flex items-center justify-center font-bold">
+                    <i class="fa-solid fa-calculator text-lg"></i>
+                </div>
+                <div>
+                    <h3 class="font-bold text-sm text-slate-800">🧮 Calculators</h3>
+                    <p class="text-[11px] text-slate-500">বয়স, পার্সেন্টেজ ও সায়েন্টিফিক</p>
+                </div>
+            </div>
+            <ul class="text-xs space-y-1.5 text-slate-600 border-t border-slate-200/60 pt-2.5">
+                <li><a href="https://www.calculator.net/age-calculator.html" target="_blank" class="hover:text-amber-700 flex items-center justify-between">Age Calculator (বয়স ক্যালকুলেটর) <i class="fa-solid fa-arrow-up-right-from-square text-[10px] text-slate-400"></i></a></li>
+                <li><a href="https://www.calculator.net/scientific-calculator.html" target="_blank" class="hover:text-amber-700 flex items-center justify-between">Scientific Calculator <i class="fa-solid fa-arrow-up-right-from-square text-[10px] text-slate-400"></i></a></li>
+                <li><a href="https://www.calculator.net/percentage-calculator.html" target="_blank" class="hover:text-amber-700 flex items-center justify-between">Percentage & Date/Time Calculator <i class="fa-solid fa-arrow-up-right-from-square text-[10px] text-slate-400"></i></a></li>
+            </ul>
+        </div>
+
+        <!-- 6. Unit Converters -->
+        <div class="tool-card bg-slate-50 border border-slate-200 hover:border-teal-400 rounded-2xl p-4 transition duration-200">
+            <div class="flex items-center gap-3 mb-3">
+                <div class="w-10 h-10 rounded-xl bg-teal-100 text-teal-600 flex items-center justify-center font-bold">
+                    <i class="fa-solid fa-arrows-rotate text-lg"></i>
+                </div>
+                <div>
+                    <h3 class="font-bold text-sm text-slate-800">🔄 Unit Converters</h3>
+                    <p class="text-[11px] text-slate-500">দৈর্ঘ্য, ওজন, তাপমাত্রা ও ডাটা রূপান্তর</p>
+                </div>
+            </div>
+            <ul class="text-xs space-y-1.5 text-slate-600 border-t border-slate-200/60 pt-2.5">
+                <li><a href="https://www.unitconverters.net/length-converter.html" target="_blank" class="hover:text-teal-600 flex items-center justify-between">Length, Area & Volume Convert <i class="fa-solid fa-arrow-up-right-from-square text-[10px] text-slate-400"></i></a></li>
+                <li><a href="https://www.unitconverters.net/weight-and-mass-converter.html" target="_blank" class="hover:text-teal-600 flex items-center justify-between">Weight & Temperature <i class="fa-solid fa-arrow-up-right-from-square text-[10px] text-slate-400"></i></a></li>
+                <li><a href="https://www.unitconverters.net/data-storage-converter.html" target="_blank" class="hover:text-teal-600 flex items-center justify-between">Data Size (MB, GB, TB) & Speed <i class="fa-solid fa-arrow-up-right-from-square text-[10px] text-slate-400"></i></a></li>
+            </ul>
+        </div>
+
+    </div>
+
+    <!-- Live Interactive Age & Stopwatch Calculator Widget -->
+    <div class="bg-white p-5 rounded-2xl border border-slate-200 shadow-sm mt-6">
+        <h3 class="font-bold text-sm text-slate-800 mb-2 flex items-center gap-2">
+            <i class="fa-solid fa-clock text-indigo-600"></i> সময় ও বয়স ইনস্ট্যান্ট ক্যালকুলেটর
+        </h3>
+
+        <div class="grid grid-cols-1 md:grid-cols-2 gap-6 mt-4">
+            <!-- Age Calculator -->
+            <div class="bg-slate-50 p-4 rounded-xl border border-slate-200">
+                <h4 class="font-bold text-xs text-slate-700 mb-2 flex items-center gap-1.5">
+                    <i class="fa-solid fa-cake-candles text-indigo-500"></i> বয়স হিসাব করুন (Age Calculator)
+                </h4>
+                <div class="flex gap-2 mb-2">
+                    <input type="date" id="dob-input" class="w-full p-2 border rounded-lg text-xs focus:outline-none focus:border-indigo-500">
+                    <button onclick="calculateAge()" class="bg-indigo-600 hover:bg-indigo-700 text-white font-semibold px-4 rounded-lg text-xs transition">হিসাব</button>
+                </div>
+                <div id="age-result" class="hidden text-xs font-bold text-indigo-700 bg-indigo-50 p-2.5 rounded-lg text-center mt-2"></div>
+            </div>
+
+            <!-- Online Stopwatch -->
+            <div class="bg-slate-50 p-4 rounded-xl border border-slate-200 text-center">
+                <h4 class="font-bold text-xs text-slate-700 mb-2 flex items-center justify-center gap-1.5">
+                    <i class="fa-solid fa-stopwatch text-indigo-500"></i> স্টপওয়াচ (Stopwatch)
+                </h4>
+                <div id="sw-display" class="font-mono text-2xl font-black text-slate-800 my-1">00:00:00</div>
+                <div class="flex justify-center gap-2 mt-2">
+                    <button onclick="startStopwatch()" class="bg-emerald-600 hover:bg-emerald-700 text-white font-semibold px-3 py-1 rounded-lg text-xs transition">Start</button>
+                    <button onclick="pauseStopwatch()" class="bg-amber-500 hover:bg-amber-600 text-white font-semibold px-3 py-1 rounded-lg text-xs transition">Pause</button>
+                    <button onclick="resetStopwatch()" class="bg-slate-600 hover:bg-slate-700 text-white font-semibold px-3 py-1 rounded-lg text-xs transition">Reset</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+</div>
+
+<!-- Internal Module JavaScript -->
+<script>
+    // Live Search inside Tools Module
+    function filterTools() {
+        const query = document.getElementById('tool-search').value.toLowerCase();
+        const cards = document.querySelectorAll('.tool-card');
+        
+        cards.forEach(card => {
+            const text = card.innerText.toLowerCase();
+            card.style.display = text.includes(query) ? 'block' : 'none';
+        });
+    }
+
+    // Live Word & Character Counter
+    function countText() {
+        const text = document.getElementById('live-text-input').value;
+        const charCount = text.length;
+        const wordCount = text.trim() === '' ? 0 : text.trim().split(/\s+/).length;
+
+        document.getElementById('char-count').innerText = charCount;
+        document.getElementById('word-count').innerText = wordCount;
+    }
+
+    // Live Strong Password Generator
+    function generatePassword() {
+        const chars = "ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789!@#$%^&*()";
+        let password = "";
+        for (let i = 0; i < 12; i++) {
+            password += chars.charAt(Math.floor(Math.random() * chars.length));
+        }
+        document.getElementById('pass-output').value = password;
+    }
+
+    // Age Calculation Script
+    function calculateAge() {
+        const dobVal = document.getElementById('dob-input').value;
+        if (!dobVal) {
+            alert("অনুগ্রহ করে আপনার জন্মতারিখ নির্বাচন করুন!");
+            return;
+        }
+
+        const dob = new Date(dobVal);
+        const today = new Date();
+
+        let years = today.getFullYear() - dob.getFullYear();
+        let months = today.getMonth() - dob.getMonth();
+        let days = today.getDate() - dob.getDate();
+
+        if (days < 0) {
+            months--;
+            days += new Date(today.getFullYear(), today.getMonth(), 0).getDate();
+        }
+        if (months < 0) {
+            years--;
+            months += 12;
+        }
+
+        const resBox = document.getElementById('age-result');
+        resBox.classList.remove('hidden');
+        resBox.innerHTML = `আপনার বয়স: <span class="text-sm font-extrabold">${years}</span> বছর, <span class="text-sm font-extrabold">${months}</span> মাস, <span class="text-sm font-extrabold">${days}</span> দিন`;
+    }
+
+    // Stopwatch Logic
+    let swTimer = null;
+    let swSeconds = 0;
+
+    function startStopwatch() {
+        if (swTimer) return;
+        swTimer = setInterval(() => {
+            swSeconds++;
+            const hrs = String(Math.floor(swSeconds / 3600)).padStart(2, '0');
+            const mins = String(Math.floor((swSeconds % 3600) / 60)).padStart(2, '0');
+            const secs = String(swSeconds % 60).padStart(2, '0');
+            document.getElementById('sw-display').innerText = `${hrs}:${mins}:${secs}`;
+        }, 1000);
+    }
+
+    function pauseStopwatch() {
+        clearInterval(swTimer);
+        swTimer = null;
+    }
+
+    function resetStopwatch() {
+        pauseStopwatch();
+        swSeconds = 0;
+        document.getElementById('sw-display').innerText = "00:00:00";
+    }
+</script>
