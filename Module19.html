@@ -1,0 +1,255 @@
+<!-- Module 19: Essential Websites Directory -->
+<div class="space-y-6 animate-fadeIn">
+    
+    <!-- Module Header -->
+    <div class="border-b border-slate-200 pb-4 flex flex-col sm:flex-row justify-between items-start sm:items-center gap-3">
+        <div>
+            <h1 class="text-xl font-bold text-slate-800 flex items-center gap-2">
+                <i class="fa-solid fa-globe text-blue-600"></i> দরকারি ওয়েবসাইট (Essential Websites)
+            </h1>
+            <p class="text-xs text-slate-500 mt-1">দৈনন্দিন জীবনে প্রয়োজনীয় সকল গুরুত্বপূর্ণ ওয়েবসাইটের ক্যাটাগরি-ভিত্তিক সংগ্রহ</p>
+        </div>
+        <!-- Module Internal Search -->
+        <div class="relative w-full sm:w-64">
+            <i class="fa-solid fa-magnifying-glass absolute left-3 top-1/2 -translate-y-1/2 text-slate-400 text-xs"></i>
+            <input type="text" id="website-search" onkeyup="filterWebsites()" placeholder="ক্যাটাগরি বা সাইট খুঁজুন..." class="w-full pl-8 pr-3 py-1.5 bg-slate-100 focus:bg-white border border-slate-200 rounded-lg text-xs focus:outline-none focus:border-blue-500">
+        </div>
+    </div>
+
+    <!-- Main Websites Grid -->
+    <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4" id="websites-grid">
+        
+        <!-- 1. Search Engines -->
+        <div class="web-card bg-slate-50 border border-slate-200 hover:border-blue-400 rounded-2xl p-4 transition duration-200">
+            <div class="flex items-center gap-3 mb-3">
+                <div class="w-10 h-10 rounded-xl bg-blue-100 text-blue-600 flex items-center justify-center font-bold">
+                    <i class="fa-solid fa-magnifying-glass text-lg"></i>
+                </div>
+                <div>
+                    <h3 class="font-bold text-sm text-slate-800">সার্চ ইঞ্জিন (Search)</h3>
+                    <p class="text-[11px] text-slate-500">Top Search Engines</p>
+                </div>
+            </div>
+            <ul class="text-xs space-y-1.5 text-slate-600 mb-3 border-t border-slate-200/60 pt-2.5">
+                <li><a href="https://www.google.com" target="_blank" class="hover:text-blue-600 flex items-center justify-between">Google <i class="fa-solid fa-arrow-up-right-from-square text-[10px] text-slate-400"></i></a></li>
+                <li><a href="https://www.bing.com" target="_blank" class="hover:text-blue-600 flex items-center justify-between">Microsoft Bing <i class="fa-solid fa-arrow-up-right-from-square text-[10px] text-slate-400"></i></a></li>
+                <li><a href="https://duckduckgo.com" target="_blank" class="hover:text-blue-600 flex items-center justify-between">DuckDuckGo (Privacy) <i class="fa-solid fa-arrow-up-right-from-square text-[10px] text-slate-400"></i></a></li>
+            </ul>
+        </div>
+
+        <!-- 2. Video -->
+        <div class="web-card bg-slate-50 border border-slate-200 hover:border-red-400 rounded-2xl p-4 transition duration-200">
+            <div class="flex items-center gap-3 mb-3">
+                <div class="w-10 h-10 rounded-xl bg-red-100 text-red-600 flex items-center justify-center font-bold">
+                    <i class="fa-solid fa-circle-play text-lg"></i>
+                </div>
+                <div>
+                    <h3 class="font-bold text-sm text-slate-800">ভিডিও প্ল্যাটফর্ম (Video)</h3>
+                    <p class="text-[11px] text-slate-500">Video Streaming</p>
+                </div>
+            </div>
+            <ul class="text-xs space-y-1.5 text-slate-600 mb-3 border-t border-slate-200/60 pt-2.5">
+                <li><a href="https://www.youtube.com" target="_blank" class="hover:text-red-600 flex items-center justify-between">YouTube <i class="fa-solid fa-arrow-up-right-from-square text-[10px] text-slate-400"></i></a></li>
+                <li><a href="https://vimeo.com" target="_blank" class="hover:text-red-600 flex items-center justify-between">Vimeo <i class="fa-solid fa-arrow-up-right-from-square text-[10px] text-slate-400"></i></a></li>
+                <li><a href="https://www.ted.com" target="_blank" class="hover:text-red-600 flex items-center justify-between">TED Talks <i class="fa-solid fa-arrow-up-right-from-square text-[10px] text-slate-400"></i></a></li>
+            </ul>
+        </div>
+
+        <!-- 3. Knowledge -->
+        <div class="web-card bg-slate-50 border border-slate-200 hover:border-emerald-400 rounded-2xl p-4 transition duration-200">
+            <div class="flex items-center gap-3 mb-3">
+                <div class="w-10 h-10 rounded-xl bg-emerald-100 text-emerald-600 flex items-center justify-center font-bold">
+                    <i class="fa-solid fa-book-open text-lg"></i>
+                </div>
+                <div>
+                    <h3 class="font-bold text-sm text-slate-800">জ্ঞানকোষ (Knowledge)</h3>
+                    <p class="text-[11px] text-slate-500">Information & Wikis</p>
+                </div>
+            </div>
+            <ul class="text-xs space-y-1.5 text-slate-600 mb-3 border-t border-slate-200/60 pt-2.5">
+                <li><a href="https://www.wikipedia.org" target="_blank" class="hover:text-emerald-600 flex items-center justify-between">Wikipedia <i class="fa-solid fa-arrow-up-right-from-square text-[10px] text-slate-400"></i></a></li>
+                <li><a href="https://bn.banglapedia.org" target="_blank" class="hover:text-emerald-600 flex items-center justify-between">বাংলাপিডিয়া (Banglapedia) <i class="fa-solid fa-arrow-up-right-from-square text-[10px] text-slate-400"></i></a></li>
+                <li><a href="https://www.quora.com" target="_blank" class="hover:text-emerald-600 flex items-center justify-between">Quora (Q&A) <i class="fa-solid fa-arrow-up-right-from-square text-[10px] text-slate-400"></i></a></li>
+            </ul>
+        </div>
+
+        <!-- 4. Social Media -->
+        <div class="web-card bg-slate-50 border border-slate-200 hover:border-sky-400 rounded-2xl p-4 transition duration-200">
+            <div class="flex items-center gap-3 mb-3">
+                <div class="w-10 h-10 rounded-xl bg-sky-100 text-sky-600 flex items-center justify-center font-bold">
+                    <i class="fa-solid fa-users text-lg"></i>
+                </div>
+                <div>
+                    <h3 class="font-bold text-sm text-slate-800">সোশ্যাল মিডিয়া (Social)</h3>
+                    <p class="text-[11px] text-slate-500">Social Networking Sites</p>
+                </div>
+            </div>
+            <ul class="text-xs space-y-1.5 text-slate-600 mb-3 border-t border-slate-200/60 pt-2.5">
+                <li><a href="https://www.facebook.com" target="_blank" class="hover:text-sky-600 flex items-center justify-between">Facebook <i class="fa-solid fa-arrow-up-right-from-square text-[10px] text-slate-400"></i></a></li>
+                <li><a href="https://x.com" target="_blank" class="hover:text-sky-600 flex items-center justify-between">X (Twitter) <i class="fa-solid fa-arrow-up-right-from-square text-[10px] text-slate-400"></i></a></li>
+                <li><a href="https://www.instagram.com" target="_blank" class="hover:text-sky-600 flex items-center justify-between">Instagram <i class="fa-solid fa-arrow-up-right-from-square text-[10px] text-slate-400"></i></a></li>
+            </ul>
+        </div>
+
+        <!-- 5. Professional Network -->
+        <div class="web-card bg-slate-50 border border-slate-200 hover:border-indigo-400 rounded-2xl p-4 transition duration-200">
+            <div class="flex items-center gap-3 mb-3">
+                <div class="w-10 h-10 rounded-xl bg-indigo-100 text-indigo-600 flex items-center justify-center font-bold">
+                    <i class="fa-solid fa-user-tie text-lg"></i>
+                </div>
+                <div>
+                    <h3 class="font-bold text-sm text-slate-800">প্রফেশনাল নেটওয়ার্ক</h3>
+                    <p class="text-[11px] text-slate-500">Career & Portfolios</p>
+                </div>
+            </div>
+            <ul class="text-xs space-y-1.5 text-slate-600 mb-3 border-t border-slate-200/60 pt-2.5">
+                <li><a href="https://www.linkedin.com" target="_blank" class="hover:text-indigo-600 flex items-center justify-between">LinkedIn <i class="fa-solid fa-arrow-up-right-from-square text-[10px] text-slate-400"></i></a></li>
+                <li><a href="https://github.com" target="_blank" class="hover:text-indigo-600 flex items-center justify-between">GitHub (Developers) <i class="fa-solid fa-arrow-up-right-from-square text-[10px] text-slate-400"></i></a></li>
+                <li><a href="https://www.behance.net" target="_blank" class="hover:text-indigo-600 flex items-center justify-between">Behance (Designers) <i class="fa-solid fa-arrow-up-right-from-square text-[10px] text-slate-400"></i></a></li>
+            </ul>
+        </div>
+
+        <!-- 6. Maps -->
+        <div class="web-card bg-slate-50 border border-slate-200 hover:border-teal-400 rounded-2xl p-4 transition duration-200">
+            <div class="flex items-center gap-3 mb-3">
+                <div class="w-10 h-10 rounded-xl bg-teal-100 text-teal-600 flex items-center justify-center font-bold">
+                    <i class="fa-solid fa-map-location-dot text-lg"></i>
+                </div>
+                <div>
+                    <h3 class="font-bold text-sm text-slate-800">ম্যাপস (Maps)</h3>
+                    <p class="text-[11px] text-slate-500">Navigation & Earth</p>
+                </div>
+            </div>
+            <ul class="text-xs space-y-1.5 text-slate-600 mb-3 border-t border-slate-200/60 pt-2.5">
+                <li><a href="https://maps.google.com" target="_blank" class="hover:text-teal-600 flex items-center justify-between">Google Maps <i class="fa-solid fa-arrow-up-right-from-square text-[10px] text-slate-400"></i></a></li>
+                <li><a href="https://earth.google.com" target="_blank" class="hover:text-teal-600 flex items-center justify-between">Google Earth <i class="fa-solid fa-arrow-up-right-from-square text-[10px] text-slate-400"></i></a></li>
+                <li><a href="https://www.openstreetmap.org" target="_blank" class="hover:text-teal-600 flex items-center justify-between">OpenStreetMap <i class="fa-solid fa-arrow-up-right-from-square text-[10px] text-slate-400"></i></a></li>
+            </ul>
+        </div>
+
+        <!-- 7. Government Websites -->
+        <div class="web-card bg-slate-50 border border-slate-200 hover:border-green-500 rounded-2xl p-4 transition duration-200">
+            <div class="flex items-center gap-3 mb-3">
+                <div class="w-10 h-10 rounded-xl bg-green-100 text-green-600 flex items-center justify-center font-bold">
+                    <i class="fa-solid fa-landmark-flag text-lg"></i>
+                </div>
+                <div>
+                    <h3 class="font-bold text-sm text-slate-800">সরকারি ওয়েবসাইট (Govt)</h3>
+                    <p class="text-[11px] text-slate-500">Bangladesh e-Services</p>
+                </div>
+            </div>
+            <ul class="text-xs space-y-1.5 text-slate-600 mb-3 border-t border-slate-200/60 pt-2.5">
+                <li><a href="https://bangladesh.gov.bd" target="_blank" class="hover:text-green-600 flex items-center justify-between">বাংলাদেশ জাতীয় তথ্য বাতায়ন <i class="fa-solid fa-arrow-up-right-from-square text-[10px] text-slate-400"></i></a></li>
+                <li><a href="https://services.nidw.gov.bd/nid-pub/" target="_blank" class="hover:text-green-600 flex items-center justify-between">NID সার্ভিস পোর্টাল <i class="fa-solid fa-arrow-up-right-from-square text-[10px] text-slate-400"></i></a></li>
+                <li><a href="https://epassport.gov.bd" target="_blank" class="hover:text-green-600 flex items-center justify-between">ই-পাসপোর্ট পোর্টাল <i class="fa-solid fa-arrow-up-right-from-square text-[10px] text-slate-400"></i></a></li>
+            </ul>
+        </div>
+
+        <!-- 8. Education Websites -->
+        <div class="web-card bg-slate-50 border border-slate-200 hover:border-orange-400 rounded-2xl p-4 transition duration-200">
+            <div class="flex items-center gap-3 mb-3">
+                <div class="w-10 h-10 rounded-xl bg-orange-100 text-orange-600 flex items-center justify-center font-bold">
+                    <i class="fa-solid fa-graduation-cap text-lg"></i>
+                </div>
+                <div>
+                    <h3 class="font-bold text-sm text-slate-800">শিক্ষা (Education)</h3>
+                    <p class="text-[11px] text-slate-500">E-learning & Courses</p>
+                </div>
+            </div>
+            <ul class="text-xs space-y-1.5 text-slate-600 mb-3 border-t border-slate-200/60 pt-2.5">
+                <li><a href="https://10minuteschool.com" target="_blank" class="hover:text-orange-600 flex items-center justify-between">10 Minute School <i class="fa-solid fa-arrow-up-right-from-square text-[10px] text-slate-400"></i></a></li>
+                <li><a href="https://muktopaath.gov.bd" target="_blank" class="hover:text-orange-600 flex items-center justify-between">মুক্তপাঠ (MuktoPaath) <i class="fa-solid fa-arrow-up-right-from-square text-[10px] text-slate-400"></i></a></li>
+                <li><a href="https://www.coursera.org" target="_blank" class="hover:text-orange-600 flex items-center justify-between">Coursera <i class="fa-solid fa-arrow-up-right-from-square text-[10px] text-slate-400"></i></a></li>
+            </ul>
+        </div>
+
+        <!-- 9. Banking Websites -->
+        <div class="web-card bg-slate-50 border border-slate-200 hover:border-cyan-400 rounded-2xl p-4 transition duration-200">
+            <div class="flex items-center gap-3 mb-3">
+                <div class="w-10 h-10 rounded-xl bg-cyan-100 text-cyan-600 flex items-center justify-center font-bold">
+                    <i class="fa-solid fa-building-columns text-lg"></i>
+                </div>
+                <div>
+                    <h3 class="font-bold text-sm text-slate-800">ব্যাংকিং ও ফাইন্যান্স</h3>
+                    <p class="text-[11px] text-slate-500">Banks & MFS</p>
+                </div>
+            </div>
+            <ul class="text-xs space-y-1.5 text-slate-600 mb-3 border-t border-slate-200/60 pt-2.5">
+                <li><a href="https://www.bb.org.bd" target="_blank" class="hover:text-cyan-600 flex items-center justify-between">বাংলাদেশ ব্যাংক <i class="fa-solid fa-arrow-up-right-from-square text-[10px] text-slate-400"></i></a></li>
+                <li><a href="https://www.sonalibank.com.bd" target="_blank" class="hover:text-cyan-600 flex items-center justify-between">সোনালী ব্যাংক লিমিটেড <i class="fa-solid fa-arrow-up-right-from-square text-[10px] text-slate-400"></i></a></li>
+                <li><a href="https://www.bkash.com" target="_blank" class="hover:text-cyan-600 flex items-center justify-between">বিকাশ (bKash) <i class="fa-solid fa-arrow-up-right-from-square text-[10px] text-slate-400"></i></a></li>
+            </ul>
+        </div>
+
+        <!-- 10. Job Websites -->
+        <div class="web-card bg-slate-50 border border-slate-200 hover:border-pink-400 rounded-2xl p-4 transition duration-200">
+            <div class="flex items-center gap-3 mb-3">
+                <div class="w-10 h-10 rounded-xl bg-pink-100 text-pink-600 flex items-center justify-center font-bold">
+                    <i class="fa-solid fa-briefcase text-lg"></i>
+                </div>
+                <div>
+                    <h3 class="font-bold text-sm text-slate-800">চাকরি (Job Sites)</h3>
+                    <p class="text-[11px] text-slate-500">Career & Recruitment</p>
+                </div>
+            </div>
+            <ul class="text-xs space-y-1.5 text-slate-600 mb-3 border-t border-slate-200/60 pt-2.5">
+                <li><a href="https://www.bdjobs.com" target="_blank" class="hover:text-pink-600 flex items-center justify-between">Bdjobs.com <i class="fa-solid fa-arrow-up-right-from-square text-[10px] text-slate-400"></i></a></li>
+                <li><a href="https://bpsc.gov.bd" target="_blank" class="hover:text-pink-600 flex items-center justify-between">বাংলাদেশ সরকারী কর্ম কমিশন (BPSC) <i class="fa-solid fa-arrow-up-right-from-square text-[10px] text-slate-400"></i></a></li>
+                <li><a href="https://www.linkedin.com/jobs/" target="_blank" class="hover:text-pink-600 flex items-center justify-between">LinkedIn Jobs <i class="fa-solid fa-arrow-up-right-from-square text-[10px] text-slate-400"></i></a></li>
+            </ul>
+        </div>
+
+        <!-- 11. Travel Websites -->
+        <div class="web-card bg-slate-50 border border-slate-200 hover:border-yellow-500 rounded-2xl p-4 transition duration-200">
+            <div class="flex items-center gap-3 mb-3">
+                <div class="w-10 h-10 rounded-xl bg-yellow-100 text-yellow-600 flex items-center justify-center font-bold">
+                    <i class="fa-solid fa-plane-departure text-lg"></i>
+                </div>
+                <div>
+                    <h3 class="font-bold text-sm text-slate-800">ভ্রমণ ও টিকেট (Travel)</h3>
+                    <p class="text-[11px] text-slate-500">Ticketing & Booking</p>
+                </div>
+            </div>
+            <ul class="text-xs space-y-1.5 text-slate-600 mb-3 border-t border-slate-200/60 pt-2.5">
+                <li><a href="https://eticket.railway.gov.bd" target="_blank" class="hover:text-yellow-600 flex items-center justify-between">বাংলাদেশ রেলওয়ে ই-টিকেট <i class="fa-solid fa-arrow-up-right-from-square text-[10px] text-slate-400"></i></a></li>
+                <li><a href="https://www.shohoz.com" target="_blank" class="hover:text-yellow-600 flex items-center justify-between">Shohoz (Bus/Launch) <i class="fa-solid fa-arrow-up-right-from-square text-[10px] text-slate-400"></i></a></li>
+                <li><a href="https://sharetrip.net" target="_blank" class="hover:text-yellow-600 flex items-center justify-between">ShareTrip (Flights/Hotels) <i class="fa-solid fa-arrow-up-right-from-square text-[10px] text-slate-400"></i></a></li>
+            </ul>
+        </div>
+
+        <!-- 12. Utility Websites -->
+        <div class="web-card bg-slate-50 border border-slate-200 hover:border-violet-400 rounded-2xl p-4 transition duration-200">
+            <div class="flex items-center gap-3 mb-3">
+                <div class="w-10 h-10 rounded-xl bg-violet-100 text-violet-600 flex items-center justify-center font-bold">
+                    <i class="fa-solid fa-bolt text-lg"></i>
+                </div>
+                <div>
+                    <h3 class="font-bold text-sm text-slate-800">ইউটিলিটি ও বিল (Utility)</h3>
+                    <p class="text-[11px] text-slate-500">Electricity, Gas & Water</p>
+                </div>
+            </div>
+            <ul class="text-xs space-y-1.5 text-slate-600 mb-3 border-t border-slate-200/60 pt-2.5">
+                <li><a href="https://www.dpdc.gov.bd" target="_blank" class="hover:text-violet-600 flex items-center justify-between">DPDC (ঢাকা পাওয়ার) <i class="fa-solid fa-arrow-up-right-from-square text-[10px] text-slate-400"></i></a></li>
+                <li><a href="https://www.desco.gov.bd" target="_blank" class="hover:text-violet-600 flex items-center justify-between">DESCO (ঢাকা ইলেক্ট্রিক) <i class="fa-solid fa-arrow-up-right-from-square text-[10px] text-slate-400"></i></a></li>
+                <li><a href="https://dwasa.org.bd" target="_blank" class="hover:text-violet-600 flex items-center justify-between">Dhaka WASA <i class="fa-solid fa-arrow-up-right-from-square text-[10px] text-slate-400"></i></a></li>
+            </ul>
+        </div>
+
+    </div>
+
+</div>
+
+<!-- Internal Module JavaScript -->
+<script>
+    // Live Search inside Websites Directory Module
+    function filterWebsites() {
+        const query = document.getElementById('website-search').value.toLowerCase();
+        const cards = document.querySelectorAll('.web-card');
+        
+        cards.forEach(card => {
+            // Text to search: Card title and inner list items
+            const text = card.innerText.toLowerCase();
+            card.style.display = text.includes(query) ? 'block' : 'none';
+        });
+    }
+      </script>
