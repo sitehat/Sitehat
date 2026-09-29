@@ -1,0 +1,265 @@
+<!-- Module 4: Finance, Banking & Financial Services -->
+<div class="space-y-6 animate-fadeIn">
+    
+    <!-- Module Header -->
+    <div class="border-b border-slate-200 pb-4 flex flex-col sm:flex-row justify-between items-start sm:items-center gap-3">
+        <div>
+            <h1 class="text-xl font-bold text-slate-800 flex items-center gap-2">
+                <i class="fa-solid fa-wallet text-emerald-600"></i> টাকা-পয়সা, ব্যাংকিং ও আর্থিক সেবা (Finance & Banking)
+            </h1>
+            <p class="text-xs text-slate-500 mt-1">অনলাইন ব্যাংকিং, মোবাইল ফাইন্যান্স, মুদ্রা রূপান্তর, আয়কর ও ঋণ হিসাবের সহজ সমাধান</p>
+        </div>
+        <!-- Module Internal Search -->
+        <div class="relative w-full sm:w-64">
+            <i class="fa-solid fa-magnifying-glass absolute left-3 top-1/2 -translate-y-1/2 text-slate-400 text-xs"></i>
+            <input type="text" id="fin-search" onkeyup="filterFinServices()" placeholder="আর্থিক সেবা বা টুলস খুঁজুন..." class="w-full pl-8 pr-3 py-1.5 bg-slate-100 focus:bg-white border border-slate-200 rounded-lg text-xs focus:outline-none focus:border-emerald-500">
+        </div>
+    </div>
+
+    <!-- Live Currency Converter Widget Banner -->
+    <div class="bg-gradient-to-r from-emerald-600 to-teal-700 text-white rounded-2xl p-5 shadow-sm space-y-3">
+        <div class="flex items-center gap-2 border-b border-emerald-500/50 pb-2">
+            <i class="fa-solid fa-arrow-right-arrow-left text-amber-300"></i>
+            <h3 class="font-bold text-sm">লাইভ মুদ্রা রূপান্তর (Currency Converter)</h3>
+        </div>
+        <div class="grid grid-cols-1 sm:grid-cols-3 gap-3">
+            <div>
+                <label class="block text-[11px] text-emerald-100 mb-1">পরিমাণ (Amount)</label>
+                <input type="number" id="curr-amount" value="100" oninput="convertCurrency()" class="w-full p-2 bg-white text-slate-800 font-bold rounded-lg text-xs focus:outline-none">
+            </div>
+            <div>
+                <label class="block text-[11px] text-emerald-100 mb-1">মুদ্রা নির্বাচন করুন</label>
+                <select id="curr-type" onchange="convertCurrency()" class="w-full p-2 bg-white text-slate-800 font-semibold rounded-lg text-xs focus:outline-none">
+                    <option value="USD">USD ($) - মার্কিন ডলার</option>
+                    <option value="EUR">EUR (€) - ইউরো</option>
+                    <option value="GBP">GBP (£) - ব্রিটিশ পাউন্ড</option>
+                    <option value="SAR">SAR (SR) - সৌদি রিয়াল</option>
+                    <option value="AED">AED (DH) - ইউএই দিরহাম</option>
+                    <option value="MYR">MYR (RM) - মালয়েশিয়ান রিঙ্গিত</option>
+                </select>
+            </div>
+            <div>
+                <label class="block text-[11px] text-emerald-100 mb-1">বাংলাদেশি টাকায় মান (BDT)</label>
+                <div id="curr-result" class="p-2 bg-amber-400 text-slate-900 font-extrabold rounded-lg text-xs text-center flex items-center justify-center h-9">
+                    ৳ ১২,১০০.০০ টাকা
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Main Financial Services Grid -->
+    <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4" id="fin-services-grid">
+        
+        <!-- 1. ব্যাংকিং ও ইন্টারনেট ব্যাংকিং -->
+        <div class="fin-card bg-slate-50 border border-slate-200 hover:border-emerald-400 rounded-2xl p-4 transition duration-200">
+            <div class="flex items-center gap-3 mb-3">
+                <div class="w-10 h-10 rounded-xl bg-emerald-100 text-emerald-600 flex items-center justify-center font-bold">
+                    <i class="fa-solid fa-building-columns text-lg"></i>
+                </div>
+                <div>
+                    <h3 class="font-bold text-sm text-slate-800">ব্যাংকিং ও ই-ব্যাংকিং</h3>
+                    <p class="text-[11px] text-slate-500">অনলাইন অ্যাকাউন্ট ও পোর্টাল</p>
+                </div>
+            </div>
+            <ul class="text-xs space-y-1.5 text-slate-600 mb-3 border-t border-slate-200/60 pt-2.5">
+                <li><a href="https://www.bb.org.bd" target="_blank" class="hover:text-emerald-600 flex items-center justify-between">বাংলাদেশ ব্যাংক পোর্টাল <i class="fa-solid fa-arrow-up-right-from-square text-[10px] text-slate-400"></i></a></li>
+                <li><a href="https://www.sonalibank.com.bd" target="_blank" class="hover:text-emerald-600 flex items-center justify-between">সোনালী ব্যাংক ই-সেবা <i class="fa-solid fa-arrow-up-right-from-square text-[10px] text-slate-400"></i></a></li>
+                <li><a href="#" class="hover:text-emerald-600 flex items-center justify-between">প্রাইভেট ও ইসলামিক ব্যাংকিং অ্যাপস <i class="fa-solid fa-angle-right text-[10px] text-slate-400"></i></a></li>
+            </ul>
+        </div>
+
+        <!-- 2. মোবাইল ব্যাংকিং (MFS) -->
+        <div class="fin-card bg-slate-50 border border-slate-200 hover:border-pink-400 rounded-2xl p-4 transition duration-200">
+            <div class="flex items-center gap-3 mb-3">
+                <div class="w-10 h-10 rounded-xl bg-pink-100 text-pink-600 flex items-center justify-center font-bold">
+                    <i class="fa-solid fa-mobile-screen-button text-lg"></i>
+                </div>
+                <div>
+                    <h3 class="font-bold text-sm text-slate-800">মোবাইল ব্যাংকিং (MFS)</h3>
+                    <p class="text-[11px] text-slate-500">বিকাশ, নগদ, রকেট লেনদেন</p>
+                </div>
+            </div>
+            <ul class="text-xs space-y-1.5 text-slate-600 mb-3 border-t border-slate-200/60 pt-2.5">
+                <li><a href="https://www.bkash.com" target="_blank" class="hover:text-pink-600 flex items-center justify-between">bKash চার্জ ও অফার তথ্য <i class="fa-solid fa-arrow-up-right-from-square text-[10px] text-slate-400"></i></a></li>
+                <li><a href="https://nagad.com.bd" target="_blank" class="hover:text-pink-600 flex items-center justify-between">Nagad পেমেন্ট ও সেবা <i class="fa-solid fa-arrow-up-right-from-square text-[10px] text-slate-400"></i></a></li>
+                <li><a href="https://www.dutchbanglabank.com/rocket" target="_blank" class="hover:text-pink-600 flex items-center justify-between">Rocket পোর্টাল <i class="fa-solid fa-arrow-up-right-from-square text-[10px] text-slate-400"></i></a></li>
+            </ul>
+        </div>
+
+        <!-- 3. কর, e-TIN ও বাজেট -->
+        <div class="fin-card bg-slate-50 border border-slate-200 hover:border-blue-400 rounded-2xl p-4 transition duration-200">
+            <div class="flex items-center gap-3 mb-3">
+                <div class="w-10 h-10 rounded-xl bg-blue-100 text-blue-600 flex items-center justify-center font-bold">
+                    <i class="fa-solid fa-file-invoice-dollar text-lg"></i>
+                </div>
+                <div>
+                    <h3 class="font-bold text-sm text-slate-800">কর, বাজেট ও রাজস্ব</h3>
+                    <p class="text-[11px] text-slate-500">আয়কর ও জাতীয় বাজেট তথ্য</p>
+                </div>
+            </div>
+            <ul class="text-xs space-y-1.5 text-slate-600 mb-3 border-t border-slate-200/60 pt-2.5">
+                <li><a href="https://etaxnbr.gov.bd" target="_blank" class="hover:text-blue-600 flex items-center justify-between">অনলাইন ই-রিটার্ন দাখিল (NBR) <i class="fa-solid fa-arrow-up-right-from-square text-[10px] text-slate-400"></i></a></li>
+                <li><a href="https://mof.gov.bd" target="_blank" class="hover:text-blue-600 flex items-center justify-between">অর্থ মন্ত্রণালয় ও বাজেট তথ্য <i class="fa-solid fa-arrow-up-right-from-square text-[10px] text-slate-400"></i></a></li>
+                <li><a href="https://ekalan.gov.bd" target="_blank" class="hover:text-blue-600 flex items-center justify-between">A-Challan সরকারি ট্যাক্স জমা <i class="fa-solid fa-arrow-up-right-from-square text-[10px] text-slate-400"></i></a></li>
+            </ul>
+        </div>
+
+        <!-- 4. সঞ্চয় ও বিনিয়োগ তথ্য -->
+        <div class="fin-card bg-slate-50 border border-slate-200 hover:border-amber-400 rounded-2xl p-4 transition duration-200">
+            <div class="flex items-center gap-3 mb-3">
+                <div class="w-10 h-10 rounded-xl bg-amber-100 text-amber-700 flex items-center justify-center font-bold">
+                    <i class="fa-solid fa-piggy-bank text-lg"></i>
+                </div>
+                <div>
+                    <h3 class="font-bold text-sm text-slate-800">সঞ্চয় ও বিনিয়োগ</h3>
+                    <p class="text-[11px] text-slate-500">সঞ্চয়পত্র, শেয়ারবাজার ও DPS</p>
+                </div>
+            </div>
+            <ul class="text-xs space-y-1.5 text-slate-600 mb-3 border-t border-slate-200/60 pt-2.5">
+                <li><a href="https://www.nsd.gov.bd" target="_blank" class="hover:text-amber-700 flex items-center justify-between">জাতীয় সঞ্চয় অধিদপ্তর (সঞ্চয়পত্র) <i class="fa-solid fa-arrow-up-right-from-square text-[10px] text-slate-400"></i></a></li>
+                <li><a href="https://www.dsebd.org" target="_blank" class="hover:text-amber-700 flex items-center justify-between">ঢাকা স্টক এক্সচেঞ্জ (DSE) <i class="fa-solid fa-arrow-up-right-from-square text-[10px] text-slate-400"></i></a></li>
+                <li><a href="https://www.sec.gov.bd" target="_blank" class="hover:text-amber-700 flex items-center justify-between">BSEC সিকিউরিটিজ কমিশন <i class="fa-solid fa-arrow-up-right-from-square text-[10px] text-slate-400"></i></a></li>
+            </ul>
+        </div>
+
+        <!-- 5. রেমিট্যান্স ও নিরাপদ লেনদেন -->
+        <div class="fin-card bg-slate-50 border border-slate-200 hover:border-purple-400 rounded-2xl p-4 transition duration-200">
+            <div class="flex items-center gap-3 mb-3">
+                <div class="w-10 h-10 rounded-xl bg-purple-100 text-purple-600 flex items-center justify-center font-bold">
+                    <i class="fa-solid fa-hand-holding-dollar text-lg"></i>
+                </div>
+                <div>
+                    <h3 class="font-bold text-sm text-slate-800">রেমিট্যান্স ও সিকিউরিটি</h3>
+                    <p class="text-[11px] text-slate-500">বৈধ প্রণোদনা ও প্রবাসি সেবা</p>
+                </div>
+            </div>
+            <ul class="text-xs space-y-1.5 text-slate-600 mb-3 border-t border-slate-200/60 pt-2.5">
+                <li><a href="#" class="hover:text-purple-600 flex items-center justify-between">বৈধ চ্যানেলে রেমিট্যান্স প্রণোদনা <i class="fa-solid fa-angle-right text-[10px] text-slate-400"></i></a></li>
+                <li><a href="#" class="hover:text-purple-600 flex items-center justify-between">সাইবার নিরাপত্তা ও সেফ ট্রানজেকশন <i class="fa-solid fa-angle-right text-[10px] text-slate-400"></i></a></li>
+                <li><a href="https://probashi.gov.bd" target="_blank" class="hover:text-purple-600 flex items-center justify-between">প্রবাসী কল্যাণ ব্যাংক <i class="fa-solid fa-arrow-up-right-from-square text-[10px] text-slate-400"></i></a></li>
+            </ul>
+        </div>
+
+        <!-- 6. ব্যক্তিগত অর্থ ব্যবস্থাপনা -->
+        <div class="fin-card bg-slate-50 border border-slate-200 hover:border-teal-400 rounded-2xl p-4 transition duration-200">
+            <div class="flex items-center gap-3 mb-3">
+                <div class="w-10 h-10 rounded-xl bg-teal-100 text-teal-600 flex items-center justify-center font-bold">
+                    <i class="fa-solid fa-chart-line text-lg"></i>
+                </div>
+                <div>
+                    <h3 class="font-bold text-sm text-slate-800">ব্যক্তিগত অর্থ ব্যবস্থাপনা</h3>
+                    <p class="text-[11px] text-slate-500">মাসিক বাজেট ও খরচ ট্র্যাকিং</p>
+                </div>
+            </div>
+            <ul class="text-xs space-y-1.5 text-slate-600 mb-3 border-t border-slate-200/60 pt-2.5">
+                <li><a href="#" class="hover:text-teal-600 flex items-center justify-between">মাসিক পরিবারিক বাজেট সাজানোর উপায় <i class="fa-solid fa-angle-right text-[10px] text-slate-400"></i></a></li>
+                <li><a href="#" class="hover:text-teal-600 flex items-center justify-between">জরুরি ফান্ডের হিসাব ও পরিকল্পনা <i class="fa-solid fa-angle-right text-[10px] text-slate-400"></i></a></li>
+                <li><a href="#" class="hover:text-teal-600 flex items-center justify-between">ঋণের দায় থেকে মুক্তির কৌশল <i class="fa-solid fa-angle-right text-[10px] text-slate-400"></i></a></li>
+            </ul>
+        </div>
+
+    </div>
+
+    <!-- Interactive EMI & Loan Calculator Widget -->
+    <div class="bg-white p-5 rounded-2xl border border-slate-200 shadow-sm mt-6">
+        <h3 class="font-bold text-sm text-slate-800 mb-2 flex items-center gap-2">
+            <i class="fa-solid fa-calculator text-emerald-600"></i> ঋণের কিস্তি (EMI) ও সুদের হিসাব ক্যালকুলেটর
+        </h3>
+        <p class="text-xs text-slate-500 mb-4">ঋণের পরিমাণ, সুদের হার এবং সময় দিয়ে আপনার প্রতি মাসের সম্ভাব্য কিস্তি দেখুন:</p>
+
+        <div class="grid grid-cols-1 sm:grid-cols-4 gap-3 mb-3">
+            <div>
+                <label class="block text-xs font-semibold text-slate-600 mb-1">ঋণের পরিমাণ (টাকা)</label>
+                <input type="number" id="emi-amount" value="100000" placeholder="যেমন: 100000" class="w-full p-2 border border-slate-200 rounded-lg text-xs focus:outline-none focus:border-emerald-500">
+            </div>
+            <div>
+                <label class="block text-xs font-semibold text-slate-600 mb-1">বার্ষিক সুদের হার (%)</label>
+                <input type="number" id="emi-rate" value="9" step="0.1" placeholder="যেমন: 9" class="w-full p-2 border border-slate-200 rounded-lg text-xs focus:outline-none focus:border-emerald-500">
+            </div>
+            <div>
+                <label class="block text-xs font-semibold text-slate-600 mb-1">সময়সীমা (মাস)</label>
+                <input type="number" id="emi-months" value="12" placeholder="যেমন: 12" class="w-full p-2 border border-slate-200 rounded-lg text-xs focus:outline-none focus:border-emerald-500">
+            </div>
+            <div class="flex items-end">
+                <button onclick="calculateEMI()" class="w-full bg-emerald-600 hover:bg-emerald-700 text-white font-semibold py-2 rounded-lg text-xs transition">
+                    কিস্তি হিসাব করুন
+                </button>
+            </div>
+        </div>
+
+        <div id="emi-output" class="hidden mt-4 p-4 bg-emerald-50 border border-emerald-200 rounded-xl grid grid-cols-1 sm:grid-cols-3 gap-3 text-center">
+            <div>
+                <span class="block text-[11px] text-slate-500">মাসিক কিস্তি (EMI)</span>
+                <span id="out-emi" class="text-sm font-bold text-emerald-700">৳ ০</span>
+            </div>
+            <div>
+                <span class="block text-[11px] text-slate-500">মোট পরিশোধযোগ্য সুদ</span>
+                <span id="out-interest" class="text-sm font-bold text-amber-700">৳ ০</span>
+            </div>
+            <div>
+                <span class="block text-[11px] text-slate-500">মোট পরিশোধিত টাকা</span>
+                <span id="out-total" class="text-sm font-bold text-slate-800">৳ ০</span>
+            </div>
+        </div>
+    </div>
+
+</div>
+
+<!-- Internal Module JavaScript -->
+<script>
+    // Live Search inside Finance Module
+    function filterFinServices() {
+        const query = document.getElementById('fin-search').value.toLowerCase();
+        const cards = document.querySelectorAll('.fin-card');
+        
+        cards.forEach(card => {
+            const text = card.innerText.toLowerCase();
+            card.style.display = text.includes(query) ? 'block' : 'none';
+        });
+    }
+
+    // Live Currency Converter Script (Approx Rates)
+    function convertCurrency() {
+        const amount = parseFloat(document.getElementById('curr-amount').value) || 0;
+        const type = document.getElementById('curr-type').value;
+        const resultEl = document.getElementById('curr-result');
+
+        // Approximate Exchange Rates against BDT
+        const rates = {
+            'USD': 121.00,
+            'EUR': 131.50,
+            'GBP': 155.20,
+            'SAR': 32.25,
+            'AED': 32.95,
+            'MYR': 27.80
+        };
+
+        const rate = rates[type] || 1;
+        const total = (amount * rate).toFixed(2);
+
+        resultEl.innerText = `৳ ${parseFloat(total).toLocaleString('bn-BD')} টাকা`;
+    }
+
+    // Loan EMI Calculator Script
+    function calculateEMI() {
+        const p = parseFloat(document.getElementById('emi-amount').value) || 0;
+        const annualRate = parseFloat(document.getElementById('emi-rate').value) || 0;
+        const n = parseInt(document.getElementById('emi-months').value) || 0;
+
+        if (p <= 0 || annualRate <= 0 || n <= 0) {
+            alert("অনুগ্রহ করে সঠিক সংখ্যা প্রদান করুন!");
+            return;
+        }
+
+        const r = annualRate / 12 / 100; // Monthly interest rate
+        const emi = (p * r * Math.pow(1 + r, n)) / (Math.pow(1 + r, n) - 1);
+        const totalPayment = emi * n;
+        const totalInterest = totalPayment - p;
+
+        document.getElementById('out-emi').innerText = `৳ ${Math.round(emi).toLocaleString('bn-BD')}`;
+        document.getElementById('out-interest').innerText = `৳ ${Math.round(totalInterest).toLocaleString('bn-BD')}`;
+        document.getElementById('out-total').innerText = `৳ ${Math.round(totalPayment).toLocaleString('bn-BD')}`;
+
+        document.getElementById('emi-output').classList.remove('hidden');
+    }
+</script>
