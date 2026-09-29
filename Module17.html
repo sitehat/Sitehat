@@ -1,0 +1,275 @@
+<!-- Module 17: Location, Postal & Emergency Info -->
+<div class="space-y-6 animate-fadeIn">
+    
+    <!-- Module Header -->
+    <div class="border-b border-slate-200 pb-4 flex flex-col sm:flex-row justify-between items-start sm:items-center gap-3">
+        <div>
+            <h1 class="text-xl font-bold text-slate-800 flex items-center gap-2">
+                <i class="fa-solid fa-map-location-dot text-rose-600"></i> লোকেশন, পোস্টাল ও জরুরি তথ্য (Emergency & Location Services)
+            </h1>
+            <p class="text-xs text-slate-500 mt-1">পোস্ট কোড, জরুরি হটলাইন, নিকটস্থ হাসপাতাল, পুলিশ, ফায়ার সার্ভিস ও মানচিত্র তথ্য</p>
+        </div>
+        <!-- Module Internal Search -->
+        <div class="relative w-full sm:w-64">
+            <i class="fa-solid fa-magnifying-glass absolute left-3 top-1/2 -translate-y-1/2 text-slate-400 text-xs"></i>
+            <input type="text" id="location-search" onkeyup="filterLocationServices()" placeholder="জরুরি সেবা বা এলাকা খুঁজুন..." class="w-full pl-8 pr-3 py-1.5 bg-slate-100 focus:bg-white border border-slate-200 rounded-lg text-xs focus:outline-none focus:border-rose-500">
+        </div>
+    </div>
+
+    <!-- Emergency Hotline Banner -->
+    <div class="bg-gradient-to-r from-rose-700 via-red-600 to-slate-900 text-white rounded-2xl p-5 shadow-sm space-y-4">
+        <div class="flex flex-col sm:flex-row sm:items-center justify-between gap-3 border-b border-white/20 pb-3">
+            <div class="flex items-center gap-3">
+                <div class="text-3xl">
+                    <i class="fa-solid fa-truck-medical text-rose-300"></i>
+                </div>
+                <div>
+                    <h3 class="font-bold text-base">জাতীয় জরুরি সেবা ও ডায়াল নির্দেশিকা</h3>
+                    <p class="text-xs text-rose-100">যেকোনো মুহূর্তে তাৎক্ষণিক পুলিশ, ফায়ার সার্ভিস বা অ্যাম্বুলেন্স পেতে কল করুন</p>
+                </div>
+            </div>
+            <a href="https://www.google.com/maps" target="_blank" class="bg-white/20 hover:bg-white/30 backdrop-blur-md px-3 py-1.5 rounded-xl text-xs font-semibold transition text-center self-start sm:self-auto">
+                <i class="fa-solid fa-map-pin text-rose-200"></i> গুগল ম্যাপস ব্যবহার করুন
+            </a>
+        </div>
+
+        <!-- Emergency Speed Dial Grid -->
+        <div class="grid grid-cols-2 sm:grid-cols-4 gap-3">
+            <a href="tel:999" class="bg-white/10 hover:bg-white/20 border border-white/20 p-3 rounded-xl flex items-center justify-between transition">
+                <div>
+                    <span class="block text-xs font-bold">জরুরি সেবা</span>
+                    <span class="text-[10px] text-rose-200">পুলিশ/ফায়ার/অ্যাম্বুলেন্স</span>
+                </div>
+                <span class="text-base font-extrabold text-amber-300">৯৯৯</span>
+            </a>
+
+            <a href="tel:333" class="bg-white/10 hover:bg-white/20 border border-white/20 p-3 rounded-xl flex items-center justify-between transition">
+                <div>
+                    <span class="block text-xs font-bold">সরকারি তথ্য</span>
+                    <span class="text-[10px] text-rose-200">জাতীয় তথ্য ও সেবা</span>
+                </div>
+                <span class="text-base font-extrabold text-amber-300">৩৩৩</span>
+            </a>
+
+            <a href="tel:109" class="bg-white/10 hover:bg-white/20 border border-white/20 p-3 rounded-xl flex items-center justify-between transition">
+                <div>
+                    <span class="block text-xs font-bold">নারী ও শিশু সহায়তা</span>
+                    <span class="text-[10px] text-rose-200">সহিংসতা প্রতিরোধ হেল্পলাইন</span>
+                </div>
+                <span class="text-base font-extrabold text-amber-300">১০৯</span>
+            </a>
+
+            <a href="tel:106" class="bg-white/10 hover:bg-white/20 border border-white/20 p-3 rounded-xl flex items-center justify-between transition">
+                <div>
+                    <span class="block text-xs font-bold">দুদক অভিযোগ</span>
+                    <span class="text-[10px] text-rose-200">দুর্নীতি দমন কমিশন</span>
+                </div>
+                <span class="text-base font-extrabold text-amber-300">১০৬</span>
+            </a>
+        </div>
+    </div>
+
+    <!-- Interactive Postal Code Search Tool Widget -->
+    <div class="bg-white border border-slate-200 rounded-2xl p-4 shadow-sm space-y-3">
+        <h3 class="font-bold text-sm text-slate-800 flex items-center gap-2">
+            <i class="fa-solid fa-envelope text-rose-600"></i> ডাকঘর ও পোস্ট কোড (Postal Code Finder)
+        </h3>
+        <p class="text-xs text-slate-500">ঢাকা শহরের প্রধান প্রধান এলাকার পোস্টাল কোড কুইক ফিল্টার করুন:</p>
+        
+        <div class="grid grid-cols-1 sm:grid-cols-3 gap-3">
+            <input type="text" id="postcode-input" onkeyup="searchPostCode()" placeholder="এলাকার নাম লিখুন (যেমন: ধানমন্ডি, মিরপুর...)" class="p-2 border border-slate-200 rounded-lg text-xs focus:outline-none focus:border-rose-500 sm:col-span-2">
+            <div id="postcode-result" class="p-2 bg-slate-100 rounded-lg text-xs font-bold text-slate-700 flex items-center justify-center">
+                পোস্ট কোড দেখতে এলাকা লিখুন
+            </div>
+        </div>
+    </div>
+
+    <!-- Main Location & Emergency Services Grid -->
+    <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4" id="location-services-grid">
+        
+        <!-- 1. পোস্ট কোড ও ডাক সেবা -->
+        <div class="loc-card bg-slate-50 border border-slate-200 hover:border-rose-400 rounded-2xl p-4 transition duration-200">
+            <div class="flex items-center gap-3 mb-3">
+                <div class="w-10 h-10 rounded-xl bg-rose-100 text-rose-600 flex items-center justify-center font-bold">
+                    <i class="fa-solid fa-mail-bulk text-lg"></i>
+                </div>
+                <div>
+                    <h3 class="font-bold text-sm text-slate-800">পোস্ট কোড ও ডাক সেবা</h3>
+                    <p class="text-[11px] text-slate-500">Post Codes & Postal Directory</p>
+                </div>
+            </div>
+            <ul class="text-xs space-y-1.5 text-slate-600 mb-3 border-t border-slate-200/60 pt-2.5">
+                <li><a href="http://www.bangladeshpost.gov.bd" target="_blank" class="hover:text-rose-600 flex items-center justify-between">বাংলাদেশ ডাক বিভাগ পোর্টাল <i class="fa-solid fa-arrow-up-right-from-square text-[10px] text-slate-400"></i></a></li>
+                <li><a href="#" class="hover:text-rose-600 flex items-center justify-between">বাংলাদেশের সকল জেলার পোস্ট কোড তালিকা <i class="fa-solid fa-angle-right text-[10px] text-slate-400"></i></a></li>
+                <li><a href="#" class="hover:text-rose-600 flex items-center justify-between">পার্সেল ও ই-কমার্স ট্র্যাকিং সেবা <i class="fa-solid fa-angle-right text-[10px] text-slate-400"></i></a></li>
+            </ul>
+        </div>
+
+        <!-- 2. হাসপাতাল ও অ্যাম্বুলেন্স খোঁজা -->
+        <div class="loc-card bg-slate-50 border border-slate-200 hover:border-emerald-400 rounded-2xl p-4 transition duration-200">
+            <div class="flex items-center gap-3 mb-3">
+                <div class="w-10 h-10 rounded-xl bg-emerald-100 text-emerald-600 flex items-center justify-center font-bold">
+                    <i class="fa-solid fa-hospital text-lg"></i>
+                </div>
+                <div>
+                    <h3 class="font-bold text-sm text-slate-800">হাসপাতাল ও অ্যাম্বুলেন্স</h3>
+                    <p class="text-[11px] text-slate-500">Hospitals & Ambulance Search</p>
+                </div>
+            </div>
+            <ul class="text-xs space-y-1.5 text-slate-600 mb-3 border-t border-slate-200/60 pt-2.5">
+                <li><a href="https://dghs.gov.bd" target="_blank" class="hover:text-emerald-600 flex items-center justify-between">স্বাস্থ্য অধিদপ্তর - সরকারি হাসপাতাল ডিরেক্টরি <i class="fa-solid fa-arrow-up-right-from-square text-[10px] text-slate-400"></i></a></li>
+                <li><a href="https://www.google.com/maps/search/hospitals+near+me" target="_blank" class="hover:text-emerald-600 flex items-center justify-between">নিকটস্থ হাসপাতাল গুগল ম্যাপে খুঁজুন <i class="fa-solid fa-arrow-up-right-from-square text-[10px] text-slate-400"></i></a></li>
+                <li><a href="tel:16263" class="hover:text-emerald-600 flex items-center justify-between">স্বাস্থ্য বাতায়ন সরকারি হটলাইন (১৬২৬৩) <i class="fa-solid fa-phone text-[10px] text-slate-400"></i></a></li>
+            </ul>
+        </div>
+
+        <!-- 3. পুলিশ ও থানা সেবা -->
+        <div class="loc-card bg-slate-50 border border-slate-200 hover:border-sky-400 rounded-2xl p-4 transition duration-200">
+            <div class="flex items-center gap-3 mb-3">
+                <div class="w-10 h-10 rounded-xl bg-sky-100 text-sky-600 flex items-center justify-center font-bold">
+                    <i class="fa-solid fa-shield-halved text-lg"></i>
+                </div>
+                <div>
+                    <h3 class="font-bold text-sm text-slate-800">পুলিশ ও নিকটস্থ থানা</h3>
+                    <p class="text-[11px] text-slate-500">Police Station Location & Contacts</p>
+                </div>
+            </div>
+            <ul class="text-xs space-y-1.5 text-slate-600 mb-3 border-t border-slate-200/60 pt-2.5">
+                <li><a href="https://www.police.gov.bd" target="_blank" class="hover:text-sky-600 flex items-center justify-between">বাংলাদেশ পুলিশ অফিশিয়াল পোর্টাল <i class="fa-solid fa-arrow-up-right-from-square text-[10px] text-slate-400"></i></a></li>
+                <li><a href="https://gd.police.gov.bd" target="_blank" class="hover:text-sky-600 flex items-center justify-between">অনলাইন জিডি (Online GD Portal) <i class="fa-solid fa-arrow-up-right-from-square text-[10px] text-slate-400"></i></a></li>
+                <li><a href="https://www.google.com/maps/search/police+station+near+me" target="_blank" class="hover:text-sky-600 flex items-center justify-between">নিকটস্থ থানা গুগল ম্যাপে খুঁজুন <i class="fa-solid fa-arrow-up-right-from-square text-[10px] text-slate-400"></i></a></li>
+            </ul>
+        </div>
+
+        <!-- 4. ফায়ার সার্ভিস ও সিভিল ডিফেন্স -->
+        <div class="loc-card bg-slate-50 border border-slate-200 hover:border-amber-400 rounded-2xl p-4 transition duration-200">
+            <div class="flex items-center gap-3 mb-3">
+                <div class="w-10 h-10 rounded-xl bg-amber-100 text-amber-600 flex items-center justify-center font-bold">
+                    <i class="fa-solid fa-fire-extinguisher text-lg"></i>
+                </div>
+                <div>
+                    <h3 class="font-bold text-sm text-slate-800">ফায়ার সার্ভিস স্টেশন</h3>
+                    <p class="text-[11px] text-slate-500">Fire Service & Civil Defence</p>
+                </div>
+            </div>
+            <ul class="text-xs space-y-1.5 text-slate-600 mb-3 border-t border-slate-200/60 pt-2.5">
+                <li><a href="http://www.fireservice.gov.bd" target="_blank" class="hover:text-amber-600 flex items-center justify-between">ফায়ার সার্ভিস ও সিভিল ডিফেন্স পোর্টাল <i class="fa-solid fa-arrow-up-right-from-square text-[10px] text-slate-400"></i></a></li>
+                <li><a href="tel:102" class="hover:text-amber-600 flex items-center justify-between">ফায়ার সার্ভিস কন্ট্রোল রুম ডাইরেক্ট (১০২) <i class="fa-solid fa-phone text-[10px] text-slate-400"></i></a></li>
+                <li><a href="#" class="hover:text-amber-600 flex items-center justify-between">জেলা ও উপজেলা ভিত্তিক ফায়ার স্টেশন তালিকা <i class="fa-solid fa-angle-right text-[10px] text-slate-400"></i></a></li>
+            </ul>
+        </div>
+
+        <!-- 5. নিকটস্থ সরকারি সেবা ও অফিস -->
+        <div class="loc-card bg-slate-50 border border-slate-200 hover:border-indigo-400 rounded-2xl p-4 transition duration-200">
+            <div class="flex items-center gap-3 mb-3">
+                <div class="w-10 h-10 rounded-xl bg-indigo-100 text-indigo-600 flex items-center justify-center font-bold">
+                    <i class="fa-solid fa-building-flag text-lg"></i>
+                </div>
+                <div>
+                    <h3 class="font-bold text-sm text-slate-800">নিকটস্থ সরকারি অফিস</h3>
+                    <p class="text-[11px] text-slate-500">Govt Offices & Digital Centers</p>
+                </div>
+            </div>
+            <ul class="text-xs space-y-1.5 text-slate-600 mb-3 border-t border-slate-200/60 pt-2.5">
+                <li><a href="https://www.bangladesh.gov.bd" target="_blank" class="hover:text-indigo-600 flex items-center justify-between">জাতীয় তথ্য বাতায়ন (সকল উপজেলা ও জেলা অফিস) <i class="fa-solid fa-arrow-up-right-from-square text-[10px] text-slate-400"></i></a></li>
+                <li><a href="#" class="hover:text-indigo-600 flex items-center justify-between">নিকটস্থ ইউনিয়ন/পৌরসভা ডিজিটাল সেন্টার <i class="fa-solid fa-angle-right text-[10px] text-slate-400"></i></a></li>
+                <li><a href="#" class="hover:text-indigo-600 flex items-center justify-between">পাসপোর্ট ও এনআইডি আঞ্চলিক অফিস ঠিকানা <i class="fa-solid fa-angle-right text-[10px] text-slate-400"></i></a></li>
+            </ul>
+        </div>
+
+        <!-- 6. Map & Location Tools -->
+        <div class="loc-card bg-slate-50 border border-slate-200 hover:border-teal-400 rounded-2xl p-4 transition duration-200">
+            <div class="flex items-center gap-3 mb-3">
+                <div class="w-10 h-10 rounded-xl bg-teal-100 text-teal-600 flex items-center justify-center font-bold">
+                    <i class="fa-solid fa-location-crosshairs text-lg"></i>
+                </div>
+                <div>
+                    <h3 class="font-bold text-sm text-slate-800">ম্যাপ ও লোকেশন টুলস</h3>
+                    <p class="text-[11px] text-slate-500">Google Maps & GPS Tools</p>
+                </div>
+            </div>
+            <ul class="text-xs space-y-1.5 text-slate-600 mb-3 border-t border-slate-200/60 pt-2.5">
+                <li><a href="https://maps.google.com" target="_blank" class="hover:text-teal-600 flex items-center justify-between">গুগল ম্যাপস লোকেশন শেয়ারিং <i class="fa-solid fa-arrow-up-right-from-square text-[10px] text-slate-400"></i></a></li>
+                <li><a href="#" onclick="getCoordinates()" class="hover:text-teal-600 flex items-center justify-between">আপনার বর্তমান জিপিএস কোঅর্ডিনেট দেখুন <i class="fa-solid fa-crosshairs text-[10px] text-slate-400"></i></a></li>
+                <li><a href="#" class="hover:text-teal-600 flex items-center justify-between">দূরত্ব ও রুট ক্যালকুলেটর <i class="fa-solid fa-angle-right text-[10px] text-slate-400"></i></a></li>
+            </ul>
+        </div>
+
+    </div>
+
+</div>
+
+<!-- Internal Module JavaScript -->
+<script>
+    // Live Search inside Location Module
+    function filterLocationServices() {
+        const query = document.getElementById('location-search').value.toLowerCase();
+        const cards = document.querySelectorAll('.loc-card');
+        
+        cards.forEach(card => {
+            const text = card.innerText.toLowerCase();
+            card.style.display = text.includes(query) ? 'block' : 'none';
+        });
+    }
+
+    // Postal Code Search Sample Database
+    const postCodesBD = {
+        "ধানমন্ডি": "১২০৯",
+        "মিরপুর": "১২১৬",
+        "উত্তরা": "১২৩০",
+        "গুলশান": "১২১২",
+        "বনানী": "১২১৩",
+        "মতিঝিল": "১০০০",
+        "মোহাম্মদপুর": "১২০৭",
+        "টঙ্গী": "১৭১০",
+        "গাজীপুর": "১৭০০",
+        "চট্টগ্রাম": "৪০২০",
+        "সিলেট": "৩১০০",
+        "রাজশাহী": "৬০০০",
+        "খুলনা": "৯১০০",
+        "বরিশাল": "৮২০০০",
+        "রংপুর": "৫৪০০"
+    };
+
+    function searchPostCode() {
+        const input = document.getElementById('postcode-input').value.trim();
+        const resultDiv = document.getElementById('postcode-result');
+
+        if (!input) {
+            resultDiv.innerText = "পোস্ট কোড দেখতে এলাকা লিখুন";
+            resultDiv.className = "p-2 bg-slate-100 rounded-lg text-xs font-bold text-slate-700 flex items-center justify-center";
+            return;
+        }
+
+        let found = false;
+        for (let area in postCodesBD) {
+            if (area.includes(input) || input.includes(area)) {
+                resultDiv.innerText = `${area}: ${postCodesBD[area]}`;
+                resultDiv.className = "p-2 bg-emerald-100 border border-emerald-300 rounded-lg text-xs font-bold text-emerald-800 flex items-center justify-center";
+                found = true;
+                break;
+            }
+        }
+
+        if (!found) {
+            resultDiv.innerText = "পোস্ট কোড পাওয়া যায়নি";
+            resultDiv.className = "p-2 bg-rose-100 border border-rose-300 rounded-lg text-xs font-bold text-rose-700 flex items-center justify-center";
+        }
+    }
+
+    // Device GPS Coordinate Tool
+    function getCoordinates() {
+        if (navigator.geolocation) {
+            navigator.geolocation.getCurrentPosition(
+                (position) => {
+                    alert(`আপনার বর্তমান অবস্থান:\nLatitude: ${position.coords.latitude}\nLongitude: ${position.coords.longitude}`);
+                },
+                (error) => {
+                    alert('GPS লোকেশন এক্সেস পাওয়া যায়নি। আপনার ব্রাউজারে লোকেশন পারমিশন চালু করুন।');
+                }
+            );
+        } else {
+            alert('আপনার ব্রাউজার জিপিএস সাপোর্ট করে না।');
+        }
+    }
+  </script>
